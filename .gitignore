@@ -1,0 +1,15 @@
+# 操作系统文件
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 本地环境变量与密钥配置
+.env
+.env.*
+!.env.example
+
+# 临时文件与日志
+*.log
+*.tmp
+*.swp
+*~
