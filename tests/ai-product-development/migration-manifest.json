@@ -1,0 +1,3217 @@
+{
+  "source_filename": "SKILL.md",
+  "source_sha256": "0db07435d169006990aeeabdecbb4b9f09210a00390a76d78ffb516e0ca18ace",
+  "source_lines": 945,
+  "frontmatter_sha256": "d45811b776bb670b9125c409f9db10adeb36c9217fc6fd0c2230e699f589b0c3",
+  "schema_objects": {
+    "Task": "04c9388c0bf09f1a8cf60101f437af4eb7cc1cb40139e5d4cd9938c009ed7d20",
+    "ProjectRecord": "f71e46cf351350270f25e917005e7c8b4be064fc22626301c9eff17f384fa52f",
+    "Artifact": "ec279430180b37c4cfc9f1c183bb44e0c940f01a3c151e932398f0da0b56fb42",
+    "RuntimeSnapshot": "aa16baa72a5eedf043cc7f6a6e21ce7a1d3dab5ad5b6d494982df1e3f0e0abba",
+    "AssignmentScope": "2213a75b9ca1bc8a184d08809330fe338b1a1718bf34cdf4b06def6ef7f8fc8e",
+    "NodeProfile": "2edb8ca8f1648627bc354a22f5a9c35394706ccaa862425a4f3b603c0503a029",
+    "Plan": "e189270af19f43b7f04fabd20450054ea8a0f79db51cf8e8da2392bafaf4f291",
+    "TaskContextPack": "e81e19083669a95ba45bcf3d8b696b88c1e48f9a06fed51c7f64b2af93411a12"
+  },
+  "rules": [
+    {
+      "source_line": 2,
+      "source_sha256": "4c7c56677c6d3c4acad271dc2681073e775c7ee1c7731519a85e4b93c17eaafd",
+      "canonical_sha256": "4c7c56677c6d3c4acad271dc2681073e775c7ee1c7731519a85e4b93c17eaafd",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 3,
+      "source_sha256": "59c35be110c9fcfd3a58290166b8d1bee962234d30c210ad0e1fea4fd169f83f",
+      "canonical_sha256": "59c35be110c9fcfd3a58290166b8d1bee962234d30c210ad0e1fea4fd169f83f",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 8,
+      "source_sha256": "2b600979f005dee6df89b7340f3cd43fe56aee909d386267030a82d929e4ec0a",
+      "canonical_sha256": "2b600979f005dee6df89b7340f3cd43fe56aee909d386267030a82d929e4ec0a",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 10,
+      "source_sha256": "7ae6b898f65178599811277b1f4430038b7fff31e0965085272fb681ea37bb40",
+      "canonical_sha256": "7ae6b898f65178599811277b1f4430038b7fff31e0965085272fb681ea37bb40",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 14,
+      "source_sha256": "abdd4ea75f4040a72401da07087a5c2afd83698ef419502f1c2ec25f52e05e14",
+      "canonical_sha256": "abdd4ea75f4040a72401da07087a5c2afd83698ef419502f1c2ec25f52e05e14",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 16,
+      "source_sha256": "0f39e39844b863a1ec6ad309ad701855998e2d5e2c3a4df8195233c265beb218",
+      "canonical_sha256": "0f39e39844b863a1ec6ad309ad701855998e2d5e2c3a4df8195233c265beb218",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 17,
+      "source_sha256": "2d31b8f9af57f919541a57c05639fb6d20deafad9b5aa96ef023c9d13645c64d",
+      "canonical_sha256": "2d31b8f9af57f919541a57c05639fb6d20deafad9b5aa96ef023c9d13645c64d",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 18,
+      "source_sha256": "6062718f8c2e3bc06ba57e234e53267fc9040c51ed7e59d1cb1b734c186428d7",
+      "canonical_sha256": "6062718f8c2e3bc06ba57e234e53267fc9040c51ed7e59d1cb1b734c186428d7",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 19,
+      "source_sha256": "d0b693c663fa5a87624a872b2a642e6cbc2ac9298b640ae3986da51a2f53ed75",
+      "canonical_sha256": "d0b693c663fa5a87624a872b2a642e6cbc2ac9298b640ae3986da51a2f53ed75",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 20,
+      "source_sha256": "e4ce107e2ee697958db5b91da06dc5f4d5dc7710fc0f98a6ed2c20f2c2ed052d",
+      "canonical_sha256": "e4ce107e2ee697958db5b91da06dc5f4d5dc7710fc0f98a6ed2c20f2c2ed052d",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 21,
+      "source_sha256": "8ed1a922dd9d3cda5b741e1eedd7dc4a2b01fe3e66c587c6f0ea1a3128e17453",
+      "canonical_sha256": "8ed1a922dd9d3cda5b741e1eedd7dc4a2b01fe3e66c587c6f0ea1a3128e17453",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 22,
+      "source_sha256": "0ac20ae42d22b7f572c8d89fa65e0762d54a001a8b14cc0b6e0505f1fc2bc394",
+      "canonical_sha256": "0ac20ae42d22b7f572c8d89fa65e0762d54a001a8b14cc0b6e0505f1fc2bc394",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 23,
+      "source_sha256": "b5825a851a3df9472c8822a2cc6fdc141fe2ff3e100ffc986a02bfad7e14b4b2",
+      "canonical_sha256": "b5825a851a3df9472c8822a2cc6fdc141fe2ff3e100ffc986a02bfad7e14b4b2",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 24,
+      "source_sha256": "a80744e6903cb109ea85b982158b72faf576a607c51069c012bef9143715c494",
+      "canonical_sha256": "a80744e6903cb109ea85b982158b72faf576a607c51069c012bef9143715c494",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 25,
+      "source_sha256": "d78ce72a4b75aa2fbb8370cbded88f7e9366450a99e05b27137c5ed0651b6834",
+      "canonical_sha256": "d78ce72a4b75aa2fbb8370cbded88f7e9366450a99e05b27137c5ed0651b6834",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 29,
+      "source_sha256": "3255965b60a52f9b4f102cd313c140c4507aeaa2f6a2e13657235ea2c5352097",
+      "canonical_sha256": "3255965b60a52f9b4f102cd313c140c4507aeaa2f6a2e13657235ea2c5352097",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 31,
+      "source_sha256": "ab80a4fdcecf8cd9cd6daa15771f1d0f43048e36951247f3eb14abb94165dd67",
+      "canonical_sha256": "ab80a4fdcecf8cd9cd6daa15771f1d0f43048e36951247f3eb14abb94165dd67",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 32,
+      "source_sha256": "efb0c951ffb3a311ac5c7078e95a76f4a473e588c6db77c39b1e85353d06a75f",
+      "canonical_sha256": "efb0c951ffb3a311ac5c7078e95a76f4a473e588c6db77c39b1e85353d06a75f",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 33,
+      "source_sha256": "2240b0cdb4d9b5e931fea73158f598a2e15a2c361c1376f206fe7253ec4bd0ad",
+      "canonical_sha256": "2240b0cdb4d9b5e931fea73158f598a2e15a2c361c1376f206fe7253ec4bd0ad",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 34,
+      "source_sha256": "cc6dbd67aadfee3eb28af0d99b1bb744f5b7342339a8beb494e90b1ffd8b43b0",
+      "canonical_sha256": "cc6dbd67aadfee3eb28af0d99b1bb744f5b7342339a8beb494e90b1ffd8b43b0",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 35,
+      "source_sha256": "e54cd5c60d94523b066140c6de03eb5bf49e60d4b692b877e0a81c95d45fd3d1",
+      "canonical_sha256": "e54cd5c60d94523b066140c6de03eb5bf49e60d4b692b877e0a81c95d45fd3d1",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 36,
+      "source_sha256": "14d3fd82415b2a9d23b3934fa5c6113a1cfb6561aabfb484c44fd9cb14c5ba22",
+      "canonical_sha256": "14d3fd82415b2a9d23b3934fa5c6113a1cfb6561aabfb484c44fd9cb14c5ba22",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 37,
+      "source_sha256": "a7c822c27457d5b458210ec5f17ef19183d077aaa4ee7f4b80a2d4a3366df405",
+      "canonical_sha256": "a7c822c27457d5b458210ec5f17ef19183d077aaa4ee7f4b80a2d4a3366df405",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 38,
+      "source_sha256": "8217f7a5a0fa059b5e6e185492bea08828fbc8b4d803f2b0f66da367d0cef2ff",
+      "canonical_sha256": "8217f7a5a0fa059b5e6e185492bea08828fbc8b4d803f2b0f66da367d0cef2ff",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 40,
+      "source_sha256": "40e1a68ba54d43272e30a01c8f1fc4a588d53e58a18918ecd6fbd54bc1e81801",
+      "canonical_sha256": "40e1a68ba54d43272e30a01c8f1fc4a588d53e58a18918ecd6fbd54bc1e81801",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 44,
+      "source_sha256": "2dd8246e666160b0daf8bf9c55a5647dcb5e2ccd699e708697f631770d6a3c91",
+      "canonical_sha256": "2dd8246e666160b0daf8bf9c55a5647dcb5e2ccd699e708697f631770d6a3c91",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 46,
+      "source_sha256": "b8556697c9c50fe70806b7156cb115540be37cf5161846a7420b0cb96b5c6490",
+      "canonical_sha256": "b8556697c9c50fe70806b7156cb115540be37cf5161846a7420b0cb96b5c6490",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 47,
+      "source_sha256": "c03c4d3cf7c92b355349b38eff92d94eb37ef22177044877f9a9beab8b49cf4f",
+      "canonical_sha256": "c03c4d3cf7c92b355349b38eff92d94eb37ef22177044877f9a9beab8b49cf4f",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 48,
+      "source_sha256": "a60667009a6b21aaf8a251e21c43bc42a05c6b65466afe50b471d9f1f4740b58",
+      "canonical_sha256": "a60667009a6b21aaf8a251e21c43bc42a05c6b65466afe50b471d9f1f4740b58",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 49,
+      "source_sha256": "bc4b2e6d5564b6dba88b22ed18f2f5a6670241a110c4152dd3d3ab4f1cfbd85f",
+      "canonical_sha256": "bc4b2e6d5564b6dba88b22ed18f2f5a6670241a110c4152dd3d3ab4f1cfbd85f",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 50,
+      "source_sha256": "a0bc689728621af751b600d92e43e6adca2718d89c9bc372cf518aaefdc21003",
+      "canonical_sha256": "a0bc689728621af751b600d92e43e6adca2718d89c9bc372cf518aaefdc21003",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 51,
+      "source_sha256": "cb0fa0a8e9426af26019fec75f8e78e0997fac41839d81910ad7b1ac0a5feaa0",
+      "canonical_sha256": "cb0fa0a8e9426af26019fec75f8e78e0997fac41839d81910ad7b1ac0a5feaa0",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 53,
+      "source_sha256": "25318410be792a3e208d78a2b9e2af42d4b67710ab9bdb3738deb17ccbeb8a9a",
+      "canonical_sha256": "25318410be792a3e208d78a2b9e2af42d4b67710ab9bdb3738deb17ccbeb8a9a",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 57,
+      "source_sha256": "2565aa6dcbb64eb115751427ee0818d81b3b81737e8f2ebf1664a0c63d7905ef",
+      "canonical_sha256": "2565aa6dcbb64eb115751427ee0818d81b3b81737e8f2ebf1664a0c63d7905ef",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 62,
+      "source_sha256": "ab7ffccd2b3c445b7b6607f8bbdee6d01ad38ce0cc802dc1d87eb188c5fe8833",
+      "canonical_sha256": "ab7ffccd2b3c445b7b6607f8bbdee6d01ad38ce0cc802dc1d87eb188c5fe8833",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 63,
+      "source_sha256": "60286383aea46c42c826e84c1f1e842a94a2b2792dc88eb9dc275ea507be6fc0",
+      "canonical_sha256": "60286383aea46c42c826e84c1f1e842a94a2b2792dc88eb9dc275ea507be6fc0",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 64,
+      "source_sha256": "d0d6d503f5acae623fc33572576b00c59de9a9371951d2922c3cdfd000c4162b",
+      "canonical_sha256": "d0d6d503f5acae623fc33572576b00c59de9a9371951d2922c3cdfd000c4162b",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 65,
+      "source_sha256": "408e70b2637b5f7f50f4f2c5d0e8821a273af71472afad34eef17279e6074960",
+      "canonical_sha256": "408e70b2637b5f7f50f4f2c5d0e8821a273af71472afad34eef17279e6074960",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 66,
+      "source_sha256": "f7cf39ee72f4739526a4b666b3dbefc4766f2cfc6ee496beae1e9489a0937f7f",
+      "canonical_sha256": "f7cf39ee72f4739526a4b666b3dbefc4766f2cfc6ee496beae1e9489a0937f7f",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 67,
+      "source_sha256": "e92e1c5195b2bfd8c8df0a0e074d825e419978adef3419b62c989f74ced1476f",
+      "canonical_sha256": "e92e1c5195b2bfd8c8df0a0e074d825e419978adef3419b62c989f74ced1476f",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 68,
+      "source_sha256": "79bf91842318ef94ba6ae8619cf10beb1648b7f1ef6f0d6107f7c98ff7f3c9ae",
+      "canonical_sha256": "79bf91842318ef94ba6ae8619cf10beb1648b7f1ef6f0d6107f7c98ff7f3c9ae",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 69,
+      "source_sha256": "b9a1e8bbdc8846163ce25669ec046a4956fd54cd65e02ef5259bddea79347a17",
+      "canonical_sha256": "b9a1e8bbdc8846163ce25669ec046a4956fd54cd65e02ef5259bddea79347a17",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 70,
+      "source_sha256": "14578cac8bdc3c34894b2139f555bd020f3d39dc789ed4017f23e5d02f7bf149",
+      "canonical_sha256": "14578cac8bdc3c34894b2139f555bd020f3d39dc789ed4017f23e5d02f7bf149",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 71,
+      "source_sha256": "44b90b9011588cfa8e8708e673d70e40b41dcce652f95087489d0a486d757f2b",
+      "canonical_sha256": "44b90b9011588cfa8e8708e673d70e40b41dcce652f95087489d0a486d757f2b",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 72,
+      "source_sha256": "7c7f2724e741a80c40bbcb6028dfe7dca688f395a26f2f7ec17e53a9e650c55b",
+      "canonical_sha256": "7c7f2724e741a80c40bbcb6028dfe7dca688f395a26f2f7ec17e53a9e650c55b",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 73,
+      "source_sha256": "449771409240246c9fe864eecd449c016c780c06a5923b362e0cc4a4a2c2c780",
+      "canonical_sha256": "449771409240246c9fe864eecd449c016c780c06a5923b362e0cc4a4a2c2c780",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 74,
+      "source_sha256": "d9d1e336e7bf28835facdca4c4747d32d969c5ef110783acd1229915d3d88b44",
+      "canonical_sha256": "d9d1e336e7bf28835facdca4c4747d32d969c5ef110783acd1229915d3d88b44",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 75,
+      "source_sha256": "3905054f1487fad548304b085bef2ee2480ab8b2b4b37a1ad5a59861e1dcc5cd",
+      "canonical_sha256": "3905054f1487fad548304b085bef2ee2480ab8b2b4b37a1ad5a59861e1dcc5cd",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 76,
+      "source_sha256": "bdb5f0f1d1cd18449f34aadc119f7293c978bd27260b45717cf01d87673ad412",
+      "canonical_sha256": "bdb5f0f1d1cd18449f34aadc119f7293c978bd27260b45717cf01d87673ad412",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 77,
+      "source_sha256": "42eca839704ec0a58af453f2f1bf8a154cc4a90c30ba2ba65364044cfffd63a7",
+      "canonical_sha256": "42eca839704ec0a58af453f2f1bf8a154cc4a90c30ba2ba65364044cfffd63a7",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 78,
+      "source_sha256": "d41964a7b13cc7560ae2a27a2caf90ecf680a48b55c4b6c9beadceacf7f08d31",
+      "canonical_sha256": "d41964a7b13cc7560ae2a27a2caf90ecf680a48b55c4b6c9beadceacf7f08d31",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 81,
+      "source_sha256": "ae49d9e2b224545f29b687272b437f1e9b5eca7570aae1659b5d03a9e06944e3",
+      "canonical_sha256": "ae49d9e2b224545f29b687272b437f1e9b5eca7570aae1659b5d03a9e06944e3",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 83,
+      "source_sha256": "9d45d0a3dc3b98e2ac67456fbcaafd5dcb87659c6627ec9b01a1cdc6fc143e34",
+      "canonical_sha256": "9d45d0a3dc3b98e2ac67456fbcaafd5dcb87659c6627ec9b01a1cdc6fc143e34",
+      "canonical_file": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 87,
+      "source_sha256": "f45daf917bc19693142227807afdd5657b09c177796b230d37a88edc6df85d31",
+      "canonical_sha256": "f45daf917bc19693142227807afdd5657b09c177796b230d37a88edc6df85d31",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 90,
+      "source_sha256": "a034d4d1d9c4e2d5083fe57f14eace44a03832b3aeada2d40796bb513ac23d27",
+      "canonical_sha256": "a034d4d1d9c4e2d5083fe57f14eace44a03832b3aeada2d40796bb513ac23d27",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 91,
+      "source_sha256": "60286383aea46c42c826e84c1f1e842a94a2b2792dc88eb9dc275ea507be6fc0",
+      "canonical_sha256": "60286383aea46c42c826e84c1f1e842a94a2b2792dc88eb9dc275ea507be6fc0",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 92,
+      "source_sha256": "888b874e3b615716090f8a0ba83deac61853de1c01ec1cfbedd75734129c6d13",
+      "canonical_sha256": "888b874e3b615716090f8a0ba83deac61853de1c01ec1cfbedd75734129c6d13",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 93,
+      "source_sha256": "9ccf1ee1f1616fee2de3eb450492c3e6239ac13fdf70fc79bdb55aac969b9ea6",
+      "canonical_sha256": "9ccf1ee1f1616fee2de3eb450492c3e6239ac13fdf70fc79bdb55aac969b9ea6",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 94,
+      "source_sha256": "88cf3c779661cd86b528d0f1de1fb7e669e4956b429befacd842050c7ed2b329",
+      "canonical_sha256": "88cf3c779661cd86b528d0f1de1fb7e669e4956b429befacd842050c7ed2b329",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 95,
+      "source_sha256": "fba3e07490a6703ca22c473433ab2c706c97c7c0b10097ad671f462fbd214678",
+      "canonical_sha256": "fba3e07490a6703ca22c473433ab2c706c97c7c0b10097ad671f462fbd214678",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 96,
+      "source_sha256": "26ffdce3d7082e7d847e4d6a5a03455d40097ae14c5104b8fcb565dce8dc8067",
+      "canonical_sha256": "26ffdce3d7082e7d847e4d6a5a03455d40097ae14c5104b8fcb565dce8dc8067",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 97,
+      "source_sha256": "772783b4dfc2fe3652af41d175b0659422a1e32e03de3593490488cc96d0bd1f",
+      "canonical_sha256": "772783b4dfc2fe3652af41d175b0659422a1e32e03de3593490488cc96d0bd1f",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 98,
+      "source_sha256": "ff4f59cd5d463a45ecbbd696518eeeb3dc4b48f1813409f15196ba47eccd106d",
+      "canonical_sha256": "ff4f59cd5d463a45ecbbd696518eeeb3dc4b48f1813409f15196ba47eccd106d",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 101,
+      "source_sha256": "a916211680e8c8d59d3a381a77120e0096b822f305f2bdba8d632bccff78cc32",
+      "canonical_sha256": "a916211680e8c8d59d3a381a77120e0096b822f305f2bdba8d632bccff78cc32",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 105,
+      "source_sha256": "9b6db6dd5ceb7a0fe101147805e2636d560dee05fd9a774d0b670faff96dcae3",
+      "canonical_sha256": "9b6db6dd5ceb7a0fe101147805e2636d560dee05fd9a774d0b670faff96dcae3",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 108,
+      "source_sha256": "992286dabec1a689cfbeb2929c46efde57714a37016d85ecb131e1ac7c7dc4f0",
+      "canonical_sha256": "992286dabec1a689cfbeb2929c46efde57714a37016d85ecb131e1ac7c7dc4f0",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 109,
+      "source_sha256": "60286383aea46c42c826e84c1f1e842a94a2b2792dc88eb9dc275ea507be6fc0",
+      "canonical_sha256": "60286383aea46c42c826e84c1f1e842a94a2b2792dc88eb9dc275ea507be6fc0",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 110,
+      "source_sha256": "f7cf39ee72f4739526a4b666b3dbefc4766f2cfc6ee496beae1e9489a0937f7f",
+      "canonical_sha256": "f7cf39ee72f4739526a4b666b3dbefc4766f2cfc6ee496beae1e9489a0937f7f",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 111,
+      "source_sha256": "d0d6d503f5acae623fc33572576b00c59de9a9371951d2922c3cdfd000c4162b",
+      "canonical_sha256": "d0d6d503f5acae623fc33572576b00c59de9a9371951d2922c3cdfd000c4162b",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 112,
+      "source_sha256": "772783b4dfc2fe3652af41d175b0659422a1e32e03de3593490488cc96d0bd1f",
+      "canonical_sha256": "772783b4dfc2fe3652af41d175b0659422a1e32e03de3593490488cc96d0bd1f",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 113,
+      "source_sha256": "22c4e454c6727e2880d5dcce79dff6c5383270c77a7e45682f076a666e61bcf7",
+      "canonical_sha256": "22c4e454c6727e2880d5dcce79dff6c5383270c77a7e45682f076a666e61bcf7",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 114,
+      "source_sha256": "e2a68a70844770058b79c598752f1b76e70c9172f939935b83ef63d9ec133f4c",
+      "canonical_sha256": "e2a68a70844770058b79c598752f1b76e70c9172f939935b83ef63d9ec133f4c",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 115,
+      "source_sha256": "aa85f1659485f4fd450289f7a434735eacb16be2005a6e35b9a5f95e73e58a42",
+      "canonical_sha256": "aa85f1659485f4fd450289f7a434735eacb16be2005a6e35b9a5f95e73e58a42",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 116,
+      "source_sha256": "bc60610203a2393d95c02e45a33180e6b563307c3717e52187891d224c632394",
+      "canonical_sha256": "bc60610203a2393d95c02e45a33180e6b563307c3717e52187891d224c632394",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 117,
+      "source_sha256": "14bc3038d4e77d282bbbe3174238f4d64c47612e1112489f6f01cdfbf75d81c9",
+      "canonical_sha256": "14bc3038d4e77d282bbbe3174238f4d64c47612e1112489f6f01cdfbf75d81c9",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 118,
+      "source_sha256": "44b90b9011588cfa8e8708e673d70e40b41dcce652f95087489d0a486d757f2b",
+      "canonical_sha256": "44b90b9011588cfa8e8708e673d70e40b41dcce652f95087489d0a486d757f2b",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 121,
+      "source_sha256": "5fac0e61a6bf811ce4cf8f45517a778aeb92a963a56341a04a8813fb106f06e6",
+      "canonical_sha256": "5fac0e61a6bf811ce4cf8f45517a778aeb92a963a56341a04a8813fb106f06e6",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 125,
+      "source_sha256": "029b7399f54e789473aae7c2e91816451c38fdca9e887549218d8d7f0a6b47bc",
+      "canonical_sha256": "029b7399f54e789473aae7c2e91816451c38fdca9e887549218d8d7f0a6b47bc",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 128,
+      "source_sha256": "d440ecdfb24114da94b8bf834baa82a82b389ef673a2b9d1474ce17d9f35f4cc",
+      "canonical_sha256": "d440ecdfb24114da94b8bf834baa82a82b389ef673a2b9d1474ce17d9f35f4cc",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 129,
+      "source_sha256": "799efbba094dad60d2f3143116fef53f085f9c3363266b92c2394256db92051a",
+      "canonical_sha256": "799efbba094dad60d2f3143116fef53f085f9c3363266b92c2394256db92051a",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 130,
+      "source_sha256": "5f51b57ed3abfd50accbd84e80014ca62d7fd050025dbbfcda8a926642ef77bf",
+      "canonical_sha256": "5f51b57ed3abfd50accbd84e80014ca62d7fd050025dbbfcda8a926642ef77bf",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 131,
+      "source_sha256": "c660770ea08c92063da23845495c41100fb7b878d804be69369567b800fdac28",
+      "canonical_sha256": "c660770ea08c92063da23845495c41100fb7b878d804be69369567b800fdac28",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 132,
+      "source_sha256": "2ad54e7c3042f0e44f134c066a0c9565e635920f62211617f79e94ead580daa3",
+      "canonical_sha256": "2ad54e7c3042f0e44f134c066a0c9565e635920f62211617f79e94ead580daa3",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 133,
+      "source_sha256": "4f242ab5207b6714ba3b81a3f81f105e7c2bafff786b160280f95350ccef031e",
+      "canonical_sha256": "4f242ab5207b6714ba3b81a3f81f105e7c2bafff786b160280f95350ccef031e",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 136,
+      "source_sha256": "a6fb9a834516f6aa867c4dfbbe7efeeaff0128ac46bd05b32bdb31207a580618",
+      "canonical_sha256": "a6fb9a834516f6aa867c4dfbbe7efeeaff0128ac46bd05b32bdb31207a580618",
+      "canonical_file": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 142,
+      "source_sha256": "84c4f646519d68945188a8a8b31cf42229a3efa24722d3a4b99735075f3a9a76",
+      "canonical_sha256": "84c4f646519d68945188a8a8b31cf42229a3efa24722d3a4b99735075f3a9a76",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 146,
+      "source_sha256": "bc20b006f86050bb2dc431289ce2df2aea588a6feb5ee8da87d5e10d5d58cf95",
+      "canonical_sha256": "bc20b006f86050bb2dc431289ce2df2aea588a6feb5ee8da87d5e10d5d58cf95",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 148,
+      "source_sha256": "409654df045bb17d0091e1066c369fd9f2b468b56d6ed92f7074ea2f8977121d",
+      "canonical_sha256": "409654df045bb17d0091e1066c369fd9f2b468b56d6ed92f7074ea2f8977121d",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 149,
+      "source_sha256": "85e25746f53d11a6515b2a9b8544032b559fbeff5b76ac996377bf63e02d5514",
+      "canonical_sha256": "85e25746f53d11a6515b2a9b8544032b559fbeff5b76ac996377bf63e02d5514",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 150,
+      "source_sha256": "8e7f0866cea410707a4f3de37ebfe63c47aa659b09db9b283b765c14a65cabbb",
+      "canonical_sha256": "8e7f0866cea410707a4f3de37ebfe63c47aa659b09db9b283b765c14a65cabbb",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 151,
+      "source_sha256": "b14a6474868992466bcdde30aa0d737e8bf42a578ba2ef9c549200562927e00d",
+      "canonical_sha256": "b14a6474868992466bcdde30aa0d737e8bf42a578ba2ef9c549200562927e00d",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 152,
+      "source_sha256": "f2e55e90b852860b739f93140d4669c66ac6cd05df608efde98e185395738776",
+      "canonical_sha256": "f2e55e90b852860b739f93140d4669c66ac6cd05df608efde98e185395738776",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 154,
+      "source_sha256": "fcf260b7c8728e8e1a45af155966cd0052089a1b27815a9060a3bad271ecfc2f",
+      "canonical_sha256": "fcf260b7c8728e8e1a45af155966cd0052089a1b27815a9060a3bad271ecfc2f",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 158,
+      "source_sha256": "5c3719d71745d2ec2767a1c41009d073bb9951cf15c8dba1af7e842f5d3748ae",
+      "canonical_sha256": "5c3719d71745d2ec2767a1c41009d073bb9951cf15c8dba1af7e842f5d3748ae",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 160,
+      "source_sha256": "a374e684974a9c39f6a828e133d202aa7bccd0d66ace4f23e0b37da0280d6b7d",
+      "canonical_sha256": "a374e684974a9c39f6a828e133d202aa7bccd0d66ace4f23e0b37da0280d6b7d",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 161,
+      "source_sha256": "04fbd309db1d6bf1a33854b9538d4d3946ab8b4dbaa516305c3bab1bdca695e5",
+      "canonical_sha256": "04fbd309db1d6bf1a33854b9538d4d3946ab8b4dbaa516305c3bab1bdca695e5",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 162,
+      "source_sha256": "46aee1e9858fcadfb0d9d0da429be31c371f101ac37c66783996eaccf477c8df",
+      "canonical_sha256": "46aee1e9858fcadfb0d9d0da429be31c371f101ac37c66783996eaccf477c8df",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 163,
+      "source_sha256": "fbecc5a744217f6be3677f4c7c24413b809d12cbcb19f42f651e4060fd0d179d",
+      "canonical_sha256": "fbecc5a744217f6be3677f4c7c24413b809d12cbcb19f42f651e4060fd0d179d",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 164,
+      "source_sha256": "6ee0ad612ed2993a702737851de26164ce0c65f23afdec5d414d15941063241c",
+      "canonical_sha256": "6ee0ad612ed2993a702737851de26164ce0c65f23afdec5d414d15941063241c",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 166,
+      "source_sha256": "42420a84ae87f9773970d9940f705cce738641ffaff5c462521a682a99571656",
+      "canonical_sha256": "42420a84ae87f9773970d9940f705cce738641ffaff5c462521a682a99571656",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 168,
+      "source_sha256": "0b25b67a081bad496c1f5c8507d788e5be102a6cea8bfbb9e374f3f372fc57bc",
+      "canonical_sha256": "0b25b67a081bad496c1f5c8507d788e5be102a6cea8bfbb9e374f3f372fc57bc",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 169,
+      "source_sha256": "d3d4f0f44d9360f6e562ce3feb8682827b1711934ca3e6e2f29aed172009b541",
+      "canonical_sha256": "d3d4f0f44d9360f6e562ce3feb8682827b1711934ca3e6e2f29aed172009b541",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 170,
+      "source_sha256": "4284e14f2a956f66d3f8421b7c8cb86639ed66c05398ec093a60ea0bb1fcec48",
+      "canonical_sha256": "4284e14f2a956f66d3f8421b7c8cb86639ed66c05398ec093a60ea0bb1fcec48",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 171,
+      "source_sha256": "5222ade53ab18e693ba08ea8fcaa177d2a8c8f74e22424c32960a1cc165e70c5",
+      "canonical_sha256": "5222ade53ab18e693ba08ea8fcaa177d2a8c8f74e22424c32960a1cc165e70c5",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 172,
+      "source_sha256": "36f29d6c1bb4f473a561040a95904b08f7f97db10b0ee88277ceb814190c9657",
+      "canonical_sha256": "36f29d6c1bb4f473a561040a95904b08f7f97db10b0ee88277ceb814190c9657",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 173,
+      "source_sha256": "566bdac0737347d257f6f364cd02453d987dbb34e192b9aee27f28ac3fd90ce4",
+      "canonical_sha256": "566bdac0737347d257f6f364cd02453d987dbb34e192b9aee27f28ac3fd90ce4",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 174,
+      "source_sha256": "5fae658d2a29dbdbe37b220dae47c98aa2f9930d96ff4a74d410d44b486ed4a0",
+      "canonical_sha256": "5fae658d2a29dbdbe37b220dae47c98aa2f9930d96ff4a74d410d44b486ed4a0",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 176,
+      "source_sha256": "3d5cfa2a172611ad055688189fee0e8351e654e2a222e0949bc80d2c732461d8",
+      "canonical_sha256": "3d5cfa2a172611ad055688189fee0e8351e654e2a222e0949bc80d2c732461d8",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 180,
+      "source_sha256": "837d9e61cdae93abd24fe13b139ca52e5240a9c5a3dbe1acd6d767e4ae0d03ed",
+      "canonical_sha256": "837d9e61cdae93abd24fe13b139ca52e5240a9c5a3dbe1acd6d767e4ae0d03ed",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 183,
+      "source_sha256": "143f44d018522f7b6e8ae216de944d071176ffbd16fbfbfcaf946c60177facc9",
+      "canonical_sha256": "143f44d018522f7b6e8ae216de944d071176ffbd16fbfbfcaf946c60177facc9",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 184,
+      "source_sha256": "6d49bde011266557b6492a6fb2053301902b3041a0236cc812c8077342dfe92d",
+      "canonical_sha256": "6d49bde011266557b6492a6fb2053301902b3041a0236cc812c8077342dfe92d",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 185,
+      "source_sha256": "c084bad6f75a517533851222b6e0f0421a6e7f80845505bfa940ec29863e2013",
+      "canonical_sha256": "c084bad6f75a517533851222b6e0f0421a6e7f80845505bfa940ec29863e2013",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 186,
+      "source_sha256": "7e6f36f7a44f460fea73f7d9cdd76e186b8de04f22be04ac7bd30628a1ac8783",
+      "canonical_sha256": "7e6f36f7a44f460fea73f7d9cdd76e186b8de04f22be04ac7bd30628a1ac8783",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 187,
+      "source_sha256": "c1b4708f9d586d35d0b989f1df7af2d6684b42d0372eefc287178d7a25d4c109",
+      "canonical_sha256": "c1b4708f9d586d35d0b989f1df7af2d6684b42d0372eefc287178d7a25d4c109",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 188,
+      "source_sha256": "3318546bbade491b5cb25d0fb56f2be7e1f4f3495f993948195165df51f02bb5",
+      "canonical_sha256": "3318546bbade491b5cb25d0fb56f2be7e1f4f3495f993948195165df51f02bb5",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 191,
+      "source_sha256": "ad8182db844c93f0d0d48875463fe80ab8c7db3dad044c921f29c873e93dcaef",
+      "canonical_sha256": "ad8182db844c93f0d0d48875463fe80ab8c7db3dad044c921f29c873e93dcaef",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 195,
+      "source_sha256": "ce43ffda08d0c1a1ce7956ebc76f39dcaf36ff7554d5d16c91378407d2875acd",
+      "canonical_sha256": "ce43ffda08d0c1a1ce7956ebc76f39dcaf36ff7554d5d16c91378407d2875acd",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 197,
+      "source_sha256": "1ee651ad0f2b5c8b4e177ca3deada8335c6604b3f806d62f865c7791b4656d2c",
+      "canonical_sha256": "1ee651ad0f2b5c8b4e177ca3deada8335c6604b3f806d62f865c7791b4656d2c",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 198,
+      "source_sha256": "d995881a50851bfab3451b1017f0d47cad59487987a0846b346baf460fe16686",
+      "canonical_sha256": "d995881a50851bfab3451b1017f0d47cad59487987a0846b346baf460fe16686",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 199,
+      "source_sha256": "e2885f2bbe3d7a8b08e328b9abf1e0824bebad97625b300e24649a256c6c4847",
+      "canonical_sha256": "e2885f2bbe3d7a8b08e328b9abf1e0824bebad97625b300e24649a256c6c4847",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 200,
+      "source_sha256": "d2392e17cc0a2df2673442c39adaf93ddcd6c922f0d15bf5f282064f0cbc5edf",
+      "canonical_sha256": "d2392e17cc0a2df2673442c39adaf93ddcd6c922f0d15bf5f282064f0cbc5edf",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 201,
+      "source_sha256": "f9101a227e5b90f238939e402ab9628b498a9ea4e007857ef12e99f960cf625b",
+      "canonical_sha256": "f9101a227e5b90f238939e402ab9628b498a9ea4e007857ef12e99f960cf625b",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 202,
+      "source_sha256": "3681479be80ee4198f22d52219709fb3fe2f81fb76e220e533a08eb224ac4eb9",
+      "canonical_sha256": "3681479be80ee4198f22d52219709fb3fe2f81fb76e220e533a08eb224ac4eb9",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 203,
+      "source_sha256": "7f3898051326967d94061768868aa9c84d7a832f3f7e5139c3a7e07096264ff0",
+      "canonical_sha256": "7f3898051326967d94061768868aa9c84d7a832f3f7e5139c3a7e07096264ff0",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 204,
+      "source_sha256": "2cbb4815caf81867f68a14e6cc37700342c416ae49e8a95b795a936af2fd7e75",
+      "canonical_sha256": "2cbb4815caf81867f68a14e6cc37700342c416ae49e8a95b795a936af2fd7e75",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 205,
+      "source_sha256": "82de39c177d755177362c2efe4de2d9060b0e8cf5fbd4f0d5c38113b26e7afd4",
+      "canonical_sha256": "82de39c177d755177362c2efe4de2d9060b0e8cf5fbd4f0d5c38113b26e7afd4",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 206,
+      "source_sha256": "37e95bb3c591ce08a7326487d3f576e017e8b145ae68cc6303c3c6622d4d3b53",
+      "canonical_sha256": "37e95bb3c591ce08a7326487d3f576e017e8b145ae68cc6303c3c6622d4d3b53",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 208,
+      "source_sha256": "b9004deb1b04809c001410aa99f65f16212f250d72b8add6f21e22c001b4627f",
+      "canonical_sha256": "b9004deb1b04809c001410aa99f65f16212f250d72b8add6f21e22c001b4627f",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 212,
+      "source_sha256": "4e15f067dce3d882d88976919b9d197361746bf6c5cdaa11d621d22999f94cc5",
+      "canonical_sha256": "4e15f067dce3d882d88976919b9d197361746bf6c5cdaa11d621d22999f94cc5",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 214,
+      "source_sha256": "afa8a74506a9e3688ede5439aa275d0e12a161d5481e87ab53c506e7003b13fe",
+      "canonical_sha256": "afa8a74506a9e3688ede5439aa275d0e12a161d5481e87ab53c506e7003b13fe",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 215,
+      "source_sha256": "47ad3cfa371bdf331e2e4537a4b90d5b197e9ebd307f1f118be4f2e82cdf7ceb",
+      "canonical_sha256": "47ad3cfa371bdf331e2e4537a4b90d5b197e9ebd307f1f118be4f2e82cdf7ceb",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 216,
+      "source_sha256": "06e6a6284df138ec16f8a83229b12fc72db03cfda7465ba80905ac130580b929",
+      "canonical_sha256": "06e6a6284df138ec16f8a83229b12fc72db03cfda7465ba80905ac130580b929",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 218,
+      "source_sha256": "7bfe56485d6fc484e25af7184d12b9e9ff029954e42c1bb3fee1870ac2aa7c22",
+      "canonical_sha256": "7bfe56485d6fc484e25af7184d12b9e9ff029954e42c1bb3fee1870ac2aa7c22",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 220,
+      "source_sha256": "72fec86669d14eb2578136510648efe941ac28ef7da082f249d0a8dc12b956d0",
+      "canonical_sha256": "72fec86669d14eb2578136510648efe941ac28ef7da082f249d0a8dc12b956d0",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 224,
+      "source_sha256": "2b272097e06d0dd78f5d4038abd7e2d600a05cd34799b73f52431bfc408692f2",
+      "canonical_sha256": "2b272097e06d0dd78f5d4038abd7e2d600a05cd34799b73f52431bfc408692f2",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 226,
+      "source_sha256": "b81778c850312c9f6a85cee39bc10b6a349bc9cfc27bda03f73cba1c9799e3c1",
+      "canonical_sha256": "b81778c850312c9f6a85cee39bc10b6a349bc9cfc27bda03f73cba1c9799e3c1",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 227,
+      "source_sha256": "c8b2d45e25d9c193bdcd1c20ec5628b644445646fd56b9b747a3539c559bea7d",
+      "canonical_sha256": "c8b2d45e25d9c193bdcd1c20ec5628b644445646fd56b9b747a3539c559bea7d",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 228,
+      "source_sha256": "e4b3c149a0d98fc681b3e1aa7477e3bf054efb41c0df0115ac54e8cf23cfa483",
+      "canonical_sha256": "e4b3c149a0d98fc681b3e1aa7477e3bf054efb41c0df0115ac54e8cf23cfa483",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 230,
+      "source_sha256": "02447b39417d5237b25c1b5dfa0bd8a76be41391d201aa1dd978ae9eed912fd1",
+      "canonical_sha256": "02447b39417d5237b25c1b5dfa0bd8a76be41391d201aa1dd978ae9eed912fd1",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 236,
+      "source_sha256": "c174c3e1f7728688a2230a19502a24778dd2a0b91b44df9df9c5becb9c175cad",
+      "canonical_sha256": "c174c3e1f7728688a2230a19502a24778dd2a0b91b44df9df9c5becb9c175cad",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 238,
+      "source_sha256": "c3d9aee570f76f1895c5bb6a2ae96d2eaa9bf3c0f544803f052729905b616a34",
+      "canonical_sha256": "c3d9aee570f76f1895c5bb6a2ae96d2eaa9bf3c0f544803f052729905b616a34",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 241,
+      "source_sha256": "9f5256f8add97dfd10106fe86827310503c8d4c18e24c2a1a5c5053bda6dc4b5",
+      "canonical_sha256": "9f5256f8add97dfd10106fe86827310503c8d4c18e24c2a1a5c5053bda6dc4b5",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 242,
+      "source_sha256": "12ed062025a726e1b76f8e85a288fdaf4f6f5d37ba7fba9882d19fc3b7ea1885",
+      "canonical_sha256": "12ed062025a726e1b76f8e85a288fdaf4f6f5d37ba7fba9882d19fc3b7ea1885",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 243,
+      "source_sha256": "a2789e448f95bc0a267152a2841514276788ab80e75a771cc04fea1193451cd8",
+      "canonical_sha256": "a2789e448f95bc0a267152a2841514276788ab80e75a771cc04fea1193451cd8",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 244,
+      "source_sha256": "03fe445d161328305fd07d7f9522f7f86153cd099111aec68685821224e16cc7",
+      "canonical_sha256": "03fe445d161328305fd07d7f9522f7f86153cd099111aec68685821224e16cc7",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 245,
+      "source_sha256": "1e5e0755c088255212a458980e54fb538c99184e815b50ebde3678d7b5c57e0d",
+      "canonical_sha256": "1e5e0755c088255212a458980e54fb538c99184e815b50ebde3678d7b5c57e0d",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 246,
+      "source_sha256": "446987fc4f06a59b522420c5370aee45f7dc8ad6bb030cd6b823287a401bf29c",
+      "canonical_sha256": "446987fc4f06a59b522420c5370aee45f7dc8ad6bb030cd6b823287a401bf29c",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 247,
+      "source_sha256": "7bbc74ab9ae611960c69db33a4f4e34315aac51401225761596cce98eedc471f",
+      "canonical_sha256": "7bbc74ab9ae611960c69db33a4f4e34315aac51401225761596cce98eedc471f",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 248,
+      "source_sha256": "29ff1d93630cab03c5cb115c0f8e3c51039d535f3a7221d87d584163367cd2c9",
+      "canonical_sha256": "29ff1d93630cab03c5cb115c0f8e3c51039d535f3a7221d87d584163367cd2c9",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 249,
+      "source_sha256": "5683e3cf770146dbbe2fd20cd3f3feac5625256cb5d0b8317c9565c2e4bf84c8",
+      "canonical_sha256": "5683e3cf770146dbbe2fd20cd3f3feac5625256cb5d0b8317c9565c2e4bf84c8",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 250,
+      "source_sha256": "4ab4349a7064e37fcbf03c7d21aba2ffb0b04c6bf7740ff46ac47ee02eec3478",
+      "canonical_sha256": "4ab4349a7064e37fcbf03c7d21aba2ffb0b04c6bf7740ff46ac47ee02eec3478",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 251,
+      "source_sha256": "96a1e2f0587982419a7e2e56c9920e3e7a002df406b386c24d3bfa9a122acfc6",
+      "canonical_sha256": "96a1e2f0587982419a7e2e56c9920e3e7a002df406b386c24d3bfa9a122acfc6",
+      "canonical_file": "skills/ai-product-development/schemas/execution-profile.yaml"
+    },
+    {
+      "source_line": 256,
+      "source_sha256": "307d05f07cd5d92cb8554b5a00e6c2c826c046098b5752b7053eb359e650534e",
+      "canonical_sha256": "307d05f07cd5d92cb8554b5a00e6c2c826c046098b5752b7053eb359e650534e",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 258,
+      "source_sha256": "e16bc923958ad1739164299c0226733d9da81e207062a8c0dc4d074b4160a6bd",
+      "canonical_sha256": "e16bc923958ad1739164299c0226733d9da81e207062a8c0dc4d074b4160a6bd",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 259,
+      "source_sha256": "12af00ef4beed04e98324a76d971f94419a92b77311cf21629020e3449b8f457",
+      "canonical_sha256": "12af00ef4beed04e98324a76d971f94419a92b77311cf21629020e3449b8f457",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 260,
+      "source_sha256": "fe7d8da615524c20ac0b0e1c3027af754921b39c1ea0dc471fcdde1aef4fd1f0",
+      "canonical_sha256": "fe7d8da615524c20ac0b0e1c3027af754921b39c1ea0dc471fcdde1aef4fd1f0",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 261,
+      "source_sha256": "144d603944908634c7b48af9dda1394d9f0ac6cf5c328b3a7aa12749339955e8",
+      "canonical_sha256": "144d603944908634c7b48af9dda1394d9f0ac6cf5c328b3a7aa12749339955e8",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 262,
+      "source_sha256": "9b7943a11c9294e280ade8f410771a5aa1d834faf59cc01655fa7a34c8e4fe3e",
+      "canonical_sha256": "9b7943a11c9294e280ade8f410771a5aa1d834faf59cc01655fa7a34c8e4fe3e",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 263,
+      "source_sha256": "665f7612de088d038e60f7c8e6ba8b505d7076951d33e655504b50d8a98de987",
+      "canonical_sha256": "665f7612de088d038e60f7c8e6ba8b505d7076951d33e655504b50d8a98de987",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 264,
+      "source_sha256": "8e682378d75cb0bced835618fa8dcbf7d0e8026ab7836bc5e44e867727593aa4",
+      "canonical_sha256": "8e682378d75cb0bced835618fa8dcbf7d0e8026ab7836bc5e44e867727593aa4",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 265,
+      "source_sha256": "1543fbb365b63f329f3cd77d4fb3eee2d5a397f5f7d6ef85a41c8544d184b280",
+      "canonical_sha256": "1543fbb365b63f329f3cd77d4fb3eee2d5a397f5f7d6ef85a41c8544d184b280",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 266,
+      "source_sha256": "8fe39a3abf65f876fad2b28dcdb8f5249387af7d12352267689a4a533072f7e8",
+      "canonical_sha256": "8fe39a3abf65f876fad2b28dcdb8f5249387af7d12352267689a4a533072f7e8",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 267,
+      "source_sha256": "2b18c9eb0beda26bdae6c559fc7c6ee30278a7fcada22646ac9b35a18232e63f",
+      "canonical_sha256": "2b18c9eb0beda26bdae6c559fc7c6ee30278a7fcada22646ac9b35a18232e63f",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 269,
+      "source_sha256": "a50b1f2afab43a3de5d74ceb3a976715fca366fa854a5cdc1edef73b627ef85c",
+      "canonical_sha256": "a50b1f2afab43a3de5d74ceb3a976715fca366fa854a5cdc1edef73b627ef85c",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 273,
+      "source_sha256": "105e9b19d3f6d520ce209936c143cf388600cbdafefc79f02de1a98d000c2b21",
+      "canonical_sha256": "105e9b19d3f6d520ce209936c143cf388600cbdafefc79f02de1a98d000c2b21",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 275,
+      "source_sha256": "0b5a907bbb2fdaf5c03d7f73a79ecdc54bc6aa42e57aa41ba55a898007a587b0",
+      "canonical_sha256": "0b5a907bbb2fdaf5c03d7f73a79ecdc54bc6aa42e57aa41ba55a898007a587b0",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 276,
+      "source_sha256": "9160d312311baf3c8fd048206268caa374d1ba524e24763677d3053e02868113",
+      "canonical_sha256": "9160d312311baf3c8fd048206268caa374d1ba524e24763677d3053e02868113",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 277,
+      "source_sha256": "66592b878db3c7d3f88bc9c4a39e3a62c81f7828d6dcc140bdc3a5aa1b70cdac",
+      "canonical_sha256": "66592b878db3c7d3f88bc9c4a39e3a62c81f7828d6dcc140bdc3a5aa1b70cdac",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 279,
+      "source_sha256": "edb05ccfd2424d665a606e27fb69a3ea9204657c24cebf01c0eef031e4a69083",
+      "canonical_sha256": "edb05ccfd2424d665a606e27fb69a3ea9204657c24cebf01c0eef031e4a69083",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 283,
+      "source_sha256": "032ba8ddee3a1f07950884e37dbb810b4c1c7cc9beca2827a2bb79aff0f1d7ad",
+      "canonical_sha256": "032ba8ddee3a1f07950884e37dbb810b4c1c7cc9beca2827a2bb79aff0f1d7ad",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 285,
+      "source_sha256": "e81ab8184040afa0c637b8481233ca809ba4d06cd4f504a2462c92a302e06223",
+      "canonical_sha256": "e81ab8184040afa0c637b8481233ca809ba4d06cd4f504a2462c92a302e06223",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 286,
+      "source_sha256": "8b2019987d55322bca90584e9cd25e8084a7f876aec4b7b4403dffe0515aa28e",
+      "canonical_sha256": "8b2019987d55322bca90584e9cd25e8084a7f876aec4b7b4403dffe0515aa28e",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 287,
+      "source_sha256": "ca371ab257fe1d2aa916ccfff422f0e54c4ad9d07fdb9c5a4f091b53815f642c",
+      "canonical_sha256": "ca371ab257fe1d2aa916ccfff422f0e54c4ad9d07fdb9c5a4f091b53815f642c",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 288,
+      "source_sha256": "d7c6adcc345237e48b3c9601ee4305b97b3b275e88bc701caf3d61b4bd5e2e70",
+      "canonical_sha256": "d7c6adcc345237e48b3c9601ee4305b97b3b275e88bc701caf3d61b4bd5e2e70",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 289,
+      "source_sha256": "7ad1300c2a32e7c98714910d07c4aa24f4774aac7260df6ac05dda508d4e78ea",
+      "canonical_sha256": "7ad1300c2a32e7c98714910d07c4aa24f4774aac7260df6ac05dda508d4e78ea",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 290,
+      "source_sha256": "cffe273f112ea90f518c636fa98d790e66deaee90295d44abe25dc21ecc02227",
+      "canonical_sha256": "cffe273f112ea90f518c636fa98d790e66deaee90295d44abe25dc21ecc02227",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 292,
+      "source_sha256": "d428725a33572573465d48f6ce8bef37ad0a4756b2d647cee0e927e8aa9d28d2",
+      "canonical_sha256": "d428725a33572573465d48f6ce8bef37ad0a4756b2d647cee0e927e8aa9d28d2",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 294,
+      "source_sha256": "3f42b6de0183c3a36cf6f708864d918150dbb3de49b33cd2dd543c943f18b0fa",
+      "canonical_sha256": "3f42b6de0183c3a36cf6f708864d918150dbb3de49b33cd2dd543c943f18b0fa",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 295,
+      "source_sha256": "d24688e5619885b813dbdcbbc6773459e07a82ccca04caf66b8b83515e1b7c13",
+      "canonical_sha256": "d24688e5619885b813dbdcbbc6773459e07a82ccca04caf66b8b83515e1b7c13",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 296,
+      "source_sha256": "f353e8d667052d31fa98f90c180e29b9c4ab91bdf3843ed549243edc37c0a89d",
+      "canonical_sha256": "f353e8d667052d31fa98f90c180e29b9c4ab91bdf3843ed549243edc37c0a89d",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 297,
+      "source_sha256": "c05e98ef14e34668a4c7a29c7c52f228cdaba0f3e70a0a6eacbc25e546a4e644",
+      "canonical_sha256": "c05e98ef14e34668a4c7a29c7c52f228cdaba0f3e70a0a6eacbc25e546a4e644",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 298,
+      "source_sha256": "3ed88a8d07e6ed59bed4d72f46b3d5bcc139ecae1167586e46d08afbe2334362",
+      "canonical_sha256": "3ed88a8d07e6ed59bed4d72f46b3d5bcc139ecae1167586e46d08afbe2334362",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 300,
+      "source_sha256": "795401db2c0cd14784f0c841b8be2a5c9d6d3095b5a039d5ba957e247c1b9370",
+      "canonical_sha256": "795401db2c0cd14784f0c841b8be2a5c9d6d3095b5a039d5ba957e247c1b9370",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 304,
+      "source_sha256": "035f629ecaa9d25d8c59c8df07589ed880e79dfb42066aff16b70400ff7ff3c8",
+      "canonical_sha256": "035f629ecaa9d25d8c59c8df07589ed880e79dfb42066aff16b70400ff7ff3c8",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 306,
+      "source_sha256": "451a693d511a6eef06321d6239581f5223c5bc54d506026e1affe98f0ec3f1d6",
+      "canonical_sha256": "451a693d511a6eef06321d6239581f5223c5bc54d506026e1affe98f0ec3f1d6",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 307,
+      "source_sha256": "443c1e0898327553027ba393602bb85130c2c157d5b66a3f9ed253a8407bc835",
+      "canonical_sha256": "443c1e0898327553027ba393602bb85130c2c157d5b66a3f9ed253a8407bc835",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 308,
+      "source_sha256": "a8f16412f0172b5c152fb0e8295b5b002c81dcd7edbadc67c9a07c5d566be8a6",
+      "canonical_sha256": "a8f16412f0172b5c152fb0e8295b5b002c81dcd7edbadc67c9a07c5d566be8a6",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 310,
+      "source_sha256": "4b6b63b8cea57458791297e7026038dcd3d1e43c02d6103453381742b0ae8059",
+      "canonical_sha256": "4b6b63b8cea57458791297e7026038dcd3d1e43c02d6103453381742b0ae8059",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 311,
+      "source_sha256": "c37adeaa4ae2b794f5c6cd2ee02c526c9b96d07e4d901a13b35ccc6766a7275a",
+      "canonical_sha256": "c37adeaa4ae2b794f5c6cd2ee02c526c9b96d07e4d901a13b35ccc6766a7275a",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 315,
+      "source_sha256": "5ef977c7559e752378472d8e5f4961f50c798780f578a9a43c6b3b847b0d71dd",
+      "canonical_sha256": "5ef977c7559e752378472d8e5f4961f50c798780f578a9a43c6b3b847b0d71dd",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 317,
+      "source_sha256": "1889f03338b79bbad8bdcdc925ef5e83069569c17e433174ef9a49f62e7d5ee7",
+      "canonical_sha256": "1889f03338b79bbad8bdcdc925ef5e83069569c17e433174ef9a49f62e7d5ee7",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 319,
+      "source_sha256": "46ebdd55caabaa6006ede4e6d6107ea2a1896cb156899557dd7b95420583d006",
+      "canonical_sha256": "46ebdd55caabaa6006ede4e6d6107ea2a1896cb156899557dd7b95420583d006",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 320,
+      "source_sha256": "47421916444be4862c8451a210053edb884c9fc52fd40703b0ef448b5280160e",
+      "canonical_sha256": "47421916444be4862c8451a210053edb884c9fc52fd40703b0ef448b5280160e",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 321,
+      "source_sha256": "56101abe75e7e7350bdc6607b885f0e8592f05d1860deaf2dd99f3122cd408ff",
+      "canonical_sha256": "56101abe75e7e7350bdc6607b885f0e8592f05d1860deaf2dd99f3122cd408ff",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 322,
+      "source_sha256": "b13eb8db2ae301fe1783be85423a76f011b8e524abc749fd4dea87c38a64fae0",
+      "canonical_sha256": "b13eb8db2ae301fe1783be85423a76f011b8e524abc749fd4dea87c38a64fae0",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 323,
+      "source_sha256": "c81bcae296a5e88f259e5a1a8b2bf1e1378d4ee7c8e74510aafb3161a838c4b6",
+      "canonical_sha256": "c81bcae296a5e88f259e5a1a8b2bf1e1378d4ee7c8e74510aafb3161a838c4b6",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 324,
+      "source_sha256": "e7d9f8accc9afad8a831eaa6f44c372b44b2ca7a9188b1c1305bdaa60d0451cd",
+      "canonical_sha256": "e7d9f8accc9afad8a831eaa6f44c372b44b2ca7a9188b1c1305bdaa60d0451cd",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 325,
+      "source_sha256": "ab6a03a876f618332ebd5ad18b440af8acfed904d528aa86a9a01fda1dd61169",
+      "canonical_sha256": "ab6a03a876f618332ebd5ad18b440af8acfed904d528aa86a9a01fda1dd61169",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 326,
+      "source_sha256": "559c5bf134370d73d5094d753d354c583199d362b67db16d4d070ffa42140355",
+      "canonical_sha256": "559c5bf134370d73d5094d753d354c583199d362b67db16d4d070ffa42140355",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 327,
+      "source_sha256": "591c306b9ff9eb957f4adb9388d4571e5aa59426466bbc36d067f827d9370330",
+      "canonical_sha256": "591c306b9ff9eb957f4adb9388d4571e5aa59426466bbc36d067f827d9370330",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 331,
+      "source_sha256": "7b27ce62cb73c5832aa2099f14d4c39786afeabb04be7d73efb5f92d82afcfc7",
+      "canonical_sha256": "7b27ce62cb73c5832aa2099f14d4c39786afeabb04be7d73efb5f92d82afcfc7",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 333,
+      "source_sha256": "1889f03338b79bbad8bdcdc925ef5e83069569c17e433174ef9a49f62e7d5ee7",
+      "canonical_sha256": "1889f03338b79bbad8bdcdc925ef5e83069569c17e433174ef9a49f62e7d5ee7",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 335,
+      "source_sha256": "97d5487841f8bce06541d0f63a878a5912d992cca8664ff8b6b0d04aa4323013",
+      "canonical_sha256": "97d5487841f8bce06541d0f63a878a5912d992cca8664ff8b6b0d04aa4323013",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 336,
+      "source_sha256": "55220ad71cfe5c51a20fea2eb3ece0646d1b00b3c75a29796df7cea2c24b4bfc",
+      "canonical_sha256": "55220ad71cfe5c51a20fea2eb3ece0646d1b00b3c75a29796df7cea2c24b4bfc",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 337,
+      "source_sha256": "31f9db7f10143f5d44c02f5c0675a1804d120d3e844753a0028829c2f7ab5145",
+      "canonical_sha256": "31f9db7f10143f5d44c02f5c0675a1804d120d3e844753a0028829c2f7ab5145",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 339,
+      "source_sha256": "2d7efe672d0c5db7e460b0e1827eff2e79cb651783319bf477011a27d361e06d",
+      "canonical_sha256": "2d7efe672d0c5db7e460b0e1827eff2e79cb651783319bf477011a27d361e06d",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 343,
+      "source_sha256": "7ee22ae2a3e9699adc8bcf57a4900357701c7ac280c7b9a1dc309423f3f5ab1a",
+      "canonical_sha256": "7ee22ae2a3e9699adc8bcf57a4900357701c7ac280c7b9a1dc309423f3f5ab1a",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 345,
+      "source_sha256": "1889f03338b79bbad8bdcdc925ef5e83069569c17e433174ef9a49f62e7d5ee7",
+      "canonical_sha256": "1889f03338b79bbad8bdcdc925ef5e83069569c17e433174ef9a49f62e7d5ee7",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 347,
+      "source_sha256": "7f351140070d008b710206a5c4ad908ad08e157374846c2e0188fc769c950f95",
+      "canonical_sha256": "7f351140070d008b710206a5c4ad908ad08e157374846c2e0188fc769c950f95",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 348,
+      "source_sha256": "7cb502ff55dd25634c1f546bb81d631d045a2d96d2075afcc8762b8a8bd287b6",
+      "canonical_sha256": "7cb502ff55dd25634c1f546bb81d631d045a2d96d2075afcc8762b8a8bd287b6",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 349,
+      "source_sha256": "1ca979d905363c23db04439502a4fd9f721d1cf3f05b9ea3c043f0f28e055878",
+      "canonical_sha256": "1ca979d905363c23db04439502a4fd9f721d1cf3f05b9ea3c043f0f28e055878",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 350,
+      "source_sha256": "866fe70019cce468458c177fad70f00e7457d4a703a03ff7e63c80b44b7aec5b",
+      "canonical_sha256": "866fe70019cce468458c177fad70f00e7457d4a703a03ff7e63c80b44b7aec5b",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 352,
+      "source_sha256": "b950e8ee624f6a9371b0df095fec2bc3de46e691f5159ca7faa943021bf9c99a",
+      "canonical_sha256": "b950e8ee624f6a9371b0df095fec2bc3de46e691f5159ca7faa943021bf9c99a",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 356,
+      "source_sha256": "02227acfad017b160f13671b6ef80e7e6fd7603e86de507c27e27d172c9b4e25",
+      "canonical_sha256": "02227acfad017b160f13671b6ef80e7e6fd7603e86de507c27e27d172c9b4e25",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 358,
+      "source_sha256": "da578f7191d72e634ce4420743a3f62049629000b4c3e64d007b287df1143881",
+      "canonical_sha256": "da578f7191d72e634ce4420743a3f62049629000b4c3e64d007b287df1143881",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 359,
+      "source_sha256": "1e69d4d6a5c9ff0e02c9a65898ddbaf3296df10f5ea5601e9de376e0e506ac56",
+      "canonical_sha256": "1e69d4d6a5c9ff0e02c9a65898ddbaf3296df10f5ea5601e9de376e0e506ac56",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 360,
+      "source_sha256": "3b8f8e5d312cbd452f96bf0ad3094d81a34eaca24a7cd5e5de79e271bd278b4d",
+      "canonical_sha256": "3b8f8e5d312cbd452f96bf0ad3094d81a34eaca24a7cd5e5de79e271bd278b4d",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 361,
+      "source_sha256": "98370a5e29faec0817094df49167726432460d1de617ba4fc5322f831e4a13d3",
+      "canonical_sha256": "98370a5e29faec0817094df49167726432460d1de617ba4fc5322f831e4a13d3",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 362,
+      "source_sha256": "5c4c704559d7bddf9740edb4f9d745f41ef86771d33254f5ca7f1b6a4c2f4333",
+      "canonical_sha256": "5c4c704559d7bddf9740edb4f9d745f41ef86771d33254f5ca7f1b6a4c2f4333",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 363,
+      "source_sha256": "437d627f04ab231336be1554683f98ac13c70d4347007dfd09015852b9f48151",
+      "canonical_sha256": "437d627f04ab231336be1554683f98ac13c70d4347007dfd09015852b9f48151",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 364,
+      "source_sha256": "a2c30750b97ff35e94964614484b6812e54c394de99a0bade35fbd26397a75a0",
+      "canonical_sha256": "a2c30750b97ff35e94964614484b6812e54c394de99a0bade35fbd26397a75a0",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 365,
+      "source_sha256": "a4b5ae181a25f3b183f67ad022483ebe0317d9513a548fbbf0fcadc7a2ff0d52",
+      "canonical_sha256": "a4b5ae181a25f3b183f67ad022483ebe0317d9513a548fbbf0fcadc7a2ff0d52",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 369,
+      "source_sha256": "d3bb9359a264a070febc39cf24f5ddc6f420ceb4a58d84816cba9db9a3578220",
+      "canonical_sha256": "d3bb9359a264a070febc39cf24f5ddc6f420ceb4a58d84816cba9db9a3578220",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 371,
+      "source_sha256": "a2ddc38c4c48078ad8b9c2c21eada83b8514f63fe6d35e14b5aa912f76aab62d",
+      "canonical_sha256": "a2ddc38c4c48078ad8b9c2c21eada83b8514f63fe6d35e14b5aa912f76aab62d",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 372,
+      "source_sha256": "184067825310952886d67601f1ba99cd6196e82bca594510ec0aa3de45219b32",
+      "canonical_sha256": "184067825310952886d67601f1ba99cd6196e82bca594510ec0aa3de45219b32",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 373,
+      "source_sha256": "4c0d8e351e43f51ade5c017d1b116da6fa88b29c39077a3f6e2737d216990a5a",
+      "canonical_sha256": "4c0d8e351e43f51ade5c017d1b116da6fa88b29c39077a3f6e2737d216990a5a",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 374,
+      "source_sha256": "89b1665430fd1d995cfed359173b45936389f34af9f6701988672e73678a1633",
+      "canonical_sha256": "89b1665430fd1d995cfed359173b45936389f34af9f6701988672e73678a1633",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 376,
+      "source_sha256": "ba82dc74a1fd37868eada0e0e9382bf384f4f11265dec46efa62b53691bc38b5",
+      "canonical_sha256": "ba82dc74a1fd37868eada0e0e9382bf384f4f11265dec46efa62b53691bc38b5",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 384,
+      "source_sha256": "d8845717a557691f32602a42658ea71f1a2d57ea9869ae9c174de84db780deb4",
+      "canonical_sha256": "d8845717a557691f32602a42658ea71f1a2d57ea9869ae9c174de84db780deb4",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 386,
+      "source_sha256": "db30a612b1edda860b365b0fc2bbdb73297e97549c844395f599d00f1f6fe9ce",
+      "canonical_sha256": "db30a612b1edda860b365b0fc2bbdb73297e97549c844395f599d00f1f6fe9ce",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 388,
+      "source_sha256": "4dde011826492d41a7e0ea09b4e9ab726a20faabb78cf741da9cf415ae8b7e3c",
+      "canonical_sha256": "4dde011826492d41a7e0ea09b4e9ab726a20faabb78cf741da9cf415ae8b7e3c",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 390,
+      "source_sha256": "715fa1f06066f646d423fd9eeb888fbcf18e4e8ee840595bab5e7fad13f3fbe9",
+      "canonical_sha256": "715fa1f06066f646d423fd9eeb888fbcf18e4e8ee840595bab5e7fad13f3fbe9",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 394,
+      "source_sha256": "bdf30db96debb3ec68f34b960939a0b6cd32b8de0c4d0631417a5fe2ee0d884d",
+      "canonical_sha256": "bdf30db96debb3ec68f34b960939a0b6cd32b8de0c4d0631417a5fe2ee0d884d",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/02-cognition.md"
+    },
+    {
+      "source_line": 396,
+      "source_sha256": "065269af22b79bcdd093b558e97ea354fbd0c668c1d2a08bf3ef1578d3bbba7a",
+      "canonical_sha256": "065269af22b79bcdd093b558e97ea354fbd0c668c1d2a08bf3ef1578d3bbba7a",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/02-cognition.md"
+    },
+    {
+      "source_line": 398,
+      "source_sha256": "f824da24e9e7bd0969cd5f9d6e2a008cb4a8cd7738d0a4532f91f03559c47055",
+      "canonical_sha256": "f824da24e9e7bd0969cd5f9d6e2a008cb4a8cd7738d0a4532f91f03559c47055",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/02-cognition.md"
+    },
+    {
+      "source_line": 402,
+      "source_sha256": "655c6e75090156c391291053c741f98fbfd8e62dda7070d236a9638cbe613465",
+      "canonical_sha256": "655c6e75090156c391291053c741f98fbfd8e62dda7070d236a9638cbe613465",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/02-cognition.md"
+    },
+    {
+      "source_line": 403,
+      "source_sha256": "77d71031c6dbe0f7d8c925e5cdb38417ac8027659ba87ff83b7b72c8b62a65a3",
+      "canonical_sha256": "77d71031c6dbe0f7d8c925e5cdb38417ac8027659ba87ff83b7b72c8b62a65a3",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/02-cognition.md"
+    },
+    {
+      "source_line": 404,
+      "source_sha256": "5ef60c6152ae56f085c454ab8430eedf792a861c027357988785fafa2bc9fb57",
+      "canonical_sha256": "5ef60c6152ae56f085c454ab8430eedf792a861c027357988785fafa2bc9fb57",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/02-cognition.md"
+    },
+    {
+      "source_line": 408,
+      "source_sha256": "e842fe969f37628120590100cdaaa91c30221957a1f034aa9754469d60af8eaf",
+      "canonical_sha256": "e842fe969f37628120590100cdaaa91c30221957a1f034aa9754469d60af8eaf",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/03-product-definition.md"
+    },
+    {
+      "source_line": 410,
+      "source_sha256": "fa59471596018e66cb4c2da526b7543c70e4f67222a44276fc672ffb4d6df801",
+      "canonical_sha256": "fa59471596018e66cb4c2da526b7543c70e4f67222a44276fc672ffb4d6df801",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/03-product-definition.md"
+    },
+    {
+      "source_line": 412,
+      "source_sha256": "83ee011655ca9bc4f27e8465b3bcb4b5b45259496034eb8a529bbfc82b199f68",
+      "canonical_sha256": "83ee011655ca9bc4f27e8465b3bcb4b5b45259496034eb8a529bbfc82b199f68",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/03-product-definition.md"
+    },
+    {
+      "source_line": 414,
+      "source_sha256": "fb25d15a6e380480b4d70d18e8c83811ff30dd8f57ce2b1e3c067ff4f7342233",
+      "canonical_sha256": "fb25d15a6e380480b4d70d18e8c83811ff30dd8f57ce2b1e3c067ff4f7342233",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/03-product-definition.md"
+    },
+    {
+      "source_line": 418,
+      "source_sha256": "7fa464f10ed95bd81c28f7ad47a9891237d407fb311127e28c4f4192e6a6de25",
+      "canonical_sha256": "7fa464f10ed95bd81c28f7ad47a9891237d407fb311127e28c4f4192e6a6de25",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 420,
+      "source_sha256": "f18525590348fbcb9c9f7815293fc5fa3feb667cc061d34d21fb4f0bd6633135",
+      "canonical_sha256": "f18525590348fbcb9c9f7815293fc5fa3feb667cc061d34d21fb4f0bd6633135",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 424,
+      "source_sha256": "b4af0a96109f02d9f79c8deed2b5b2f4fc2f45ed3b3645c366e752fb089c20d0",
+      "canonical_sha256": "b4af0a96109f02d9f79c8deed2b5b2f4fc2f45ed3b3645c366e752fb089c20d0",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 425,
+      "source_sha256": "9065ef4b8a77806189bbfdf6adc3c8a84a711a3fc9c1f4d974b96ca6788ff390",
+      "canonical_sha256": "9065ef4b8a77806189bbfdf6adc3c8a84a711a3fc9c1f4d974b96ca6788ff390",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 426,
+      "source_sha256": "be16c9cbcda0b85865edae13314fb7d1fee38c8f568597a54566830e5d12da9b",
+      "canonical_sha256": "be16c9cbcda0b85865edae13314fb7d1fee38c8f568597a54566830e5d12da9b",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 427,
+      "source_sha256": "dc228c23d030fd088202652c102b2db73587f18590010bbe80c8c7f4b60e8581",
+      "canonical_sha256": "dc228c23d030fd088202652c102b2db73587f18590010bbe80c8c7f4b60e8581",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 428,
+      "source_sha256": "6b7d42dc28bc12ed07167c3ac3b9b3208087d1fa4dc2933cf40b64096790f460",
+      "canonical_sha256": "6b7d42dc28bc12ed07167c3ac3b9b3208087d1fa4dc2933cf40b64096790f460",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 429,
+      "source_sha256": "b6557b52ba5b7ea5885a849a84a3e0efd64958da174baa602231652ec5319452",
+      "canonical_sha256": "b6557b52ba5b7ea5885a849a84a3e0efd64958da174baa602231652ec5319452",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 430,
+      "source_sha256": "4eded8a9fb6cedbc9f2966319eb8c848edea0340c2f563acfe89b7866729d9ce",
+      "canonical_sha256": "4eded8a9fb6cedbc9f2966319eb8c848edea0340c2f563acfe89b7866729d9ce",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 431,
+      "source_sha256": "3006493a92a911b73e5e517f1c2d040416a854fe24697a4c05935142954bc416",
+      "canonical_sha256": "3006493a92a911b73e5e517f1c2d040416a854fe24697a4c05935142954bc416",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 435,
+      "source_sha256": "f449788c1c2f5fc8d5dad6aa55b02aabce06b58885239e0b4b7eb484af558948",
+      "canonical_sha256": "f449788c1c2f5fc8d5dad6aa55b02aabce06b58885239e0b4b7eb484af558948",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 436,
+      "source_sha256": "14248803fc19e552a4c63242eff92192a5d80fa71055535e67ec46b82df90760",
+      "canonical_sha256": "14248803fc19e552a4c63242eff92192a5d80fa71055535e67ec46b82df90760",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 437,
+      "source_sha256": "96926f9695007e8b9176919d066fe0f8c7db534fccbe2640885320dae0fac956",
+      "canonical_sha256": "96926f9695007e8b9176919d066fe0f8c7db534fccbe2640885320dae0fac956",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 438,
+      "source_sha256": "177a7ea3611fe6b138557deaf44941614b66c0ece1766308044c8b65c8ba2123",
+      "canonical_sha256": "177a7ea3611fe6b138557deaf44941614b66c0ece1766308044c8b65c8ba2123",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 439,
+      "source_sha256": "7898b7cfc89422d9ec660910544a49542c48540f57f264b9f23deaec76d56297",
+      "canonical_sha256": "7898b7cfc89422d9ec660910544a49542c48540f57f264b9f23deaec76d56297",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 440,
+      "source_sha256": "607adab009e4c758b8cbe8165313a8480f95d1679a4bbe8c6709f3e9fb62ec3b",
+      "canonical_sha256": "607adab009e4c758b8cbe8165313a8480f95d1679a4bbe8c6709f3e9fb62ec3b",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 442,
+      "source_sha256": "9975ee5c3121c7a310683166b56d8133a81ac146a31081f877aa7c1c22fd107c",
+      "canonical_sha256": "4ba9f1eff1768086f52c9bab6e24833bd00b313b29366637b8503c89b7b495d5",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md",
+      "relocation": "Equivalent deterministic-judge rule consolidated in Executor"
+    },
+    {
+      "source_line": 444,
+      "source_sha256": "afb0d2f65654acb5758a795e9003b9e64dd3627745311f6a4672e0e9e4ffb1d0",
+      "canonical_sha256": "afb0d2f65654acb5758a795e9003b9e64dd3627745311f6a4672e0e9e4ffb1d0",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 446,
+      "source_sha256": "29c503781c8a58fd50f65ae7c62cb42683cc94430c84e40213fdc5f41b75c1ac",
+      "canonical_sha256": "29c503781c8a58fd50f65ae7c62cb42683cc94430c84e40213fdc5f41b75c1ac",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 450,
+      "source_sha256": "6a22b4b30764835588e95573c1e821671e3c09f3eb9140c72bb493c954bdcfdd",
+      "canonical_sha256": "6a22b4b30764835588e95573c1e821671e3c09f3eb9140c72bb493c954bdcfdd",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/05-implementation.md"
+    },
+    {
+      "source_line": 452,
+      "source_sha256": "9146e7048ff72108bb5f95cc0ecf60b8ed892d978d5f7b6475e8cdae40d9f65b",
+      "canonical_sha256": "9146e7048ff72108bb5f95cc0ecf60b8ed892d978d5f7b6475e8cdae40d9f65b",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/05-implementation.md"
+    },
+    {
+      "source_line": 454,
+      "source_sha256": "34da4d8a5f857ad530fb7db9fec997f742228bc32a600bf21e0e9d4127fcaa48",
+      "canonical_sha256": "34da4d8a5f857ad530fb7db9fec997f742228bc32a600bf21e0e9d4127fcaa48",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/05-implementation.md"
+    },
+    {
+      "source_line": 458,
+      "source_sha256": "53318147d82c8d19b58ddb3f1d5aa5adcf891be1447cde52e9420cd06a1ffe76",
+      "canonical_sha256": "53318147d82c8d19b58ddb3f1d5aa5adcf891be1447cde52e9420cd06a1ffe76",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 460,
+      "source_sha256": "18384281214c9c52a98e5574b6cb51f3accd6b57ce35256609d04fef87d43cce",
+      "canonical_sha256": "18384281214c9c52a98e5574b6cb51f3accd6b57ce35256609d04fef87d43cce",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 462,
+      "source_sha256": "078ffb1a2d899f3a3bb6bd55b821d240a53b2d0b36adbb8d3c56f876b15b8444",
+      "canonical_sha256": "078ffb1a2d899f3a3bb6bd55b821d240a53b2d0b36adbb8d3c56f876b15b8444",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 464,
+      "source_sha256": "882e8e6e20e419f728d53b4705cc14ba52b8da31eef8f5cd5375e782feed79c2",
+      "canonical_sha256": "882e8e6e20e419f728d53b4705cc14ba52b8da31eef8f5cd5375e782feed79c2",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 466,
+      "source_sha256": "f8dcb7a13bf4991a7d7969ea1c8add149e79b13ae91c0e6c13994da38eb3636a",
+      "canonical_sha256": "f8dcb7a13bf4991a7d7969ea1c8add149e79b13ae91c0e6c13994da38eb3636a",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 467,
+      "source_sha256": "f3570775e7d56747727d62d24530e1a41b958db15cbbcbf50aa4cc746ac04af2",
+      "canonical_sha256": "f3570775e7d56747727d62d24530e1a41b958db15cbbcbf50aa4cc746ac04af2",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 468,
+      "source_sha256": "4567f90e2a90a3cc1ac2bf6c984d6dcdfd7d012fd871ce7b842abe29ab82e2da",
+      "canonical_sha256": "4567f90e2a90a3cc1ac2bf6c984d6dcdfd7d012fd871ce7b842abe29ab82e2da",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 469,
+      "source_sha256": "9372c470eeadd5ecd9c3c74c2b3cb633f8e2f2fad799250a0f70d652b6b825e4",
+      "canonical_sha256": "9372c470eeadd5ecd9c3c74c2b3cb633f8e2f2fad799250a0f70d652b6b825e4",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 470,
+      "source_sha256": "1565fb024111a80bf52ce23a0b1ce48d09e520ce21069f50533e53a044e5f7f0",
+      "canonical_sha256": "1565fb024111a80bf52ce23a0b1ce48d09e520ce21069f50533e53a044e5f7f0",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 471,
+      "source_sha256": "f0b9c9a6b659eaab52b631e037f6c5ee989880bed0cc17fde59fabe25eed4b6c",
+      "canonical_sha256": "f0b9c9a6b659eaab52b631e037f6c5ee989880bed0cc17fde59fabe25eed4b6c",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 472,
+      "source_sha256": "2f0a9e4fec74e596ad09c1ed0f7b77efd01d2149acc4d492e06a87a0da365b1f",
+      "canonical_sha256": "2f0a9e4fec74e596ad09c1ed0f7b77efd01d2149acc4d492e06a87a0da365b1f",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 473,
+      "source_sha256": "5694d08a2e53ffcae0c3103e5ad6f6076abd960eb1f8a56577040bc1028f702b",
+      "canonical_sha256": "5694d08a2e53ffcae0c3103e5ad6f6076abd960eb1f8a56577040bc1028f702b",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 474,
+      "source_sha256": "efe77b201dc216c0edf435a227df2b2898d3f6ea1ff16e5d4d0d4ec0cf593271",
+      "canonical_sha256": "efe77b201dc216c0edf435a227df2b2898d3f6ea1ff16e5d4d0d4ec0cf593271",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 476,
+      "source_sha256": "2cfe5610f25a9118802bc1534bae62f07adddeeed1e6f5c11ce0e39ddaad9fd7",
+      "canonical_sha256": "2cfe5610f25a9118802bc1534bae62f07adddeeed1e6f5c11ce0e39ddaad9fd7",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 480,
+      "source_sha256": "83f4563215995d9e98d4b6175727b15c4775328869e5a6c78c3a70c871aa98f1",
+      "canonical_sha256": "83f4563215995d9e98d4b6175727b15c4775328869e5a6c78c3a70c871aa98f1",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/07-release-operation.md"
+    },
+    {
+      "source_line": 482,
+      "source_sha256": "f6b59ddcdde1c45a16c694ac4f58c1f133d5e726fbec8d561d19b427608f7865",
+      "canonical_sha256": "f6b59ddcdde1c45a16c694ac4f58c1f133d5e726fbec8d561d19b427608f7865",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/07-release-operation.md"
+    },
+    {
+      "source_line": 484,
+      "source_sha256": "07912c8b971f3aad3ac1a9f60dcef47bade4301f9fd168086a3623f89cc8cc6b",
+      "canonical_sha256": "07912c8b971f3aad3ac1a9f60dcef47bade4301f9fd168086a3623f89cc8cc6b",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/07-release-operation.md"
+    },
+    {
+      "source_line": 486,
+      "source_sha256": "5230d493ff3ffb1cec22952225c046aaaa95255cfd3740ae558468ee02681422",
+      "canonical_sha256": "5230d493ff3ffb1cec22952225c046aaaa95255cfd3740ae558468ee02681422",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/07-release-operation.md"
+    },
+    {
+      "source_line": 487,
+      "source_sha256": "d4bf78cc720701819784032d793aa132d5ea1c85fe3b77fbcc98b773958ba0c5",
+      "canonical_sha256": "d4bf78cc720701819784032d793aa132d5ea1c85fe3b77fbcc98b773958ba0c5",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/07-release-operation.md"
+    },
+    {
+      "source_line": 488,
+      "source_sha256": "7dff584e1fa15f617cb5c614775f662f749dacbf1dbdc8ef6f66d40aecfc069d",
+      "canonical_sha256": "7dff584e1fa15f617cb5c614775f662f749dacbf1dbdc8ef6f66d40aecfc069d",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/07-release-operation.md"
+    },
+    {
+      "source_line": 489,
+      "source_sha256": "6254122d4e21a132230019c71b870cad63e5e57d394f920c4f99def92aa7c340",
+      "canonical_sha256": "6254122d4e21a132230019c71b870cad63e5e57d394f920c4f99def92aa7c340",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/07-release-operation.md"
+    },
+    {
+      "source_line": 493,
+      "source_sha256": "2b331a945fc22ee6312fb77739f3c34f9d9f6b6ab9477911ca14d11405455ad3",
+      "canonical_sha256": "2b331a945fc22ee6312fb77739f3c34f9d9f6b6ab9477911ca14d11405455ad3",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/08-retrospective.md"
+    },
+    {
+      "source_line": 495,
+      "source_sha256": "9622f79b05f591a47d97fad04ee55c7f458293689d4bcf4020ea84cd45008023",
+      "canonical_sha256": "9622f79b05f591a47d97fad04ee55c7f458293689d4bcf4020ea84cd45008023",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/08-retrospective.md"
+    },
+    {
+      "source_line": 497,
+      "source_sha256": "423928d2a05bf98045bfdc0d0662df585438dfc19510b05b5a05a61c54560fbe",
+      "canonical_sha256": "423928d2a05bf98045bfdc0d0662df585438dfc19510b05b5a05a61c54560fbe",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/08-retrospective.md"
+    },
+    {
+      "source_line": 503,
+      "source_sha256": "9a62baacded001a0adf7c43d81c07811bbbeaf2e6251dc9085e1bdc2c03e3845",
+      "canonical_sha256": "9a62baacded001a0adf7c43d81c07811bbbeaf2e6251dc9085e1bdc2c03e3845",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 505,
+      "source_sha256": "7e451e5d9df94e261f231f2722252fccf17b218d3717215d75104c79d30ab2b9",
+      "canonical_sha256": "7e451e5d9df94e261f231f2722252fccf17b218d3717215d75104c79d30ab2b9",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 508,
+      "source_sha256": "c6c28dbbbd62c8e23cd84723ecdace97be8471f853c1b48e0d9488d7af6578f7",
+      "canonical_sha256": "c6c28dbbbd62c8e23cd84723ecdace97be8471f853c1b48e0d9488d7af6578f7",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 509,
+      "source_sha256": "772783b4dfc2fe3652af41d175b0659422a1e32e03de3593490488cc96d0bd1f",
+      "canonical_sha256": "772783b4dfc2fe3652af41d175b0659422a1e32e03de3593490488cc96d0bd1f",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 510,
+      "source_sha256": "056d88b4fbd2b6b8049fee4b3c6c51914be5cb3da5584f92efa8a954dabe8a09",
+      "canonical_sha256": "056d88b4fbd2b6b8049fee4b3c6c51914be5cb3da5584f92efa8a954dabe8a09",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 511,
+      "source_sha256": "0e26e7bf94566bd7ac6b07d7c0719b2aa3ead85d8aaf20db6fa9b852811b39dc",
+      "canonical_sha256": "0e26e7bf94566bd7ac6b07d7c0719b2aa3ead85d8aaf20db6fa9b852811b39dc",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 512,
+      "source_sha256": "44b90b9011588cfa8e8708e673d70e40b41dcce652f95087489d0a486d757f2b",
+      "canonical_sha256": "44b90b9011588cfa8e8708e673d70e40b41dcce652f95087489d0a486d757f2b",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 513,
+      "source_sha256": "edb5fa664ac4f5bcc76cde8bd0f6490b5029c30709d0a441df9d59ba03c4ce80",
+      "canonical_sha256": "edb5fa664ac4f5bcc76cde8bd0f6490b5029c30709d0a441df9d59ba03c4ce80",
+      "canonical_file": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 514,
+      "source_sha256": "57f81878bc9e90f930c3415875515265603bccd744ca465eb9afa9c80df40a93",
+      "canonical_sha256": "57f81878bc9e90f930c3415875515265603bccd744ca465eb9afa9c80df40a93",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 517,
+      "source_sha256": "48e109e50c7922b943c888b0f730f872fff35f6c6fdeb51b090a2ad0c2344683",
+      "canonical_sha256": "48e109e50c7922b943c888b0f730f872fff35f6c6fdeb51b090a2ad0c2344683",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 521,
+      "source_sha256": "ca57903ffe62cf667235fdf479fcf1052774d80accbddf497eedc6c88e2eabcf",
+      "canonical_sha256": "ca57903ffe62cf667235fdf479fcf1052774d80accbddf497eedc6c88e2eabcf",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 523,
+      "source_sha256": "e48b16ea57d466d3f1e503533d2049b5f49f09b450338da4f430dc5ee29e81d5",
+      "canonical_sha256": "e48b16ea57d466d3f1e503533d2049b5f49f09b450338da4f430dc5ee29e81d5",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 524,
+      "source_sha256": "3c5eaec583000b4cc2497a63d4e327bf1ca282a0264cbb40f3c869d72f74c653",
+      "canonical_sha256": "3c5eaec583000b4cc2497a63d4e327bf1ca282a0264cbb40f3c869d72f74c653",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 525,
+      "source_sha256": "9520b31a2f1590f58fe39a54198917caa836d7dfb26eafd3e558adc3846bff5e",
+      "canonical_sha256": "9520b31a2f1590f58fe39a54198917caa836d7dfb26eafd3e558adc3846bff5e",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 526,
+      "source_sha256": "f3c1179302dddf5258711a4c16180a83bdced7093a6db889abba5e7c851dc57c",
+      "canonical_sha256": "f3c1179302dddf5258711a4c16180a83bdced7093a6db889abba5e7c851dc57c",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 527,
+      "source_sha256": "bfa1a4a8d672258791d657ae418a8637a363dc9c0d73cad8a4890ec767de2405",
+      "canonical_sha256": "bfa1a4a8d672258791d657ae418a8637a363dc9c0d73cad8a4890ec767de2405",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 528,
+      "source_sha256": "01c8186462f353dc90fdb9e1c437560dfbc198be295a24d912825794e2e527e1",
+      "canonical_sha256": "01c8186462f353dc90fdb9e1c437560dfbc198be295a24d912825794e2e527e1",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 530,
+      "source_sha256": "8a6286ebfa5f4190d24effa4921c18ab173a268411cb00beb20d676012d11a84",
+      "canonical_sha256": "8a6286ebfa5f4190d24effa4921c18ab173a268411cb00beb20d676012d11a84",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 534,
+      "source_sha256": "3e4f852444dda73a1de6cc7334effd2086ca0966b64868134ace5f7f289dd1a2",
+      "canonical_sha256": "3e4f852444dda73a1de6cc7334effd2086ca0966b64868134ace5f7f289dd1a2",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 536,
+      "source_sha256": "06d1b567f0b25615bc8b522a1de9445dd1d2e3c83c943fca4b698c5220f20e12",
+      "canonical_sha256": "06d1b567f0b25615bc8b522a1de9445dd1d2e3c83c943fca4b698c5220f20e12",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 538,
+      "source_sha256": "cacc8307b9678a464a126156413c9e0faf46fcdb7eed891eea46befddaa415ac",
+      "canonical_sha256": "cacc8307b9678a464a126156413c9e0faf46fcdb7eed891eea46befddaa415ac",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 542,
+      "source_sha256": "48c0de63993bc3e9843ff1e0fd5b71d6ca48d5d2b2469086146deb289865411c",
+      "canonical_sha256": "48c0de63993bc3e9843ff1e0fd5b71d6ca48d5d2b2469086146deb289865411c",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 544,
+      "source_sha256": "d957c2d175aa7c9f38a96644080021d7da052e27fef1c191eaaf72a88019b618",
+      "canonical_sha256": "d957c2d175aa7c9f38a96644080021d7da052e27fef1c191eaaf72a88019b618",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 545,
+      "source_sha256": "576d949b024506dbf1761397a3b0306b516c5930d7c5cb3c080875a494dddd17",
+      "canonical_sha256": "576d949b024506dbf1761397a3b0306b516c5930d7c5cb3c080875a494dddd17",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 546,
+      "source_sha256": "689ae587f249a2fe359b0d5b8596455a4223a79a9fbaba300034ec7ed25725ff",
+      "canonical_sha256": "689ae587f249a2fe359b0d5b8596455a4223a79a9fbaba300034ec7ed25725ff",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 547,
+      "source_sha256": "43f9d85ed572dc97bf29fc192fc9e969dd78d1dac719812d184013dbee73ad33",
+      "canonical_sha256": "43f9d85ed572dc97bf29fc192fc9e969dd78d1dac719812d184013dbee73ad33",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 548,
+      "source_sha256": "f416e3e497d69e775134a5c7ac0f11ea8f0e9380fcfaeb5a7646bfe6b165a2de",
+      "canonical_sha256": "f416e3e497d69e775134a5c7ac0f11ea8f0e9380fcfaeb5a7646bfe6b165a2de",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 550,
+      "source_sha256": "3bf8da4b42ad4ab45ada69cbd6c7e94ee2e4c8e82ddb9ea42236ca9c33067d9c",
+      "canonical_sha256": "3bf8da4b42ad4ab45ada69cbd6c7e94ee2e4c8e82ddb9ea42236ca9c33067d9c",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 554,
+      "source_sha256": "a9e310bb19bde2e7a076d50676250906db8007f703eed09d514072df0ad5cdd7",
+      "canonical_sha256": "a9e310bb19bde2e7a076d50676250906db8007f703eed09d514072df0ad5cdd7",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 556,
+      "source_sha256": "bba8487a2e823003f3c03b06300e5c47bf7ee73fcb14243c8903e96e816b8b12",
+      "canonical_sha256": "bba8487a2e823003f3c03b06300e5c47bf7ee73fcb14243c8903e96e816b8b12",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 557,
+      "source_sha256": "e1cd875108b02415681e129965381b5a6c5668ab814efff9ac8b52bc0d5d1b45",
+      "canonical_sha256": "e1cd875108b02415681e129965381b5a6c5668ab814efff9ac8b52bc0d5d1b45",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 558,
+      "source_sha256": "ac8f6bb632fd0c55142fc321c6b6aea2bc0417596dbe1d5f6c6b5db845cb8dcf",
+      "canonical_sha256": "ac8f6bb632fd0c55142fc321c6b6aea2bc0417596dbe1d5f6c6b5db845cb8dcf",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 559,
+      "source_sha256": "41f9af69559fa516b2b64dbdbdb572b33b82a367cdd72b7c8e4aab7dfa71eacb",
+      "canonical_sha256": "41f9af69559fa516b2b64dbdbdb572b33b82a367cdd72b7c8e4aab7dfa71eacb",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 560,
+      "source_sha256": "94e80fe3311f781c578f767c38471eef3fc27974b6868347454c3040174e81f6",
+      "canonical_sha256": "94e80fe3311f781c578f767c38471eef3fc27974b6868347454c3040174e81f6",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 561,
+      "source_sha256": "36ee49177db21ac971060fe41b549fdc39e28ab89c0864df12e1537664de95b8",
+      "canonical_sha256": "36ee49177db21ac971060fe41b549fdc39e28ab89c0864df12e1537664de95b8",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 563,
+      "source_sha256": "020ec7e3b20c3be75f9836579e2eddfef01d330271a83d676390817a7e450b9f",
+      "canonical_sha256": "020ec7e3b20c3be75f9836579e2eddfef01d330271a83d676390817a7e450b9f",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 567,
+      "source_sha256": "64601e313fce6d891541650fff16da2c6e25eccf12011bc09e95da2a26e2862d",
+      "canonical_sha256": "64601e313fce6d891541650fff16da2c6e25eccf12011bc09e95da2a26e2862d",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 569,
+      "source_sha256": "8222780be21d18f0e1664ba0087acf322a8094696f081b76e2358b6782d2a701",
+      "canonical_sha256": "8222780be21d18f0e1664ba0087acf322a8094696f081b76e2358b6782d2a701",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 570,
+      "source_sha256": "8ded7af6aa478bd77f3fc6914b5e0a888032d3f0039eb055863c2f7fd395307f",
+      "canonical_sha256": "8ded7af6aa478bd77f3fc6914b5e0a888032d3f0039eb055863c2f7fd395307f",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 571,
+      "source_sha256": "a7833a131bc41841666a17e24761fe73f49587ae1347f33b3fd7d669689c20f6",
+      "canonical_sha256": "a7833a131bc41841666a17e24761fe73f49587ae1347f33b3fd7d669689c20f6",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 572,
+      "source_sha256": "fc5c262a0b4f175b6eb1b12362ec2e823ffc618df5b67f8eb4fb41b3f2a91a27",
+      "canonical_sha256": "fc5c262a0b4f175b6eb1b12362ec2e823ffc618df5b67f8eb4fb41b3f2a91a27",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 574,
+      "source_sha256": "d4991d964b75ec12617fcbc73ad6dc596731321e43c50a73eb4d8c3bd1e2346d",
+      "canonical_sha256": "d4991d964b75ec12617fcbc73ad6dc596731321e43c50a73eb4d8c3bd1e2346d",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 576,
+      "source_sha256": "497e9d7c9899a93e04efe9f692bc44def8a416a773f1786dde848633c35c3f8a",
+      "canonical_sha256": "497e9d7c9899a93e04efe9f692bc44def8a416a773f1786dde848633c35c3f8a",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 580,
+      "source_sha256": "62297dee737c696c3ae75e7bde4a52ef0559c6296bcce692f2cfa826ba62dc73",
+      "canonical_sha256": "62297dee737c696c3ae75e7bde4a52ef0559c6296bcce692f2cfa826ba62dc73",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 582,
+      "source_sha256": "021a1d4d5516a35b9b2112b5c22b10720a05de3e67562d8206781f7627f8ae25",
+      "canonical_sha256": "021a1d4d5516a35b9b2112b5c22b10720a05de3e67562d8206781f7627f8ae25",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 583,
+      "source_sha256": "2837bf6c9b5fccebb47fdb81ad1ede0c9b9e596353271bbe2474d0197cad4d44",
+      "canonical_sha256": "2837bf6c9b5fccebb47fdb81ad1ede0c9b9e596353271bbe2474d0197cad4d44",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 584,
+      "source_sha256": "19ae094184ea80321ec4c7fc68f5347e2d26e938a3947457626caee3b46d350d",
+      "canonical_sha256": "19ae094184ea80321ec4c7fc68f5347e2d26e938a3947457626caee3b46d350d",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 585,
+      "source_sha256": "cc3e7f3304f015046114aae9f7c200b295acca115f8ef84dd861d8cf26e83f97",
+      "canonical_sha256": "cc3e7f3304f015046114aae9f7c200b295acca115f8ef84dd861d8cf26e83f97",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 587,
+      "source_sha256": "e3b0b0d603fb7b3a6867c29085dff117f45714848633dbf57410aa80e7124ed5",
+      "canonical_sha256": "e3b0b0d603fb7b3a6867c29085dff117f45714848633dbf57410aa80e7124ed5",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 591,
+      "source_sha256": "11d4206143b0625981ecd5c151c05a9f30f15daf1d8981708b63cb322946aacb",
+      "canonical_sha256": "11d4206143b0625981ecd5c151c05a9f30f15daf1d8981708b63cb322946aacb",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 593,
+      "source_sha256": "cd40d73a53a722638e1d34795ad3115b466ba3889b41b063e993f0c004a752c8",
+      "canonical_sha256": "cd40d73a53a722638e1d34795ad3115b466ba3889b41b063e993f0c004a752c8",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 595,
+      "source_sha256": "623390e63f178b92593b632018aba36dcc053bded4e2e79c0187955b5118991f",
+      "canonical_sha256": "623390e63f178b92593b632018aba36dcc053bded4e2e79c0187955b5118991f",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 596,
+      "source_sha256": "bc3dcc03017e21ddd8fa0a2e9439a2a8ea35a72fbabefc8a41944835445aef96",
+      "canonical_sha256": "bc3dcc03017e21ddd8fa0a2e9439a2a8ea35a72fbabefc8a41944835445aef96",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 597,
+      "source_sha256": "5fe01f8ec1d3b23487babb7cc7d394e2bc926d4b3d3131aa767b3aa4d8819432",
+      "canonical_sha256": "5fe01f8ec1d3b23487babb7cc7d394e2bc926d4b3d3131aa767b3aa4d8819432",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 598,
+      "source_sha256": "6ab9cced43f8bddf98e98389ff01af27dbce7ee853f4a2ea7af165a1515db16e",
+      "canonical_sha256": "6ab9cced43f8bddf98e98389ff01af27dbce7ee853f4a2ea7af165a1515db16e",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 599,
+      "source_sha256": "0ebe7dbbbb48a5923ba307aa4bf36ea313242ad6caf3530d6e94f32dc3dce7a5",
+      "canonical_sha256": "0ebe7dbbbb48a5923ba307aa4bf36ea313242ad6caf3530d6e94f32dc3dce7a5",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 600,
+      "source_sha256": "d87dacf9f13ce2945faca50704b71a3c8b2ffe7b860965fe0ac7131eaf1a4183",
+      "canonical_sha256": "d87dacf9f13ce2945faca50704b71a3c8b2ffe7b860965fe0ac7131eaf1a4183",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 602,
+      "source_sha256": "8edaf5002f12a17387f7532b9e5ae26e7c93f3cb3239699dc04884bf0e29dc7b",
+      "canonical_sha256": "8edaf5002f12a17387f7532b9e5ae26e7c93f3cb3239699dc04884bf0e29dc7b",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 604,
+      "source_sha256": "9f808ae2546a9aea12ed2ac0e5d8245f4972edce5d2da6e24f7f7aff2aa47de8",
+      "canonical_sha256": "9f808ae2546a9aea12ed2ac0e5d8245f4972edce5d2da6e24f7f7aff2aa47de8",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 608,
+      "source_sha256": "5355710a445b2b480551411d74aac60886844bdf675691a09b56deb2fb5fc22d",
+      "canonical_sha256": "5355710a445b2b480551411d74aac60886844bdf675691a09b56deb2fb5fc22d",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 610,
+      "source_sha256": "8adae4638356ad245ee194fb7c88c05a773a6f52b9a611d250da30c4ccf4b4a6",
+      "canonical_sha256": "8adae4638356ad245ee194fb7c88c05a773a6f52b9a611d250da30c4ccf4b4a6",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 611,
+      "source_sha256": "d21c8de694683afb819b147bbf31b9a38dfda0b1191b68bcb2d8597d8035fc71",
+      "canonical_sha256": "d21c8de694683afb819b147bbf31b9a38dfda0b1191b68bcb2d8597d8035fc71",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 612,
+      "source_sha256": "e858daad3e4a8bc47412effa8e80c93630ef514b537b343480a67fac1daa9032",
+      "canonical_sha256": "e858daad3e4a8bc47412effa8e80c93630ef514b537b343480a67fac1daa9032",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 613,
+      "source_sha256": "494a3154451322f386a80267c9dd8f16832de562009da4482e24a11ad30e83f4",
+      "canonical_sha256": "494a3154451322f386a80267c9dd8f16832de562009da4482e24a11ad30e83f4",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 614,
+      "source_sha256": "6906d0566cfc8e905174c2b88be9928d47906a01302773bc2be9c26edafac87f",
+      "canonical_sha256": "6906d0566cfc8e905174c2b88be9928d47906a01302773bc2be9c26edafac87f",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 615,
+      "source_sha256": "240fb243fe42bf0393285a75bcbedc351027f445b06178935aca1caae970abc3",
+      "canonical_sha256": "240fb243fe42bf0393285a75bcbedc351027f445b06178935aca1caae970abc3",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 616,
+      "source_sha256": "d0581577fb3207d2d3b1b67c529967893826941da27ce7e65b68e2f1d4b15f43",
+      "canonical_sha256": "d0581577fb3207d2d3b1b67c529967893826941da27ce7e65b68e2f1d4b15f43",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 617,
+      "source_sha256": "14f3a2d1f17f1103e74e40d8c300ac26f5836bfe2cfbf162407d77bfb31cfb46",
+      "canonical_sha256": "14f3a2d1f17f1103e74e40d8c300ac26f5836bfe2cfbf162407d77bfb31cfb46",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 618,
+      "source_sha256": "68fd2bf6d194554ed6175565345e2e28918efa93b2d95ce8de14f31b637ff4f3",
+      "canonical_sha256": "68fd2bf6d194554ed6175565345e2e28918efa93b2d95ce8de14f31b637ff4f3",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 620,
+      "source_sha256": "29c503781c8a58fd50f65ae7c62cb42683cc94430c84e40213fdc5f41b75c1ac",
+      "canonical_sha256": "29c503781c8a58fd50f65ae7c62cb42683cc94430c84e40213fdc5f41b75c1ac",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 622,
+      "source_sha256": "7ed05419ad792f6d84f7d14a6cedf16fd39b7d9d4ece1cd55fbcdd37ad057fb9",
+      "canonical_sha256": "7ed05419ad792f6d84f7d14a6cedf16fd39b7d9d4ece1cd55fbcdd37ad057fb9",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 628,
+      "source_sha256": "c8375fc6bcc49d3c490efbd5a97b49e21094801318803db8ff358c102924c566",
+      "canonical_sha256": "c8375fc6bcc49d3c490efbd5a97b49e21094801318803db8ff358c102924c566",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 630,
+      "source_sha256": "a33bd90ed15cb855517c7acc1f77750680dbbbf01276c0eef303b0a59b09fb58",
+      "canonical_sha256": "a33bd90ed15cb855517c7acc1f77750680dbbbf01276c0eef303b0a59b09fb58",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 632,
+      "source_sha256": "c318332bb5e2b9ad9a6a2e31d7c5ae00ed09aad56c91b5df359c0e795300db63",
+      "canonical_sha256": "c318332bb5e2b9ad9a6a2e31d7c5ae00ed09aad56c91b5df359c0e795300db63",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 633,
+      "source_sha256": "49ad7831151589ae85d5a60174a73c280c54f76d0d685fd01de6afc851a7c906",
+      "canonical_sha256": "49ad7831151589ae85d5a60174a73c280c54f76d0d685fd01de6afc851a7c906",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 634,
+      "source_sha256": "2703c1426f7a0a34404cbd322e73b899631b394accfff1eff5e5f86fad6779fd",
+      "canonical_sha256": "2703c1426f7a0a34404cbd322e73b899631b394accfff1eff5e5f86fad6779fd",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 635,
+      "source_sha256": "090dd67760fbcb2cbb2498a5eac44f08b33f203d4340d458113d065190baf515",
+      "canonical_sha256": "090dd67760fbcb2cbb2498a5eac44f08b33f203d4340d458113d065190baf515",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 637,
+      "source_sha256": "1815ad0d5aac04004bf110e165585b026a7acd0bb280c7987cc9fbc93b133eb2",
+      "canonical_sha256": "1815ad0d5aac04004bf110e165585b026a7acd0bb280c7987cc9fbc93b133eb2",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 640,
+      "source_sha256": "71cb697fcab8b3eb93c54d40d78efea302f73be44f84ee4c119542d1e194aebc",
+      "canonical_sha256": "71cb697fcab8b3eb93c54d40d78efea302f73be44f84ee4c119542d1e194aebc",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 641,
+      "source_sha256": "86d639fafb6cf5a6c8328c7a254087c7b6b7d3f88d64b2385b208e1a17cc1b3f",
+      "canonical_sha256": "86d639fafb6cf5a6c8328c7a254087c7b6b7d3f88d64b2385b208e1a17cc1b3f",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 642,
+      "source_sha256": "852604b3eea68929ae2f878376e92cdc8f724d84b99d4e9b06eca6adc23e57a5",
+      "canonical_sha256": "852604b3eea68929ae2f878376e92cdc8f724d84b99d4e9b06eca6adc23e57a5",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 643,
+      "source_sha256": "060e0ec359d6b320999d562990a0278d1ce236d9f105cd48fe44f40f4b7d4129",
+      "canonical_sha256": "060e0ec359d6b320999d562990a0278d1ce236d9f105cd48fe44f40f4b7d4129",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 644,
+      "source_sha256": "179a5c9dfbe0ed7fea39f425955033b0c73457e1316b2b811f5e8ae1d424851c",
+      "canonical_sha256": "179a5c9dfbe0ed7fea39f425955033b0c73457e1316b2b811f5e8ae1d424851c",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 645,
+      "source_sha256": "8e4f08ece45419af51758c0b95775877b08a4b4a0311dd7cf9d44b065720a9b0",
+      "canonical_sha256": "8e4f08ece45419af51758c0b95775877b08a4b4a0311dd7cf9d44b065720a9b0",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 646,
+      "source_sha256": "d54130fa07a0b785d201c20e8e8e9ec1d08b610b5ba2a76aa9a01c28567bbb5f",
+      "canonical_sha256": "d54130fa07a0b785d201c20e8e8e9ec1d08b610b5ba2a76aa9a01c28567bbb5f",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 647,
+      "source_sha256": "57f81878bc9e90f930c3415875515265603bccd744ca465eb9afa9c80df40a93",
+      "canonical_sha256": "57f81878bc9e90f930c3415875515265603bccd744ca465eb9afa9c80df40a93",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 648,
+      "source_sha256": "1b08714b0e709483bed471aac411bb637ff8182c6ffa59dad87d74ca5cbba65e",
+      "canonical_sha256": "1b08714b0e709483bed471aac411bb637ff8182c6ffa59dad87d74ca5cbba65e",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 649,
+      "source_sha256": "1c94354e2a9927f14db58345e9f05c85459cfc9f23b85ada82127811b94fa26a",
+      "canonical_sha256": "1c94354e2a9927f14db58345e9f05c85459cfc9f23b85ada82127811b94fa26a",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 650,
+      "source_sha256": "b525666a0b4ec702c6094d9e71daddb22a0d819435d5248906a800356742c5bc",
+      "canonical_sha256": "b525666a0b4ec702c6094d9e71daddb22a0d819435d5248906a800356742c5bc",
+      "canonical_file": "skills/ai-product-development/schemas/context-pack.yaml"
+    },
+    {
+      "source_line": 653,
+      "source_sha256": "58215ce6e9cd42c4f0ede41d2fbd09dc6b0dd32172e97164498d9fa1891adf50",
+      "canonical_sha256": "58215ce6e9cd42c4f0ede41d2fbd09dc6b0dd32172e97164498d9fa1891adf50",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 655,
+      "source_sha256": "2faa5b81dfc95c0fc55313db531e9ccf2e09df8807e4f11779fbdcd518ddb1ad",
+      "canonical_sha256": "2faa5b81dfc95c0fc55313db531e9ccf2e09df8807e4f11779fbdcd518ddb1ad",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 657,
+      "source_sha256": "2bd25c9385ae89aec3270d13cc2b032843071f73377116b78aa1f63738e0b42e",
+      "canonical_sha256": "2bd25c9385ae89aec3270d13cc2b032843071f73377116b78aa1f63738e0b42e",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 659,
+      "source_sha256": "f13367b5002607d6beacf5dd41a65800848ccb4a922c9aa39d879b8d72ac9bc3",
+      "canonical_sha256": "f13367b5002607d6beacf5dd41a65800848ccb4a922c9aa39d879b8d72ac9bc3",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 660,
+      "source_sha256": "9e4ac399f8c85e9e479ef8fd98470004e32d9db76d5f54ce62a4301de27fdaf9",
+      "canonical_sha256": "9e4ac399f8c85e9e479ef8fd98470004e32d9db76d5f54ce62a4301de27fdaf9",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 661,
+      "source_sha256": "b9a2664d0e936663d32bf29d445f7d13b3400dbb274b8a9095d3f95489072d42",
+      "canonical_sha256": "b9a2664d0e936663d32bf29d445f7d13b3400dbb274b8a9095d3f95489072d42",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 662,
+      "source_sha256": "d1164354ddfd02480fc8d3ebecf3e2a90d69ce4d5b3e303897e12a07705ca758",
+      "canonical_sha256": "d1164354ddfd02480fc8d3ebecf3e2a90d69ce4d5b3e303897e12a07705ca758",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 664,
+      "source_sha256": "19726c349531ad035303d192d658ba8830116f41def5a4321bbc26bffdbc216b",
+      "canonical_sha256": "19726c349531ad035303d192d658ba8830116f41def5a4321bbc26bffdbc216b",
+      "canonical_file": "skills/ai-product-development/references/runtime/context.md"
+    },
+    {
+      "source_line": 670,
+      "source_sha256": "c0b8bb5a38c0a59a936de229079acd700e3dbae3c72a017db41b15a646c7d3b2",
+      "canonical_sha256": "c0b8bb5a38c0a59a936de229079acd700e3dbae3c72a017db41b15a646c7d3b2",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 674,
+      "source_sha256": "001826701b98d745f80ad7175fa3f5c1c9cc5a1bd8f312a2ec762f8e3bc26183",
+      "canonical_sha256": "001826701b98d745f80ad7175fa3f5c1c9cc5a1bd8f312a2ec762f8e3bc26183",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 676,
+      "source_sha256": "b64040f038fc822ea29f9268d5ccb27d3ffa84860896bba3b7ba3140fd9dd6e3",
+      "canonical_sha256": "b64040f038fc822ea29f9268d5ccb27d3ffa84860896bba3b7ba3140fd9dd6e3",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 677,
+      "source_sha256": "548dedd3495fcdf507a343f3b23e340daead1a927d734a717ca9a1476cdd32c0",
+      "canonical_sha256": "548dedd3495fcdf507a343f3b23e340daead1a927d734a717ca9a1476cdd32c0",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 678,
+      "source_sha256": "850f46de63d2ef2e6265493cd6e3b1461533d2c0d59f65776988346331eadc25",
+      "canonical_sha256": "850f46de63d2ef2e6265493cd6e3b1461533d2c0d59f65776988346331eadc25",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 679,
+      "source_sha256": "8a0d73658c2ab14a0322d9ca52d5714db90bf0e2d2c457e9c4231a6c7e5d0019",
+      "canonical_sha256": "8a0d73658c2ab14a0322d9ca52d5714db90bf0e2d2c457e9c4231a6c7e5d0019",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 680,
+      "source_sha256": "373c0dbfadde6a197586b037836ab45dee6153ada6915f8067d759c9476f801a",
+      "canonical_sha256": "373c0dbfadde6a197586b037836ab45dee6153ada6915f8067d759c9476f801a",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 682,
+      "source_sha256": "3a6bda8ace71e1e8bf64a08dc867e934627e590d0bc033cbda3ee93975b5287c",
+      "canonical_sha256": "3a6bda8ace71e1e8bf64a08dc867e934627e590d0bc033cbda3ee93975b5287c",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 686,
+      "source_sha256": "3a5e147dd87758a7941addbcb2dd11732ec7c26e3f9d613420945e129ab68f82",
+      "canonical_sha256": "3a5e147dd87758a7941addbcb2dd11732ec7c26e3f9d613420945e129ab68f82",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 688,
+      "source_sha256": "84df906083531d4d99f5e13f56c275ac54207a7256314acccd1b4319c8faf055",
+      "canonical_sha256": "84df906083531d4d99f5e13f56c275ac54207a7256314acccd1b4319c8faf055",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 690,
+      "source_sha256": "3faae303d6fccb33aefbef9dcd8702e9a0e5a3c64b9774654ac1d51ef37dfd2f",
+      "canonical_sha256": "3faae303d6fccb33aefbef9dcd8702e9a0e5a3c64b9774654ac1d51ef37dfd2f",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 694,
+      "source_sha256": "a0db118b962f1580395666524e464d038a7476635b8330f167d9c3a5aa417ae5",
+      "canonical_sha256": "a0db118b962f1580395666524e464d038a7476635b8330f167d9c3a5aa417ae5",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 696,
+      "source_sha256": "6a9932756914bd030852e24973462d63c92f437a3511d4a0dd5d984542a146e2",
+      "canonical_sha256": "6a9932756914bd030852e24973462d63c92f437a3511d4a0dd5d984542a146e2",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 698,
+      "source_sha256": "3ce94c371294b605ad4141136e0f490f9fe0e774f1db0b43c62623132ee7889b",
+      "canonical_sha256": "3ce94c371294b605ad4141136e0f490f9fe0e774f1db0b43c62623132ee7889b",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 699,
+      "source_sha256": "3d907e14ddbd5abbf8c72d4862d3c14ec18607cdb28bff63acb0a4a54bf3ba52",
+      "canonical_sha256": "3d907e14ddbd5abbf8c72d4862d3c14ec18607cdb28bff63acb0a4a54bf3ba52",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 700,
+      "source_sha256": "063310befbfda29dd8f92693523015f44cb54a38ff9ee7327090b958e52ece36",
+      "canonical_sha256": "063310befbfda29dd8f92693523015f44cb54a38ff9ee7327090b958e52ece36",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 701,
+      "source_sha256": "fe086b85108587d25b0fcc4ee289910ab1620abcd28cd455331f6f27431d0ff3",
+      "canonical_sha256": "fe086b85108587d25b0fcc4ee289910ab1620abcd28cd455331f6f27431d0ff3",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 702,
+      "source_sha256": "29f9b4165f284704909c800d1d98336cfff807263b39efeaa507d7b70de419a5",
+      "canonical_sha256": "29f9b4165f284704909c800d1d98336cfff807263b39efeaa507d7b70de419a5",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 706,
+      "source_sha256": "f93cf972fd6b00b327a6bd7ccff02903c1c88a433bd30b6ac99f0e083c2c72e2",
+      "canonical_sha256": "f93cf972fd6b00b327a6bd7ccff02903c1c88a433bd30b6ac99f0e083c2c72e2",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 710,
+      "source_sha256": "f3fef366a8de4f2e9ecae7f05ae3afe954f82e854d4c04bbbf38598f3a04d701",
+      "canonical_sha256": "f3fef366a8de4f2e9ecae7f05ae3afe954f82e854d4c04bbbf38598f3a04d701",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 714,
+      "source_sha256": "439ead70c4530932624da7c64844193dcc7ded037d4d0350f323cf10924bf821",
+      "canonical_sha256": "439ead70c4530932624da7c64844193dcc7ded037d4d0350f323cf10924bf821",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 716,
+      "source_sha256": "4ba9f1eff1768086f52c9bab6e24833bd00b313b29366637b8503c89b7b495d5",
+      "canonical_sha256": "4ba9f1eff1768086f52c9bab6e24833bd00b313b29366637b8503c89b7b495d5",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 720,
+      "source_sha256": "7fb21f95d60fda71d74fb165dc462dcb4839edea34690ff3c76fb85ebf4670c6",
+      "canonical_sha256": "7fb21f95d60fda71d74fb165dc462dcb4839edea34690ff3c76fb85ebf4670c6",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 722,
+      "source_sha256": "d401d620a1d30a15799830260325563c7e19834da1c79b907124dc4383cbdc59",
+      "canonical_sha256": "d401d620a1d30a15799830260325563c7e19834da1c79b907124dc4383cbdc59",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 723,
+      "source_sha256": "76797e0f5891ec188f2e7c890cf83decd027021a153514a4925dccde7c00b710",
+      "canonical_sha256": "76797e0f5891ec188f2e7c890cf83decd027021a153514a4925dccde7c00b710",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 724,
+      "source_sha256": "e4b3c149a0d98fc681b3e1aa7477e3bf054efb41c0df0115ac54e8cf23cfa483",
+      "canonical_sha256": "e4b3c149a0d98fc681b3e1aa7477e3bf054efb41c0df0115ac54e8cf23cfa483",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 726,
+      "source_sha256": "c12710524a29c44312ea88e65468563798e6279370d9e92ec1396b9ece234410",
+      "canonical_sha256": "c12710524a29c44312ea88e65468563798e6279370d9e92ec1396b9ece234410",
+      "canonical_file": "skills/ai-product-development/references/runtime/executor.md"
+    },
+    {
+      "source_line": 732,
+      "source_sha256": "06a9c42e25c1824d260917947b4cbf57ea234ad5ef23941a2331bd01dbc6a616",
+      "canonical_sha256": "06a9c42e25c1824d260917947b4cbf57ea234ad5ef23941a2331bd01dbc6a616",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 736,
+      "source_sha256": "dc15bd3da5cfff175fb9a69a2300204c4e762924ae81737db70ee4c632d1f748",
+      "canonical_sha256": "dc15bd3da5cfff175fb9a69a2300204c4e762924ae81737db70ee4c632d1f748",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 738,
+      "source_sha256": "b9a3e9216c913bedbb6cb1e75cb4933b1f8dbbcdc9d47633e5e8607718d69641",
+      "canonical_sha256": "b9a3e9216c913bedbb6cb1e75cb4933b1f8dbbcdc9d47633e5e8607718d69641",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 739,
+      "source_sha256": "11f74251cb64e2b062f922eb59145d73ba59ca66df5365524c58f5446f285e57",
+      "canonical_sha256": "11f74251cb64e2b062f922eb59145d73ba59ca66df5365524c58f5446f285e57",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 740,
+      "source_sha256": "ec354f74524123244d480613408aca8035fca2ac3926992303a66fb876305239",
+      "canonical_sha256": "ec354f74524123244d480613408aca8035fca2ac3926992303a66fb876305239",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 741,
+      "source_sha256": "1ee9b198ca348c0f7e47ae60b9075498055af74c214dc774ad456cf644f6ed9c",
+      "canonical_sha256": "1ee9b198ca348c0f7e47ae60b9075498055af74c214dc774ad456cf644f6ed9c",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 743,
+      "source_sha256": "cf6bcbedafc03acddf96bc9ad43022b1b0c23219e7428e3e32cd7b05e4351fb9",
+      "canonical_sha256": "cf6bcbedafc03acddf96bc9ad43022b1b0c23219e7428e3e32cd7b05e4351fb9",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 745,
+      "source_sha256": "d375823f2912fcbc000e3485bfd3ce472a0148ff693f6b3bc2b5f29c3d688c98",
+      "canonical_sha256": "d375823f2912fcbc000e3485bfd3ce472a0148ff693f6b3bc2b5f29c3d688c98",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 749,
+      "source_sha256": "b35c3162583a80256e26bd31e1d0c0ef6837100d095d9b55d2509c59c1de11d9",
+      "canonical_sha256": "b35c3162583a80256e26bd31e1d0c0ef6837100d095d9b55d2509c59c1de11d9",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 751,
+      "source_sha256": "8cb689818796b95b335a25a396dde2eed5e089afd45a76ac4afe1bf871de7f9e",
+      "canonical_sha256": "8cb689818796b95b335a25a396dde2eed5e089afd45a76ac4afe1bf871de7f9e",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 753,
+      "source_sha256": "e19f35bca2a57128017553c9ed34bed4308943623089b93c7ffccec4805c4194",
+      "canonical_sha256": "e19f35bca2a57128017553c9ed34bed4308943623089b93c7ffccec4805c4194",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 755,
+      "source_sha256": "9c0a37eddb3898e0c4b3777c35a685f9b551c185ae44bbf2b2ccef3076b67657",
+      "canonical_sha256": "9c0a37eddb3898e0c4b3777c35a685f9b551c185ae44bbf2b2ccef3076b67657",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 757,
+      "source_sha256": "0f9fa25d7dd6e2e48a3db1316293782fef7c3e72757dab958c2e16f9484f31ee",
+      "canonical_sha256": "0f9fa25d7dd6e2e48a3db1316293782fef7c3e72757dab958c2e16f9484f31ee",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 759,
+      "source_sha256": "0bcb05e68088eaee0b78aae465db171c7a55130f413894819cda14d007e73b0d",
+      "canonical_sha256": "0bcb05e68088eaee0b78aae465db171c7a55130f413894819cda14d007e73b0d",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 761,
+      "source_sha256": "41e0d48ba144a17f71c70055c072c6a0cfa8e1a0bbb9b6017b5e8cb045944d04",
+      "canonical_sha256": "41e0d48ba144a17f71c70055c072c6a0cfa8e1a0bbb9b6017b5e8cb045944d04",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 762,
+      "source_sha256": "abe374fbcc48f9077e91f507f6cd8182c381cef4aa942d47265ad5ae692b5bce",
+      "canonical_sha256": "abe374fbcc48f9077e91f507f6cd8182c381cef4aa942d47265ad5ae692b5bce",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 764,
+      "source_sha256": "4b41cdfd7c3753a33f41da3fd046889ad7681356bbabf0ea93d8368ea6fec986",
+      "canonical_sha256": "4b41cdfd7c3753a33f41da3fd046889ad7681356bbabf0ea93d8368ea6fec986",
+      "canonical_file": "skills/ai-product-development/references/runtime/registry-versioning.md"
+    },
+    {
+      "source_line": 770,
+      "source_sha256": "6476d0882f0100b61c28adc897fc554977f15d0aff2b58ffddf49a11c044159d",
+      "canonical_sha256": "6476d0882f0100b61c28adc897fc554977f15d0aff2b58ffddf49a11c044159d",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 772,
+      "source_sha256": "d5e4cffd82bf442e548c9b6c081d20e69f0692f78e8e2a7e8601b792e312d0ac",
+      "canonical_sha256": "d5e4cffd82bf442e548c9b6c081d20e69f0692f78e8e2a7e8601b792e312d0ac",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 774,
+      "source_sha256": "fff045fdbdf2260a2f0b395ed8d4e67d191b0e6b38ff3a6daed1950788c7f4a8",
+      "canonical_sha256": "fff045fdbdf2260a2f0b395ed8d4e67d191b0e6b38ff3a6daed1950788c7f4a8",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 778,
+      "source_sha256": "64601e313fce6d891541650fff16da2c6e25eccf12011bc09e95da2a26e2862d",
+      "canonical_sha256": "64601e313fce6d891541650fff16da2c6e25eccf12011bc09e95da2a26e2862d",
+      "canonical_file": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 780,
+      "source_sha256": "5cabffd26440647eb8220551439f3897494685eb81deaec14d22d713ee554aa2",
+      "canonical_sha256": "5cabffd26440647eb8220551439f3897494685eb81deaec14d22d713ee554aa2",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 781,
+      "source_sha256": "5cf85d54a7c55022b3daadaaf271ac37502c4df581636a9d86d64e2d37b30000",
+      "canonical_sha256": "5cf85d54a7c55022b3daadaaf271ac37502c4df581636a9d86d64e2d37b30000",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 782,
+      "source_sha256": "75902fb8ae04ae771465923d797175643d4db004aa977bc265cca757eff1fa71",
+      "canonical_sha256": "75902fb8ae04ae771465923d797175643d4db004aa977bc265cca757eff1fa71",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 783,
+      "source_sha256": "5afe2dc43f6878883781d5b099992cdae15dcfb4504851bfce58428bb0501631",
+      "canonical_sha256": "5afe2dc43f6878883781d5b099992cdae15dcfb4504851bfce58428bb0501631",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 784,
+      "source_sha256": "a73c0ca6d8f875ca2efbec1f1e6d2f1ae3e81abec106844fe33977ee113e0246",
+      "canonical_sha256": "a73c0ca6d8f875ca2efbec1f1e6d2f1ae3e81abec106844fe33977ee113e0246",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 786,
+      "source_sha256": "6bb08ef6019e4d4319b8e803003f665b7ab8e9a0ac378ea6706c8b332873f075",
+      "canonical_sha256": "6bb08ef6019e4d4319b8e803003f665b7ab8e9a0ac378ea6706c8b332873f075",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 790,
+      "source_sha256": "fbedc787a498a447ef9ceef7bad0d5a2ad7134f6d55fc235f8600bbddaa608b0",
+      "canonical_sha256": "fbedc787a498a447ef9ceef7bad0d5a2ad7134f6d55fc235f8600bbddaa608b0",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 792,
+      "source_sha256": "a0fe779182c8938affb8e24dcbc67b94df024e349515d7b0cf44d1f8209e8e92",
+      "canonical_sha256": "a0fe779182c8938affb8e24dcbc67b94df024e349515d7b0cf44d1f8209e8e92",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 793,
+      "source_sha256": "efe9b6151e13dd86528c7d92a69b622cf1ee78fea74b71e60281f462a203b088",
+      "canonical_sha256": "efe9b6151e13dd86528c7d92a69b622cf1ee78fea74b71e60281f462a203b088",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 794,
+      "source_sha256": "5a5c0305ea2c5ac08f748d85bbc49da7c250553a2e46ad557068ba7fb77255fc",
+      "canonical_sha256": "5a5c0305ea2c5ac08f748d85bbc49da7c250553a2e46ad557068ba7fb77255fc",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 795,
+      "source_sha256": "fddfc3249ffe128cb99b156499026e2faf8d5be8b99c2ad7b5b8a135653191e9",
+      "canonical_sha256": "fddfc3249ffe128cb99b156499026e2faf8d5be8b99c2ad7b5b8a135653191e9",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 797,
+      "source_sha256": "16f2b34881d4ea1206878645a8d931002113c89ff58a6dcdfc49ee9276ffcdcb",
+      "canonical_sha256": "16f2b34881d4ea1206878645a8d931002113c89ff58a6dcdfc49ee9276ffcdcb",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 801,
+      "source_sha256": "26dc32af4888dca6e1f48f52ec276f0948c96c3e2df7a8198faa45495a9bd4b9",
+      "canonical_sha256": "26dc32af4888dca6e1f48f52ec276f0948c96c3e2df7a8198faa45495a9bd4b9",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 803,
+      "source_sha256": "eee1d4228772e227914c78a72991ec1acd78e971ff536a95116ef495318c69cb",
+      "canonical_sha256": "eee1d4228772e227914c78a72991ec1acd78e971ff536a95116ef495318c69cb",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 805,
+      "source_sha256": "32295c7e99dab42a241826cc392ad53ba2fdccda96e6ea3649fd5e6aa00b9b2b",
+      "canonical_sha256": "32295c7e99dab42a241826cc392ad53ba2fdccda96e6ea3649fd5e6aa00b9b2b",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 807,
+      "source_sha256": "5d73acd4877f1dc9ed7628308d59a799854dbef7421a2be6d76013c57656d725",
+      "canonical_sha256": "5d73acd4877f1dc9ed7628308d59a799854dbef7421a2be6d76013c57656d725",
+      "canonical_file": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 813,
+      "source_sha256": "5d024b3ffafa73c632bfe9cdf5d78fbc1b0a08b3724255f0463d21975f1432ef",
+      "canonical_sha256": "5d024b3ffafa73c632bfe9cdf5d78fbc1b0a08b3724255f0463d21975f1432ef",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 817,
+      "source_sha256": "72354998f73e8505baea47a9dec1f24db9191816cc0f938ddf5afb06e3d51796",
+      "canonical_sha256": "72354998f73e8505baea47a9dec1f24db9191816cc0f938ddf5afb06e3d51796",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 821,
+      "source_sha256": "f3fd9e32d02dd26d5174070d5baace7ec69bf094f9d18b546af543232facc77e",
+      "canonical_sha256": "f3fd9e32d02dd26d5174070d5baace7ec69bf094f9d18b546af543232facc77e",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 825,
+      "source_sha256": "3716fe82d85fe1bc5ced1cf06a31ce0e36cbdedc4f43d5fec898626ed0dea619",
+      "canonical_sha256": "3716fe82d85fe1bc5ced1cf06a31ce0e36cbdedc4f43d5fec898626ed0dea619",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 827,
+      "source_sha256": "c83f2b396ffec10564aca8cd72a7357c79398f62232a597d04ba1775a45d62e0",
+      "canonical_sha256": "c83f2b396ffec10564aca8cd72a7357c79398f62232a597d04ba1775a45d62e0",
+      "canonical_file": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 833,
+      "source_sha256": "6f9cfb9d0894b30d83c57764e067443e989919951d4a875aae2d0ec87310ef40",
+      "canonical_sha256": "6f9cfb9d0894b30d83c57764e067443e989919951d4a875aae2d0ec87310ef40",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 835,
+      "source_sha256": "a567f3f32379abcabc9af42e74549731d9ee086515ef105e6197a69d9f2ace2b",
+      "canonical_sha256": "a567f3f32379abcabc9af42e74549731d9ee086515ef105e6197a69d9f2ace2b",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 836,
+      "source_sha256": "36a75a0f215b2c19a48e6a2080333df1a1bcc7496e2ab3045b959b385c2c6764",
+      "canonical_sha256": "36a75a0f215b2c19a48e6a2080333df1a1bcc7496e2ab3045b959b385c2c6764",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 837,
+      "source_sha256": "851ab7f3b64584718946209d504741a17bda99ad508c13f4a12cff5c3146799f",
+      "canonical_sha256": "851ab7f3b64584718946209d504741a17bda99ad508c13f4a12cff5c3146799f",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 838,
+      "source_sha256": "c53c940d71730284a0279ff68b34083a39e916fae9fa6b89f7b48c7da899d7d4",
+      "canonical_sha256": "c53c940d71730284a0279ff68b34083a39e916fae9fa6b89f7b48c7da899d7d4",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 839,
+      "source_sha256": "96a5f3aeb4f8c26264bf275113b7e698a4acf0f5da30dd2a55e08acf026bad75",
+      "canonical_sha256": "96a5f3aeb4f8c26264bf275113b7e698a4acf0f5da30dd2a55e08acf026bad75",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 840,
+      "source_sha256": "d720746e8ec9db17985d91ac918bd66c2cddc87c3156b6ae32184a8c67726d1e",
+      "canonical_sha256": "d720746e8ec9db17985d91ac918bd66c2cddc87c3156b6ae32184a8c67726d1e",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 841,
+      "source_sha256": "5a7eef2d73f00d078c51febbd4ef1f20828a572b048b6d7736e42cec8ace90fc",
+      "canonical_sha256": "5a7eef2d73f00d078c51febbd4ef1f20828a572b048b6d7736e42cec8ace90fc",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 842,
+      "source_sha256": "31aef2f4705138173e4eb05d73bfdd8c0046ede26644ff0205a20bd54b927195",
+      "canonical_sha256": "31aef2f4705138173e4eb05d73bfdd8c0046ede26644ff0205a20bd54b927195",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 843,
+      "source_sha256": "2c09e253b73db78369b02431bd24f97a4a6c358295ecef4f4687b04886ecc26f",
+      "canonical_sha256": "2c09e253b73db78369b02431bd24f97a4a6c358295ecef4f4687b04886ecc26f",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 844,
+      "source_sha256": "ae68667c712800bf5ae57a4c444132a94f1fa4ea81d26f111dd68f373b110135",
+      "canonical_sha256": "ae68667c712800bf5ae57a4c444132a94f1fa4ea81d26f111dd68f373b110135",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 846,
+      "source_sha256": "d2f4778bcd3e442ff6b5c9ff7080a7e33045d28d2497f757658017f083d5c158",
+      "canonical_sha256": "d2f4778bcd3e442ff6b5c9ff7080a7e33045d28d2497f757658017f083d5c158",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 848,
+      "source_sha256": "3dec5fe052579f68086e32e778c475ec0a5a77af6a0f78f94446222fe92e6ed7",
+      "canonical_sha256": "3dec5fe052579f68086e32e778c475ec0a5a77af6a0f78f94446222fe92e6ed7",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 849,
+      "source_sha256": "c3ef780206ceada87f34ec190c4e50cd379bf0943ab882fc417aca62bb910d0a",
+      "canonical_sha256": "c3ef780206ceada87f34ec190c4e50cd379bf0943ab882fc417aca62bb910d0a",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 850,
+      "source_sha256": "ebe1a628b3c03643370da5feac3bac5c952967fa1806fce3c1dc0dd0226e28ee",
+      "canonical_sha256": "ebe1a628b3c03643370da5feac3bac5c952967fa1806fce3c1dc0dd0226e28ee",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 851,
+      "source_sha256": "980e3f2fb9657a411c1232f72744e3e3ec10a856fe2d1326c11fa6e021462302",
+      "canonical_sha256": "980e3f2fb9657a411c1232f72744e3e3ec10a856fe2d1326c11fa6e021462302",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 852,
+      "source_sha256": "c74eb975b603699614961012da642cd5559aa7600a40800679112b0249403c96",
+      "canonical_sha256": "c74eb975b603699614961012da642cd5559aa7600a40800679112b0249403c96",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 853,
+      "source_sha256": "91116924a296c70e6ede20c1a052f7420fe2575357d98528978125eab173d19d",
+      "canonical_sha256": "91116924a296c70e6ede20c1a052f7420fe2575357d98528978125eab173d19d",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 854,
+      "source_sha256": "f9acdf63c62c6d092900c90c0382af52727c896bf55116c6bdce9774990a09b2",
+      "canonical_sha256": "f9acdf63c62c6d092900c90c0382af52727c896bf55116c6bdce9774990a09b2",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 855,
+      "source_sha256": "d6688de33c24fbad3c9515b7e92670c16ce0ba355862f61b2e00dc1498f1ae8c",
+      "canonical_sha256": "d6688de33c24fbad3c9515b7e92670c16ce0ba355862f61b2e00dc1498f1ae8c",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 856,
+      "source_sha256": "44a2bd0bc78aa474ec3bd2b324d35881f8a5e251477b13da544e7d9bb354de3b",
+      "canonical_sha256": "44a2bd0bc78aa474ec3bd2b324d35881f8a5e251477b13da544e7d9bb354de3b",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 857,
+      "source_sha256": "de316c488148ef94f01cd02836b2443baab6b7ddcecf13a5be89e3d14388b749",
+      "canonical_sha256": "de316c488148ef94f01cd02836b2443baab6b7ddcecf13a5be89e3d14388b749",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 859,
+      "source_sha256": "713f2ae2e18f535dbc7b84b3fca629f68a7bbe34445eccf949d7cd5435397c78",
+      "canonical_sha256": "713f2ae2e18f535dbc7b84b3fca629f68a7bbe34445eccf949d7cd5435397c78",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 865,
+      "source_sha256": "f2ccd161c8415b7d5fc99c3b7722005b06f25d196503acc389b161b97e4201f1",
+      "canonical_sha256": "f2ccd161c8415b7d5fc99c3b7722005b06f25d196503acc389b161b97e4201f1",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 867,
+      "source_sha256": "8dd5e3fc18093861568089f6996dfc2c35221dbc15d6d900bdaaf435c42bd476",
+      "canonical_sha256": "8dd5e3fc18093861568089f6996dfc2c35221dbc15d6d900bdaaf435c42bd476",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 870,
+      "source_sha256": "fa8ed0bdabdd6bcb1c0746f1d3e15212f7f3439d74339fbaaf16c60c0a80fb8e",
+      "canonical_sha256": "fa8ed0bdabdd6bcb1c0746f1d3e15212f7f3439d74339fbaaf16c60c0a80fb8e",
+      "canonical_file": "skills/ai-product-development/templates/execution-plan.md"
+    },
+    {
+      "source_line": 871,
+      "source_sha256": "3b20adc3b2ce1c15ea6880c3151baabea06f5ba9132c18a9b969fc5299a7d655",
+      "canonical_sha256": "3b20adc3b2ce1c15ea6880c3151baabea06f5ba9132c18a9b969fc5299a7d655",
+      "canonical_file": "skills/ai-product-development/templates/execution-plan.md"
+    },
+    {
+      "source_line": 872,
+      "source_sha256": "9494a9d64df73db6a5bd6088a2cdf22302938eb2380f83d14b5770a615acddcd",
+      "canonical_sha256": "9494a9d64df73db6a5bd6088a2cdf22302938eb2380f83d14b5770a615acddcd",
+      "canonical_file": "skills/ai-product-development/templates/execution-plan.md"
+    },
+    {
+      "source_line": 873,
+      "source_sha256": "e0785e982c0d92ea6b0cf2b18ad1bc8a1aceaf539332751459bdf18d48494bf7",
+      "canonical_sha256": "e0785e982c0d92ea6b0cf2b18ad1bc8a1aceaf539332751459bdf18d48494bf7",
+      "canonical_file": "skills/ai-product-development/templates/execution-plan.md"
+    },
+    {
+      "source_line": 874,
+      "source_sha256": "15762c9f02f2f1b1e94f17adacc0811afc059222714a87d43b0ec2c607923ac5",
+      "canonical_sha256": "15762c9f02f2f1b1e94f17adacc0811afc059222714a87d43b0ec2c607923ac5",
+      "canonical_file": "skills/ai-product-development/templates/execution-plan.md"
+    },
+    {
+      "source_line": 875,
+      "source_sha256": "2afd0e9ad66d80e04d18db2bf5e1df77bc1c733d3c9dfd4305b3bcda49235fb1",
+      "canonical_sha256": "2afd0e9ad66d80e04d18db2bf5e1df77bc1c733d3c9dfd4305b3bcda49235fb1",
+      "canonical_file": "skills/ai-product-development/templates/execution-plan.md"
+    },
+    {
+      "source_line": 878,
+      "source_sha256": "be95090dd28bafe270d4c60033a18ef2d2905f55467fe53e8e647fa9878ccaf1",
+      "canonical_sha256": "be95090dd28bafe270d4c60033a18ef2d2905f55467fe53e8e647fa9878ccaf1",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 880,
+      "source_sha256": "563168fda99bb2bdf1dea38b2a6c1e253b7b1a52891964e4c5908967f81dcc2b",
+      "canonical_sha256": "563168fda99bb2bdf1dea38b2a6c1e253b7b1a52891964e4c5908967f81dcc2b",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 882,
+      "source_sha256": "165c0e0093c5bc60e6f86587b304b26e45975cac912b45495643a2fe57face4e",
+      "canonical_sha256": "165c0e0093c5bc60e6f86587b304b26e45975cac912b45495643a2fe57face4e",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 888,
+      "source_sha256": "d617ddab15e89a6d6b3bbade37229ad093ddde645077530f755e7702c02265c9",
+      "canonical_sha256": "d617ddab15e89a6d6b3bbade37229ad093ddde645077530f755e7702c02265c9",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 891,
+      "source_sha256": "14d81bc4a1e20fb181532a95c340c502f71e730f3cb22bf9e0dfda156d4e60b9",
+      "canonical_sha256": "14d81bc4a1e20fb181532a95c340c502f71e730f3cb22bf9e0dfda156d4e60b9",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 892,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 893,
+      "source_sha256": "00945c89f76b547f060ab6494e3e10785b96d1850463d5c8ac66edbe58500a9b",
+      "canonical_sha256": "00945c89f76b547f060ab6494e3e10785b96d1850463d5c8ac66edbe58500a9b",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/01-qualification.md"
+    },
+    {
+      "source_line": 894,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 895,
+      "source_sha256": "9ab814677ae6a57f87b2a79ae500fcdb337784b729cc4141180081dbdc2a5e6b",
+      "canonical_sha256": "9ab814677ae6a57f87b2a79ae500fcdb337784b729cc4141180081dbdc2a5e6b",
+      "canonical_file": "skills/ai-product-development/references/runtime/execution-profile.md"
+    },
+    {
+      "source_line": 896,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 897,
+      "source_sha256": "f5ec0afdb554a36bf0ffdcb6896c02b04cc84ac8b1c44ce6f5223f876c21ab4f",
+      "canonical_sha256": "f5ec0afdb554a36bf0ffdcb6896c02b04cc84ac8b1c44ce6f5223f876c21ab4f",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/02-cognition.md"
+    },
+    {
+      "source_line": 898,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 899,
+      "source_sha256": "98ba8ea5f4b3b49fae4d148382ffa51236dcb8a3c6edbe5443231bde51f6b9cd",
+      "canonical_sha256": "98ba8ea5f4b3b49fae4d148382ffa51236dcb8a3c6edbe5443231bde51f6b9cd",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/03-product-definition.md"
+    },
+    {
+      "source_line": 900,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 901,
+      "source_sha256": "b804f72b0741fc85cb34fd4c3140dd1129030b38915aff94274fc459b7db565f",
+      "canonical_sha256": "b804f72b0741fc85cb34fd4c3140dd1129030b38915aff94274fc459b7db565f",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+    },
+    {
+      "source_line": 902,
+      "source_sha256": "7742b5ca199c6caa7e887db5d141f69ad2a5b66d2a9aa59aeb185bf16cc69f9b",
+      "canonical_sha256": "7742b5ca199c6caa7e887db5d141f69ad2a5b66d2a9aa59aeb185bf16cc69f9b",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 903,
+      "source_sha256": "a5782cd989a8a0a09ca20f42c87b4f0b9077b2496ae30e4e68dd5545431718da",
+      "canonical_sha256": "a5782cd989a8a0a09ca20f42c87b4f0b9077b2496ae30e4e68dd5545431718da",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 904,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 905,
+      "source_sha256": "cc70747f378ebb8a103c7d305cd0836d2a843f619a67bc522851f13d56b2697d",
+      "canonical_sha256": "cc70747f378ebb8a103c7d305cd0836d2a843f619a67bc522851f13d56b2697d",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 906,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 907,
+      "source_sha256": "0162391886dd6a6dda603d32e1a0d55c5f2985582d694c5a189df2c2a2efe500",
+      "canonical_sha256": "0162391886dd6a6dda603d32e1a0d55c5f2985582d694c5a189df2c2a2efe500",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 908,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 909,
+      "source_sha256": "bd7345851cdd0289f7c24e753301f4799b55ca827a6c998c7890e7a52c5e3e10",
+      "canonical_sha256": "bd7345851cdd0289f7c24e753301f4799b55ca827a6c998c7890e7a52c5e3e10",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 910,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 911,
+      "source_sha256": "da01e89850eb3f30815eeabad2682c488f9bc2194beaf00a576cc9b0d390443c",
+      "canonical_sha256": "da01e89850eb3f30815eeabad2682c488f9bc2194beaf00a576cc9b0d390443c",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+    },
+    {
+      "source_line": 912,
+      "source_sha256": "51de62ff3804d860dcc92bfdf8f8b253b317557a4483e647a7c04e30522d0dba",
+      "canonical_sha256": "51de62ff3804d860dcc92bfdf8f8b253b317557a4483e647a7c04e30522d0dba",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 913,
+      "source_sha256": "1ff18d51617f47246a2b9a2f65ce3c85d9a70bb03b286d63db8ef939dd057833",
+      "canonical_sha256": "1ff18d51617f47246a2b9a2f65ce3c85d9a70bb03b286d63db8ef939dd057833",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 914,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 915,
+      "source_sha256": "90c7b342bd255cd360eb82783341a40b2083c05fe97ebd3f3ed743ff77ff74b2",
+      "canonical_sha256": "90c7b342bd255cd360eb82783341a40b2083c05fe97ebd3f3ed743ff77ff74b2",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 916,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 917,
+      "source_sha256": "13c3e4d84cbc5b546c8110b08ba22f4e74a75bc3d0ad7b3e866bfa2e6a8c780d",
+      "canonical_sha256": "13c3e4d84cbc5b546c8110b08ba22f4e74a75bc3d0ad7b3e866bfa2e6a8c780d",
+      "canonical_file": "skills/ai-product-development/references/lifecycle/08-retrospective.md"
+    },
+    {
+      "source_line": 918,
+      "source_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_sha256": "07a2abcd3189716d1244a78a540ed819ae1f8704fabfcb8b0aacef2f9a115070",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 919,
+      "source_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "canonical_sha256": "143b270a32602d412babf2724ec0640dda0d5a43485e5a7520b05b53fa94b303",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 922,
+      "source_sha256": "cd7f2769e608bda4812dd0ee253f2a5aea74d52b21462ab457ecfb46d92f0fc4",
+      "canonical_sha256": "cd7f2769e608bda4812dd0ee253f2a5aea74d52b21462ab457ecfb46d92f0fc4",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 928,
+      "source_sha256": "b7fd1ee019c38905d44d40299f30f8bc94871dd9632ad14c4b1378b79b99c77a",
+      "canonical_sha256": "b7fd1ee019c38905d44d40299f30f8bc94871dd9632ad14c4b1378b79b99c77a",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 930,
+      "source_sha256": "94d0a13a1c9f755f76c73d23ef99c3c959cf20822db296a42841291d693bdc04",
+      "canonical_sha256": "94d0a13a1c9f755f76c73d23ef99c3c959cf20822db296a42841291d693bdc04",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 932,
+      "source_sha256": "c51204c208968085de42b55e0d851000cbab35f0bfcb2d2307b48cfd8865e8bc",
+      "canonical_sha256": "c51204c208968085de42b55e0d851000cbab35f0bfcb2d2307b48cfd8865e8bc",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 933,
+      "source_sha256": "c2ee6361214b7e112ad5517d53f9c3228119d5ac5287ba362032b8739aacd9ea",
+      "canonical_sha256": "c2ee6361214b7e112ad5517d53f9c3228119d5ac5287ba362032b8739aacd9ea",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 934,
+      "source_sha256": "699a37f96b23fb0a5e6dd40cc441c8edc6b1634cd6b34e15589116a9a4b1e6b6",
+      "canonical_sha256": "699a37f96b23fb0a5e6dd40cc441c8edc6b1634cd6b34e15589116a9a4b1e6b6",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 935,
+      "source_sha256": "f2e5fb3cdf42e19cea0b8c593e09259e0827f70f4ffebb5194f8630816db4e25",
+      "canonical_sha256": "f2e5fb3cdf42e19cea0b8c593e09259e0827f70f4ffebb5194f8630816db4e25",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 936,
+      "source_sha256": "4a5314cb18f3f4fbf51d69007332ad5f70c2d0d069b1fb99844fb58e518882c0",
+      "canonical_sha256": "4a5314cb18f3f4fbf51d69007332ad5f70c2d0d069b1fb99844fb58e518882c0",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 937,
+      "source_sha256": "46528c610149d78fb74ae7b9a4fca748b31f4fcf9231c6ff421a2add5ebdb3b1",
+      "canonical_sha256": "46528c610149d78fb74ae7b9a4fca748b31f4fcf9231c6ff421a2add5ebdb3b1",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 939,
+      "source_sha256": "68f0ac33466223f56933535c05bb955df37fd1f964c789932b89c06c3338a66e",
+      "canonical_sha256": "68f0ac33466223f56933535c05bb955df37fd1f964c789932b89c06c3338a66e",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 941,
+      "source_sha256": "6c4fc4980197ed4468243437d4fa6f5cb30e0186b766309c261239eb9841136c",
+      "canonical_sha256": "6c4fc4980197ed4468243437d4fa6f5cb30e0186b766309c261239eb9841136c",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 942,
+      "source_sha256": "30c02b6dfc35a00b192c4a844c1f560dcf505dc31568e6eca58896002b9e77af",
+      "canonical_sha256": "30c02b6dfc35a00b192c4a844c1f560dcf505dc31568e6eca58896002b9e77af",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 943,
+      "source_sha256": "77139f0721da98b7409b1679135eed099d78f22d9f8da106d56118c833339f16",
+      "canonical_sha256": "77139f0721da98b7409b1679135eed099d78f22d9f8da106d56118c833339f16",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 944,
+      "source_sha256": "1ce00876e1f265843e9ab8ced68099c7540d92283cea46e71f8788c02df536c3",
+      "canonical_sha256": "1ce00876e1f265843e9ab8ced68099c7540d92283cea46e71f8788c02df536c3",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 945,
+      "source_sha256": "9ca0cee0310055f5bae2b298715399416ec4dc3c6bb984d223e372d9817d6af1",
+      "canonical_sha256": "9ca0cee0310055f5bae2b298715399416ec4dc3c6bb984d223e372d9817d6af1",
+      "canonical_file": "skills/ai-product-development/SKILL.md"
+    }
+  ]
+}

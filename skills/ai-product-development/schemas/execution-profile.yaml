@@ -1,0 +1,18 @@
+AssignmentScope:
+  mode: FULL_PROJECT | PARTIAL_PROJECT
+  requested_scope: []
+  excluded_scope: []
+  expected_deliverables: []
+  ownership_boundary: []
+
+NodeProfile:
+  node:
+  status: NOT_STARTED | ACTIVE | SATISFIED | BLOCKED | SKIPPED | OUTDATED
+  level: REQUIRED | LIGHT | OPTIONAL | SKIP
+  depth: FULL | MINIMAL | VERIFY | SKIP
+  scope_role: PRIMARY | SUPPORTING | OUT_OF_SCOPE
+  active_capabilities: []
+  reused_artifacts: []
+  gaps: []
+  reasons: []
+  external_project_requirement:

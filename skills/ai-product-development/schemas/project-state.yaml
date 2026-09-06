@@ -1,0 +1,37 @@
+# Use records for things the project has confirmed or is explicitly assuming.
+#
+# Only user-confirmed information, validated constraints, confirmed decisions, and accepted conclusions may become `FACT`, `DECISION`, or `CONSTRAINT` records.
+ProjectRecord:
+  id:
+  type: FACT | DECISION | CONSTRAINT | ASSUMPTION
+  topic:
+  content:
+  status: ACTIVE | SUPERSEDED | REJECTED
+  source:
+  version:
+  affected_scope: []
+
+# Use artifacts for formal deliverables or assets that need reuse, delivery, dependency tracking, or version history.
+#
+# Task output is not automatically an artifact.
+Artifact:
+  id:
+  type:
+  name:
+  version:
+  status: ACTIVE | OUTDATED | SUPERSEDED | ARCHIVED
+  summary:
+  location:
+  source_tasks: []
+  source_records: []
+  dependencies: []
+
+# Use only for major confirmations, gate passes, phase completion, or long pauses.
+#
+# A snapshot stores references and state, not full artifact contents.
+RuntimeSnapshot:
+  plan_version:
+  task_states:
+  active_artifacts:
+  active_records:
+  unresolved_items:

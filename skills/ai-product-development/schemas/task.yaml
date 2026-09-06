@@ -1,0 +1,20 @@
+# Valid task states:
+#
+# `NOT_STARTED | READY | RUNNING | COMPLETED | BLOCKED | WAITING_USER | FAILED | SKIPPED | OUTDATED | CANCELLED`
+Task:
+  id:
+  name:
+  goal:
+  type:
+  status:
+  priority:
+  lifecycle_node:
+  execution_depth:
+  dependencies: []
+  required_inputs: []
+  required_capabilities: []
+  expected_output:
+  acceptance_criteria: []
+  context_requirements: []
+  artifact_requirements: []
+  retry_policy:

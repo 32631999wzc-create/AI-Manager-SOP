@@ -1,0 +1,11 @@
+TaskContextPack:
+  task:
+  relevant_facts: []
+  relevant_decisions: []
+  relevant_constraints: []
+  relevant_artifacts: []
+  recent_changes: []
+  assumptions: []
+  unresolved_items: []
+  allowed_actions: []
+  available_tools: []
