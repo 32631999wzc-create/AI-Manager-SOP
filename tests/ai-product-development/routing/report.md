@@ -11,7 +11,7 @@ R1、R2、R3 均为 **PASS**。依据是各自独立 Codex 会话的实际成功
 ## 原始尝试与修正
 
 - 环境探测曾因默认 Windows 沙箱配置导致读取失败；未计入成功测试。保持 read-only，显式指定现有 elevated 沙箱后成功读取；未使用可写权限、ignore-rules 或绕过审批方式解决测试。
-- [首次 R1](evidence/R1/result.json)：PASS；[首次 R2](evidence/R2/result.json)：WARN；[首次 R3](evidence/R3/result.json)：FAIL。原始 trace 保留在各目录。
+- 首次 R1 为 PASS，首次 R2 为 WARN，首次 R3 为 FAIL。清洗后只保留最终验收采用的三组 PASS trace；首轮问题与修复依据保留如下。
 - R2 无必要漏读，但机械展开了四个 VERIFY 节点，其中 Cognition、Product Definition 两项额外读取缺乏当前核验需要。没有批量读取全部详情，按规范为 WARN。没有把该 WARN 直接转为 PASS；Kernel 明确已确认可复用资料不自动触发逐节点读取，随后独立重测。
 - R3 漏读 Registry，无法用最终回答弥补。Kernel 的 Registry 路由补充正式产物状态判断；Replan 增加到 Planner、Registry 和条件性 Profile 的导航。只明确既有规则的加载依赖，没有新增业务规则。
 - Kernel 另一处摘要“不得修改正式状态”宽于原文，改为引用 Executor 原始具体操作边界，避免新增限制。

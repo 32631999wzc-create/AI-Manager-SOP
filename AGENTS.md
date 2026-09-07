@@ -30,10 +30,10 @@ Before substantial work:
 6. 保持目录、相对路径和内部锚点有效。
 7. 本次迁移保持原文语义；语义疑点记录到 docs/decisions，不在拆分中擅自修正。
 
-## Phase 1 Routing 验证
+## 验证与证据维护
 
 - 改动 Router 或模块加载依赖后，按 `tests/ai-product-development/routing/README.md` 独立运行三个只读 ephemeral 场景，保留原始工具 trace。
 - PASS 必须有实际成功读取证据；不得用模型自述或静态链接测试代替。审阅必要模块漏读、额外读取、依赖闭包和 eager loading；不以绝对最少文件数限制支持读取。
-- WARN 逐项审阅，FAIL 修复并使用新目录重测；不扩大受测进程为可写权限，不覆盖失败记录。
-- 详细规则保持一个 canonical location，摘要不得比原文新增业务约束。保持 533 条迁移指纹、70 个源标题映射与文档一致；不要为了通过检查而重建迁移基线。
-- Phase 1 不创建 `.ai-product/`、不实现 init/save/resume，不进入 Phase 2 或 Phase 3。
+- WARN 逐项审阅，FAIL 修复并使用新目录重测；不扩大受测进程为可写权限。提交时只保留验收采用的 trace，失败原因与修复记录在报告中。
+- 详细规则保持一个 canonical location，摘要不得比原文新增业务约束。保持迁移清单、源标题映射与文档一致；不要为了通过检查而重建迁移基线。
+- 行为用例的共用边界只维护在 `tests/ai-product-development/behavior-contract.md`，case 与 expected 只保留场景特有内容。

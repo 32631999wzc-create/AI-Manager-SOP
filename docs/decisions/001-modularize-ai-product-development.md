@@ -210,6 +210,6 @@
 
 ### Canonical 归属修正
 
-补全逐标题映射时发现首次迁移清单用相同文本匹配归属，导致 `id`、`version`、短状态枚举、主流程节点标签等被归到其他章节的同文行。按源章节与数据对象上下文修正 18 条 canonical_file；所有 source_sha256、canonical_sha256、frontmatter 与 schema 对象指纹不变，不重新生成源基线。修正明细见 [canonical-location-corrections.json](../../tests/ai-product-development/canonical-location-corrections.json)。最终完整表与逐行归属一致。
+补全逐标题映射时发现首次迁移清单用相同文本匹配归属，导致 `id`、`version`、短状态枚举、主流程节点标签等被归到其他章节的同文行。按源章节与数据对象上下文修正 18 条 canonical_file；所有 source_sha256、canonical_sha256、frontmatter 与 schema 对象指纹不变，不重新生成源基线。清洗后不再保留与 Git diff 重复的过程清单；最终完整表与逐行归属一致。
 
 Routing Test 首轮暴露 VERIFY 机械读取和 Replan 漏读 Registry，修正仅为 Kernel 与 Replan 的加载导航；最终三组独立只读 trace 均通过。完整证据与历史 WARN/FAIL 见 [Phase 1 报告](../../tests/ai-product-development/routing/report.md)。

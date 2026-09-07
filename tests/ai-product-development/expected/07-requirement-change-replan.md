@@ -1,5 +1,7 @@
 # Requirement Change / Replan — Expected Behavior
 
+遵循 [共用行为契约](../behavior-contract.md)。
+
 ## Profile 与行为断言
 
 - 基础场景保持 Delivery Target = MVP 和 Assignment Scope；使用 LOCAL REPLAN，不默认项目级回滚。
@@ -12,15 +14,5 @@
 
 ## 按需加载
 
-- 共用入口：[Skill Kernel](../../../skills/ai-product-development/SKILL.md)。
-- Runtime：execution-profile.md；规划时 planner.md；进入 Gate 时 gates.md；变更时 replan-recovery.md；正式更新时 registry-versioning.md；其他 Runtime 文件仅在相应操作发生时读取。
+- 本场景在变更时加载 replan-recovery.md，正式更新时加载 registry-versioning.md。
 - 生命周期依当前 Profile 的受影响节点确定；基础变更不要求全部重读，变体按新 Profile 调整。
-
-## 完成判定
-
-共用 [Completion Criteria](../../../skills/ai-product-development/SKILL.md#17-completion-criteria)，不复制或改写全局完成规则。计划或 Profile 本身不等同于场景交付已完成。
-
-## 人工记录
-
-- 实际观察：待执行。
-- 结论：未执行（静态检查不代替模型行为评估）。

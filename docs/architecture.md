@@ -24,4 +24,4 @@
 
 三个 [Routing Test](../tests/ai-product-development/routing/README.md) 分别在新临时目录、新 ephemeral Codex 进程中运行。受测进程始终使用 read-only；父进程准备 Skill 副本并记录 trace。成功命令与完整文件输出才是读取证据，最终自述仅作辅助。额外读取和 dependency closure 按场景审阅，不规定绝对最少文件数。
 
-这三个有限路由 smoke tests 不证明完整产品交付能力；八个人工行为场景、Phase 2 数据模型/实例验证和 Phase 3 Golden MVP 均未执行。本次接受远程已删除旧占位目录的状态。迁移与未解决语义疑点见 [重构记录](decisions/001-modularize-ai-product-development.md)。
+这三个有限路由 smoke tests 不证明完整产品交付能力；八个人工行为场景、Phase 2 数据模型/实例验证和 Phase 3 Golden MVP 均未执行。本次接受远程已删除旧占位目录的状态。迁移与未解决语义疑点见 [重构记录](decisions/001-modularize-ai-product-development.md)，下一阶段边界见 [Phase 2 任务书](decisions/002-content-cleanup-and-phase-2-plan.md)。

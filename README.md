@@ -4,7 +4,7 @@
 
 ## 当前边界
 
-Phase 1 只完成模块化与按需读取验证。Skill 是 Codex 可读取的指令包；schema 保留原文结构示意，不代表已经实现项目状态存储、实例验证或自动恢复。Phase 2 Executable Validation、Phase 3 Golden MVP 单独讨论，不自动启动。
+Phase 1 模块化与按需读取验证已经完成，并已进行内容清洗。Skill 是 Codex 可读取的指令包；schema 保留原文结构示意，不代表已经实现项目状态存储、实例验证或自动恢复。下一阶段只完成 Executable Validation，范围见 [Phase 2 任务书](docs/decisions/002-content-cleanup-and-phase-2-plan.md)；当前尚未开始实现。
 
 ## 结构
 
@@ -19,6 +19,7 @@ skills/ai-product-development/
 tests/ai-product-development/
 ├── cases/                    # 八个人工行为场景
 ├── expected/
+├── behavior-contract.md      # 行为场景共用边界
 ├── migration-manifest.json    # 533 条源规则和对象指纹
 ├── section-migration.json     # 70 个源标题完整映射
 ├── structure_contract.py
@@ -52,4 +53,4 @@ python -B -X utf8 tests/ai-product-development/validate_structure.py --source /p
 
 [Routing Test 方法与证据](tests/ai-product-development/routing/README.md)说明如何独立启动 R1/R2/R3、回放实际工具输出并判定 PASS/WARN/FAIL。静态链接检查不能代替 Routing Test；模型自述不能独立支持 PASS。
 
-八组 [cases](tests/ai-product-development/cases) / [expected](tests/ai-product-development/expected) 仍为人工行为回归骨架，本次不宣称它们已执行。完整迁移、去重及源文疑点见 [重构记录](docs/decisions/001-modularize-ai-product-development.md)。
+八组 [cases](tests/ai-product-development/cases) / [expected](tests/ai-product-development/expected) 仍为人工行为回归骨架，统一遵循 [行为契约](tests/ai-product-development/behavior-contract.md)，本次不宣称它们已执行。完整迁移及源文疑点见 [重构记录](docs/decisions/001-modularize-ai-product-development.md)。

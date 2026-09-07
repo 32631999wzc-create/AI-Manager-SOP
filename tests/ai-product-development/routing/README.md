@@ -42,7 +42,7 @@ python -B -X utf8 tests/ai-product-development/routing/run_routing.py --scenario
 
 仅完成且退出码为 0 的单文件 `Get-Content -LiteralPath`，并且输出包含完整文件内容，才计作必要读取；支持相对/绝对 Windows 路径。失败或截断输出、目录列表均不计为完整读取；其他读法要求审阅，不能静默计 PASS。批量完整输出即使不是已支持的单文件命令，仍用于检测 eager loading。模型自述不提供读取证据。
 
-runner 为此最小测试限定完整单文件读取，不要求 Skill 在实际任务中总是读完整文件。通用局部读取/多工具 trace 解析器不在本次范围；未知命令产生 WARN，必要内容无法确认产生 FAIL。失败尝试保留。
+runner 为此最小测试限定完整单文件读取，不要求 Skill 在实际任务中总是读完整文件。通用局部读取/多工具 trace 解析器不在本次范围；未知命令产生 WARN，必要内容无法确认产生 FAIL。运行时不覆盖输出目录；提交时只保留验收采用的 trace，失败原因和修复写入报告。
 
 实际顺序、必要性、依赖闭包及判定见 [验证报告](report.md)。回放已保存的最终证据：
 
