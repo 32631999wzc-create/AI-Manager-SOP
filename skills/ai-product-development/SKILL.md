@@ -55,7 +55,7 @@ Do not introduce extra Manager, Orchestrator, Recovery, Merge, or Memory-Agent l
 ## Global Invariants
 
 - Profile 决定所需节点和深度；Planner 从实际缺口生成任务。节点、能力与任务不可混为一谈。
-- 只执行依赖和输入满足的 READY 任务；Worker 不得自行修改范围、计划或正式状态。
+- 只执行依赖和输入满足的 READY 任务；Worker 的范围、计划及正式内容操作边界见 [Executor](references/runtime/executor.md#103-execution)。
 - 正式内容经验证后提交；假设与事实分开，更新创建新版本，保留有效工作。
 - Qualification、Build Readiness、Release Readiness 是仅有的三个顶层 Gate；其他检查保持局部。
 - 所有节点共用下方 Completion Criteria；不能以访问完清单代替完成任务。
@@ -68,7 +68,8 @@ Do not introduce extra Manager, Orchestrator, Recovery, Merge, or Memory-Agent l
 随后遵循：Execution Profile → determine active nodes → load only relevant node references。
 Profile 为全部八个节点记录状态，但不要默认读取全部 lifecycle references。
 对 REQUIRED、LIGHT 或实际启用的 OPTIONAL 节点，在开始该节点工作时加载对应文件。
-VERIFY 只加载验证相关节点规则；SKIP 不触发该节点的完整流程或任务。
+VERIFY 只加载当前核验任务相关节点规则；已确认的可复用资料用于满足依赖，不因 Profile 中列为 VERIFY 就逐个读取节点详情。
+SKIP 不触发该节点的完整流程或任务。
 Profile 改变时重新判断相关文件；不因一次任务读取过某文件而把全部 references 常驻上下文。
 
 ### Lifecycle Routing
@@ -94,7 +95,7 @@ Runtime 文件按当前执行阶段加载，不机械一次性读取全部文件
 | 从缺口规划、拆任务、排依赖、并行或优先级，检查计划 | [Planner](references/runtime/planner.md) |
 | 检索项目状态、组装或裁剪任务上下文 | [Context](references/runtime/context.md) |
 | 选择 Worker、执行、验证或局部重试 | [Executor](references/runtime/executor.md) |
-| 写入项目记录、提交正式产物或更新版本 | [Registry and Versioning](references/runtime/registry-versioning.md) |
+| 判断正式产物状态、写入项目记录、提交正式产物或更新版本 | [Registry and Versioning](references/runtime/registry-versioning.md) |
 | 实质变更、不可重试失败或恢复执行 | [Replan and Recovery](references/runtime/replan-recovery.md) |
 | 判断 Qualification / Build / Release Gate | [Gates](references/runtime/gates.md) |
 

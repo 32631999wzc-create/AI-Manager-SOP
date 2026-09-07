@@ -4,7 +4,7 @@
 
 按 Preserve semantics → Split by responsibility → Add routing → Remove duplication → Validate 执行。来源为用户提供的完整 SKILL.md，共 945 行，SHA-256：0db07435d169006990aeeabdecbb4b9f09210a00390a76d78ffb516e0ca18ace。
 
-该完整源文件此前未存在于 Git 历史，仓库只有 ai-product-sop 占位文件。本次将外部源文模块化导入 ai-product-development，保留历史占位目录，不将目录占位误报为被重构的完整旧版本。源文未重复提交，指纹与逐行归属保存在 [迁移清单](../../tests/ai-product-development/migration-manifest.json)。
+该完整源文件此前未存在于 Git 历史，仓库只有 ai-product-sop 占位文件。本次将外部源文模块化导入 ai-product-development，首次导入时保留历史占位目录（随后由远程提交 592d974 删除，本次接受该删除），不将目录占位误报为被重构的完整旧版本。源文未重复提交，指纹与逐行归属保存在 [迁移清单](../../tests/ai-product-development/migration-manifest.json)。
 
 ## 原 section → canonical location
 
@@ -75,7 +75,7 @@
 - 行为回归只有清晰用例与预期；未接入模型自动执行框架，不把静态通过称为八个行为用例通过。
 - 人工核对主流程、路由、guardrails、去重位置与用例预期。正式验证结果见本次交付说明。
 
-## 本次修改文件
+## 首次导入修改文件（3d0332f）
 
 共 45 个文件；旧占位目录未修改。
 
@@ -124,3 +124,92 @@
 - tests/ai-product-development/expected/08-existing-reusable-assets.md
 - tests/ai-product-development/migration-manifest.json
 - tests/ai-product-development/validate_structure.py
+
+## Phase 1 补充审计
+
+八个 lifecycle 与七个 runtime 职责文件已逐一审阅。原有效规则继续以 533 条迁移指纹及八个 YAML 对象基线核验；不改变原文条件例外、枚举和 Gate。Kernel 原摘要“不得修改正式状态”比源文更宽，改为链接 Executor 的具体操作边界，避免误禁止正常任务状态迁移。详细规则仍以原 canonical 文件为准。
+
+重复扫描排除标题、导航链接及短组织性占位说明，检查长规则行和多行详细段落。相似但职责不同的 Profile 节点依赖与 Planner 任务依赖仍保留。重复检测不是语义证明；未添加新方法论、状态系统或执行服务。
+
+### 全部源标题逐项映射
+
+以下包含每个原始标题；父章节列出其子章节涉及的位置，逐条规则归属以迁移清单为准。机器可核验版本见 [section-migration.json](../../tests/ai-product-development/section-migration.json)。行号来自固定 945 行源文，不依赖用户下载路径。
+
+| 源行 | 旧 Section / 标题 | 新 canonical location（相对 Skill） |
+|---|---|---|
+| 6 | AI Product Development | `SKILL.md` |
+| 12 | 1. Operating Principles | `SKILL.md` |
+| 27 | 2. Lifecycle | `SKILL.md` |
+| 42 | 3. Runtime | `SKILL.md` |
+| 55 | 4. Core Data | `SKILL.md`<br>`schemas/project-state.yaml`<br>`schemas/task.yaml` |
+| 59 | Task | `schemas/task.yaml` |
+| 85 | Project Record | `schemas/project-state.yaml` |
+| 103 | Artifact | `schemas/project-state.yaml` |
+| 123 | Runtime Snapshot (optional) | `schemas/project-state.yaml` |
+| 140 | 5. Qualification | `references/lifecycle/01-qualification.md`<br>`references/runtime/execution-profile.md`<br>`references/runtime/gates.md`<br>`schemas/execution-profile.yaml` |
+| 144 | 5.0 Initial Response Protocol | `references/lifecycle/01-qualification.md` |
+| 156 | 5.1 Determine Delivery Target | `references/runtime/execution-profile.md` |
+| 178 | 5.2 Determine Assignment Scope | `references/runtime/execution-profile.md`<br>`schemas/execution-profile.yaml` |
+| 193 | 5.3 Inspect Product Context | `references/lifecycle/01-qualification.md` |
+| 210 | 5.4 Classify Missing Information | `references/lifecycle/01-qualification.md` |
+| 222 | 5.5 Qualification Gate | `references/runtime/gates.md` |
+| 234 | 6. Execution Profile | `SKILL.md`<br>`references/runtime/execution-profile.md`<br>`schemas/execution-profile.yaml` |
+| 254 | 6.1 Base Profile by Delivery Target | `references/runtime/execution-profile.md` |
+| 271 | 6.2 Scope Rules | `references/runtime/execution-profile.md` |
+| 281 | 6.3 Existing Asset Rules | `references/runtime/execution-profile.md` |
+| 302 | 6.4 Project Mode | `references/runtime/execution-profile.md` |
+| 313 | 6.5 Feature Triggers | `references/runtime/execution-profile.md` |
+| 329 | 6.6 Risk Floors | `references/runtime/execution-profile.md` |
+| 341 | 6.7 Dependency Closure | `references/runtime/execution-profile.md` |
+| 354 | 6.8 Rule Precedence | `SKILL.md` |
+| 367 | 6.9 Consistency Check | `references/runtime/execution-profile.md` |
+| 380 | 7. Lifecycle Node Registry | `references/lifecycle/01-qualification.md`<br>`references/lifecycle/02-cognition.md`<br>`references/lifecycle/03-product-definition.md`<br>`references/lifecycle/04-solution-design.md`<br>`references/lifecycle/05-implementation.md`<br>`references/lifecycle/06-validation-iteration.md`<br>`references/lifecycle/07-release-operation.md`<br>`references/lifecycle/08-retrospective.md`<br>`references/runtime/executor.md`<br>`references/runtime/gates.md` |
+| 382 | 7.1 Qualification | `references/lifecycle/01-qualification.md` |
+| 392 | 7.2 Cognition | `references/lifecycle/02-cognition.md` |
+| 406 | 7.3 Product Definition & Scope | `references/lifecycle/03-product-definition.md` |
+| 416 | 7.4 Solution Design | `references/lifecycle/04-solution-design.md`<br>`references/runtime/executor.md`<br>`references/runtime/gates.md` |
+| 422 | Solution Architecture capabilities | `references/lifecycle/04-solution-design.md` |
+| 433 | Evaluation Design capabilities | `references/lifecycle/04-solution-design.md`<br>`references/runtime/executor.md`<br>`references/runtime/gates.md` |
+| 448 | 7.5 Implementation | `references/lifecycle/05-implementation.md` |
+| 456 | 7.6 Validation & Iteration | `references/lifecycle/06-validation-iteration.md` |
+| 478 | 7.7 Release & Operation | `references/lifecycle/07-release-operation.md` |
+| 491 | 7.8 Retrospective | `references/lifecycle/08-retrospective.md` |
+| 501 | 8. Planner | `references/runtime/planner.md`<br>`schemas/plan.yaml` |
+| 519 | 8.1 Plan Before Execute | `references/runtime/planner.md` |
+| 532 | 8.2 Generate Tasks from Gaps | `references/runtime/planner.md` |
+| 540 | 8.3 Valid Task Rule | `references/runtime/planner.md` |
+| 552 | 8.4 Split a Task When | `references/runtime/planner.md` |
+| 565 | 8.5 Dependencies | `references/runtime/planner.md` |
+| 578 | 8.6 Parallelism | `references/runtime/planner.md` |
+| 589 | 8.7 Priority | `references/runtime/planner.md` |
+| 606 | 8.8 Planning Gate | `references/runtime/planner.md` |
+| 626 | 9. Context | `references/runtime/context.md`<br>`schemas/context-pack.yaml` |
+| 668 | 10. Executor | `references/runtime/executor.md` |
+| 672 | 10.1 Worker Types | `references/runtime/executor.md` |
+| 684 | 10.2 Worker Selection | `references/runtime/executor.md` |
+| 692 | 10.3 Execution | `references/runtime/executor.md` |
+| 704 | 10.4 Validation | `references/runtime/executor.md` |
+| 708 | Structural Validation | `references/runtime/executor.md` |
+| 712 | Acceptance Validation | `references/runtime/executor.md` |
+| 718 | 10.5 Failure | `references/runtime/executor.md` |
+| 730 | 11. Registry and Versioning | `references/runtime/registry-versioning.md` |
+| 734 | 11.1 Record Write Rules | `references/runtime/registry-versioning.md` |
+| 747 | 11.2 Artifact Commit Rules | `references/runtime/registry-versioning.md` |
+| 768 | 12. Replan and Recovery | `references/runtime/replan-recovery.md` |
+| 776 | 12.1 Change Types | `references/runtime/replan-recovery.md` |
+| 788 | 12.2 Replan Actions | `references/runtime/replan-recovery.md` |
+| 799 | 12.3 Local vs Profile Replan | `references/runtime/replan-recovery.md` |
+| 811 | 13. Flow Gates | `references/runtime/gates.md` |
+| 815 | Qualification Gate | `references/runtime/gates.md` |
+| 819 | Build Readiness | `references/runtime/gates.md` |
+| 823 | Release Readiness | `references/runtime/gates.md` |
+| 831 | 14. Complexity Guardrails | `SKILL.md` |
+| 863 | 15. User-Facing Execution Style | `SKILL.md`<br>`templates/execution-plan.md` |
+| 886 | 16. End-to-End Procedure | `SKILL.md` |
+| 926 | 17. Completion Criteria | `SKILL.md` |
+
+### Canonical 归属修正
+
+补全逐标题映射时发现首次迁移清单用相同文本匹配归属，导致 `id`、`version`、短状态枚举、主流程节点标签等被归到其他章节的同文行。按源章节与数据对象上下文修正 18 条 canonical_file；所有 source_sha256、canonical_sha256、frontmatter 与 schema 对象指纹不变，不重新生成源基线。修正明细见 [canonical-location-corrections.json](../../tests/ai-product-development/canonical-location-corrections.json)。最终完整表与逐行归属一致。
+
+Routing Test 首轮暴露 VERIFY 机械读取和 Replan 漏读 Registry，修正仅为 Kernel 与 Replan 的加载导航；最终三组独立只读 trace 均通过。完整证据与历史 WARN/FAIL 见 [Phase 1 报告](../../tests/ai-product-development/routing/report.md)。

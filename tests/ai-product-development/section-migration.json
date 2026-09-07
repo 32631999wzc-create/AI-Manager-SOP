@@ -1,0 +1,659 @@
+{
+  "source_sha256": "0db07435d169006990aeeabdecbb4b9f09210a00390a76d78ffb516e0ca18ace",
+  "sections": [
+    {
+      "line": 6,
+      "level": 1,
+      "heading": "AI Product Development",
+      "end_line": 139,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md"
+      ]
+    },
+    {
+      "line": 12,
+      "level": 2,
+      "heading": "1. Operating Principles",
+      "end_line": 26,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md"
+      ]
+    },
+    {
+      "line": 27,
+      "level": 2,
+      "heading": "2. Lifecycle",
+      "end_line": 41,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md"
+      ]
+    },
+    {
+      "line": 42,
+      "level": 2,
+      "heading": "3. Runtime",
+      "end_line": 54,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md"
+      ]
+    },
+    {
+      "line": 55,
+      "level": 2,
+      "heading": "4. Core Data",
+      "end_line": 139,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md",
+        "skills/ai-product-development/schemas/project-state.yaml",
+        "skills/ai-product-development/schemas/task.yaml"
+      ]
+    },
+    {
+      "line": 59,
+      "level": 3,
+      "heading": "Task",
+      "end_line": 84,
+      "canonical_files": [
+        "skills/ai-product-development/schemas/task.yaml"
+      ]
+    },
+    {
+      "line": 85,
+      "level": 3,
+      "heading": "Project Record",
+      "end_line": 102,
+      "canonical_files": [
+        "skills/ai-product-development/schemas/project-state.yaml"
+      ]
+    },
+    {
+      "line": 103,
+      "level": 3,
+      "heading": "Artifact",
+      "end_line": 122,
+      "canonical_files": [
+        "skills/ai-product-development/schemas/project-state.yaml"
+      ]
+    },
+    {
+      "line": 123,
+      "level": 3,
+      "heading": "Runtime Snapshot (optional)",
+      "end_line": 139,
+      "canonical_files": [
+        "skills/ai-product-development/schemas/project-state.yaml"
+      ]
+    },
+    {
+      "line": 140,
+      "level": 1,
+      "heading": "5. Qualification",
+      "end_line": 233,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/01-qualification.md",
+        "skills/ai-product-development/references/runtime/execution-profile.md",
+        "skills/ai-product-development/references/runtime/gates.md",
+        "skills/ai-product-development/schemas/execution-profile.yaml"
+      ]
+    },
+    {
+      "line": 144,
+      "level": 2,
+      "heading": "5.0 Initial Response Protocol",
+      "end_line": 155,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/01-qualification.md"
+      ]
+    },
+    {
+      "line": 156,
+      "level": 2,
+      "heading": "5.1 Determine Delivery Target",
+      "end_line": 177,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md"
+      ]
+    },
+    {
+      "line": 178,
+      "level": 2,
+      "heading": "5.2 Determine Assignment Scope",
+      "end_line": 192,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md",
+        "skills/ai-product-development/schemas/execution-profile.yaml"
+      ]
+    },
+    {
+      "line": 193,
+      "level": 2,
+      "heading": "5.3 Inspect Product Context",
+      "end_line": 209,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/01-qualification.md"
+      ]
+    },
+    {
+      "line": 210,
+      "level": 2,
+      "heading": "5.4 Classify Missing Information",
+      "end_line": 221,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/01-qualification.md"
+      ]
+    },
+    {
+      "line": 222,
+      "level": 2,
+      "heading": "5.5 Qualification Gate",
+      "end_line": 233,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/gates.md"
+      ]
+    },
+    {
+      "line": 234,
+      "level": 1,
+      "heading": "6. Execution Profile",
+      "end_line": 379,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md",
+        "skills/ai-product-development/references/runtime/execution-profile.md",
+        "skills/ai-product-development/schemas/execution-profile.yaml"
+      ]
+    },
+    {
+      "line": 254,
+      "level": 2,
+      "heading": "6.1 Base Profile by Delivery Target",
+      "end_line": 270,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md"
+      ]
+    },
+    {
+      "line": 271,
+      "level": 2,
+      "heading": "6.2 Scope Rules",
+      "end_line": 280,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md"
+      ]
+    },
+    {
+      "line": 281,
+      "level": 2,
+      "heading": "6.3 Existing Asset Rules",
+      "end_line": 301,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md"
+      ]
+    },
+    {
+      "line": 302,
+      "level": 2,
+      "heading": "6.4 Project Mode",
+      "end_line": 312,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md"
+      ]
+    },
+    {
+      "line": 313,
+      "level": 2,
+      "heading": "6.5 Feature Triggers",
+      "end_line": 328,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md"
+      ]
+    },
+    {
+      "line": 329,
+      "level": 2,
+      "heading": "6.6 Risk Floors",
+      "end_line": 340,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md"
+      ]
+    },
+    {
+      "line": 341,
+      "level": 2,
+      "heading": "6.7 Dependency Closure",
+      "end_line": 353,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md"
+      ]
+    },
+    {
+      "line": 354,
+      "level": 2,
+      "heading": "6.8 Rule Precedence",
+      "end_line": 366,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md"
+      ]
+    },
+    {
+      "line": 367,
+      "level": 2,
+      "heading": "6.9 Consistency Check",
+      "end_line": 379,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/execution-profile.md"
+      ]
+    },
+    {
+      "line": 380,
+      "level": 1,
+      "heading": "7. Lifecycle Node Registry",
+      "end_line": 500,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/01-qualification.md",
+        "skills/ai-product-development/references/lifecycle/02-cognition.md",
+        "skills/ai-product-development/references/lifecycle/03-product-definition.md",
+        "skills/ai-product-development/references/lifecycle/04-solution-design.md",
+        "skills/ai-product-development/references/lifecycle/05-implementation.md",
+        "skills/ai-product-development/references/lifecycle/06-validation-iteration.md",
+        "skills/ai-product-development/references/lifecycle/07-release-operation.md",
+        "skills/ai-product-development/references/lifecycle/08-retrospective.md",
+        "skills/ai-product-development/references/runtime/executor.md",
+        "skills/ai-product-development/references/runtime/gates.md"
+      ]
+    },
+    {
+      "line": 382,
+      "level": 2,
+      "heading": "7.1 Qualification",
+      "end_line": 391,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/01-qualification.md"
+      ]
+    },
+    {
+      "line": 392,
+      "level": 2,
+      "heading": "7.2 Cognition",
+      "end_line": 405,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/02-cognition.md"
+      ]
+    },
+    {
+      "line": 406,
+      "level": 2,
+      "heading": "7.3 Product Definition & Scope",
+      "end_line": 415,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/03-product-definition.md"
+      ]
+    },
+    {
+      "line": 416,
+      "level": 2,
+      "heading": "7.4 Solution Design",
+      "end_line": 447,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/04-solution-design.md",
+        "skills/ai-product-development/references/runtime/executor.md",
+        "skills/ai-product-development/references/runtime/gates.md"
+      ]
+    },
+    {
+      "line": 422,
+      "level": 3,
+      "heading": "Solution Architecture capabilities",
+      "end_line": 432,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/04-solution-design.md"
+      ]
+    },
+    {
+      "line": 433,
+      "level": 3,
+      "heading": "Evaluation Design capabilities",
+      "end_line": 447,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/04-solution-design.md",
+        "skills/ai-product-development/references/runtime/executor.md",
+        "skills/ai-product-development/references/runtime/gates.md"
+      ]
+    },
+    {
+      "line": 448,
+      "level": 2,
+      "heading": "7.5 Implementation",
+      "end_line": 455,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/05-implementation.md"
+      ]
+    },
+    {
+      "line": 456,
+      "level": 2,
+      "heading": "7.6 Validation & Iteration",
+      "end_line": 477,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/06-validation-iteration.md"
+      ]
+    },
+    {
+      "line": 478,
+      "level": 2,
+      "heading": "7.7 Release & Operation",
+      "end_line": 490,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/07-release-operation.md"
+      ]
+    },
+    {
+      "line": 491,
+      "level": 2,
+      "heading": "7.8 Retrospective",
+      "end_line": 500,
+      "canonical_files": [
+        "skills/ai-product-development/references/lifecycle/08-retrospective.md"
+      ]
+    },
+    {
+      "line": 501,
+      "level": 1,
+      "heading": "8. Planner",
+      "end_line": 625,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/planner.md",
+        "skills/ai-product-development/schemas/plan.yaml"
+      ]
+    },
+    {
+      "line": 519,
+      "level": 2,
+      "heading": "8.1 Plan Before Execute",
+      "end_line": 531,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/planner.md"
+      ]
+    },
+    {
+      "line": 532,
+      "level": 2,
+      "heading": "8.2 Generate Tasks from Gaps",
+      "end_line": 539,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/planner.md"
+      ]
+    },
+    {
+      "line": 540,
+      "level": 2,
+      "heading": "8.3 Valid Task Rule",
+      "end_line": 551,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/planner.md"
+      ]
+    },
+    {
+      "line": 552,
+      "level": 2,
+      "heading": "8.4 Split a Task When",
+      "end_line": 564,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/planner.md"
+      ]
+    },
+    {
+      "line": 565,
+      "level": 2,
+      "heading": "8.5 Dependencies",
+      "end_line": 577,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/planner.md"
+      ]
+    },
+    {
+      "line": 578,
+      "level": 2,
+      "heading": "8.6 Parallelism",
+      "end_line": 588,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/planner.md"
+      ]
+    },
+    {
+      "line": 589,
+      "level": 2,
+      "heading": "8.7 Priority",
+      "end_line": 605,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/planner.md"
+      ]
+    },
+    {
+      "line": 606,
+      "level": 2,
+      "heading": "8.8 Planning Gate",
+      "end_line": 625,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/planner.md"
+      ]
+    },
+    {
+      "line": 626,
+      "level": 1,
+      "heading": "9. Context",
+      "end_line": 667,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/context.md",
+        "skills/ai-product-development/schemas/context-pack.yaml"
+      ]
+    },
+    {
+      "line": 668,
+      "level": 1,
+      "heading": "10. Executor",
+      "end_line": 729,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/executor.md"
+      ]
+    },
+    {
+      "line": 672,
+      "level": 2,
+      "heading": "10.1 Worker Types",
+      "end_line": 683,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/executor.md"
+      ]
+    },
+    {
+      "line": 684,
+      "level": 2,
+      "heading": "10.2 Worker Selection",
+      "end_line": 691,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/executor.md"
+      ]
+    },
+    {
+      "line": 692,
+      "level": 2,
+      "heading": "10.3 Execution",
+      "end_line": 703,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/executor.md"
+      ]
+    },
+    {
+      "line": 704,
+      "level": 2,
+      "heading": "10.4 Validation",
+      "end_line": 717,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/executor.md"
+      ]
+    },
+    {
+      "line": 708,
+      "level": 3,
+      "heading": "Structural Validation",
+      "end_line": 711,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/executor.md"
+      ]
+    },
+    {
+      "line": 712,
+      "level": 3,
+      "heading": "Acceptance Validation",
+      "end_line": 717,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/executor.md"
+      ]
+    },
+    {
+      "line": 718,
+      "level": 2,
+      "heading": "10.5 Failure",
+      "end_line": 729,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/executor.md"
+      ]
+    },
+    {
+      "line": 730,
+      "level": 1,
+      "heading": "11. Registry and Versioning",
+      "end_line": 767,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/registry-versioning.md"
+      ]
+    },
+    {
+      "line": 734,
+      "level": 2,
+      "heading": "11.1 Record Write Rules",
+      "end_line": 746,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/registry-versioning.md"
+      ]
+    },
+    {
+      "line": 747,
+      "level": 2,
+      "heading": "11.2 Artifact Commit Rules",
+      "end_line": 767,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/registry-versioning.md"
+      ]
+    },
+    {
+      "line": 768,
+      "level": 1,
+      "heading": "12. Replan and Recovery",
+      "end_line": 810,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/replan-recovery.md"
+      ]
+    },
+    {
+      "line": 776,
+      "level": 2,
+      "heading": "12.1 Change Types",
+      "end_line": 787,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/replan-recovery.md"
+      ]
+    },
+    {
+      "line": 788,
+      "level": 2,
+      "heading": "12.2 Replan Actions",
+      "end_line": 798,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/replan-recovery.md"
+      ]
+    },
+    {
+      "line": 799,
+      "level": 2,
+      "heading": "12.3 Local vs Profile Replan",
+      "end_line": 810,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/replan-recovery.md"
+      ]
+    },
+    {
+      "line": 811,
+      "level": 1,
+      "heading": "13. Flow Gates",
+      "end_line": 830,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/gates.md"
+      ]
+    },
+    {
+      "line": 815,
+      "level": 2,
+      "heading": "Qualification Gate",
+      "end_line": 818,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/gates.md"
+      ]
+    },
+    {
+      "line": 819,
+      "level": 2,
+      "heading": "Build Readiness",
+      "end_line": 822,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/gates.md"
+      ]
+    },
+    {
+      "line": 823,
+      "level": 2,
+      "heading": "Release Readiness",
+      "end_line": 830,
+      "canonical_files": [
+        "skills/ai-product-development/references/runtime/gates.md"
+      ]
+    },
+    {
+      "line": 831,
+      "level": 1,
+      "heading": "14. Complexity Guardrails",
+      "end_line": 862,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md"
+      ]
+    },
+    {
+      "line": 863,
+      "level": 1,
+      "heading": "15. User-Facing Execution Style",
+      "end_line": 885,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md",
+        "skills/ai-product-development/templates/execution-plan.md"
+      ]
+    },
+    {
+      "line": 886,
+      "level": 1,
+      "heading": "16. End-to-End Procedure",
+      "end_line": 925,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md"
+      ]
+    },
+    {
+      "line": 926,
+      "level": 1,
+      "heading": "17. Completion Criteria",
+      "end_line": 945,
+      "canonical_files": [
+        "skills/ai-product-development/SKILL.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+[
+  {
+    "id": "R1",
+    "title": "Greenfield Prototype Qualification 与 Profile",
+    "task": "为一个面向个人的 AI 食谱卡片概念做初始 Qualification 和 Execution Profile。交付目标已确认 PROTOTYPE；只做概念和交互，AI 和数据均可 mock。无现有仓库、无真实用户、无外部 API、无登录、无持久化、无上线、安全敏感数据或高风险决策。当前委托仅为初始资格判断和八节点 Profile，不设计界面、不生成实现任务、不执行后续节点。输出 Qualification Gate 结果和八节点的 scope_role、activation、depth、asset_status、原因与依赖检查。",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/gates.md",
+      "schemas/execution-profile.yaml"
+    ],
+    "support": {
+      "templates/execution-plan.md": "Kernel 初始计划沟通格式",
+      "references/runtime/planner.md": "初始计划的局部检查"
+    },
+    "closure": "只制定 Profile；不存在实现或验证执行，不能把八节点 Profile 误解为加载八节点详细规则。"
+  },
+  {
+    "id": "R2",
+    "title": "已有系统 Validation Only",
+    "task": "对已有内部 AI 文本分类 DEMO 做一次 Validation Only。Qualification 已确认 PASS，范围和目标不变；本轮只核对给定结果并给出结论，不改代码、不修复、不发布、不写正式记录。已验证可复用的系统与验收设计：规则标签仅 A/B；三个固定样例全部精确匹配期望即通过；输入1/2/3的期望分别为 A/B/A，实际分别为 A/B/A；测试覆盖只限这三个样例，不宣称泛化。已确认 Profile：Qualification VERIFY，Cognition VERIFY，Product Definition & Scope VERIFY，Solution Design VERIFY，Validation & Iteration REQUIRED，其余 SKIP；不存在敏感数据或新增依赖。请按 Skill 核验，说明通过范围和限制。",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/06-validation-iteration.md",
+      "references/runtime/executor.md"
+    ],
+    "support": {
+      "references/runtime/execution-profile.md": "确认已给 Profile 的复用与依赖闭包",
+      "references/lifecycle/01-qualification.md": "确认前置 Qualification 已完成",
+      "references/runtime/gates.md": "前置 Gate 结果确认",
+      "references/lifecycle/04-solution-design.md": "局部核对已有验收设计",
+      "references/runtime/context.md": "当前验证输入裁剪",
+      "schemas/execution-profile.yaml": "核对已给节点 Profile",
+      "templates/execution-plan.md": "本轮计划沟通格式",
+      "references/runtime/planner.md": "验证工作的局部计划检查"
+    },
+    "closure": "已有验收标准且不修改仓库，不触发缺少验收标准的 Solution Design 补建或代码修改的 Cognition。局部确认这些规则允许。"
+  },
+  {
+    "id": "R3",
+    "title": "目标和范围不变的 Local Replan",
+    "task": "对既有 AI DEMO 的计划做 Local Replan 建议，仅在回答中输出，不执行代码、不写记录或状态。Qualification 已 PASS；交付目标、范围、主要约束和验收标准均不变。已完成并验证的 T1（范围）和 T2（设计）及其正式产物 v1 仍有效。T3（工具适配）因外部 API 契约字段变更而失败，确认不能直接重试；其适配产物 v1 失效。T4（依赖 T3 适配产物的集成验证）未开始，T5（与 T3 无依赖的演示说明）已完成且有效。现需加入一项独立契约修正任务，再产生新适配产物并验证；不得重做 T1/T2/T5。请给出局部影响、PRESERVE/OUTDATE/ADD/CANCEL 建议、新任务依赖、是否需要新计划版本，以及与 Profile Replan 的区别；不用重新生成八节点 Profile。",
+    "required": [
+      "SKILL.md",
+      "references/runtime/replan-recovery.md",
+      "references/runtime/planner.md",
+      "references/runtime/registry-versioning.md"
+    ],
+    "support": {
+      "references/runtime/executor.md": "确认失败不可重试的执行规则",
+      "references/runtime/execution-profile.md": "确认不触发 Profile 重算的边界",
+      "schemas/plan.yaml": "核对计划版本和依赖字段",
+      "schemas/task.yaml": "核对任务状态",
+      "schemas/project-state.yaml": "核对受影响产物状态和版本",
+      "templates/execution-plan.md": "沟通新计划结构",
+      "references/runtime/context.md": "筛选受影响上下文"
+    },
+    "closure": "DAG 新增独立契约修正任务，触发新计划版本；不触发交付目标或范围变化的 Profile Replan。Registry 用于失效及版本建议，不授权提交。"
+  }
+]

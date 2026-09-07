@@ -6,6 +6,7 @@ import json
 import re
 from urllib.parse import unquote
 import yaml
+from structure_contract import inspect_contract
 
 ROOT = Path(__file__).resolve().parents[2]
 SKILL = ROOT / "skills/ai-product-development"
@@ -52,9 +53,15 @@ def validate(source=None):
 
     baseline = json.loads(MANIFEST.read_text(encoding="utf-8"))
     kernel = (SKILL / "SKILL.md").read_text(encoding="utf-8")
+    inspect_contract(SKILL, kernel, NODES, check)
+    if failures:
+        raise SystemExit("FAIL\n" + "\n".join(failures))
+    check(kernel.startswith("---\n") and "\n---\n" in kernel[4:], "Invalid frontmatter delimiters")
+    if failures:
+        raise SystemExit("FAIL\n" + "\n".join(failures))
     front = kernel.split("---", 2)[1]
     check(digest(front) == baseline["frontmatter_sha256"], "Frontmatter changed")
-    parsed = yaml.safe_load(front)
+    parsed = yaml.safe_load(front) or {}
     check(parsed.get("name") == "ai-product-development" and bool(parsed.get("description")), "Invalid activation metadata")
     lifecycle = kernel.split("## 2. Lifecycle", 1)[1].split("## 3. Runtime", 1)[0]
     check(re.findall(r"^\d+\. \x60(.+)\x60$", lifecycle, re.M) == NODES, "Lifecycle names/order changed")
@@ -96,6 +103,8 @@ def validate(source=None):
             objects[name] = digest(json.dumps(fields, sort_keys=True, ensure_ascii=False))
     check(objects == baseline["schema_objects"], "Source schema fields/enums/values changed")
 
+    check(len(baseline["rules"]) == 533, "Migration rule inventory changed")
+    check(len({r["source_line"] for r in baseline["rules"]}) == 533, "Duplicate migration source line")
     by_path = {}
     for rule in baseline["rules"]:
         name = rule["canonical_file"]
@@ -105,6 +114,21 @@ def validate(source=None):
             by_path[name] = {digest(norm(line)) for line in path.read_text(encoding="utf-8").splitlines()} if path.is_file() else set()
         check(rule["canonical_sha256"] in by_path[name], f"Source line {rule['source_line']} lost from {name}")
 
+    sections = json.loads(Path(__file__).with_name("section-migration.json").read_text(encoding="utf-8"))
+    check(sections["source_sha256"] == baseline["source_sha256"], "Section source mismatch")
+    check(len(sections["sections"]) == 70, "Expected all 70 source headings")
+    for section in sections["sections"]:
+        expected_files = sorted({r["canonical_file"] for r in baseline["rules"]
+                                 if section["line"] < r["source_line"] <= section["end_line"]})
+        if section["heading"] == "AI Product Development":
+            expected_files = ["skills/ai-product-development/SKILL.md"]
+        check(section["canonical_files"] == expected_files, "Section destination mismatch: " + section["heading"])
+        check(all((ROOT / f).is_file() for f in section["canonical_files"]), "Missing section canonical file")
+    decision = (ROOT / "docs/decisions/001-modularize-ai-product-development.md").read_text(encoding="utf-8")
+    for section in sections["sections"]:
+        locations = "<br>".join("`" + n.removeprefix("skills/ai-product-development/") + "`" for n in section["canonical_files"])
+        check(f"| {section['line']} | {section['heading']} | {locations} |" in decision, "Decision migration table drift")
+
     cases = {p.stem for p in Path(__file__).with_name("cases").glob("*.md")}
     expected = {p.stem for p in Path(__file__).with_name("expected").glob("*.md")}
     check(len(cases) == 8 and cases == expected, "Eight matching case/expected pairs required")
@@ -112,6 +136,15 @@ def validate(source=None):
         original = Path(source).read_text(encoding="utf-8-sig")
         check(digest(original) == baseline["source_sha256"], "Original source fingerprint mismatch")
         original_lines = original.splitlines()
+        source_headings, fenced = [], False
+        for number, line in enumerate(original_lines, 1):
+            if line.startswith(chr(96) * 3):
+                fenced = not fenced
+            if not fenced:
+                match = re.match(r"^(#{1,6}) (.+)$", line)
+                if match:
+                    source_headings.append((number, len(match[1]), match[2]))
+        check(source_headings == [(h["line"], h["level"], h["heading"]) for h in sections["sections"]], "Source heading coverage changed")
         for rule in baseline["rules"]:
             check(digest(norm(original_lines[rule["source_line"] - 1])) == rule["source_sha256"], "Source line fingerprint mismatch")
     if failures:

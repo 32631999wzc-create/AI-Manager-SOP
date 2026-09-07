@@ -1,0 +1,95 @@
+{
+  "reason": "原映射按相同文本命中时将共用字段、短枚举或流程标签归到其他章节；依据源章节和对象上下文校正。所有源/目标规则指纹、对象指纹与源文件指纹不变。",
+  "changes": [
+    {
+      "source_line": 63,
+      "old": "skills/ai-product-development/schemas/project-state.yaml",
+      "new": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 64,
+      "old": "skills/ai-product-development/schemas/project-state.yaml",
+      "new": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 66,
+      "old": "skills/ai-product-development/schemas/project-state.yaml",
+      "new": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 71,
+      "old": "skills/ai-product-development/schemas/plan.yaml",
+      "new": "skills/ai-product-development/schemas/task.yaml"
+    },
+    {
+      "source_line": 97,
+      "old": "skills/ai-product-development/schemas/plan.yaml",
+      "new": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 112,
+      "old": "skills/ai-product-development/schemas/plan.yaml",
+      "new": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 118,
+      "old": "skills/ai-product-development/schemas/plan.yaml",
+      "new": "skills/ai-product-development/schemas/project-state.yaml"
+    },
+    {
+      "source_line": 228,
+      "old": "skills/ai-product-development/references/runtime/executor.md",
+      "new": "skills/ai-product-development/references/runtime/gates.md"
+    },
+    {
+      "source_line": 514,
+      "old": "skills/ai-product-development/schemas/context-pack.yaml",
+      "new": "skills/ai-product-development/schemas/plan.yaml"
+    },
+    {
+      "source_line": 620,
+      "old": "skills/ai-product-development/references/runtime/gates.md",
+      "new": "skills/ai-product-development/references/runtime/planner.md"
+    },
+    {
+      "source_line": 778,
+      "old": "skills/ai-product-development/references/runtime/planner.md",
+      "new": "skills/ai-product-development/references/runtime/replan-recovery.md"
+    },
+    {
+      "source_line": 893,
+      "old": "skills/ai-product-development/references/lifecycle/01-qualification.md",
+      "new": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 895,
+      "old": "skills/ai-product-development/references/runtime/execution-profile.md",
+      "new": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 897,
+      "old": "skills/ai-product-development/references/lifecycle/02-cognition.md",
+      "new": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 899,
+      "old": "skills/ai-product-development/references/lifecycle/03-product-definition.md",
+      "new": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 901,
+      "old": "skills/ai-product-development/references/lifecycle/04-solution-design.md",
+      "new": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 911,
+      "old": "skills/ai-product-development/references/lifecycle/06-validation-iteration.md",
+      "new": "skills/ai-product-development/SKILL.md"
+    },
+    {
+      "source_line": 917,
+      "old": "skills/ai-product-development/references/lifecycle/08-retrospective.md",
+      "new": "skills/ai-product-development/SKILL.md"
+    }
+  ]
+}

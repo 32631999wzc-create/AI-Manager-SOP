@@ -13,3 +13,6 @@ Desktop.ini
 *.tmp
 *.swp
 *~
+
+# Python 验证脚本缓存
+__pycache__/

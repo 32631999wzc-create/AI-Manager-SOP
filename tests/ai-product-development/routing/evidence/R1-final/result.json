@@ -1,0 +1,67 @@
+{
+  "scenario": "R1",
+  "title": "Greenfield Prototype Qualification 与 Profile",
+  "task": "为一个面向个人的 AI 食谱卡片概念做初始 Qualification 和 Execution Profile。交付目标已确认 PROTOTYPE；只做概念和交互，AI 和数据均可 mock。无现有仓库、无真实用户、无外部 API、无登录、无持久化、无上线、安全敏感数据或高风险决策。当前委托仅为初始资格判断和八节点 Profile，不设计界面、不生成实现任务、不执行后续节点。输出 Qualification Gate 结果和八节点的 scope_role、activation、depth、asset_status、原因与依赖检查。",
+  "required": [
+    "SKILL.md",
+    "references/lifecycle/01-qualification.md",
+    "references/runtime/execution-profile.md",
+    "references/runtime/gates.md",
+    "schemas/execution-profile.yaml"
+  ],
+  "reads_in_order": [
+    {
+      "file": "SKILL.md",
+      "item_id": "item_2",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "templates/execution-plan.md",
+      "item_id": "item_3",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/templates/execution-plan.md' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "references/runtime/execution-profile.md",
+      "item_id": "item_4",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "references/runtime/gates.md",
+      "item_id": "item_5",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "references/lifecycle/01-qualification.md",
+      "item_id": "item_6",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "schemas/execution-profile.yaml",
+      "item_id": "item_7",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    }
+  ],
+  "missing": [],
+  "extra_reads": {
+    "templates/execution-plan.md": "Kernel 初始计划沟通格式"
+  },
+  "dependency_closure": "只制定 Profile；不存在实现或验证执行，不能把八节点 Profile 误解为加载八节点详细规则。",
+  "eager_loading_groups": [],
+  "content_exposed": [
+    "SKILL.md",
+    "references/lifecycle/01-qualification.md",
+    "references/runtime/execution-profile.md",
+    "references/runtime/gates.md",
+    "schemas/execution-profile.yaml",
+    "templates/execution-plan.md"
+  ],
+  "trace_limitations": [],
+  "unexplained": [],
+  "status": "PASS"
+}

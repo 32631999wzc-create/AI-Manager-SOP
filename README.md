@@ -1,60 +1,55 @@
 # AI-Manager-SOP
 
-真实的AI产品经理工作流。
+本仓库维护可复用的 AI 产品开发技能，正式入口为 [AI Product Development](skills/ai-product-development/SKILL.md)。依据交付目标、范围、已有资产、依赖和风险调整产品定义、设计、实现、评估和发布的深度。
 
-本仓库维护可复用的 AI 产品开发技能。正式入口为 [AI Product Development](skills/ai-product-development/SKILL.md)，覆盖原型到生产的产品定义、设计、实现、评估和发布，依据任务范围、已有资产、依赖和风险调整深度。
+## 当前边界
 
-## 架构
+Phase 1 只完成模块化与按需读取验证。Skill 是 Codex 可读取的指令包；schema 保留原文结构示意，不代表已经实现项目状态存储、实例验证或自动恢复。Phase 2 Executable Validation、Phase 3 Golden MVP 单独讨论，不自动启动。
 
-- **Skill Kernel + Router**：激活范围、八个固定节点、六项 Runtime 能力、全局约束、主流程和完成标准。
-- **References**：生命周期与 Runtime 详细规则各有唯一维护位置。
-- **Schemas**：原文 YAML 对象定义，保留字段、枚举和约束；是结构示意，不是实例验证框架。
-- **Templates**：仅抽离原文提供稳定格式的 Plan Preview；其他输出规则留在 references。
-
-遵循 Execution Profile → active nodes → relevant references。不要默认读取全部 references；Runtime 也按实际操作的需要读取。
-
-## 目录
+## 结构
 
 ```text
-skills/
-├── ai-product-development/
-│   ├── SKILL.md
-│   ├── references/
-│   │   ├── lifecycle/        # 八个固定节点
-│   │   └── runtime/          # 七个职责文件，不是额外 Agent
-│   ├── schemas/             # 五个 YAML 文件
-│   └── templates/           # execution-plan.md
-└── ai-product-sop/           # 保留历史占位目录
-tests/
-├── ai-product-development/
-│   ├── cases/
-│   ├── expected/
-│   ├── migration-manifest.json
-│   └── validate_structure.py
-└── cases/
-examples/
-└── ai-product-development/
+skills/ai-product-development/
+├── SKILL.md                  # Kernel + Router
+├── references/
+│   ├── lifecycle/            # 八节点
+│   └── runtime/              # 六项能力及共享 Gates，七个文件
+├── schemas/                  # 五个 YAML 文件，八个原始对象
+└── templates/                # execution-plan.md
+tests/ai-product-development/
+├── cases/                    # 八个人工行为场景
+├── expected/
+├── migration-manifest.json    # 533 条源规则和对象指纹
+├── section-migration.json     # 70 个源标题完整映射
+├── structure_contract.py
+├── validate_structure.py
+├── test_phase1.py
+└── routing/                  # 三个隔离只读场景及真实 trace
 docs/
 ├── architecture.md
 └── decisions/
+examples/ai-product-development/
 ```
 
-## 测试
+先读 Kernel，再按当前任务加载 Profile 或相关节点、Runtime。生成八节点 Profile 不意味着读取八节点详情；已确认可复用的 VERIFY 资料不自动触发逐节点读取。依赖闭包确实要求补充工作时再加载相应规则。详细规则只在 canonical location 维护。
 
-安装 Python 3 和 PyYAML 后，在仓库根目录运行：
+## 检查与测试
+
+需要 Python 3.10+、PyYAML；实际 Routing Test 还需要已认证的 Codex CLI 及正常工作的只读沙箱。在仓库根目录运行：
 
 ```sh
-python tests/ai-product-development/validate_structure.py
+python -B -X utf8 tests/ai-product-development/validate_structure.py
+python -B -X utf8 -m unittest discover -s tests/ai-product-development -p test_phase1.py
 ```
 
-检查内部文件与锚点链接、frontmatter、八节点顺序、Runtime 列表、原始 schema 对象、规则迁移指纹和八组 case/expected 配对。迁移基线只保存哈希，不重复保存整份旧 Skill。
+结构验证检查 frontmatter、Kernel 章节、节点与能力、模块集合及路由、内部文件和锚点、Gate、schema 字段与枚举、迁移完整性和明显详细规则重复。负例测试验证判定器能发现缺陷。
 
-额外核验原始文件时：
+可额外核验用户保存的原始文件：
 
 ```sh
-python tests/ai-product-development/validate_structure.py --source /path/to/original/SKILL.md
+python -B -X utf8 tests/ai-product-development/validate_structure.py --source /path/to/original/SKILL.md
 ```
 
-行为回归为人工检查：逐个使用 [cases](tests/ai-product-development/cases) 的输入，记录实际 Profile、references、计划和完成判定，与 [expected](tests/ai-product-development/expected) 对照。静态通过不代表模型行为用例已自动通过。
+[Routing Test 方法与证据](tests/ai-product-development/routing/README.md)说明如何独立启动 R1/R2/R3、回放实际工具输出并判定 PASS/WARN/FAIL。静态链接检查不能代替 Routing Test；模型自述不能独立支持 PASS。
 
-迁移映射、去重与语义疑点见 [重构记录](docs/decisions/001-modularize-ai-product-development.md)。
+八组 [cases](tests/ai-product-development/cases) / [expected](tests/ai-product-development/expected) 仍为人工行为回归骨架，本次不宣称它们已执行。完整迁移、去重及源文疑点见 [重构记录](docs/decisions/001-modularize-ai-product-development.md)。

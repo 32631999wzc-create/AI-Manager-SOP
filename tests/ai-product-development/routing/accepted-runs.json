@@ -1,0 +1,32 @@
+{
+  "R1": {
+    "directory": "evidence/R1-final",
+    "files_sha256": {
+      "prompt.txt": "fc9e66cb538a7a77b6ae77e6eab0da429700aaf5636a73286edd92c9af53ef1c",
+      "trace.jsonl": "8cbbd8f06251ec0b63e8e0f1868a0a284bfb18f8b6cf6fe2781df967088a0b27",
+      "stderr.txt": "f36b96c07012e6321ac42f174c1fa93ab67c76a73b1974bf3fc7a550a71f1503",
+      "metadata.json": "07b0d996938110b478fda18cdedff5c4846c0ea500e058762eb0e7e6fa684b13",
+      "result.json": "75b7ffc7b07b881760bfab57013684d8c35d0c5a0196c94b43bb399efdea5049"
+    }
+  },
+  "R2": {
+    "directory": "evidence/R2-final",
+    "files_sha256": {
+      "prompt.txt": "9dc8312d95aaa0e4becacf1a8d5de2fe0d5c5f2366075c18e8cb3bc40537bb1e",
+      "trace.jsonl": "04386753d4eca717f804aa9ef631432e0b06eb28b447ba3f1640ab6dbe018d56",
+      "stderr.txt": "1c85971c5e526d07c203efb41b07d6be341d814e593c8286ccc60799abf7244d",
+      "metadata.json": "8ca187903a5401eaaf70b581e16b2db6cb0bf4cdb313532dbbe9b8a989d725af",
+      "result.json": "ad75d4bb703318c1d33b159935d2245b33dcf0cde632762697e053b6d6d71ab5"
+    }
+  },
+  "R3": {
+    "directory": "evidence/R3-final",
+    "files_sha256": {
+      "prompt.txt": "0e7252cab830d5aadd4ef117f3018767ebdb40ae8b73f20942db374b27d2b4ef",
+      "trace.jsonl": "c29fa2fd1ab3b78c37e1887faf70f654a0942940fdb2be67d548ccc593cda18a",
+      "stderr.txt": "276daa85d9636ad8095ce9065fdc346997d67bd5167e061a333a8667b39047f4",
+      "metadata.json": "b3cc3360c7b42eee1b3e9c140eb4c40ed8f8374dfd14cb98f6e7bfa743624df5",
+      "result.json": "c7221f64ddaa5406e50aa7a312beb25363b4ba028355ba4e6e99aaf5a0458ffd"
+    }
+  }
+}
