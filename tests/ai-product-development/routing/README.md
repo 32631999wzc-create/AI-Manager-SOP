@@ -4,7 +4,7 @@
 
 ## 运行
 
-依赖 Python 3.10+、已认证的 Codex CLI 和正常工作的 Windows 只读沙箱。本次 CLI 为 0.153.0。每次必须使用新输出目录，不覆盖历史记录：
+依赖 Python 3.10+、已认证的 Codex CLI 和正常工作的 Windows 只读沙箱。本次最终证据使用 codex-cli 0.153.4。每次必须使用新输出目录，不覆盖历史记录：
 
 ```sh
 python -B -X utf8 tests/ai-product-development/routing/run_routing.py --scenario R1 --output tests/ai-product-development/routing/evidence/R1-new

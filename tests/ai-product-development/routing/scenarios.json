@@ -12,7 +12,14 @@
     ],
     "support": {
       "templates/execution-plan.md": "Kernel 初始计划沟通格式",
-      "references/runtime/planner.md": "初始计划的局部检查"
+      "references/runtime/planner.md": "初始计划的局部检查",
+      "scripts/validate_runtime.py": "Kernel-directed read-only executable validation",
+      "scripts/runtime_validation/__init__.py": "local validator package dependency inspection",
+      "scripts/runtime_validation/cli.py": "local validator CLI dependency inspection",
+      "scripts/runtime_validation/loader.py": "local validator input-loading dependency inspection",
+      "scripts/runtime_validation/models.py": "local validator model dependency inspection",
+      "scripts/runtime_validation/errors.py": "local validator error dependency inspection",
+      "scripts/runtime_validation/validators.py": "local validator rule implementation inspection"
     },
     "closure": "只制定 Profile；不存在实现或验证执行，不能把八节点 Profile 误解为加载八节点详细规则。"
   },
@@ -33,7 +40,14 @@
       "references/runtime/context.md": "当前验证输入裁剪",
       "schemas/execution-profile.yaml": "核对已给节点 Profile",
       "templates/execution-plan.md": "本轮计划沟通格式",
-      "references/runtime/planner.md": "验证工作的局部计划检查"
+      "references/runtime/planner.md": "验证工作的局部计划检查",
+      "scripts/validate_runtime.py": "Kernel-directed read-only executable validation",
+      "scripts/runtime_validation/__init__.py": "local validator package dependency inspection",
+      "scripts/runtime_validation/cli.py": "local validator CLI dependency inspection",
+      "scripts/runtime_validation/loader.py": "local validator input-loading dependency inspection",
+      "scripts/runtime_validation/models.py": "local validator model dependency inspection",
+      "scripts/runtime_validation/errors.py": "local validator error dependency inspection",
+      "scripts/runtime_validation/validators.py": "local validator rule implementation inspection"
     },
     "closure": "已有验收标准且不修改仓库，不触发缺少验收标准的 Solution Design 补建或代码修改的 Cognition。局部确认这些规则允许。"
   },
@@ -54,7 +68,14 @@
       "schemas/task.yaml": "核对任务状态",
       "schemas/project-state.yaml": "核对受影响产物状态和版本",
       "templates/execution-plan.md": "沟通新计划结构",
-      "references/runtime/context.md": "筛选受影响上下文"
+      "references/runtime/context.md": "筛选受影响上下文",
+      "scripts/validate_runtime.py": "Kernel-directed read-only executable validation",
+      "scripts/runtime_validation/__init__.py": "local validator package dependency inspection",
+      "scripts/runtime_validation/cli.py": "local validator CLI dependency inspection",
+      "scripts/runtime_validation/loader.py": "local validator input-loading dependency inspection",
+      "scripts/runtime_validation/models.py": "local validator model dependency inspection",
+      "scripts/runtime_validation/errors.py": "local validator error dependency inspection",
+      "scripts/runtime_validation/validators.py": "local validator rule implementation inspection"
     },
     "closure": "DAG 新增独立契约修正任务，触发新计划版本；不触发交付目标或范围变化的 Profile Replan。Registry 用于失效及版本建议，不授权提交。"
   }

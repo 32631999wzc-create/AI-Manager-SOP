@@ -1,0 +1,189 @@
+profile:
+  delivery_target: ENTERPRISE
+  project_mode: BROWNFIELD
+  assignment_scope:
+    mode: PARTIAL_PROJECT
+    requested_scope:
+    - scenario deliverable
+    excluded_scope:
+    - anything outside the scenario
+    expected_deliverables:
+    - validated result
+    ownership_boundary:
+    - local workspace
+  nodes:
+  - node: Qualification
+    status: NOT_STARTED
+    level: REQUIRED
+    depth: FULL
+    scope_role: SUPPORTING
+    active_capabilities: []
+    reused_artifacts: []
+    gaps:
+    - Qualification work
+    reasons:
+    - REQUIRED is required by the scenario
+    external_project_requirement: null
+  - node: Cognition
+    status: NOT_STARTED
+    level: LIGHT
+    depth: MINIMAL
+    scope_role: SUPPORTING
+    active_capabilities: []
+    reused_artifacts: []
+    gaps:
+    - Cognition work
+    reasons:
+    - LIGHT is required by the scenario
+    external_project_requirement: null
+  - node: Product Definition & Scope
+    status: NOT_STARTED
+    level: LIGHT
+    depth: MINIMAL
+    scope_role: SUPPORTING
+    active_capabilities: []
+    reused_artifacts: []
+    gaps:
+    - Product Definition & Scope work
+    reasons:
+    - LIGHT is required by the scenario
+    external_project_requirement: null
+  - node: Solution Design
+    status: NOT_STARTED
+    level: REQUIRED
+    depth: FULL
+    scope_role: PRIMARY
+    active_capabilities: []
+    reused_artifacts: []
+    gaps:
+    - Solution Design work
+    reasons:
+    - REQUIRED is required by the scenario
+    external_project_requirement: null
+  - node: Implementation
+    status: SKIPPED
+    level: SKIP
+    depth: SKIP
+    scope_role: OUT_OF_SCOPE
+    active_capabilities: []
+    reused_artifacts: []
+    gaps: []
+    reasons:
+    - Implementation is outside this assignment
+    external_project_requirement: null
+  - node: Validation & Iteration
+    status: SKIPPED
+    level: SKIP
+    depth: SKIP
+    scope_role: OUT_OF_SCOPE
+    active_capabilities: []
+    reused_artifacts: []
+    gaps: []
+    reasons:
+    - Validation & Iteration is outside this assignment
+    external_project_requirement: null
+  - node: Release & Operation
+    status: SKIPPED
+    level: SKIP
+    depth: SKIP
+    scope_role: OUT_OF_SCOPE
+    active_capabilities: []
+    reused_artifacts: []
+    gaps: []
+    reasons:
+    - Release & Operation is outside this assignment
+    external_project_requirement: project security, monitoring and release remain
+      external
+  - node: Retrospective
+    status: SKIPPED
+    level: SKIP
+    depth: SKIP
+    scope_role: OUT_OF_SCOPE
+    active_capabilities: []
+    reused_artifacts: []
+    gaps: []
+    reasons:
+    - Retrospective is outside this assignment
+    external_project_requirement: null
+  validation_context:
+    existing_repository_modification: false
+    verified_design: true
+    acceptance_criteria_defined: true
+    production_release: false
+    monitoring_covered: false
+    release_readiness: PASS
+    release_execution: false
+plan:
+  plan:
+    version: v1
+    objective: Deliver 03-partial-assignment
+    tasks:
+    - id: T1
+      name: Task T1
+      goal: Deliver 03-partial-assignment-definition
+      type: WORK
+      status: COMPLETED
+      priority: P1
+      lifecycle_node: Product Definition & Scope
+      execution_depth: FULL
+      dependencies: []
+      required_inputs:
+      - scope
+      required_capabilities:
+      - SKILL
+      expected_output: 03-partial-assignment-definition
+      acceptance_criteria:
+      - 03-partial-assignment-definition is validated
+      context_requirements: []
+      artifact_requirements:
+      - design-v1
+      retry_policy: LOCAL_ONCE
+    - id: T2
+      name: Task T2
+      goal: Deliver 03-partial-assignment-result
+      type: WORK
+      status: READY
+      priority: P1
+      lifecycle_node: Implementation
+      execution_depth: FULL
+      dependencies:
+      - T1
+      required_inputs:
+      - scope
+      required_capabilities:
+      - SKILL
+      expected_output: 03-partial-assignment-result
+      acceptance_criteria:
+      - 03-partial-assignment-result is validated
+      context_requirements: []
+      artifact_requirements:
+      - design-v1
+      retry_policy: LOCAL_ONCE
+    dependencies:
+    - from: T1
+      to: T2
+      type: HARD
+    critical_path:
+    - T1
+    - T2
+    assumptions: []
+  available_inputs:
+  - scope
+  artifacts:
+  - id: design-v1
+    type: DESIGN
+    name: Verified design
+    version: v1
+    status: ACTIVE
+    summary: Reusable design
+    location: fixtures/design.md
+    source_tasks: []
+    source_records: []
+    dependencies: []
+  gates: {}
+  blocked_inputs: []
+  write_targets:
+    T1:
+    - T1-artifact:v1
+    T2:
+    - T2-artifact:v1

@@ -4,7 +4,7 @@
 
 ## 当前边界
 
-Phase 1 模块化与按需读取验证已经完成，并已进行内容清洗。Skill 是 Codex 可读取的指令包；schema 保留原文结构示意，不代表已经实现项目状态存储、实例验证或自动恢复。下一阶段只完成 Executable Validation，范围见 [Phase 2 任务书](docs/decisions/002-content-cleanup-and-phase-2-plan.md)；当前尚未开始实现。
+Phase 1 模块化与按需读取验证已经完成，并已进行内容清洗。Skill 是 Codex 可读取的指令包；schema 保留原文结构示意，不代表已经实现项目状态存储或自动恢复。Phase 2 Executable Validation 已实现：Profile、Plan 和八个 canonical runtime object 可通过只读 CLI 确定性验证，八组场景已有固定输入与结构化断言。它仍不提供项目状态存储或自动恢复；范围见 [Phase 2 任务书](docs/decisions/002-content-cleanup-and-phase-2-plan.md)。
 
 ## 结构
 
@@ -15,11 +15,13 @@ skills/ai-product-development/
 │   ├── lifecycle/            # 八节点
 │   └── runtime/              # 六项能力及共享 Gates，七个文件
 ├── schemas/                  # 五个 YAML 文件，八个原始对象
-└── templates/                # execution-plan.md
+├── templates/                # execution-plan.md
+└── scripts/                  # 只读 runtime validator
 tests/ai-product-development/
 ├── cases/                    # 八个人工行为场景
 ├── expected/
 ├── behavior-contract.md      # 行为场景共用边界
+├── phase2/                   # 验证契约、固定 fixtures 与行为证据
 ├── migration-manifest.json    # 533 条源规则和对象指纹
 ├── section-migration.json     # 70 个源标题完整映射
 ├── structure_contract.py
@@ -41,6 +43,9 @@ examples/ai-product-development/
 ```sh
 python -B -X utf8 tests/ai-product-development/validate_structure.py
 python -B -X utf8 -m unittest discover -s tests/ai-product-development -p test_phase1.py
+python -B -X utf8 -m unittest discover -s tests/ai-product-development -p "test_phase2*.py"
+python -B -X utf8 tests/ai-product-development/routing/verify_evidence.py
+python -B -X utf8 tests/ai-product-development/phase2/behavior/verify_behavior.py
 ```
 
 结构验证检查 frontmatter、Kernel 章节、节点与能力、模块集合及路由、内部文件和锚点、Gate、schema 字段与枚举、迁移完整性和明显详细规则重复。负例测试验证判定器能发现缺陷。
@@ -53,4 +58,4 @@ python -B -X utf8 tests/ai-product-development/validate_structure.py --source /p
 
 [Routing Test 方法与证据](tests/ai-product-development/routing/README.md)说明如何独立启动 R1/R2/R3、回放实际工具输出并判定 PASS/WARN/FAIL。静态链接检查不能代替 Routing Test；模型自述不能独立支持 PASS。
 
-八组 [cases](tests/ai-product-development/cases) / [expected](tests/ai-product-development/expected) 仍为人工行为回归骨架，统一遵循 [行为契约](tests/ai-product-development/behavior-contract.md)，本次不宣称它们已执行。完整迁移及源文疑点见 [重构记录](docs/decisions/001-modularize-ai-product-development.md)。
+八组 [cases](tests/ai-product-development/cases) / [expected](tests/ai-product-development/expected) 已对应到 [Phase 2 固定 fixtures](tests/ai-product-development/phase2/README.md)，并统一遵循 [行为契约](tests/ai-product-development/behavior-contract.md)。确定性回归与八个隔离 Codex trace 均已通过；[行为报告](tests/ai-product-development/phase2/behavior/report.md)记录实际读取与修复，[P2 完成记录](docs/decisions/003-phase-2-executable-validation.md)记录实现边界。模型自述不替代实际读取证据。完整迁移及源文疑点见 [重构记录](docs/decisions/001-modularize-ai-product-development.md)。

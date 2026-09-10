@@ -1,0 +1,197 @@
+[
+  {
+    "id": "B1",
+    "title": "Greenfield Prototype",
+    "case": "01-greenfield-prototype",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "support": {
+      "schemas/project-state.yaml": "only when artifacts are constructed",
+      "scripts/validate_runtime.py": "Kernel-directed validation",
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "templates/execution-plan.md": "plan output format confirmation"
+    }
+  },
+  {
+    "id": "B2",
+    "title": "Existing Repository Modification",
+    "case": "02-existing-repository-modification",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "support": {
+      "references/lifecycle/02-cognition.md": "affected repository path gap planning",
+      "schemas/project-state.yaml": "only when artifacts are constructed",
+      "scripts/validate_runtime.py": "Kernel-directed validation",
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "templates/execution-plan.md": "plan output format confirmation"
+    }
+  },
+  {
+    "id": "B3",
+    "title": "Partial Assignment",
+    "case": "03-partial-assignment",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "support": {
+      "references/lifecycle/04-solution-design.md": "primary deliverable gap planning",
+      "schemas/project-state.yaml": "only when artifacts are constructed",
+      "scripts/validate_runtime.py": "Kernel-directed validation",
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "templates/execution-plan.md": "plan output format confirmation"
+    }
+  },
+  {
+    "id": "B4",
+    "title": "RAG Evaluation Only",
+    "case": "04-rag-evaluation-only",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "support": {
+      "references/lifecycle/06-validation-iteration.md": "primary evaluation gap planning",
+      "references/lifecycle/04-solution-design.md": "evaluation design dependency",
+      "schemas/project-state.yaml": "only when artifacts are constructed",
+      "scripts/validate_runtime.py": "Kernel-directed validation",
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "templates/execution-plan.md": "plan output format confirmation"
+    }
+  },
+  {
+    "id": "B5",
+    "title": "Agent Not Required",
+    "case": "05-agent-not-required",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "support": {
+      "schemas/project-state.yaml": "only when artifacts are constructed",
+      "scripts/validate_runtime.py": "Kernel-directed validation",
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "templates/execution-plan.md": "plan output format confirmation"
+    }
+  },
+  {
+    "id": "B6",
+    "title": "Enterprise Release",
+    "case": "06-enterprise-release",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "references/runtime/gates.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "support": {
+      "references/lifecycle/07-release-operation.md": "production release gap planning",
+      "references/lifecycle/06-validation-iteration.md": "release validation dependency",
+      "schemas/project-state.yaml": "only when artifacts are constructed",
+      "scripts/validate_runtime.py": "Kernel-directed validation",
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "templates/execution-plan.md": "plan output format confirmation"
+    }
+  },
+  {
+    "id": "B7",
+    "title": "Requirement Change Replan",
+    "case": "07-requirement-change-replan",
+    "required": [
+      "SKILL.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "references/runtime/replan-recovery.md",
+      "references/runtime/registry-versioning.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "support": {
+      "schemas/project-state.yaml": "only when artifacts are constructed",
+      "scripts/validate_runtime.py": "Kernel-directed validation",
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "references/lifecycle/01-qualification.md": "confirm that delivery target and assignment scope remain unchanged",
+      "templates/execution-plan.md": "plan output format confirmation"
+    }
+  },
+  {
+    "id": "B8",
+    "title": "Existing Reusable Assets",
+    "case": "08-existing-reusable-assets",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "references/runtime/context.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "support": {
+      "references/runtime/registry-versioning.md": "artifact status and version check",
+      "schemas/project-state.yaml": "only when artifacts are constructed",
+      "scripts/validate_runtime.py": "Kernel-directed validation",
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "templates/execution-plan.md": "plan output format confirmation"
+    }
+  }
+]

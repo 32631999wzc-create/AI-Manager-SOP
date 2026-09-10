@@ -1,7 +1,7 @@
-2026-09-06T18:04:38.269337Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
-2026-09-06T18:05:09.698887Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (1/5 in 212ms)... turn_id=01a077e4-cc53-7bd2-9276-4e1700127433 retries=1 max_retries=5 sampling_error=request timed out
-2026-09-06T18:05:24.933827Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (2/5 in 439ms)... turn_id=01a077e4-cc53-7bd2-9276-4e1700127433 retries=2 max_retries=5 sampling_error=request timed out
-2026-09-06T18:05:40.398055Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (3/5 in 824ms)... turn_id=01a077e4-cc53-7bd2-9276-4e1700127433 retries=3 max_retries=5 sampling_error=request timed out
-2026-09-06T18:05:56.248848Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (4/5 in 1.475s)... turn_id=01a077e4-cc53-7bd2-9276-4e1700127433 retries=4 max_retries=5 sampling_error=request timed out
-2026-09-06T18:06:12.739067Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (5/5 in 3.133s)... turn_id=01a077e4-cc53-7bd2-9276-4e1700127433 retries=5 max_retries=5 sampling_error=request timed out
-2026-09-06T18:06:30.886108Z  WARN codex_core::client: falling back to HTTP
+2026-09-10T06:59:21.553252Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-09-10T06:59:55.210041Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (1/5 in 203ms)... turn_id=01a08a1d-2e1e-7ef0-9d8b-f5fa82a73629 retries=1 max_retries=5 sampling_error=request timed out
+2026-09-10T07:00:10.440451Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (2/5 in 391ms)... turn_id=01a08a1d-2e1e-7ef0-9d8b-f5fa82a73629 retries=2 max_retries=5 sampling_error=request timed out
+2026-09-10T07:00:25.847529Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (3/5 in 727ms)... turn_id=01a08a1d-2e1e-7ef0-9d8b-f5fa82a73629 retries=3 max_retries=5 sampling_error=request timed out
+2026-09-10T07:00:41.601485Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (4/5 in 1.596s)... turn_id=01a08a1d-2e1e-7ef0-9d8b-f5fa82a73629 retries=4 max_retries=5 sampling_error=request timed out
+2026-09-10T07:00:58.207965Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (5/5 in 3.404s)... turn_id=01a08a1d-2e1e-7ef0-9d8b-f5fa82a73629 retries=5 max_retries=5 sampling_error=request timed out
+2026-09-10T07:01:16.631253Z  WARN codex_core::client: falling back to HTTP

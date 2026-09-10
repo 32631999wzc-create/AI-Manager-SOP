@@ -1,0 +1,141 @@
+Task:
+  id: OBJ-T1
+  name: Task OBJ-T1
+  goal: Deliver object-output
+  type: WORK
+  status: NOT_STARTED
+  priority: P1
+  lifecycle_node: Implementation
+  execution_depth: FULL
+  dependencies: []
+  required_inputs:
+  - scope
+  required_capabilities:
+  - SKILL
+  expected_output: object-output
+  acceptance_criteria:
+  - object-output is validated
+  context_requirements: []
+  artifact_requirements:
+  - design-v1
+  retry_policy: LOCAL_ONCE
+ProjectRecord:
+  id: R1
+  type: FACT
+  topic: scope
+  content: fixed
+  status: ACTIVE
+  source: user
+  version: v1
+  affected_scope: []
+Artifact:
+  id: design-v1
+  type: DESIGN
+  name: Verified design
+  version: v1
+  status: ACTIVE
+  summary: Reusable design
+  location: fixtures/design.md
+  source_tasks: []
+  source_records: []
+  dependencies: []
+RuntimeSnapshot:
+  plan_version: v1
+  task_states:
+    OBJ-T1: NOT_STARTED
+  active_artifacts:
+  - design-v1
+  active_records:
+  - R1
+  unresolved_items: []
+AssignmentScope:
+  mode: FULL_PROJECT
+  requested_scope:
+  - scenario deliverable
+  excluded_scope:
+  - anything outside the scenario
+  expected_deliverables:
+  - validated result
+  ownership_boundary:
+  - local workspace
+NodeProfile:
+  node: Qualification
+  status: NOT_STARTED
+  level: REQUIRED
+  depth: FULL
+  scope_role: SUPPORTING
+  active_capabilities: []
+  reused_artifacts: []
+  gaps:
+  - Qualification work
+  reasons:
+  - REQUIRED is required by the scenario
+  external_project_requirement: null
+Plan:
+  version: v1
+  objective: Deliver objects
+  tasks:
+  - id: T1
+    name: Task T1
+    goal: Deliver objects-definition
+    type: WORK
+    status: COMPLETED
+    priority: P1
+    lifecycle_node: Product Definition & Scope
+    execution_depth: FULL
+    dependencies: []
+    required_inputs:
+    - scope
+    required_capabilities:
+    - SKILL
+    expected_output: objects-definition
+    acceptance_criteria:
+    - objects-definition is validated
+    context_requirements: []
+    artifact_requirements:
+    - design-v1
+    retry_policy: LOCAL_ONCE
+  - id: T2
+    name: Task T2
+    goal: Deliver objects-result
+    type: WORK
+    status: READY
+    priority: P1
+    lifecycle_node: Implementation
+    execution_depth: FULL
+    dependencies:
+    - T1
+    required_inputs:
+    - scope
+    required_capabilities:
+    - SKILL
+    expected_output: objects-result
+    acceptance_criteria:
+    - objects-result is validated
+    context_requirements: []
+    artifact_requirements:
+    - design-v1
+    retry_policy: LOCAL_ONCE
+  dependencies:
+  - from: T1
+    to: T2
+    type: HARD
+  critical_path:
+  - T1
+  - T2
+  assumptions: []
+TaskContextPack:
+  task: OBJ-T1
+  relevant_facts:
+  - R1
+  relevant_decisions: []
+  relevant_constraints: []
+  relevant_artifacts:
+  - design-v1
+  recent_changes: []
+  assumptions: []
+  unresolved_items: []
+  allowed_actions:
+  - read
+  available_tools:
+  - shell

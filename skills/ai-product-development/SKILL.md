@@ -121,6 +121,12 @@ Product Context Snapshot、Product Definition & Scope、Retrospective 没有稳�
 详细规则只在 canonical location 维护；Kernel 仅保留全局 invariant 和路由。
 
 
+### Executable Validation
+
+构造或修改 Profile、Plan 或 canonical runtime object 后，运行只读的 [runtime validator](scripts/validate_runtime.py)。
+根据当前输入使用 `profile`、`plan`、`combined` 或 `objects` 模式；验证失败时修正对应对象或计划，不让验证器自动补字段、改状态或写项目记录。
+验证包装层仅提供交叉检查所需的输入上下文，不是新的持久化 schema。
+
 ## Rule Precedence
 
 Resolve conflicts in this order:

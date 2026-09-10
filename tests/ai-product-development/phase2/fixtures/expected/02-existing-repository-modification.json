@@ -1,0 +1,21 @@
+{
+  "valid": true,
+  "delivery_target": "DEMO",
+  "scope_mode": "PARTIAL_PROJECT",
+  "node_levels": {
+    "Qualification": "REQUIRED",
+    "Cognition": "REQUIRED",
+    "Product Definition & Scope": "LIGHT",
+    "Solution Design": "LIGHT",
+    "Implementation": "REQUIRED",
+    "Validation & Iteration": "REQUIRED",
+    "Release & Operation": "SKIP",
+    "Retrospective": "SKIP"
+  },
+  "error_codes": [],
+  "project_mode": "BROWNFIELD",
+  "validation_context": {
+    "existing_repository_modification": true,
+    "production_release": false
+  }
+}

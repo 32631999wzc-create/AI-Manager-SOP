@@ -1,0 +1,22 @@
+{
+  "valid": true,
+  "delivery_target": "ENTERPRISE",
+  "scope_mode": "FULL_PROJECT",
+  "node_levels": {
+    "Qualification": "REQUIRED",
+    "Cognition": "REQUIRED",
+    "Product Definition & Scope": "REQUIRED",
+    "Solution Design": "REQUIRED",
+    "Implementation": "REQUIRED",
+    "Validation & Iteration": "REQUIRED",
+    "Release & Operation": "REQUIRED",
+    "Retrospective": "LIGHT"
+  },
+  "error_codes": [],
+  "project_mode": "BROWNFIELD",
+  "validation_context": {
+    "production_release": true,
+    "release_execution": false,
+    "release_readiness": "BLOCKED"
+  }
+}

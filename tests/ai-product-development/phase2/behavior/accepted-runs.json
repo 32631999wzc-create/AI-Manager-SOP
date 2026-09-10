@@ -1,0 +1,82 @@
+{
+  "B1": {
+    "directory": "evidence/B1-final",
+    "files_sha256": {
+      "prompt.txt": "7a45c600ed4f6d7f86109b57948899c2ef0c85f6e6dcda9e62ebb8ff7dd4f04d",
+      "trace.jsonl": "2d9291a788538ee7803922bd48adfffa95ebe192266928d2435d80f7fb07a6b7",
+      "stderr.txt": "98a3eaf084afeb8da142fe07fdeb0182adc75108a75252db508c8b5dbb5f0b0a",
+      "metadata.json": "9b9ae958648d03fc4bbcf0a1b43dd3f442b2870772f2a9e146445820986f3578",
+      "result.json": "fa1a2665c40c162c5be1baeb35a8067007415e56149b3c7549ac3ee12ac056c0"
+    }
+  },
+  "B2": {
+    "directory": "evidence/B2-final",
+    "files_sha256": {
+      "prompt.txt": "903cd761796b17ec351cbea38fe6bffd3112db95d7ccf73e0e40fd11d01b023d",
+      "trace.jsonl": "5a8cd9b7001d7ceb0051ef7eaa5427210095cf45c9b316f701dfa3663493e20a",
+      "stderr.txt": "b58dc804e4410db984ed889906793aff991b13c92cf3aca57f69295646cd3ec8",
+      "metadata.json": "751c58472ef1390cbc4f2ef5e9b529d5f191f8f416687119afde72d15e82b4af",
+      "result.json": "fd43dcf55b867d3a3e37cf3c7ebbed819779c5572ef51308b7d86505d7ea469a"
+    }
+  },
+  "B3": {
+    "directory": "evidence/B3-final",
+    "files_sha256": {
+      "prompt.txt": "b9a044a2c7b4e841e6d9d02974c3e2c06c0283007a2ba2a02ba8ac321a9c0fcd",
+      "trace.jsonl": "1717e1923b1070b952e376af4556f2a2c6ea8c989e7be3a6da9f77b660445d00",
+      "stderr.txt": "3f4501df04322399b24e045c2aa6d17719ab56e6dbad3ff004e780afffea8c1b",
+      "metadata.json": "7d92a9a497233da7f586c32d0b691406a2be530f926b7fef35b2b3e0b0ce3c2d",
+      "result.json": "405b9e75ac41c8ddf99dd1629d0d5bb4e0bb25d41179a8757f6e4fa5418f6bbb"
+    }
+  },
+  "B4": {
+    "directory": "evidence/B4-final",
+    "files_sha256": {
+      "prompt.txt": "e464df7fe23aaa783783bb79057a813661b85bb7293e7223ddb8cff81e825146",
+      "trace.jsonl": "f9b956ba22882162957b53d92564d96fe5d2486fca77cfd2ba96f91a3984fe0f",
+      "stderr.txt": "4a5feb1a1dccabc86ca87ba1aad9b37dfaa5b63a4711e0c9988c73fab71f2a92",
+      "metadata.json": "e5eda2fa88c1b7eff8a446d076c75df6aca38d573020f5c9480a999c09c7bc0e",
+      "result.json": "42957c39a8ddbd5c21357976e60581c515058de8341fd0bbfc5e7b5bb40f3800"
+    }
+  },
+  "B5": {
+    "directory": "evidence/B5-final",
+    "files_sha256": {
+      "prompt.txt": "ef731d0a02750624f4bf9d703aa6854bfaae519956339e3b9ac6ff45c7ab32e7",
+      "trace.jsonl": "df880c899ba63e1927a43d625d1fbe64127cdde2e671d7041e50c8175049f010",
+      "stderr.txt": "d6afad6cf3447f6530d935fd42f35b4e0a3146e14d0c1173f94c2f73b9acffe8",
+      "metadata.json": "b3d861b1b31ad7887ee7184df0e5e092af1d269d2b564c0fce0138c7acf34c59",
+      "result.json": "26ec7b87bb796f8d742904bfa2d9f58efcffe700ddcde24fce2561659322debe"
+    }
+  },
+  "B6": {
+    "directory": "evidence/B6-final",
+    "files_sha256": {
+      "prompt.txt": "b935c9726a7c4712a0a594790ab6074b002177e443740f673fc531e8e74910a7",
+      "trace.jsonl": "0450944ed1f7390712a415a6ecc509167d82425b8ce5589a00ca9b76d560b4d8",
+      "stderr.txt": "55b29636d666eff5af7d34bc9df6d936acf91d4936114b94dd56a18131defea2",
+      "metadata.json": "db4e0f00db10a732909f74fd773c9dfd1ea1b584550c824eac98718802d6bda3",
+      "result.json": "1ef065b59d8dba4d3130bd347b00d3fa104cdf1f39611bed6cfdeac5f984db85"
+    }
+  },
+  "B7": {
+    "directory": "evidence/B7-final",
+    "files_sha256": {
+      "prompt.txt": "8a21cb2e5c95605a3a1d49144b13d9648958f0f104a44764cf425f0ee359b8b1",
+      "trace.jsonl": "1c1f62f6e95eb987dbcda17c0d080b9896b88935ca87526e431811948a70f5b4",
+      "stderr.txt": "c646ff441a1803e0dd22ad777bfe465186611c10bb1760564774757901423c8e",
+      "metadata.json": "768c055c738d5821d97b273af405bab44285c839a611d423b3b21d283a3617b0",
+      "result.json": "c7160a2646427740a6d2183da6604655c2127fc6085e1e3b0973d19ef7b635b4"
+    }
+  },
+  "B8": {
+    "directory": "evidence/B8-final",
+    "files_sha256": {
+      "prompt.txt": "aaaee8e2f4305d9bc7b22ffdbce4252f7a1e18d637d9ae7378da3b739908198b",
+      "trace.jsonl": "54afd57c51624e7d8ecb2548337af018bad338a2b67a0609796cb1cf11914359",
+      "stderr.txt": "176dde36adc9a39b1557ebc96a40c8d008d7437c1804506af524c62b2eb165c9",
+      "metadata.json": "d4c64dcb27ca21a9d8d99e1e512d8b098041136631bf604d1c709717c14ab5f7",
+      "result.json": "3a7576f2ba117504b6c1ff735b3610a387fbe252a8db496935249a3c58491331"
+    }
+  }
+}

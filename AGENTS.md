@@ -26,7 +26,7 @@ Before substantial work:
 2. 根据任务和 Kernel Router 读取相关 reference，不默认读取全部 reference。
 3. 修改规则先定位 canonical location，在该处维护，再检查路由。
 4. 不在多个文件复制详细规则；共用约束使用链接。
-5. 修改后运行 `python -B -X utf8 tests/ai-product-development/validate_structure.py` 和 `python -B -X utf8 -m unittest discover -s tests/ai-product-development -p test_phase1.py`；行为用例未实际运行时明确说明。
+5. 修改后运行 `python -B -X utf8 tests/ai-product-development/validate_structure.py`、Phase 1 测试和 `python -B -X utf8 -m unittest discover -s tests/ai-product-development -p "test_phase2*.py"`。
 6. 保持目录、相对路径和内部锚点有效。
 7. 本次迁移保持原文语义；语义疑点记录到 docs/decisions，不在拆分中擅自修正。
 
@@ -37,3 +37,5 @@ Before substantial work:
 - WARN 逐项审阅，FAIL 修复并使用新目录重测；不扩大受测进程为可写权限。提交时只保留验收采用的 trace，失败原因与修复记录在报告中。
 - 详细规则保持一个 canonical location，摘要不得比原文新增业务约束。保持迁移清单、源标题映射与文档一致；不要为了通过检查而重建迁移基线。
 - 行为用例的共用边界只维护在 `tests/ai-product-development/behavior-contract.md`，case 与 expected 只保留场景特有内容。
+- Phase 2 runtime validator 必须保持只读；错误码、fixture 包装层或验证规则变更时同步更新 `tests/ai-product-development/phase2/validation-contract.yaml` 和正负例。
+- 改动 Phase 2 行为 grader、场景或 Skill 后运行 `tests/ai-product-development/phase2/behavior/verify_behavior.py`；若 prompt、必要模块或 Skill 哈希变化，使用新目录实际重测，不用静态回放代替新 trace。

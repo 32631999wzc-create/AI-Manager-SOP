@@ -12,43 +12,43 @@
     {
       "file": "SKILL.md",
       "item_id": "item_2",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-okb2aave\\\\skill\\\\SKILL.md' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-szamlfxm\\\\skill\\\\SKILL.md' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     },
     {
       "file": "references/runtime/replan-recovery.md",
       "item_id": "item_3",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-okb2aave\\\\skill\\\\references\\\\runtime\\\\replan-recovery.md' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-szamlfxm\\\\skill\\\\references\\\\runtime\\\\replan-recovery.md' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     },
     {
       "file": "references/runtime/planner.md",
       "item_id": "item_4",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-okb2aave\\\\skill\\\\references\\\\runtime\\\\planner.md' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-szamlfxm\\\\skill\\\\references\\\\runtime\\\\planner.md' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     },
     {
       "file": "references/runtime/registry-versioning.md",
       "item_id": "item_5",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-okb2aave\\\\skill\\\\references\\\\runtime\\\\registry-versioning.md' -Encoding UTF8\"",
-      "evidence": "complete file in successful tool output"
-    },
-    {
-      "file": "schemas/task.yaml",
-      "item_id": "item_6",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-okb2aave\\\\skill\\\\schemas\\\\task.yaml' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-szamlfxm\\\\skill\\\\references\\\\runtime\\\\registry-versioning.md' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     },
     {
       "file": "schemas/plan.yaml",
+      "item_id": "item_6",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-szamlfxm\\\\skill\\\\schemas\\\\plan.yaml' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "schemas/task.yaml",
       "item_id": "item_7",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-okb2aave\\\\skill\\\\schemas\\\\plan.yaml' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-szamlfxm\\\\skill\\\\schemas\\\\task.yaml' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     },
     {
       "file": "schemas/project-state.yaml",
       "item_id": "item_8",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-okb2aave\\\\skill\\\\schemas\\\\project-state.yaml' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-szamlfxm\\\\skill\\\\schemas\\\\project-state.yaml' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     }
   ],

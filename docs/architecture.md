@@ -14,7 +14,7 @@
 
 详细规则只在 canonical location 维护，其他文件使用摘要或链接。例如 Replan 判断产物失效和版本时读取 Registry，包括只提出建议的任务；链接不授予写入权限。优先级、复杂度 guardrails 和共用完成标准保留在 Kernel。
 
-[schemas](../skills/ai-product-development/schemas) 的五个 YAML 文件包含八个原始对象，是结构示意，不是实例验证器。原文只有 NodeProfile，没有 ExecutionProfile 聚合字段；本次不补字段、默认值或状态存储。
+[schemas](../skills/ai-product-development/schemas) 的五个 YAML 文件包含八个原始对象，继续作为 canonical 结构示意。Phase 2 的 [只读 runtime validator](../skills/ai-product-development/scripts/validate_runtime.py) 将这些字段、枚举及 Profile / Plan 的交叉规则变成确定性检查；验证包装层只承载检查上下文，不新增 ExecutionProfile canonical schema、默认值或状态存储。
 
 稳定输出仅有 [Plan Preview](../skills/ai-product-development/templates/execution-plan.md)。其他输出没有字段级固定格式，其规则保留在对应节点。
 
@@ -24,4 +24,4 @@
 
 三个 [Routing Test](../tests/ai-product-development/routing/README.md) 分别在新临时目录、新 ephemeral Codex 进程中运行。受测进程始终使用 read-only；父进程准备 Skill 副本并记录 trace。成功命令与完整文件输出才是读取证据，最终自述仅作辅助。额外读取和 dependency closure 按场景审阅，不规定绝对最少文件数。
 
-这三个有限路由 smoke tests 不证明完整产品交付能力；八个人工行为场景、Phase 2 数据模型/实例验证和 Phase 3 Golden MVP 均未执行。本次接受远程已删除旧占位目录的状态。迁移与未解决语义疑点见 [重构记录](decisions/001-modularize-ai-product-development.md)，下一阶段边界见 [Phase 2 任务书](decisions/002-content-cleanup-and-phase-2-plan.md)。
+三个有限路由 smoke tests 不证明完整产品交付能力。Phase 2 已用八组固定 fixture、正负例和隔离 Codex trace 验证 Profile、Plan、边界及按需读取；证据由哈希 manifest 固定并可从原始 trace 回放。Phase 3 Golden MVP 尚未执行。本次接受远程已删除旧占位目录的状态。迁移与未解决语义疑点见 [重构记录](decisions/001-modularize-ai-product-development.md)，任务边界见 [Phase 2 任务书](decisions/002-content-cleanup-and-phase-2-plan.md)，完成结果见 [Phase 2 完成记录](decisions/003-phase-2-executable-validation.md)。

@@ -1,0 +1,106 @@
+rules:
+  - code: DOCUMENT_INVALID
+    source: docs/decisions/002-content-cleanup-and-phase-2-plan.md
+    check: CLI input decodes to one mapping
+  - code: MODE_UNKNOWN
+    source: docs/decisions/002-content-cleanup-and-phase-2-plan.md
+    check: CLI uses a supported validation mode
+  - code: COMBINED_SHAPE
+    source: docs/decisions/002-content-cleanup-and-phase-2-plan.md
+    check: combined input contains one profile and one plan validation document
+  - code: OBJECT_UNKNOWN
+    source: skills/ai-product-development/SKILL.md#data-and-output-routing
+    check: object validation is limited to the eight canonical runtime objects
+  - code: TYPE_MAPPING
+    source: skills/ai-product-development/schemas/plan.yaml
+    check: an object is represented as a mapping
+  - code: TYPE_LIST
+    source: skills/ai-product-development/schemas/plan.yaml
+    check: fields shown as lists remain lists
+  - code: FIELD_MISSING
+    source: skills/ai-product-development/schemas/plan.yaml
+    check: canonical object fields are present
+  - code: FIELD_UNKNOWN
+    source: skills/ai-product-development/schemas/plan.yaml
+    check: canonical objects contain no undeclared fields
+  - code: ENUM_INVALID
+    source: skills/ai-product-development/schemas/execution-profile.yaml
+    check: documented object and validation-context enums are respected
+  - code: VERSION_INVALID
+    source: skills/ai-product-development/references/runtime/registry-versioning.md#112-artifact-commit-rules
+    check: formal artifact versions use monotonic vN notation
+  - code: VALUE_EMPTY
+    source: skills/ai-product-development/references/runtime/planner.md#83-valid-task-rule
+    check: task identity, goal and output are non-empty
+  - code: PROFILE_NODE_SET
+    source: skills/ai-product-development/SKILL.md#2-lifecycle
+    check: a profile contains the eight nodes exactly once in canonical order
+  - code: SKIP_REASON_REQUIRED
+    source: skills/ai-product-development/references/runtime/execution-profile.md#69-consistency-check
+    check: every skipped node records a reason
+  - code: PROFILE_COGNITION_REQUIRED
+    source: skills/ai-product-development/references/runtime/execution-profile.md#64-project-mode
+    check: existing repository modification requires Cognition
+  - code: PROFILE_DESIGN_REQUIRED
+    source: skills/ai-product-development/references/runtime/execution-profile.md#67-dependency-closure
+    check: implementation without verified design restores Solution Design
+  - code: PROFILE_EVALUATION_DESIGN_REQUIRED
+    source: skills/ai-product-development/references/runtime/execution-profile.md#67-dependency-closure
+    check: validation without acceptance criteria restores Evaluation Design by canonical label or its required component set
+  - code: PROFILE_RELEASE_VALIDATION_REQUIRED
+    source: skills/ai-product-development/references/runtime/execution-profile.md#67-dependency-closure
+    check: production release requires Validation and Iteration
+  - code: PROFILE_RELEASE_NODE_REQUIRED
+    source: skills/ai-product-development/references/runtime/execution-profile.md#67-dependency-closure
+    check: production release requires Release and Operation
+  - code: PROFILE_MONITORING_REQUIRED
+    source: skills/ai-product-development/references/runtime/execution-profile.md#66-risk-floors
+    check: enterprise production monitoring is covered, planned in the active release node in Chinese or English, or externalized
+  - code: PROFILE_RELEASE_GATE_BLOCKED
+    source: skills/ai-product-development/references/runtime/gates.md#release-readiness
+    check: blocked Release Readiness prevents production release
+  - code: PLAN_VERSION_REQUIRED
+    source: skills/ai-product-development/references/runtime/replan-recovery.md#123-local-vs-profile-replan
+    check: every plan has a version
+  - code: PLAN_OBJECTIVE_REQUIRED
+    source: skills/ai-product-development/references/runtime/planner.md#81-plan-before-execute
+    check: every plan has an immediate objective
+  - code: TASK_ID_DUPLICATE
+    source: skills/ai-product-development/references/runtime/planner.md#83-valid-task-rule
+    check: task identifiers are unique
+  - code: DEPENDENCY_SHAPE
+    source: skills/ai-product-development/schemas/plan.yaml
+    check: validation input makes each Plan dependency source, target and type explicit
+  - code: DEPENDENCY_REFERENCE_UNKNOWN
+    source: skills/ai-product-development/references/runtime/planner.md#85-dependencies
+    check: dependencies reference known tasks or a named gate
+  - code: DEPENDENCY_TYPE_INVALID
+    source: skills/ai-product-development/references/runtime/planner.md#85-dependencies
+    check: only HARD, DATA, DECISION and GATE are blocking dependency types
+  - code: TASK_DEPENDENCY_MISMATCH
+    source: skills/ai-product-development/schemas/task.yaml
+    check: Task dependency ids match incoming Plan dependency records
+  - code: PLAN_CYCLE
+    source: skills/ai-product-development/references/runtime/planner.md#88-planning-gate
+    check: the task graph is acyclic
+  - code: READY_DEPENDENCY_UNMET
+    source: skills/ai-product-development/references/runtime/planner.md#85-dependencies
+    check: READY tasks have completed blocking task dependencies
+  - code: READY_GATE_UNMET
+    source: skills/ai-product-development/references/runtime/planner.md#85-dependencies
+    check: READY tasks have passed blocking gates
+  - code: READY_INPUT_UNMET
+    source: skills/ai-product-development/references/runtime/planner.md#85-dependencies
+    check: READY tasks have all required inputs and no blocking input
+  - code: READY_ARTIFACT_UNMET
+    source: skills/ai-product-development/references/runtime/planner.md#85-dependencies
+    check: READY tasks have all required ACTIVE artifacts
+  - code: ACCEPTANCE_REQUIRED
+    source: skills/ai-product-development/references/runtime/planner.md#83-valid-task-rule
+    check: every task has explicit acceptance criteria
+  - code: PARALLEL_ARTIFACT_CONFLICT
+    source: skills/ai-product-development/references/runtime/planner.md#86-parallelism
+    check: independent runnable tasks do not write the same formal output
+  - code: CRITICAL_PATH_UNKNOWN
+    source: skills/ai-product-development/schemas/plan.yaml
+    check: critical path entries reference known tasks

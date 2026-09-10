@@ -13,43 +13,64 @@
     {
       "file": "SKILL.md",
       "item_id": "item_2",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-oo6mn3g7\\\\skill\\\\SKILL.md' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     },
     {
-      "file": "templates/execution-plan.md",
+      "file": "references/lifecycle/01-qualification.md",
       "item_id": "item_3",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/templates/execution-plan.md' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-oo6mn3g7\\\\skill\\\\references\\\\lifecycle\\\\01-qualification.md' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     },
     {
       "file": "references/runtime/execution-profile.md",
       "item_id": "item_4",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-oo6mn3g7\\\\skill\\\\references\\\\runtime\\\\execution-profile.md' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     },
     {
       "file": "references/runtime/gates.md",
       "item_id": "item_5",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8\"",
-      "evidence": "complete file in successful tool output"
-    },
-    {
-      "file": "references/lifecycle/01-qualification.md",
-      "item_id": "item_6",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-oo6mn3g7\\\\skill\\\\references\\\\runtime\\\\gates.md' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     },
     {
       "file": "schemas/execution-profile.yaml",
+      "item_id": "item_6",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-oo6mn3g7\\\\skill\\\\schemas\\\\execution-profile.yaml' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "scripts/validate_runtime.py",
       "item_id": "item_7",
-      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\"",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-oo6mn3g7\\\\skill\\\\scripts\\\\validate_runtime.py' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "scripts/runtime_validation/cli.py",
+      "item_id": "item_9",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-oo6mn3g7\\\\skill\\\\scripts\\\\runtime_validation\\\\cli.py' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "scripts/runtime_validation/loader.py",
+      "item_id": "item_10",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-oo6mn3g7\\\\skill\\\\scripts\\\\runtime_validation\\\\loader.py' -Encoding UTF8\"",
+      "evidence": "complete file in successful tool output"
+    },
+    {
+      "file": "scripts/runtime_validation/validators.py",
+      "item_id": "item_11",
+      "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-routing-oo6mn3g7\\\\skill\\\\scripts\\\\runtime_validation\\\\validators.py' -Encoding UTF8\"",
       "evidence": "complete file in successful tool output"
     }
   ],
   "missing": [],
   "extra_reads": {
-    "templates/execution-plan.md": "Kernel 初始计划沟通格式"
+    "scripts/runtime_validation/cli.py": "local validator CLI dependency inspection",
+    "scripts/runtime_validation/loader.py": "local validator input-loading dependency inspection",
+    "scripts/runtime_validation/validators.py": "local validator rule implementation inspection",
+    "scripts/validate_runtime.py": "Kernel-directed read-only executable validation"
   },
   "dependency_closure": "只制定 Profile；不存在实现或验证执行，不能把八节点 Profile 误解为加载八节点详细规则。",
   "eager_loading_groups": [],
@@ -59,7 +80,10 @@
     "references/runtime/execution-profile.md",
     "references/runtime/gates.md",
     "schemas/execution-profile.yaml",
-    "templates/execution-plan.md"
+    "scripts/runtime_validation/cli.py",
+    "scripts/runtime_validation/loader.py",
+    "scripts/runtime_validation/validators.py",
+    "scripts/validate_runtime.py"
   ],
   "trace_limitations": [],
   "unexplained": [],

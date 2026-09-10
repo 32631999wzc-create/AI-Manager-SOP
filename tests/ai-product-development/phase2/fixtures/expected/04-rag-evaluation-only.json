@@ -1,0 +1,52 @@
+{
+  "valid": true,
+  "delivery_target": "MVP",
+  "scope_mode": "PARTIAL_PROJECT",
+  "node_levels": {
+    "Qualification": "REQUIRED",
+    "Cognition": "LIGHT",
+    "Product Definition & Scope": "SKIP",
+    "Solution Design": "LIGHT",
+    "Implementation": "SKIP",
+    "Validation & Iteration": "REQUIRED",
+    "Release & Operation": "SKIP",
+    "Retrospective": "SKIP"
+  },
+  "error_codes": [],
+  "project_mode": "BROWNFIELD",
+  "validation_context": {
+    "existing_repository_modification": false,
+    "acceptance_criteria_defined": false,
+    "production_release": false
+  },
+  "behavior_node_levels": {
+    "Qualification": [
+      "LIGHT",
+      "REQUIRED"
+    ],
+    "Cognition": [
+      "LIGHT",
+      "REQUIRED"
+    ],
+    "Product Definition & Scope": [
+      "SKIP",
+      "LIGHT"
+    ],
+    "Solution Design": [
+      "LIGHT",
+      "REQUIRED"
+    ],
+    "Implementation": [
+      "SKIP"
+    ],
+    "Validation & Iteration": [
+      "REQUIRED"
+    ],
+    "Release & Operation": [
+      "SKIP"
+    ],
+    "Retrospective": [
+      "SKIP"
+    ]
+  }
+}

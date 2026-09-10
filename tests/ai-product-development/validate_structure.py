@@ -151,7 +151,7 @@ def validate(source=None):
         raise SystemExit("FAIL\n" + "\n".join(failures))
     print(f"PASS: {len(kernel.splitlines())} kernel lines, 8 lifecycle nodes, 6 runtime capabilities, {links} links.")
     print(f"PASS: {len(objects)} source schema objects; {len(baseline['rules'])} source lines retained or explicitly deduplicated.")
-    print("PASS: 8 manual case/expected pairs. Behavioral execution: NOT RUN.")
+    print("PASS: 8 manual case/expected pairs; executable behavior evidence verified separately.")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)

@@ -1,0 +1,324 @@
+[
+  {
+    "id": "profile-node-set",
+    "base": "01-greenfield-prototype",
+    "mode": "profile",
+    "operations": [
+      {
+        "op": "delete",
+        "path": "nodes[7]"
+      }
+    ],
+    "expected_code": "PROFILE_NODE_SET"
+  },
+  {
+    "id": "skip-reason",
+    "base": "01-greenfield-prototype",
+    "mode": "profile",
+    "operations": [
+      {
+        "op": "set",
+        "path": "nodes[6].reasons",
+        "value": []
+      }
+    ],
+    "expected_code": "SKIP_REASON_REQUIRED"
+  },
+  {
+    "id": "cognition-required",
+    "base": "02-existing-repository-modification",
+    "mode": "profile",
+    "operations": [
+      {
+        "op": "set",
+        "path": "nodes[1].level",
+        "value": "LIGHT"
+      }
+    ],
+    "expected_code": "PROFILE_COGNITION_REQUIRED"
+  },
+  {
+    "id": "design-required",
+    "base": "01-greenfield-prototype",
+    "mode": "profile",
+    "operations": [
+      {
+        "op": "set",
+        "path": "nodes[3].level",
+        "value": "SKIP"
+      },
+      {
+        "op": "set",
+        "path": "nodes[3].depth",
+        "value": "SKIP"
+      },
+      {
+        "op": "set",
+        "path": "nodes[3].scope_role",
+        "value": "OUT_OF_SCOPE"
+      }
+    ],
+    "expected_code": "PROFILE_DESIGN_REQUIRED"
+  },
+  {
+    "id": "evaluation-design",
+    "base": "04-rag-evaluation-only",
+    "mode": "profile",
+    "operations": [
+      {
+        "op": "set",
+        "path": "validation_context.acceptance_criteria_defined",
+        "value": false
+      },
+      {
+        "op": "set",
+        "path": "nodes[3].active_capabilities",
+        "value": []
+      }
+    ],
+    "expected_code": "PROFILE_EVALUATION_DESIGN_REQUIRED"
+  },
+  {
+    "id": "release-validation",
+    "base": "06-enterprise-release",
+    "mode": "profile",
+    "operations": [
+      {
+        "op": "set",
+        "path": "nodes[5].level",
+        "value": "SKIP"
+      },
+      {
+        "op": "set",
+        "path": "nodes[5].depth",
+        "value": "SKIP"
+      }
+    ],
+    "expected_code": "PROFILE_RELEASE_VALIDATION_REQUIRED"
+  },
+  {
+    "id": "release-node",
+    "base": "06-enterprise-release",
+    "mode": "profile",
+    "operations": [
+      {
+        "op": "set",
+        "path": "nodes[6].level",
+        "value": "SKIP"
+      },
+      {
+        "op": "set",
+        "path": "nodes[6].depth",
+        "value": "SKIP"
+      }
+    ],
+    "expected_code": "PROFILE_RELEASE_NODE_REQUIRED"
+  },
+  {
+    "id": "monitoring",
+    "base": "06-enterprise-release",
+    "mode": "profile",
+    "operations": [
+      {
+        "op": "set",
+        "path": "nodes[6].gaps",
+        "value": []
+      },
+      {
+        "op": "set",
+        "path": "nodes[6].active_capabilities",
+        "value": []
+      }
+    ],
+    "expected_code": "PROFILE_MONITORING_REQUIRED"
+  },
+  {
+    "id": "release-gate",
+    "base": "06-enterprise-release",
+    "mode": "profile",
+    "operations": [
+      {
+        "op": "set",
+        "path": "validation_context.release_execution",
+        "value": true
+      }
+    ],
+    "expected_code": "PROFILE_RELEASE_GATE_BLOCKED"
+  },
+  {
+    "id": "duplicate-task",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "plan.tasks[1].id",
+        "value": "T1"
+      }
+    ],
+    "expected_code": "TASK_ID_DUPLICATE"
+  },
+  {
+    "id": "unknown-dependency",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "plan.dependencies[0].from",
+        "value": "UNKNOWN"
+      }
+    ],
+    "expected_code": "DEPENDENCY_REFERENCE_UNKNOWN"
+  },
+  {
+    "id": "dependency-type",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "plan.dependencies[0].type",
+        "value": "SOFT"
+      }
+    ],
+    "expected_code": "DEPENDENCY_TYPE_INVALID"
+  },
+  {
+    "id": "cycle",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "append",
+        "path": "plan.dependencies",
+        "value": {
+          "from": "T2",
+          "to": "T1",
+          "type": "HARD"
+        }
+      },
+      {
+        "op": "set",
+        "path": "plan.tasks[0].dependencies",
+        "value": [
+          "T2"
+        ]
+      }
+    ],
+    "expected_code": "PLAN_CYCLE"
+  },
+  {
+    "id": "ready-dependency",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "plan.tasks[0].status",
+        "value": "NOT_STARTED"
+      }
+    ],
+    "expected_code": "READY_DEPENDENCY_UNMET"
+  },
+  {
+    "id": "ready-gate",
+    "base": "06-enterprise-release",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "plan.tasks[1].status",
+        "value": "READY"
+      }
+    ],
+    "expected_code": "READY_GATE_UNMET"
+  },
+  {
+    "id": "ready-input",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "available_inputs",
+        "value": []
+      }
+    ],
+    "expected_code": "READY_INPUT_UNMET"
+  },
+  {
+    "id": "ready-artifact",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "artifacts[0].status",
+        "value": "OUTDATED"
+      }
+    ],
+    "expected_code": "READY_ARTIFACT_UNMET"
+  },
+  {
+    "id": "acceptance",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "plan.tasks[1].acceptance_criteria",
+        "value": []
+      }
+    ],
+    "expected_code": "ACCEPTANCE_REQUIRED"
+  },
+  {
+    "id": "parallel-conflict",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "plan.dependencies",
+        "value": []
+      },
+      {
+        "op": "set",
+        "path": "plan.tasks[1].dependencies",
+        "value": []
+      },
+      {
+        "op": "set",
+        "path": "plan.tasks[0].status",
+        "value": "READY"
+      },
+      {
+        "op": "set",
+        "path": "write_targets",
+        "value": {
+          "T1": [
+            "shared:v1"
+          ],
+          "T2": [
+            "shared:v1"
+          ]
+        }
+      }
+    ],
+    "expected_code": "PARALLEL_ARTIFACT_CONFLICT"
+  },
+  {
+    "id": "plan-version",
+    "base": "01-greenfield-prototype",
+    "mode": "plan",
+    "operations": [
+      {
+        "op": "set",
+        "path": "plan.version",
+        "value": ""
+      }
+    ],
+    "expected_code": "PLAN_VERSION_REQUIRED"
+  }
+]
