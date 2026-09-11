@@ -12,7 +12,7 @@ Qualification 是生成初始 Profile 的前置检查；完成后由 [Execution 
 
 ## Required Inputs
 
-原文未单列固定输入清单；按下述 Procedure 与当前任务的 required_inputs 获取相关材料。
+至少需要当前请求或目标，以及用户已经提供的材料。可用输入包括交付物期望、交付目标、Assignment Scope、现有资产、约束和风险；缺失项在本节点分类，不要求先填写固定问卷。
 
 ## Capabilities
 
@@ -75,11 +75,19 @@ Ask only the smallest set of questions required to unblock reliable planning.
 
 ## Outputs
 
-`Product Context Snapshot`, `Execution Profile`, explicit assumptions if any.
+**Primary outputs:** `Product Context Snapshot`, `Execution Profile`, explicit assumptions if any.
+
+- Qualification Gate 结果；
+- 明确的假设、阻塞输入和最少澄清问题；
+- Gate 允许继续时的简短 Plan Preview。
 
 ## Completion Criteria
 
-delivery target and scope are sufficiently clear; blocking inputs are resolved or explicitly block execution.
+**Completion:** delivery target and scope are sufficiently clear; blocking inputs are resolved or explicitly block execution.
+
+- 重要信息均已分类，假设与事实分离；
+- Qualification Gate 已记录为 `PASS`、`PASS_WITH_ASSUMPTIONS` 或 `BLOCKED`；
+- 后续节点、执行深度和必要依赖已明确。
 
 ## Dependencies
 
@@ -91,4 +99,4 @@ delivery target and scope are sufficiently clear; blocking inputs are resolved o
 
 ## Do Not
 
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。
+遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要重复询问已有答案，也不要在目标或范围仍会实质改变计划时开始构建。

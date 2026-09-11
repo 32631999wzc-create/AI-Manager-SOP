@@ -29,6 +29,7 @@ Before substantial work:
 5. 修改后运行 `python -B -X utf8 tests/ai-product-development/validate_structure.py`、Phase 1 测试和 `python -B -X utf8 -m unittest discover -s tests/ai-product-development -p "test_phase2*.py"` 和 `python -B -X utf8 -m unittest discover -s tests/ai-product-development -p "test_phase3*.py"`。
 6. 保持目录、相对路径和内部锚点有效。
 7. 本次迁移保持原文语义；语义疑点记录到 docs/decisions，不在拆分中擅自修正。
+8. Lifecycle reference 保持统一节点合同：Purpose、Activation Conditions、Required Inputs、Capabilities、Procedure、Outputs、Completion Criteria、Dependencies、Load With、Do Not；不得恢复占位说明。
 
 ## 验证与证据维护
 

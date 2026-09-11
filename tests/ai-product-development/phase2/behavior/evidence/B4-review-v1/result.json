@@ -1,0 +1,414 @@
+{
+  "scenario": "B4",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_2+item_3",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 120\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_4",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/planner.md",
+        "item_id": "item_5",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/plan.yaml",
+        "item_id": "item_6",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/plan.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/gates.md",
+        "item_id": "item_7",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_8",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_9",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/task.yaml",
+        "item_id": "item_10",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/task.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "scripts/runtime_validation/cli.py",
+        "item_id": "item_12",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/scripts/runtime_validation/cli.py' -Encoding UTF8\""
+      },
+      {
+        "file": "scripts/runtime_validation/validators.py",
+        "item_id": "item_13",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/scripts/runtime_validation/validators.py' -Encoding UTF8\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis"
+    },
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_11",
+        "reason": "read-only runtime validation",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_15",
+        "reason": "read-only runtime validation",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "validation_errors": [],
+  "behavior_issues": [],
+  "normalized_result": {
+    "document": {
+      "profile": {
+        "delivery_target": "MVP",
+        "project_mode": "BROWNFIELD",
+        "assignment_scope": {
+          "mode": "PARTIAL_PROJECT",
+          "requested_scope": [
+            "Offline RAG evaluation"
+          ],
+          "excluded_scope": [
+            "Retrieval changes",
+            "Database changes",
+            "Deployment"
+          ],
+          "expected_deliverables": [
+            "Offline evaluation report"
+          ],
+          "ownership_boundary": [
+            "Evaluation only",
+            "System changes owned externally"
+          ]
+        },
+        "nodes": [
+          {
+            "node": "Qualification",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "MINIMAL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "scope check"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "asset verification"
+            ],
+            "reasons": [
+              "Evaluation only"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Cognition",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "VERIFY",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "RAG context review"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "verify supplied assets"
+            ],
+            "reasons": [
+              "Existing MVP; no code changes"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Product Definition & Scope",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "VERIFY",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "acceptance review"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "unverified criteria"
+            ],
+            "reasons": [
+              "Reuse supplied criteria"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Solution Design",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "MINIMAL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Evaluation Design"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "confirm metrics and thresholds"
+            ],
+            "reasons": [
+              "Validation needs pass criteria"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Implementation",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "No implementation changes"
+            ],
+            "external_project_requirement": "Implementation owned externally"
+          },
+          {
+            "node": "Validation & Iteration",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "offline RAG evaluation",
+              "reporting"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "evaluation report"
+            ],
+            "reasons": [
+              "Requested deliverable"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Release & Operation",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "No deployment requested"
+            ],
+            "external_project_requirement": "MVP operation and monitoring remain external"
+          },
+          {
+            "node": "Retrospective",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "Standalone report only"
+            ],
+            "external_project_requirement": null
+          }
+        ],
+        "validation_context": {
+          "existing_repository_modification": false,
+          "verified_design": false,
+          "acceptance_criteria_defined": false,
+          "production_release": false,
+          "release_execution": false,
+          "monitoring_covered": false,
+          "release_readiness": "BLOCKED"
+        }
+      },
+      "plan": {
+        "plan": {
+          "version": "v1",
+          "objective": "Plan offline RAG evaluation",
+          "tasks": [
+            {
+              "id": "T1",
+              "name": "Verify inputs",
+              "goal": "Confirm usable evaluation inputs",
+              "type": "EVALUATION",
+              "status": "NOT_STARTED",
+              "priority": "P1",
+              "lifecycle_node": "Qualification",
+              "execution_depth": "MINIMAL",
+              "dependencies": [],
+              "required_inputs": [
+                "RAG description",
+                "test data",
+                "evaluation entry",
+                "draft criteria"
+              ],
+              "required_capabilities": [
+                "scope check",
+                "RAG context review"
+              ],
+              "expected_output": "Verified input summary",
+              "acceptance_criteria": [
+                "Confirm scope and input versions",
+                "Check entry and data compatibility",
+                "Record unresolved inputs"
+              ],
+              "context_requirements": [
+                "Offline evaluation only"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on invalid inputs"
+            },
+            {
+              "id": "T2",
+              "name": "Define evaluation",
+              "goal": "Resolve acceptance criteria",
+              "type": "EVALUATION",
+              "status": "NOT_STARTED",
+              "priority": "P1",
+              "lifecycle_node": "Solution Design",
+              "execution_depth": "MINIMAL",
+              "dependencies": [
+                "T1"
+              ],
+              "required_inputs": [
+                "Verified input summary",
+                "draft criteria"
+              ],
+              "required_capabilities": [
+                "Evaluation Design"
+              ],
+              "expected_output": "Confirmed evaluation protocol",
+              "acceptance_criteria": [
+                "Specify cases, metrics and judge",
+                "Confirm pass thresholds",
+                "Record reproducible run settings"
+              ],
+              "context_requirements": [
+                "Offline evaluation only"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on invalid inputs"
+            },
+            {
+              "id": "T3",
+              "name": "Evaluate RAG",
+              "goal": "Produce offline evaluation report",
+              "type": "EVALUATION",
+              "status": "NOT_STARTED",
+              "priority": "P1",
+              "lifecycle_node": "Validation & Iteration",
+              "execution_depth": "FULL",
+              "dependencies": [
+                "T2"
+              ],
+              "required_inputs": [
+                "Confirmed evaluation protocol",
+                "test data",
+                "evaluation entry"
+              ],
+              "required_capabilities": [
+                "offline RAG evaluation",
+                "reporting"
+              ],
+              "expected_output": "Offline evaluation report",
+              "acceptance_criteria": [
+                "Trace results to cases and settings",
+                "Compare metrics with thresholds",
+                "Report failures and limitations",
+                "Leave implementation and deployment unchanged"
+              ],
+              "context_requirements": [
+                "Offline evaluation only"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on invalid inputs"
+            }
+          ],
+          "dependencies": [
+            {
+              "from": "T1",
+              "to": "T2",
+              "type": "DATA"
+            },
+            {
+              "from": "T2",
+              "to": "T3",
+              "type": "DECISION"
+            }
+          ],
+          "critical_path": [
+            "T1",
+            "T2",
+            "T3"
+          ],
+          "assumptions": [
+            "Supplied assets are unverified",
+            "BROWNFIELD denotes the existing MVP",
+            "No lifecycle work executed"
+          ]
+        },
+        "available_inputs": [
+          "RAG description",
+          "test data",
+          "evaluation entry",
+          "draft criteria"
+        ],
+        "artifacts": [],
+        "gates": {},
+        "blocked_inputs": [
+          "Confirmed evaluation protocol"
+        ],
+        "write_targets": {
+          "T1": [
+            "input-summary:v1"
+          ],
+          "T2": [
+            "evaluation-protocol:v1"
+          ],
+          "T3": [
+            "evaluation-report:v1"
+          ]
+        }
+      }
+    },
+    "claims": {
+      "assignment_complete": false,
+      "external_write_performed": false
+    }
+  },
+  "status": "PASS"
+}

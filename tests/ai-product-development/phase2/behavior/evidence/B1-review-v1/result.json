@@ -1,0 +1,414 @@
+{
+  "scenario": "B1",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_2+item_3",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 120\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_4",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/planner.md",
+        "item_id": "item_5",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_6",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/plan.yaml",
+        "item_id": "item_7",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/plan.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/task.yaml",
+        "item_id": "item_8",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/task.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_9",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/gates.md",
+        "item_id": "item_10",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {
+      "references/runtime/gates.md": "local gate interpretation"
+    },
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_11",
+        "reason": "read-only runtime validation",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "validation_errors": [],
+  "behavior_issues": [],
+  "normalized_result": {
+    "document": {
+      "profile": {
+        "delivery_target": "PROTOTYPE",
+        "project_mode": "GREENFIELD",
+        "assignment_scope": {
+          "mode": "FULL_PROJECT",
+          "requested_scope": [
+            "Product definition",
+            "UI interaction prototype"
+          ],
+          "excluded_scope": [
+            "Production release",
+            "Real AI/backend integration"
+          ],
+          "expected_deliverables": [
+            "Interactive prototype"
+          ],
+          "ownership_boundary": [
+            "Full prototype project, definition through interaction"
+          ]
+        },
+        "nodes": [
+          {
+            "node": "Qualification",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Context intake",
+              "Scope confirmation"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Inspect supplied product materials"
+            ],
+            "reasons": [
+              "Target and ownership are explicit"
+            ],
+            "external_project_requirement": false
+          },
+          {
+            "node": "Cognition",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "MINIMAL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Understand problems and interactions"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Verify existing descriptions"
+            ],
+            "reasons": [
+              "No repository; product context exists"
+            ],
+            "external_project_requirement": false
+          },
+          {
+            "node": "Product Definition & Scope",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "Prototype scope",
+              "User flows"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Bounded product definition"
+            ],
+            "reasons": [
+              "Definition is explicitly owned"
+            ],
+            "external_project_requirement": false
+          },
+          {
+            "node": "Solution Design",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "MINIMAL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Interaction design",
+              "Mock boundaries",
+              "Evaluation design"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Minimal design",
+              "Acceptance criteria"
+            ],
+            "reasons": [
+              "No technical design; implementation needs one"
+            ],
+            "external_project_requirement": false
+          },
+          {
+            "node": "Implementation",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "Interactive UI",
+              "Mock responses"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Interactive prototype"
+            ],
+            "reasons": [
+              "Requested deliverable"
+            ],
+            "external_project_requirement": false
+          },
+          {
+            "node": "Validation & Iteration",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "MINIMAL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Interaction walkthrough",
+              "Local fixes"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Acceptance evidence"
+            ],
+            "reasons": [
+              "Prototype requires interaction validation"
+            ],
+            "external_project_requirement": false
+          },
+          {
+            "node": "Release & Operation",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "Production release explicitly excluded"
+            ],
+            "external_project_requirement": false
+          },
+          {
+            "node": "Retrospective",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "MINIMAL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Record findings and limitations"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Prototype learning summary"
+            ],
+            "reasons": [
+              "Light closeout for full prototype ownership"
+            ],
+            "external_project_requirement": false
+          }
+        ],
+        "validation_context": {
+          "existing_repository_modification": false,
+          "verified_design": false,
+          "acceptance_criteria_defined": false,
+          "production_release": false,
+          "release_execution": false,
+          "monitoring_covered": false,
+          "release_readiness": "BLOCKED"
+        }
+      },
+      "plan": {
+        "plan": {
+          "version": 1,
+          "objective": "Define, design, and validate an AI UI prototype",
+          "tasks": [
+            {
+              "id": "T1",
+              "name": "Define prototype scope",
+              "goal": "Turn existing context into bounded scope",
+              "type": "DEFINITION",
+              "status": "BLOCKED",
+              "priority": "P0",
+              "lifecycle_node": "Product Definition & Scope",
+              "execution_depth": "FULL",
+              "dependencies": [],
+              "required_inputs": [
+                "scenario",
+                "user-problems",
+                "interaction-notes"
+              ],
+              "required_capabilities": [
+                "Context review",
+                "Product definition"
+              ],
+              "expected_output": "Prototype scope brief",
+              "acceptance_criteria": [
+                "Source descriptions reviewed",
+                "Core flow and exclusions explicit",
+                "Unknowns classified"
+              ],
+              "context_requirements": [
+                "Target",
+                "Ownership",
+                "Existing descriptions"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Revise unresolved scope only"
+            },
+            {
+              "id": "T2",
+              "name": "Design prototype interactions",
+              "goal": "Make the prototype ready to build",
+              "type": "DESIGN",
+              "status": "NOT_STARTED",
+              "priority": "P0",
+              "lifecycle_node": "Solution Design",
+              "execution_depth": "MINIMAL",
+              "dependencies": [
+                "T1"
+              ],
+              "required_inputs": [
+                "T1 output"
+              ],
+              "required_capabilities": [
+                "Interaction design",
+                "Evaluation design"
+              ],
+              "expected_output": "Minimal prototype design",
+              "acceptance_criteria": [
+                "Screens and states defined",
+                "AI/backend mock boundaries explicit",
+                "Walkthrough criteria defined",
+                "Build Readiness assessed"
+              ],
+              "context_requirements": [
+                "Approved scope",
+                "Interaction descriptions"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Revise failed design criteria only"
+            },
+            {
+              "id": "T3",
+              "name": "Build and check prototype",
+              "goal": "Deliver the agreed interactive flow",
+              "type": "IMPLEMENTATION",
+              "status": "BLOCKED",
+              "priority": "P1",
+              "lifecycle_node": "Implementation",
+              "execution_depth": "FULL",
+              "dependencies": [
+                "T2",
+                "Build Readiness"
+              ],
+              "required_inputs": [
+                "T2 output"
+              ],
+              "required_capabilities": [
+                "UI implementation",
+                "Interaction validation"
+              ],
+              "expected_output": "Validated interactive prototype",
+              "acceptance_criteria": [
+                "Agreed flow is interactive",
+                "Mock behavior matches design",
+                "Walkthrough criteria pass",
+                "Findings and limitations recorded"
+              ],
+              "context_requirements": [
+                "Minimal design",
+                "Walkthrough criteria"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Fix failed interactions and recheck"
+            }
+          ],
+          "dependencies": [
+            {
+              "from": "T1",
+              "to": "T2",
+              "type": "DATA"
+            },
+            {
+              "from": "T2",
+              "to": "T3",
+              "type": "DATA"
+            },
+            {
+              "from": "Build Readiness",
+              "to": "T3",
+              "type": "GATE"
+            }
+          ],
+          "critical_path": [
+            "T1",
+            "T2",
+            "T3"
+          ],
+          "assumptions": [
+            "Existing descriptions will be supplied for review",
+            "AI and backend may remain mocked",
+            "Tasks describe future work only"
+          ]
+        },
+        "available_inputs": [
+          "scenario"
+        ],
+        "artifacts": [],
+        "gates": {
+          "Qualification": "PASS_WITH_ASSUMPTIONS",
+          "Build Readiness": "BLOCKED",
+          "Release Readiness": "BLOCKED"
+        },
+        "blocked_inputs": [
+          "user-problems",
+          "interaction-notes"
+        ],
+        "write_targets": {
+          "T1": [],
+          "T2": [],
+          "T3": []
+        }
+      }
+    },
+    "claims": {
+      "assignment_complete": false,
+      "external_write_performed": false
+    }
+  },
+  "status": "PASS"
+}

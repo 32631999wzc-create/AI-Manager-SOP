@@ -10,13 +10,22 @@ determine whether the current version meets the acceptance criteria and make the
 
 ## Required Inputs
 
-原文未单列固定输入清单；按下述 Procedure 与当前任务的 required_inputs 获取相关材料。
+- 待验证的 Task Result、产品版本或 Artifact；
+- 已确认的 acceptance criteria 与 Evaluation Design；
+- 相关样例、数据、基线、测试环境和风险要求；
+- 已知限制及上一轮失败证据（若有）。
 
 ## Capabilities
 
 见下述 Procedure 中的原始能力组或流程；不新增能力。
 
 ## Procedure
+
+1. 选择能覆盖当前声明和风险的最小充分验证方法。
+2. 执行验证并保存可核验结果，不以模型自述代替工具或产物证据。
+3. 按预先确认的 acceptance criteria 判断，并限制结论适用范围。
+4. 失败时定位根因，只修改真正导致失败的层。
+5. 对修复做定向验证和必要回归，再重新判定。
 
 Flow:
 
@@ -38,11 +47,14 @@ Prefer fixing the layer that actually caused the failure; do not use prompt chan
 
 ## Outputs
 
-原文未规定独立固定输出格式；遵循当前任务的 expected_output 和 acceptance_criteria。
+验证结论与证据、覆盖范围和限制；失败时还包括 bad cases、根因、最小修复结果，以及必要的 Replan 建议。
 
 ## Completion Criteria
 
-原文未单列节点完成清单；按当前任务验收标准及 [全局 Completion Criteria](../../SKILL.md#17-completion-criteria) 判断。
+- 验证证据覆盖当前 acceptance criteria 和交付风险；
+- 结论没有超出样例、数据或环境的覆盖范围；
+- 失败已修复并回归，或明确阻塞/进入 Replan；
+- 残余风险和未覆盖项已说明。节点完成后仍须满足 [全局 Completion Criteria](../../SKILL.md#17-completion-criteria)。
 
 ## Dependencies
 
@@ -54,4 +66,4 @@ Prefer fixing the layer that actually caused the failure; do not use prompt chan
 
 ## Do Not
 
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。
+遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要在看到结果后静默降低标准，不要把有限样例通过宣称为普遍有效，也不要无限迭代。

@@ -10,6 +10,10 @@ LIFECYCLE = [
 ]
 RUNTIME = ["execution-profile.md", "planner.md", "context.md", "executor.md",
            "registry-versioning.md", "replan-recovery.md", "gates.md"]
+LIFECYCLE_CONTRACT = ["Purpose", "Activation Conditions", "Required Inputs", "Capabilities",
+                      "Procedure", "Outputs", "Completion Criteria", "Dependencies",
+                      "Load With", "Do Not"]
+PLACEHOLDER_MARKERS = ["原文未单列固定输入", "原文未规定独立固定输出", "原文未单列节点完成"]
 SCHEMAS = ["task.yaml", "project-state.yaml", "execution-profile.yaml", "plan.yaml", "context-pack.yaml"]
 KERNEL_SECTIONS = [
     "1. Operating Principles", "2. Lifecycle", "3. Runtime", "Global Invariants",
@@ -43,6 +47,22 @@ def inspect_contract(skill, kernel, nodes, check):
     for name in SCHEMAS:
         check(sum(target == "schemas/" + name for _, target in rows) == 1, "Wrong schema route: " + name)
     check(sum(target == "templates/execution-plan.md" for _, target in rows) == 1, "Missing template route")
+
+    for name in LIFECYCLE:
+        path = skill / "references/lifecycle" / name
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        headings = re.findall(r"^## (.+)$", text, re.M)
+        check(headings == LIFECYCLE_CONTRACT, "Wrong lifecycle contract/order: " + name)
+        for heading in LIFECYCLE_CONTRACT:
+            match = re.search(
+                rf"^## {re.escape(heading)}\s*$\n(.*?)(?=^## |\Z)", text, re.M | re.S
+            )
+            check(bool(match and match.group(1).strip()),
+                  f"Empty lifecycle contract section: {name}#{heading}")
+        for marker in PLACEHOLDER_MARKERS:
+            check(marker not in text, f"Lifecycle placeholder remains: {name}: {marker}")
 
     gate = skill / "references/runtime/gates.md"
     if gate.exists():

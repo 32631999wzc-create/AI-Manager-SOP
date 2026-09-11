@@ -1,0 +1,420 @@
+{
+  "scenario": "B8",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "references/runtime/context.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_1+item_3",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 120\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120\""
+      },
+      {
+        "file": "schemas/task.yaml",
+        "item_id": "item_4",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/task.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/plan.yaml",
+        "item_id": "item_5",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/plan.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_6",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/planner.md",
+        "item_id": "item_7",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_8",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_9",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/gates.md",
+        "item_id": "item_10",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/context.md",
+        "item_id": "item_12",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/context.md' -Encoding UTF8\""
+      },
+      {
+        "file": "scripts/runtime_validation/cli.py",
+        "item_id": "item_13",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/scripts/runtime_validation/cli.py' -Encoding UTF8\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection"
+    },
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_11",
+        "reason": "read-only runtime validation",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_15",
+        "reason": "read-only runtime validation",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "validation_errors": [],
+  "behavior_issues": [],
+  "normalized_result": {
+    "document": {
+      "profile": {
+        "delivery_target": "MVP",
+        "project_mode": "BROWNFIELD",
+        "assignment_scope": {
+          "mode": "PARTIAL_PROJECT",
+          "requested_scope": [
+            "Integration gaps",
+            "Gap validation"
+          ],
+          "excluded_scope": [
+            "Asset rebuild",
+            "Production release"
+          ],
+          "expected_deliverables": [
+            "Integration patch",
+            "Validation evidence"
+          ],
+          "ownership_boundary": [
+            "Affected integration paths only"
+          ]
+        },
+        "nodes": [
+          {
+            "node": "Qualification",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "MINIMAL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Scope and asset classification"
+            ],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "Target and scope supplied"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Cognition",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Trace affected paths",
+              "Assemble task context",
+              "Resolve relevant conflicts"
+            ],
+            "reused_artifacts": [
+              "VERIFIED_REUSABLE code"
+            ],
+            "gaps": [
+              "Context and dependency tracing",
+              "Triage other asset states"
+            ],
+            "reasons": [
+              "Existing repository modification"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Product Definition & Scope",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "VERIFY",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Check applicability"
+            ],
+            "reused_artifacts": [
+              "VERIFIED_REUSABLE requirements"
+            ],
+            "gaps": [],
+            "reasons": [
+              "Reuse supplied requirements"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Solution Design",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "VERIFY",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Check integration fit"
+            ],
+            "reused_artifacts": [
+              "VERIFIED_REUSABLE design",
+              "VERIFIED_REUSABLE evaluation criteria"
+            ],
+            "gaps": [],
+            "reasons": [
+              "Reuse supplied design and criteria"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Implementation",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "Complete integration gaps"
+            ],
+            "reused_artifacts": [
+              "VERIFIED_REUSABLE code",
+              "PARTIAL integration"
+            ],
+            "gaps": [
+              "Missing integration behavior"
+            ],
+            "reasons": [
+              "Preserve valid implementation"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Validation & Iteration",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "Integration and regression checks"
+            ],
+            "reused_artifacts": [
+              "VERIFIED_REUSABLE evaluation criteria"
+            ],
+            "gaps": [
+              "Gap validation evidence"
+            ],
+            "reasons": [
+              "Existing assets do not replace validation"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Release & Operation",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "Only gaps and validation owned"
+            ],
+            "external_project_requirement": "MVP release and basic monitoring"
+          },
+          {
+            "node": "Retrospective",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "No retrospective requested"
+            ],
+            "external_project_requirement": null
+          }
+        ],
+        "validation_context": {
+          "existing_repository_modification": true,
+          "verified_design": true,
+          "acceptance_criteria_defined": true,
+          "production_release": false,
+          "release_execution": false,
+          "monitoring_covered": false,
+          "release_readiness": "BLOCKED"
+        }
+      },
+      "plan": {
+        "plan": {
+          "version": "1",
+          "objective": "Close MVP integration gaps using reusable assets",
+          "tasks": [
+            {
+              "id": "T1",
+              "name": "Assemble context",
+              "goal": "Identify safe reuse and exact gaps",
+              "type": "DELIVERY",
+              "status": "NOT_STARTED",
+              "priority": "P1",
+              "lifecycle_node": "Cognition",
+              "execution_depth": "FULL",
+              "dependencies": [],
+              "required_inputs": [
+                "Scenario assets"
+              ],
+              "required_capabilities": [
+                "Assemble context"
+              ],
+              "expected_output": "Scoped integration context",
+              "acceptance_criteria": [
+                "Trace affected code and dependencies",
+                "Reuse verified requirements, design, criteria and code",
+                "Identify missing parts of PARTIAL integration",
+                "Verify relevant PRESENT_UNVERIFIED assets",
+                "Exclude or refresh relevant OUTDATED assets",
+                "Resolve relevant CONFLICTING assets before build"
+              ],
+              "context_requirements": [
+                "Affected paths and verified assets"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on failure"
+            },
+            {
+              "id": "T2",
+              "name": "Complete gaps",
+              "goal": "Implement only missing integration behavior",
+              "type": "DELIVERY",
+              "status": "NOT_STARTED",
+              "priority": "P1",
+              "lifecycle_node": "Implementation",
+              "execution_depth": "FULL",
+              "dependencies": [
+                "T1",
+                "Build Readiness"
+              ],
+              "required_inputs": [
+                "Scoped integration context"
+              ],
+              "required_capabilities": [
+                "Complete gaps"
+              ],
+              "expected_output": "Integration patch",
+              "acceptance_criteria": [
+                "Preserve valid code and interfaces",
+                "Meet supplied design and scope",
+                "Implement only identified gaps"
+              ],
+              "context_requirements": [
+                "Affected paths and verified assets"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on failure"
+            },
+            {
+              "id": "T3",
+              "name": "Validate gaps",
+              "goal": "Verify integration and affected regressions",
+              "type": "DELIVERY",
+              "status": "NOT_STARTED",
+              "priority": "P1",
+              "lifecycle_node": "Validation & Iteration",
+              "execution_depth": "FULL",
+              "dependencies": [
+                "T2"
+              ],
+              "required_inputs": [
+                "Integration patch",
+                "Verified evaluation criteria"
+              ],
+              "required_capabilities": [
+                "Validate gaps"
+              ],
+              "expected_output": "Validation evidence",
+              "acceptance_criteria": [
+                "Pass applicable supplied criteria",
+                "Check integration failures and affected regressions",
+                "Record failures and unresolved limitations"
+              ],
+              "context_requirements": [
+                "Affected paths and verified assets"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on failure"
+            }
+          ],
+          "dependencies": [
+            {
+              "from": "T1",
+              "to": "T2",
+              "type": "DATA"
+            },
+            {
+              "from": "Build Readiness",
+              "to": "T2",
+              "type": "GATE"
+            },
+            {
+              "from": "T2",
+              "to": "T3",
+              "type": "DATA"
+            }
+          ],
+          "critical_path": [
+            "T1",
+            "T2",
+            "T3"
+          ],
+          "assumptions": [
+            "Asset classifications are supplied facts",
+            "Other assets matter only if dependencies require them"
+          ]
+        },
+        "available_inputs": [
+          "Scenario assets",
+          "Verified evaluation criteria"
+        ],
+        "artifacts": [],
+        "gates": {
+          "Qualification": "PASS_WITH_ASSUMPTIONS",
+          "Build Readiness": "BLOCKED",
+          "Release Readiness": "BLOCKED"
+        },
+        "blocked_inputs": [],
+        "write_targets": {
+          "T1": [],
+          "T2": [],
+          "T3": []
+        }
+      }
+    },
+    "claims": {
+      "assignment_complete": false,
+      "external_write_performed": false
+    }
+  },
+  "status": "PASS"
+}

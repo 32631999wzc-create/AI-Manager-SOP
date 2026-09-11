@@ -59,6 +59,7 @@ Do not introduce extra Manager, Orchestrator, Recovery, Merge, or Memory-Agent l
 - 正式内容经验证后提交；假设与事实分开，更新创建新版本，保留有效工作。
 - Qualification、Build Readiness、Release Readiness 是仅有的三个顶层 Gate；其他检查保持局部。
 - 所有节点共用下方 Completion Criteria；不能以访问完清单代替完成任务。
+- 执行节点时遵循对应 reference 的 Required Inputs → Procedure → Outputs → Completion Criteria；输入不足时明确假设或阻塞，未满足节点完成条件不得标记 `SATISFIED`。
 
 ## Progressive Disclosure Router
 

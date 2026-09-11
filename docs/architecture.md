@@ -14,10 +14,11 @@
 
 详细规则只在 canonical location 维护，其他文件使用摘要或链接。例如 Replan 判断产物失效和版本时读取 Registry，包括只提出建议的任务；链接不授予写入权限。优先级、复杂度 guardrails 和共用完成标准保留在 Kernel。
 
+八个 lifecycle 模块使用同一节点合同顺序，明确输入、过程、输出、完成条件和边界；统一的是合同结构，不是强制模板或固定任务清单。
+
 [schemas](../skills/ai-product-development/schemas) 的五个 YAML 文件包含八个原始对象，继续作为 canonical 结构示意。Phase 2 的 [只读 runtime validator](../skills/ai-product-development/scripts/validate_runtime.py) 将这些字段、枚举及 Profile / Plan 的交叉规则变成确定性检查；验证包装层只承载检查上下文，不新增 ExecutionProfile canonical schema、默认值或状态存储。
 
 稳定输出仅有 [Plan Preview](../skills/ai-product-development/templates/execution-plan.md)。其他输出没有字段级固定格式，其规则保留在对应节点。
-
 
 ## Local continuous runtime
 

@@ -2,6 +2,7 @@
 from pathlib import Path
 import copy
 import importlib.util
+import re
 import shutil
 import tempfile
 import unittest
@@ -43,6 +44,20 @@ class StructureContractTests(unittest.TestCase):
 
     def test_missing_kernel_section(self):
         self.assertTrue(self.errors(self.kernel.replace("## Rule Precedence", "## Precedence")))
+
+    def test_lifecycle_placeholder_fails(self):
+        p = self.skill / "references/lifecycle/02-cognition.md"
+        text = p.read_text(encoding="utf-8")
+        p.write_text(text.replace("## Required Inputs\n", "## Required Inputs\n\n原文未单列固定输入。\n", 1), encoding="utf-8")
+        self.assertTrue(any("Lifecycle placeholder" in error for error in self.errors()))
+
+    def test_empty_lifecycle_section_fails(self):
+        p = self.skill / "references/lifecycle/03-product-definition.md"
+        text = p.read_text(encoding="utf-8")
+        text = re.sub(r"^## Outputs\s*$\n.*?(?=^## Completion Criteria)",
+                      "## Outputs\n\n", text, count=1, flags=re.M | re.S)
+        p.write_text(text, encoding="utf-8")
+        self.assertTrue(any("Empty lifecycle contract section" in error for error in self.errors()))
 
     def test_new_gate(self):
         p = self.skill / "references/runtime/gates.md"

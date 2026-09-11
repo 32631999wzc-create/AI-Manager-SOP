@@ -1,82 +1,82 @@
 {
   "B1": {
-    "directory": "evidence/B1-p3-astra",
+    "directory": "evidence/B1-review-v1",
     "files_sha256": {
       "prompt.txt": "f234b3ba25858e690fb41f1527d8e71a9b7754051aa88da05048413d73cefe53",
-      "trace.jsonl": "967de865d21538443f566d8828094705fe840ec6c2ae8c472acdd8924cc535a4",
-      "stderr.txt": "e7068349245e298c938f820108533a9f923d517e59c7664ba93a4f5e9279a722",
-      "metadata.json": "1105c7747a03c606efe157d27723031311cab9dd3967a038801d1e74d0629adc",
-      "result.json": "b342c40fb5caba9974fc3dd6e5319d5a2ecb0049e21f5ce7d3ab13d4a439c0b5"
+      "trace.jsonl": "246583dbc3a94e204311516f49da0f56aa542594d56de6c1398da0a37832ada3",
+      "stderr.txt": "b8c4400e37677ce1838d9af6f9912453b7fe2eb24f7ca4d17569c83969ae6c9b",
+      "metadata.json": "ca87550f9c36050b7163fedd1d38b1965c8ea8b4edd7637ee2c995d2d4bcd93b",
+      "result.json": "23a1f835affba2456836e46bc4072aa05ef45d6f65528d5dc949f99ebf9d9ad2"
     }
   },
   "B2": {
-    "directory": "evidence/B2-p3-astra",
+    "directory": "evidence/B2-review-v2",
     "files_sha256": {
       "prompt.txt": "bf2675dc6c58e3af2ad2427987bb6ea3d1ef4aa517b2bcee4e6dbe38f1bcd4ad",
-      "trace.jsonl": "43dedadb77c52ea3582d8d174b8b79b3cf56cb02539b288ba4c22d0399fc7302",
-      "stderr.txt": "5f896b4a7ec946b8fbaf360f57f8f03f491671516380174a400864e65ff80bb7",
-      "metadata.json": "3d5312c9f637a60514be1c75d39db913cfeedfbc3d3b4b4de8b5dbb198bec1ab",
-      "result.json": "7163d907aeadbee798dc84839c2316d8b48d2ddfeb6f4b823e29f7cdbabbf93e"
+      "trace.jsonl": "534ad8c826f1f67881c15abeeadefccf9e5cbd10f984719d1d451bc74714c7fb",
+      "stderr.txt": "041617a1a2cbcb5a1d2a2a8ace2dcdd41aee7db72a11d9ef859c3fd90a64b930",
+      "metadata.json": "001465129607861ce0499660d5b61c1212ede59604ace38416bbce4e9daa0286",
+      "result.json": "ce57825110a7e54180bde6bff24366a2e87d18c185f9fad107e36cc1ece2d62a"
     }
   },
   "B3": {
-    "directory": "evidence/B3-p3-astra",
+    "directory": "evidence/B3-review-v1",
     "files_sha256": {
       "prompt.txt": "189e87c6cb8c96a82e4e170ba6f61b0a16317d97059c7a636d08240cce8cf27e",
-      "trace.jsonl": "60cd365182bb21905e7e2962f854b197cc8b9d4aff845377b28db3ac2f3dd9ee",
-      "stderr.txt": "00fa210ee884839b0c72f604bcadc831e8eab48d0b7d603b68a5a073a93d4cf3",
-      "metadata.json": "29b35f607bc36108df4abcbca0d618d04436ec970ed7ecb3dcdfbc5cb8bf4a16",
-      "result.json": "bb99167384d824dd9ac03210005321102f15a256b1297aace67c296ac46cd441"
+      "trace.jsonl": "4cbcae9fa558bad8b943872532bed8a9d680d8be61343fe59b011552c062e460",
+      "stderr.txt": "aa521d897d3ebc648a6354d1d16fae8dd54de4f7c229eda0676c0f4b54258ab8",
+      "metadata.json": "920b922dbdd83bbeb9ef7b0afaf55d72bbe08fbecbc4ae8558ffb7ea975fde9c",
+      "result.json": "efa6a881f038b805abec4e3fe308e14ffba558809192e8a93eb55220cae4fc6d"
     }
   },
   "B4": {
-    "directory": "evidence/B4-p3-final",
+    "directory": "evidence/B4-review-v1",
     "files_sha256": {
       "prompt.txt": "f76cd57334ec991bda2562bc56872de8de2b98dfaa73afb68ee466c50e352c6c",
-      "trace.jsonl": "637916f36e2dbb12a0ddfd927aaa0cb0585b9bf91ba0d92166cc04eabe4d277b",
-      "stderr.txt": "58345c2b195015d0e0dca8bda5359a080b57fab9095364acc653a52546623205",
-      "metadata.json": "b9959c80967a6f74f64980b3bfb908cc7e7c6a1e229efee228ba1fe2c18a91cf",
-      "result.json": "cb97817c348674063d862130d25f88dd21ca9ad7937956c88841859c15c6d271"
+      "trace.jsonl": "9bd3f60015e4d5c7a408bab62059e5727cf29305936efd74a77ffcaacb0936eb",
+      "stderr.txt": "fc7bd5d0032761888692eef6d0c891e85eefb444fb2737680271cb2761856460",
+      "metadata.json": "85e63fd2208fd69fbd3c7331322a3f91fcee5901f14586401901d26c897954ae",
+      "result.json": "6a38bc3ee584513264eb8ca82b00b504a180f040bcd964e67652a39c0f988b32"
     }
   },
   "B5": {
-    "directory": "evidence/B5-p3-astra",
+    "directory": "evidence/B5-review-v1",
     "files_sha256": {
       "prompt.txt": "57657657194adf2a0b68435b99d93484712f8ed58fa816e5ac79993bc12c816c",
-      "trace.jsonl": "feb7b3ce0beb18f7b9aeaa26b02a1d1c1da13481f550b6c90243cd63c0b9555b",
-      "stderr.txt": "570a8956c9abdb1937e79434176162c7e8360022e0db6c4208e73b86a37b84c9",
-      "metadata.json": "75fc03fbec2a8e32f37359dffee008e206ff5b00ba83a272d39b947be3e30b16",
-      "result.json": "c96fb72b747f03d0b4683baa302b47539f8f920f6ed5a3677c9c59398a1da911"
+      "trace.jsonl": "bef75a8b5e6ff80497695cd8633f33108e449a6017a4aae1cee0e5c8c6f524b4",
+      "stderr.txt": "1883ce10074da764f87e4661d9f24ea70ce4e44774b94429a8bea8bbc873e699",
+      "metadata.json": "4dbc094f42e7e52d66e9d065af10f6b3191089fe4759b59c63922bf3886bb427",
+      "result.json": "def6f06979d13c80ea5e169e6e7c373f00fb4a399bfc36cf1f7fc15e28d6ccbe"
     }
   },
   "B6": {
-    "directory": "evidence/B6-p3-astra",
+    "directory": "evidence/B6-review-v1",
     "files_sha256": {
       "prompt.txt": "7ea9e36c89e538e7631ded92e95faeaeffa48c64ff5d820ab8b56a4c7f87391f",
-      "trace.jsonl": "0510b353a30f964b5887f7fa1a89510ed33d387ffacf7ffacb549a6cd5ff23f3",
-      "stderr.txt": "04e91f22b93f43fe21b1eadd597664e7510b0cb240c585ee3127aff2f5b0290e",
-      "metadata.json": "fbe8208d65f46feb1c83177b28a93cd9e5cd60635d9f516cc3dd4e49dee371d4",
-      "result.json": "01f4a41ccb64eb29c87dc9edafff79f27d7a170929aeac72c3ef47419a76a757"
+      "trace.jsonl": "896cc720b969127e1477f43c94baf5be2898086b5e88899d4369250c65953e89",
+      "stderr.txt": "7dc22eba8ec8e8f1997dc4f86e2427542126dd50d473ac27f1fb82bb72fbd609",
+      "metadata.json": "e3c77ca1b7634d0c5323ebb99370f6fb326b0365f6dffe9b08fcd3682eecafbf",
+      "result.json": "da9ef23b877880f6becc9ba9b23bd2fdaf107f93cafb32e8bc929602a42dd76e"
     }
   },
   "B7": {
-    "directory": "evidence/B7-p3-astra",
+    "directory": "evidence/B7-review-v1",
     "files_sha256": {
       "prompt.txt": "53e6568fbe3c7741196a499b19c6069ca76f46f388707e50bd3d5ea7bd31eb7f",
-      "trace.jsonl": "27edefd21ad99eebe804d451712f937c2d3290037c65abcdec0bffc1d841d763",
-      "stderr.txt": "abff460720825c523d74f6eab0a5645113553a3307f95918cd4c58c64f47b3d5",
-      "metadata.json": "f4c1f3eaf4d2cf123e3a10908531e18af89735de6456a79c77fc635f10a0ab6c",
-      "result.json": "114596e36e2f351e505435fc776aa3f8b7abe9d8d90cca18f1d53253a94e1611"
+      "trace.jsonl": "580c7de7bfb386ef40efc1e6c864803523710dedaa63ca1e235f8f372583a4eb",
+      "stderr.txt": "c65a4852a67058be3ae6bf287858bc3f250483ed63f48762faf71986eb773ea1",
+      "metadata.json": "1c24de8680750f5c1a70837b8520303b35039a4389b914c3a8d91ac46486dcfa",
+      "result.json": "e620c1782721a37809db1fa7fd66476bc94f514116d98dfb5c909734a5a914aa"
     }
   },
   "B8": {
-    "directory": "evidence/B8-p3-astra",
+    "directory": "evidence/B8-review-v1",
     "files_sha256": {
       "prompt.txt": "594e5cd08906728988f8cce0d8917e78defac602cd5767d1b83027bdd51ca354",
-      "trace.jsonl": "d21b35a8143df77af26a7bdadbf4d33550326c227b9f393b4887b49eaab731c4",
-      "stderr.txt": "e2f033f72ecdee56a9bfe83cb87e74a96ecabe8c03814e81f432b07dbb34a7f1",
-      "metadata.json": "3718b4d81820774ad093f82609a266ed6195e9fed9dee6615926c43e896b32f1",
-      "result.json": "7930ea2880374422897bcc09cc8219f6ac35acbcedb4b4a96f0c5219d73e9098"
+      "trace.jsonl": "8f622832e442800688cb2cf41decf89ba26ca19b3c41f60499873865e698f0c2",
+      "stderr.txt": "6459a82474e21ec81398756478eb1a8ced31c95f1d13028c9fa1339f54f09d16",
+      "metadata.json": "402a82d0e7e8a948c703110b144d08fd6a79f376eb5c549cc1bd0c815d3d52ce",
+      "result.json": "189de8f5cc592058b5984bc4256d3aa921b55a6fbf9d4f3078eeee6ce4840c7a"
     }
   }
 }

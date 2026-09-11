@@ -10,7 +10,9 @@ turn the approved scope and design into working product capability.
 
 ## Required Inputs
 
-原文未单列固定输入清单；按下述 Procedure 与当前任务的 required_inputs 获取相关材料。
+- 通过 Build Readiness 的范围、设计和验收标准；
+- 一个依赖已满足的 READY Task 与最小 TaskContextPack；
+- 可复用资产、目标仓库约定以及完成任务所需的工具或授权。
 
 ## Capabilities
 
@@ -20,13 +22,22 @@ build planning, task decomposition, interface/schema contracts, incremental impl
 
 Do not treat these capabilities as fixed tasks. The Planner creates implementation tasks only for actual gaps.
 
+1. 确认任务目标、输入、依赖、写入边界和验收标准。
+2. 复用现有设计与资产，完成满足任务目标的最小可靠增量。
+3. 遵循现有接口、schema、代码和文档约定；发现实质冲突时停止并 Replan。
+4. 运行与变更相称的结构检查、测试或本地验证。
+5. 返回 Task Result、验证证据、已知限制和待提交产物；验证通过后才进入正式 Artifact。
+
 ## Outputs
 
-原文未规定独立固定输出格式；遵循当前任务的 expected_output 和 acceptance_criteria。
+可运行或可审阅的产品增量、变更清单、Task Result、验证证据、已知限制，以及需要登记时的待提交 Artifact。
 
 ## Completion Criteria
 
-原文未单列节点完成清单；按当前任务验收标准及 [全局 Completion Criteria](../../SKILL.md#17-completion-criteria) 判断。
+- 当前 Task 的主要交付物已产生且满足验收标准；
+- 必要检查通过，结果和限制有证据；
+- 没有越过 Assignment Scope、写入边界或授权；
+- 新发现的实质变化已触发 Replan，而非被隐藏。节点完成后仍须满足 [全局 Completion Criteria](../../SKILL.md#17-completion-criteria)。
 
 ## Dependencies
 
@@ -38,4 +49,4 @@ Do not treat these capabilities as fixed tasks. The Planner creates implementati
 
 ## Do Not
 
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。
+遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要顺手重构无关范围，不要把未验证结果提交为正式产物。

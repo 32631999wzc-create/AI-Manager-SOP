@@ -1,0 +1,436 @@
+{
+  "scenario": "B7",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "references/runtime/replan-recovery.md",
+      "references/runtime/registry-versioning.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_1+item_3",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 120\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_4",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_5",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_6",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/planner.md",
+        "item_id": "item_7",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/replan-recovery.md",
+        "item_id": "item_8",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/plan.yaml",
+        "item_id": "item_9",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/plan.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/task.yaml",
+        "item_id": "item_10",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/task.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/gates.md",
+        "item_id": "item_12",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8\""
+      },
+      {
+        "file": "scripts/runtime_validation/cli.py",
+        "item_id": "item_14",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/scripts/runtime_validation/cli.py' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/registry-versioning.md",
+        "item_id": "item_15",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/registry-versioning.md' -Encoding UTF8\""
+      },
+      {
+        "file": "scripts/runtime_validation/loader.py",
+        "item_id": "item_16",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/scripts/runtime_validation/loader.py' -Encoding UTF8\""
+      },
+      {
+        "file": "scripts/runtime_validation/validators.py",
+        "item_id": "item_17",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/scripts/runtime_validation/validators.py' -Encoding UTF8\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {
+      "references/lifecycle/01-qualification.md": "confirm that delivery target and assignment scope remain unchanged",
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis"
+    },
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_11",
+        "reason": "read-only runtime validation",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_18",
+        "reason": "read-only runtime validation",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "validation_errors": [],
+  "behavior_issues": [],
+  "normalized_result": {
+    "document": {
+      "profile": {
+        "delivery_target": "MVP",
+        "project_mode": "BROWNFIELD",
+        "assignment_scope": {
+          "mode": "PARTIAL_PROJECT",
+          "requested_scope": [
+            "output-field change"
+          ],
+          "excluded_scope": [
+            "target upgrade",
+            "production release",
+            "unaffected features"
+          ],
+          "expected_deliverables": [
+            "updated output fields",
+            "regression evidence"
+          ],
+          "ownership_boundary": [
+            "affected contract, code and tests"
+          ]
+        },
+        "nodes": [
+          {
+            "node": "Qualification",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "VERIFY",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "scope verification"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "baseline evidence"
+            ],
+            "reasons": [
+              "Target and scope unchanged"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Cognition",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "affected path inspection"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "affected consumers"
+            ],
+            "reasons": [
+              "Local change; preserve unaffected work"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Product Definition & Scope",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "output contract"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "field delta"
+            ],
+            "reasons": [
+              "Local change; preserve unaffected work"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Solution Design",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "MINIMAL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "evaluation design"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "updated criteria"
+            ],
+            "reasons": [
+              "Local change; preserve unaffected work"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Implementation",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "field changes"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "affected implementation"
+            ],
+            "reasons": [
+              "Local change; preserve unaffected work"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Validation & Iteration",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "contract regression"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "regression evidence"
+            ],
+            "reasons": [
+              "Local change; preserve unaffected work"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Release & Operation",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "Outside field-change ownership"
+            ],
+            "external_project_requirement": "MVP release and basic monitoring"
+          },
+          {
+            "node": "Retrospective",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "Outside field-change ownership"
+            ],
+            "external_project_requirement": "Project retrospective"
+          }
+        ],
+        "validation_context": {
+          "existing_repository_modification": true,
+          "verified_design": false,
+          "acceptance_criteria_defined": false,
+          "production_release": false,
+          "release_execution": false,
+          "monitoring_covered": false,
+          "release_readiness": "BLOCKED"
+        }
+      },
+      "plan": {
+        "plan": {
+          "version": "v1",
+          "objective": "Local replan for output-field change",
+          "tasks": [
+            {
+              "id": "t1",
+              "name": "Assess field-change impact",
+              "goal": "Assess field-change impact",
+              "type": "ANALYSIS",
+              "status": "BLOCKED",
+              "priority": "P1",
+              "lifecycle_node": "Solution Design",
+              "execution_depth": "FULL",
+              "dependencies": [],
+              "required_inputs": [
+                "field delta",
+                "baseline assets"
+              ],
+              "required_capabilities": [
+                "Assess field-change impact"
+              ],
+              "expected_output": "Reviewed delta contract",
+              "acceptance_criteria": [
+                "Trace affected consumers",
+                "Define field acceptance tests",
+                "Preserve valid records, artifacts and completed tasks",
+                "OUTDATE only affected work; ADD/CANCEL only as needed"
+              ],
+              "context_requirements": [
+                "unchanged baseline",
+                "field delta"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on material failure"
+            },
+            {
+              "id": "t2",
+              "name": "Update affected output fields",
+              "goal": "Update affected output fields",
+              "type": "IMPLEMENTATION",
+              "status": "BLOCKED",
+              "priority": "P1",
+              "lifecycle_node": "Implementation",
+              "execution_depth": "FULL",
+              "dependencies": [
+                "t1",
+                "Build Readiness"
+              ],
+              "required_inputs": [
+                "reviewed delta contract"
+              ],
+              "required_capabilities": [
+                "Update affected output fields"
+              ],
+              "expected_output": "Updated implementation",
+              "acceptance_criteria": [
+                "Match approved field contract",
+                "Preserve unrelated behavior",
+                "Validate before new artifact versions"
+              ],
+              "context_requirements": [
+                "unchanged baseline",
+                "field delta"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on material failure"
+            },
+            {
+              "id": "t3",
+              "name": "Validate changed contract",
+              "goal": "Validate changed contract",
+              "type": "VALIDATION",
+              "status": "BLOCKED",
+              "priority": "P1",
+              "lifecycle_node": "Validation & Iteration",
+              "execution_depth": "FULL",
+              "dependencies": [
+                "t2"
+              ],
+              "required_inputs": [
+                "updated implementation",
+                "field acceptance tests"
+              ],
+              "required_capabilities": [
+                "Validate changed contract"
+              ],
+              "expected_output": "Regression report",
+              "acceptance_criteria": [
+                "New field tests pass",
+                "Unchanged behavior passes",
+                "Record remaining blockers"
+              ],
+              "context_requirements": [
+                "unchanged baseline",
+                "field delta"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on material failure"
+            }
+          ],
+          "dependencies": [
+            {
+              "from": "t1",
+              "to": "t2",
+              "type": "HARD"
+            },
+            {
+              "from": "Build Readiness",
+              "to": "t2",
+              "type": "GATE"
+            },
+            {
+              "from": "t2",
+              "to": "t3",
+              "type": "DATA"
+            }
+          ],
+          "critical_path": [
+            "t1",
+            "t2",
+            "t3"
+          ],
+          "assumptions": [
+            "INPUT_CHANGE; LOCAL REPLAN",
+            "BROWNFIELD inferred from MVP development",
+            "Release owned externally",
+            "Existing valid work retained; IDs unavailable",
+            "v1 labels this proposal; baseline version unknown",
+            "Increment baseline plan only for material DAG changes",
+            "DEMO to ENTERPRISE variant excluded"
+          ]
+        },
+        "available_inputs": [],
+        "artifacts": [],
+        "gates": {
+          "Qualification": "PASS_WITH_ASSUMPTIONS",
+          "Build Readiness": "BLOCKED",
+          "Release Readiness": "BLOCKED"
+        },
+        "blocked_inputs": [
+          "field delta",
+          "baseline assets"
+        ],
+        "write_targets": {
+          "t1": [],
+          "t2": [],
+          "t3": []
+        }
+      }
+    },
+    "claims": {
+      "assignment_complete": false,
+      "external_write_performed": false
+    }
+  },
+  "status": "PASS"
+}

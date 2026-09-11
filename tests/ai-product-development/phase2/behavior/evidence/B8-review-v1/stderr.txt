@@ -1,0 +1,8 @@
+2026-09-11T04:56:25.918432Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-09-11T04:56:33.475357Z  WARN codex_core_plugins::manager: failed to warm featured plugin ids cache error=failed to send remote featured plugin request to https://chatgpt.com/backend-api/plugins/featured?platform=codex: error sending request for url (https://chatgpt.com/backend-api/plugins/featured?platform=codex)
+2026-09-11T04:57:03.323126Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (1/5 in 190ms)... turn_id=01a08ed3-0e96-75a3-9e65-f22c30bf4dc9 retries=1 max_retries=5 sampling_error=request timed out
+2026-09-11T04:57:18.532786Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (2/5 in 413ms)... turn_id=01a08ed3-0e96-75a3-9e65-f22c30bf4dc9 retries=2 max_retries=5 sampling_error=request timed out
+2026-09-11T04:57:33.964375Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (3/5 in 763ms)... turn_id=01a08ed3-0e96-75a3-9e65-f22c30bf4dc9 retries=3 max_retries=5 sampling_error=request timed out
+2026-09-11T04:57:49.746922Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (4/5 in 1.575s)... turn_id=01a08ed3-0e96-75a3-9e65-f22c30bf4dc9 retries=4 max_retries=5 sampling_error=request timed out
+2026-09-11T04:58:06.350548Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (5/5 in 2.888s)... turn_id=01a08ed3-0e96-75a3-9e65-f22c30bf4dc9 retries=5 max_retries=5 sampling_error=request timed out
+2026-09-11T04:58:24.259841Z  WARN codex_core::client: falling back to HTTP

@@ -1,0 +1,440 @@
+{
+  "scenario": "B2",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_2+item_3",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\SKILL.md' -Encoding UTF8 | Select-Object -First 120\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\SKILL.md' -Encoding UTF8 | Select-Object -Skip 120\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_4",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\references\\\\runtime\\\\execution-profile.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_5",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\references\\\\lifecycle\\\\01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_6",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\schemas\\\\execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/gates.md",
+        "item_id": "item_7",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\references\\\\runtime\\\\gates.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/plan.yaml",
+        "item_id": "item_8",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\schemas\\\\plan.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/task.yaml",
+        "item_id": "item_9",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\schemas\\\\task.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/planner.md",
+        "item_id": "item_10",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\references\\\\runtime\\\\planner.md' -Encoding UTF8\""
+      },
+      {
+        "file": "scripts/runtime_validation/cli.py",
+        "item_id": "item_13",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\scripts\\\\runtime_validation\\\\cli.py' -Encoding UTF8\""
+      },
+      {
+        "file": "scripts/runtime_validation/loader.py",
+        "item_id": "item_14",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\scripts\\\\runtime_validation\\\\loader.py' -Encoding UTF8\""
+      },
+      {
+        "file": "scripts/runtime_validation/validators.py",
+        "item_id": "item_15",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'C:\\\\Users\\\\Lenovo\\\\AppData\\\\Local\\\\Temp\\\\ai-skill-phase2-1do1gbe7\\\\skill\\\\scripts\\\\runtime_validation\\\\validators.py' -Encoding UTF8\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {
+      "references/runtime/gates.md": "local gate interpretation",
+      "scripts/runtime_validation/cli.py": "CLI dependency inspection",
+      "scripts/runtime_validation/loader.py": "validator input loading inspection",
+      "scripts/runtime_validation/validators.py": "validator implementation inspected for local rule diagnosis"
+    },
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_11",
+        "reason": "read-only runtime validation",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_16",
+        "reason": "read-only runtime validation",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "validation_errors": [],
+  "behavior_issues": [],
+  "normalized_result": {
+    "document": {
+      "profile": {
+        "delivery_target": "DEMO",
+        "project_mode": "BROWNFIELD",
+        "assignment_scope": {
+          "mode": "PARTIAL_PROJECT",
+          "requested_scope": [
+            "AI API timeout fix",
+            "Affected-path regression"
+          ],
+          "excluded_scope": [
+            "Other features",
+            "Deployment"
+          ],
+          "expected_deliverables": [
+            "Scoped patch",
+            "Regression evidence"
+          ],
+          "ownership_boundary": [
+            "Affected code paths only"
+          ]
+        },
+        "nodes": [
+          {
+            "node": "Qualification",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "MINIMAL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Scope confirmation"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Confirm supplied assets"
+            ],
+            "reasons": [
+              "DEMO and partial scope explicit"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Cognition",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "FULL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Repository inspection",
+              "Dependency tracing"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Trace timeout path"
+            ],
+            "reasons": [
+              "Existing repository modification"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Product Definition & Scope",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "VERIFY",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Verify success criteria"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Confirm affected-path acceptance"
+            ],
+            "reasons": [
+              "Criteria PRESENT_UNVERIFIED"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Solution Design",
+            "status": "NOT_STARTED",
+            "level": "LIGHT",
+            "depth": "MINIMAL",
+            "scope_role": "SUPPORTING",
+            "active_capabilities": [
+              "Verify architecture",
+              "Verify API contract",
+              "Evaluation Design"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Verify reuse",
+              "Define timeout regression cases"
+            ],
+            "reasons": [
+              "Design PRESENT_UNVERIFIED"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Implementation",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "MINIMAL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "Timeout handling repair"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Scoped timeout patch"
+            ],
+            "reasons": [
+              "Requested deliverable"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Validation & Iteration",
+            "status": "NOT_STARTED",
+            "level": "REQUIRED",
+            "depth": "MINIMAL",
+            "scope_role": "PRIMARY",
+            "active_capabilities": [
+              "Affected-path regression"
+            ],
+            "reused_artifacts": [],
+            "gaps": [
+              "Timeout and success-path evidence"
+            ],
+            "reasons": [
+              "Requested deliverable"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Release & Operation",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "Deployment excluded"
+            ],
+            "external_project_requirement": null
+          },
+          {
+            "node": "Retrospective",
+            "status": "SKIPPED",
+            "level": "SKIP",
+            "depth": "SKIP",
+            "scope_role": "OUT_OF_SCOPE",
+            "active_capabilities": [],
+            "reused_artifacts": [],
+            "gaps": [],
+            "reasons": [
+              "Only patch and regression owned"
+            ],
+            "external_project_requirement": null
+          }
+        ],
+        "validation_context": {
+          "existing_repository_modification": true,
+          "verified_design": false,
+          "acceptance_criteria_defined": false,
+          "production_release": false,
+          "release_execution": false,
+          "monitoring_covered": false,
+          "release_readiness": "BLOCKED"
+        }
+      },
+      "plan": {
+        "plan": {
+          "version": "v1",
+          "objective": "Fix DEMO API timeout handling",
+          "tasks": [
+            {
+              "id": "T1",
+              "name": "Verify repair baseline",
+              "goal": "Trace defect and verify reusable baseline",
+              "type": "ANALYSIS",
+              "status": "BLOCKED",
+              "priority": "P1",
+              "lifecycle_node": "Cognition",
+              "execution_depth": "FULL",
+              "dependencies": [],
+              "required_inputs": [
+                "Repository",
+                "Architecture",
+                "API contract",
+                "Success criteria"
+              ],
+              "required_capabilities": [
+                "Code tracing",
+                "Design verification",
+                "Evaluation Design"
+              ],
+              "expected_output": "Verified repair brief",
+              "acceptance_criteria": [
+                "Affected path and cause identified",
+                "Architecture and contract verified",
+                "Timeout and success criteria confirmed",
+                "Build Readiness assessed"
+              ],
+              "context_requirements": [
+                "Reported timeout defect",
+                "Existing design and tests"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on failure"
+            },
+            {
+              "id": "T2",
+              "name": "Repair timeout path",
+              "goal": "Correct timeout behavior within scope",
+              "type": "IMPLEMENTATION",
+              "status": "BLOCKED",
+              "priority": "P1",
+              "lifecycle_node": "Implementation",
+              "execution_depth": "MINIMAL",
+              "dependencies": [
+                "T1",
+                "Build Readiness"
+              ],
+              "required_inputs": [
+                "Verified repair brief",
+                "Repository"
+              ],
+              "required_capabilities": [
+                "Code repair"
+              ],
+              "expected_output": "Scoped patch",
+              "acceptance_criteria": [
+                "Timeout follows verified contract",
+                "Changes limited to affected paths"
+              ],
+              "context_requirements": [
+                "Verified design",
+                "Confirmed acceptance criteria"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on failure"
+            },
+            {
+              "id": "T3",
+              "name": "Run regression",
+              "goal": "Verify repaired timeout and normal behavior",
+              "type": "VALIDATION",
+              "status": "BLOCKED",
+              "priority": "P1",
+              "lifecycle_node": "Validation & Iteration",
+              "execution_depth": "MINIMAL",
+              "dependencies": [
+                "T2"
+              ],
+              "required_inputs": [
+                "Scoped patch",
+                "Verified repair brief",
+                "Test environment"
+              ],
+              "required_capabilities": [
+                "Regression testing"
+              ],
+              "expected_output": "Regression evidence",
+              "acceptance_criteria": [
+                "Timeout cases pass",
+                "Normal-path cases pass",
+                "Affected-path checks pass",
+                "Failures block acceptance"
+              ],
+              "context_requirements": [
+                "Confirmed cases",
+                "Affected dependency paths"
+              ],
+              "artifact_requirements": [],
+              "retry_policy": "Replan on failure"
+            }
+          ],
+          "dependencies": [
+            {
+              "from": "T1",
+              "to": "T2",
+              "type": "HARD"
+            },
+            {
+              "from": "Build Readiness",
+              "to": "T2",
+              "type": "GATE"
+            },
+            {
+              "from": "T2",
+              "to": "T3",
+              "type": "HARD"
+            }
+          ],
+          "critical_path": [
+            "T1",
+            "T2",
+            "T3"
+          ],
+          "assumptions": [
+            "Assets exist per scenario; validity unverified",
+            "Product tasks are future work",
+            "No production release in scope"
+          ]
+        },
+        "available_inputs": [
+          "Scenario"
+        ],
+        "artifacts": [],
+        "gates": {
+          "Build Readiness": "BLOCKED",
+          "Release Readiness": "BLOCKED"
+        },
+        "blocked_inputs": [
+          "Repository",
+          "Architecture",
+          "API contract",
+          "Success criteria",
+          "Test environment"
+        ],
+        "write_targets": {
+          "T1": [
+            "repair-brief:v1"
+          ],
+          "T2": [
+            "timeout-patch:v1"
+          ],
+          "T3": [
+            "regression-evidence:v1"
+          ]
+        }
+      }
+    },
+    "claims": {
+      "assignment_complete": false,
+      "external_write_performed": false
+    }
+  },
+  "status": "PASS"
+}

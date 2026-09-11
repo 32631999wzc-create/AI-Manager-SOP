@@ -1,32 +1,32 @@
 {
   "R1": {
-    "directory": "evidence/R1-p3-v6",
+    "directory": "evidence/R1-review-v1",
     "files_sha256": {
       "prompt.txt": "bdf5b2b3d0808212fcad2bef4ad70f6daf4e99b3cdab5e7becc149e8ec3f2c8f",
-      "trace.jsonl": "c01c7b470405e9015d90393148ffcda92bbeb83929d86f36ae38190811d90933",
-      "stderr.txt": "98ac5d2f560d7d91df7d8bf3f6636d09990ae50a42ced5c4843089b5f2d9326f",
-      "metadata.json": "643261f5cb77befe7b53fb41cc895afcdac003df25f50fba1e3a63072096550e",
-      "result.json": "94a72548966cbbd2dda5a84f98fa584aeac6b839ca6dade8b38d953bf87a6886"
+      "trace.jsonl": "704ebee718b38006e6c18669072241249aedda4f3c0a3341cd8408db84b4a960",
+      "stderr.txt": "33c5e04ddfc402d612c862d662ca29cbb4633fe6e87d97d3fbd261d45c2a9d61",
+      "metadata.json": "15f063fc8b7b825e5c9e4e20de516c30aa7ad6aae03f3eac48f8a7559c68d8b7",
+      "result.json": "5528d60ccb9ccc9158967bff70a8de2588653c0caa08ccf44c10865117dab752"
     }
   },
   "R2": {
-    "directory": "evidence/R2-p3-v6",
+    "directory": "evidence/R2-review-v1",
     "files_sha256": {
       "prompt.txt": "315edf3135af572523ba879ebe4307aafb5c0484466e8f1d5006b78fd528dce7",
-      "trace.jsonl": "f49737c5d621d397d8ffa9230f7ae73548c968987d5018565ed7b884b89adaa6",
-      "stderr.txt": "3cbb9bcaa1e7d2838f68f80182f32df0ef817d904177b7cad875837fd9c3136f",
-      "metadata.json": "89325b8dd3fa01c63037839a26511047f724122518b6b97dd25262c8f4c12a68",
-      "result.json": "57cb88410e965696c95f713caa05a384d67010ce4b43020b7f0daf6da4026e1f"
+      "trace.jsonl": "58b514513d63990787c90ada6aa2047888f2dba0d7d35d025d9d0f34024be5fa",
+      "stderr.txt": "285d0cafaadb384a6843082e15bdc090b7902a5f3351675cdc023e0ecd1cb87e",
+      "metadata.json": "9aadd059662b934c9a2e040a4dd9d98b4d62dc049fb26089fcea591f3fbad1cf",
+      "result.json": "4853b76aa637d5f212a1afd25232c5605a52b56917f3f06ff1ae27f59e0cecce"
     }
   },
   "R3": {
-    "directory": "evidence/R3-p3-v6",
+    "directory": "evidence/R3-review-v1",
     "files_sha256": {
       "prompt.txt": "20a6649f4ff41ec740d09360d99e8bd8849cea3077d1c292087f1a7ea565530e",
-      "trace.jsonl": "43b0a0380160f06811810953832096b3235f5bc5043ed4f4f1ba7661cf1aa5dc",
-      "stderr.txt": "1b5e24dd2a5f3caa682bceb383e39a44c3753e5764f369e50c12dd024353f3d0",
-      "metadata.json": "0a2e007cbfac530cdaadf15887252cf2944fb70f3a6b2b2793ff0682c5a23a18",
-      "result.json": "8cb1f159d562b8033dcdcc05ec00427aa7be2f79e1d98e357e60e04ac28ec8db"
+      "trace.jsonl": "996fadb061dfdb230abd8b8542a7439dfb57735c833579ac319d004c62220c65",
+      "stderr.txt": "5823164d91f9bafd2d1c112ad7dde581771af588f2b1fb1a49a6642fa9eb6288",
+      "metadata.json": "88142e374706000021527fcef178dcdafef4f2036951160ea71b839b5dccb7da",
+      "result.json": "5e37af376bbb8b5e7b121082b3f24bec840957f0a53c1b909b8400ccbf17805e"
     }
   }
 }

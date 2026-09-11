@@ -1,38 +1,29 @@
 # Phase 3 Golden MVP 验证报告
 
-状态：PASS（2026-09-10）。验收采用 `evidence/G-final`，哈希固定在 `accepted-run.json`，由 `verify_golden.py` 回放。
+状态：PASS（2026-09-11）。验收采用 `evidence/G-final`，哈希固定在 `accepted-run.json`，由 `verify_golden.py` 回放。
 
 ## 最终证据
 
 | 场景 | 独立 thread | 结果 | 关键行为 |
 |---|---|---|---|
-| G1 init | `01a08b7a-4fd9-78a0-9aab-5c86fadeb10f` | PASS | 读取 Kernel/Runtime，init、next、checkpoint |
-| G2 resume/build | `01a08b7d-0f2d-7932-83c1-bc993cb3d6b3` | PASS | 新会话 resume，运行产品，登记 Record/Artifact，推进任务 |
-| G3 local replan | `01a08b81-9727-7bc3-8d19-bf82509f9725` | PASS | 新会话 resume，INPUT_CHANGE，计划 v2，筛选报告，checkpoint |
-| G4 resume/complete | `01a08b86-72f3-77b2-ae47-8250c90cc455` | PASS | 新会话 resume，验证输出，更新 Profile，complete=true |
+| G1-init | `01a08ff7-246e-71d2-9909-578c00476640` | PASS | 初始化：必要读取与命令均完整 |
+| G2-resume-build | `01a08ff9-c195-7bb0-978d-3d00d66e39f7` | PASS | 恢复与构建：必要读取与命令均完整 |
+| G3-local-replan | `01a08ffe-2a5f-70a3-8fe1-e9d124933801` | PASS | 局部重规划：必要读取与命令均完整 |
+| G4-resume-complete | `01a09002-2559-7dc0-acb0-bfea62e875e7` | PASS | 恢复与完成：必要读取与命令均完整 |
 
-四个场景均以实际成功的独立 `Get-Content` 和命令调用作为证据。模型最终说明不参与 PASS 的充分性判断。场景只读取当前 dependency closure，没有批量加载全部 lifecycle/runtime references。
+四个场景均以实际成功的独立文件读取和命令调用作为证据。模型最终说明不参与 PASS 的充分性判断。每个场景只读取当前 dependency closure，没有批量加载全部 lifecycle/runtime references。
 
 最终产品状态：
 
-- Plan `v2`，Snapshot sequence `4`。
-- T1、T2、T4、T5 为 `COMPLETED`；被变更替代的 T3 为 `CANCELLED`。
-- `design-v1`、`report-v1`、`filtered-v1` 均为 `ACTIVE`，位置存在。
-- 基础输出接收 5 条、得到 4 条唯一反馈和 1 条重复；来源筛选输出仅含 2 条 support 反馈。
-- REQUIRED 节点、Task、Gate、必需 Artifact 和阻塞项检查全部满足，`complete=true`。
+- Plan `v2`，Snapshot sequence `4`；
+- T1、T2、T4、T5 为 `COMPLETED`，被变更替代的 T3 为 `CANCELLED`；
+- `design-v1`、`report-v1`、`filtered-v1` 均为 `ACTIVE` 且位置存在；
+- 基础输出接收 5 条、得到 4 条唯一反馈和 1 条重复，来源筛选输出仅含 2 条 support 反馈；
+- REQUIRED 节点、Task、Gate、必需 Artifact 和阻塞项全部满足，`complete=true`。
 
-## 失败与修复
+## 本轮未采用运行
 
-验收前的未采用运行不提交原始 trace，只保留以下诊断：
-
-1. G2 网络流超时，在 Kernel 读取后终止；未发生产品写入。
-2. G1 暴露相对 `--input` 按 shell 目录解析的问题；修复为相对于 `--root`，增加跨进程回归。
-3. G2 完成命令但漏读 Context；明确各阶段合法 dependency closure。
-4. G2 提前运行验证器时，fixture 错误要求未来筛选输出；改为只验证当期存在的输出。
-5. G3 的取消任务仍声明已移除依赖；清空依赖并增加启动前 plan validator 预检。
-6. G2 执行产品和状态更新但未调用 `resume`；Prompt 明确新会话第一条状态命令，Runner 增加阶段前状态恢复重试。
-
-这些问题均修复后使用全新会话和最终目录重测。`G-final` 未触发内部重试，`failed_attempts` 为空。
+使用较低推理配置的 `G-review-v1` 中，G1 与 G2 通过，但 G3 三次都在完成必要读取、`resume` 和 `replan` 后提前停止，未完成筛选执行、Task 更新、Artifact 提交和 checkpoint。没有放宽验收或修改业务规则；新目录 `G-review-v2` 重新建立完整四会话状态链并一次通过，`failed_attempts` 为空。未采用目录不进入 accepted manifest。
 
 ## 回放
 
