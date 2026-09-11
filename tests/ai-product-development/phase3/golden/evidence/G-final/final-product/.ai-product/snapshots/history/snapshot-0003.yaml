@@ -1,0 +1,14 @@
+plan_version: v2
+task_states:
+  T1: COMPLETED
+  T2: COMPLETED
+  T3: CANCELLED
+  T4: COMPLETED
+  T5: READY
+active_artifacts:
+- design-v1
+- report-v1
+- filtered-v1
+active_records:
+- R1
+unresolved_items: []

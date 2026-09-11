@@ -1,0 +1,78 @@
+{
+  "summary": {
+    "received": 5,
+    "unique": 4,
+    "duplicates": 1
+  },
+  "themes": [
+    {
+      "theme": "reliability",
+      "count": 1,
+      "priority_score": 5,
+      "evidence": [
+        "F1"
+      ]
+    },
+    {
+      "theme": "performance",
+      "count": 1,
+      "priority_score": 2,
+      "evidence": [
+        "F4"
+      ]
+    },
+    {
+      "theme": "feature-request",
+      "count": 1,
+      "priority_score": 1,
+      "evidence": [
+        "F3"
+      ]
+    },
+    {
+      "theme": "other",
+      "count": 1,
+      "priority_score": 1,
+      "evidence": [
+        "F5"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "F1",
+      "source": "support",
+      "text": "The app crashes whenever I upload a large CSV.",
+      "theme": "reliability",
+      "sentiment": "negative",
+      "urgency": "high"
+    },
+    {
+      "id": "F3",
+      "source": "survey",
+      "text": "希望增加按反馈来源筛选的功能。",
+      "theme": "feature-request",
+      "sentiment": "neutral",
+      "urgency": "normal"
+    },
+    {
+      "id": "F4",
+      "source": "support",
+      "text": "搜索结果很慢，影响每天的整理工作。",
+      "theme": "performance",
+      "sentiment": "negative",
+      "urgency": "normal"
+    },
+    {
+      "id": "F5",
+      "source": "survey",
+      "text": "I love the evidence links in the report.",
+      "theme": "other",
+      "sentiment": "positive",
+      "urgency": "normal"
+    }
+  ],
+  "duplicates": {
+    "F2": "F1"
+  }
+}

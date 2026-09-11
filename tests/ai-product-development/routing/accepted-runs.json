@@ -1,32 +1,32 @@
 {
   "R1": {
-    "directory": "evidence/R1-final",
+    "directory": "evidence/R1-p3-v6",
     "files_sha256": {
-      "prompt.txt": "fc9e66cb538a7a77b6ae77e6eab0da429700aaf5636a73286edd92c9af53ef1c",
-      "trace.jsonl": "f024ca05efff94f83bc2295305b77b9a0a388ee9e9e9ae3f670e0856926ffb35",
-      "stderr.txt": "df1d8210d9b8b36ebe674ba3e1bc1af874e87428dadbc2c9279996bbd09b8938",
-      "metadata.json": "a4a886787b01b44164cb6ad1286596c39a49463fbe50bdb7c783db3248a2cf89",
-      "result.json": "8302ea4e50f363ab002949e1f5cbf160a4d93100a87a8a2677d31f609f6d3edb"
+      "prompt.txt": "bdf5b2b3d0808212fcad2bef4ad70f6daf4e99b3cdab5e7becc149e8ec3f2c8f",
+      "trace.jsonl": "c01c7b470405e9015d90393148ffcda92bbeb83929d86f36ae38190811d90933",
+      "stderr.txt": "98ac5d2f560d7d91df7d8bf3f6636d09990ae50a42ced5c4843089b5f2d9326f",
+      "metadata.json": "643261f5cb77befe7b53fb41cc895afcdac003df25f50fba1e3a63072096550e",
+      "result.json": "94a72548966cbbd2dda5a84f98fa584aeac6b839ca6dade8b38d953bf87a6886"
     }
   },
   "R2": {
-    "directory": "evidence/R2-final",
+    "directory": "evidence/R2-p3-v6",
     "files_sha256": {
-      "prompt.txt": "9dc8312d95aaa0e4becacf1a8d5de2fe0d5c5f2366075c18e8cb3bc40537bb1e",
-      "trace.jsonl": "a2621585869e8d6b26fda98d6b6a86f6b4b18ef4d73a42771240a80a94c7bb51",
-      "stderr.txt": "7696e06a89b61a3e255507d52e0ba6cdf94c315da48c180ef4d553949b0330c4",
-      "metadata.json": "2d27d93f2d92f4c681ada9ae2153ba91c87a96462dc1bd1517bfbf3631022c4f",
-      "result.json": "04b8f2853f7b4c0799d6c713066a86f81b34c8b6fad6e9101457b8ffa83ae82e"
+      "prompt.txt": "315edf3135af572523ba879ebe4307aafb5c0484466e8f1d5006b78fd528dce7",
+      "trace.jsonl": "f49737c5d621d397d8ffa9230f7ae73548c968987d5018565ed7b884b89adaa6",
+      "stderr.txt": "3cbb9bcaa1e7d2838f68f80182f32df0ef817d904177b7cad875837fd9c3136f",
+      "metadata.json": "89325b8dd3fa01c63037839a26511047f724122518b6b97dd25262c8f4c12a68",
+      "result.json": "57cb88410e965696c95f713caa05a384d67010ce4b43020b7f0daf6da4026e1f"
     }
   },
   "R3": {
-    "directory": "evidence/R3-final",
+    "directory": "evidence/R3-p3-v6",
     "files_sha256": {
-      "prompt.txt": "0e7252cab830d5aadd4ef117f3018767ebdb40ae8b73f20942db374b27d2b4ef",
-      "trace.jsonl": "19ae5917b092c11280e630fcd757eff030d6da4850c72fad1ff2b1cbee49dbc0",
-      "stderr.txt": "f83526be07bdd0583e76dd5295c308726f9b4a9487ee738bf6486a7402bd9c41",
-      "metadata.json": "c8462e9a1ca52e0a305b6822c8630dee3a5f19e271958aef7a5906bf5a98fb43",
-      "result.json": "9118200f438d29d67310e3c971238432a55fc37c0ebd57c947575bd651298f4b"
+      "prompt.txt": "20a6649f4ff41ec740d09360d99e8bd8849cea3077d1c292087f1a7ea565530e",
+      "trace.jsonl": "43b0a0380160f06811810953832096b3235f5bc5043ed4f4f1ba7661cf1aa5dc",
+      "stderr.txt": "1b5e24dd2a5f3caa682bceb383e39a44c3753e5764f369e50c12dd024353f3d0",
+      "metadata.json": "0a2e007cbfac530cdaadf15887252cf2944fb70f3a6b2b2793ff0682c5a23a18",
+      "result.json": "8cb1f159d562b8033dcdcc05ec00427aa7be2f79e1d98e357e60e04ac28ec8db"
     }
   }
 }

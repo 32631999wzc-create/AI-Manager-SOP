@@ -25,3 +25,7 @@ If context is too large:
 4. if still too large, split the task.
 
 Do not require a vector database unless project scale or retrieval quality demonstrates a need for one.
+
+## Local Persistence
+
+需要跨会话恢复本地项目时，使用 [Continuous Project Runtime](../../scripts/project_runtime/README.md) 的 `next`、`checkpoint` 和 `resume`。恢复依据 Project Records、Artifact Registry、Plan 与 RuntimeSnapshot，不读取旧聊天作为状态源。

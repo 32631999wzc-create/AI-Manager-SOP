@@ -1,6 +1,6 @@
 # 架构说明
 
-正式入口为 [Skill Kernel](../skills/ai-product-development/SKILL.md)。Phase 1 只重组现有规则并验证按需读取，不实现 Skill Runtime 服务。
+正式入口为 [Skill Kernel](../skills/ai-product-development/SKILL.md)。Phase 1 重组规则并验证按需读取，Phase 2 将对象与 Profile/Plan 规则变为只读确定性验证，Phase 3 在其上提供本地文件化 continuous runtime。
 
 ## Progressive disclosure
 
@@ -18,10 +18,19 @@
 
 稳定输出仅有 [Plan Preview](../skills/ai-product-development/templates/execution-plan.md)。其他输出没有字段级固定格式，其规则保留在对应节点。
 
+
+## Local continuous runtime
+
+当产品确有跨任务或跨会话连续性需要时，[Continuous Project Runtime](../skills/ai-product-development/scripts/project_runtime/README.md) 在产品仓库创建 `.ai-product/`。Plan 是 Task 的唯一持久来源，Registry 是 Record/Artifact 的唯一持久来源；运行时在验证时组装 Phase 2 wrapper，避免复制 canonical 状态。Snapshot 只保存引用和状态，Context Pack 按当前 READY Task 重建。
+
+这仍对应 Profile、Planner、Context、Executor、Registry、Replan 六项能力。文件存储和 CLI 不是新生命周期节点或 Manager。初始化目录整体提交，后续单文件使用临时文件与原子替换；恢复还会检查 Plan 版本、Task 状态、ACTIVE Registry 引用和正式产物文件。
+
+固定 [Feedback Organizer Golden MVP](../examples/ai-product-development/golden-feedback-organizer/README.md) 用离线确定性行为证明可运行、可验收和证据可追溯。真实模型 Provider、多人并发、数据库、云端状态和生产部署保留为项目触发后的扩展，不是 Skill 默认基础设施。
+
 ## 验证边界
 
 结构验证检查链接、路由、Gate、源规则迁移、枚举和明显详细规则重复；不能证明模型行为。70 个源标题映射和 533 条逐行迁移指纹提供迁移证据，仍需审阅摘要和去重是否改变语义。
 
 三个 [Routing Test](../tests/ai-product-development/routing/README.md) 分别在新临时目录、新 ephemeral Codex 进程中运行。受测进程始终使用 read-only；父进程准备 Skill 副本并记录 trace。成功命令与完整文件输出才是读取证据，最终自述仅作辅助。额外读取和 dependency closure 按场景审阅，不规定绝对最少文件数。
 
-三个有限路由 smoke tests 不证明完整产品交付能力。Phase 2 已用八组固定 fixture、正负例和隔离 Codex trace 验证 Profile、Plan、边界及按需读取；证据由哈希 manifest 固定并可从原始 trace 回放。Phase 3 Golden MVP 尚未执行。本次接受远程已删除旧占位目录的状态。迁移与未解决语义疑点见 [重构记录](decisions/001-modularize-ai-product-development.md)，任务边界见 [Phase 2 任务书](decisions/002-content-cleanup-and-phase-2-plan.md)，完成结果见 [Phase 2 完成记录](decisions/003-phase-2-executable-validation.md)。
+三个有限路由 smoke tests 不证明完整产品交付能力。Phase 2 已用八组固定 fixture、正负例和隔离 Codex trace 验证 Profile、Plan、边界及按需读取；证据由哈希 manifest 固定并可从原始 trace 回放。Phase 3 continuous runtime 与 Golden MVP 已按 [Phase 3 决策记录](decisions/004-phase-3-continuous-golden-mvp.md)完成；四会话证据见 [Golden 报告](../tests/ai-product-development/phase3/golden/report.md)。本次接受远程已删除旧占位目录的状态。迁移与未解决语义疑点见 [重构记录](decisions/001-modularize-ai-product-development.md)，任务边界见 [Phase 2 任务书](decisions/002-content-cleanup-and-phase-2-plan.md)，完成结果见 [Phase 2 完成记录](decisions/003-phase-2-executable-validation.md)。

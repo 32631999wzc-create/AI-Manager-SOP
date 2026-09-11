@@ -127,6 +127,12 @@ Product Context Snapshot、Product Definition & Scope、Retrospective 没有稳�
 根据当前输入使用 `profile`、`plan`、`combined` 或 `objects` 模式；验证失败时修正对应对象或计划，不让验证器自动补字段、改状态或写项目记录。
 验证包装层仅提供交叉检查所需的输入上下文，不是新的持久化 schema。
 
+### Continuous Local Runtime
+
+当本地产品确有跨任务或跨会话连续执行需要时，使用 [project runtime](scripts/project_runtime/README.md) 将已验证的 Profile、Plan、Task、Record、Artifact、RuntimeSnapshot 和 TaskContextPack 保存到产品仓库的 `.ai-product/`。先按当前 Router 读取相关 canonical rules，再调用对应命令；Runtime 只保存、校验和恢复显式状态，不代替产品判断或生命周期工作。
+
+首次建立状态使用 `init`；执行前用 `next` 构造当前 READY Task 的最小上下文；重大确认、Gate、阶段完成或长暂停时用 `checkpoint`；新会话用 `resume`；实质变更使用 `replan`；节点状态确认后用 `update-profile`；结束前用 `complete` 检查 Completion Criteria。不要把 `.ai-product/` 当作聊天记忆，也不要在没有连续性需求时机械创建它。
+
 ## Rule Precedence
 
 Resolve conflicts in this order:

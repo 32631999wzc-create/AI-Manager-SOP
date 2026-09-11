@@ -28,6 +28,8 @@ def assess(events, scenario, contents):
     """Only successful completed command output supplies read evidence."""
     reads, commands, issues = [], [], []
     exposed = set()
+    chunks = {}
+    sequence = 0
     for event in events:
         if event.get("type") != "item.completed":
             continue
@@ -35,6 +37,7 @@ def assess(events, scenario, contents):
         if item.get("type") != "command_execution":
             continue
         commands.append(item)
+        sequence += 1
         output = normalize(item.get("aggregated_output", ""))
         if item.get("exit_code") != 0 or item.get("status") != "completed":
             issues.append("Failed command: " + item.get("id", "?"))
@@ -45,13 +48,32 @@ def assess(events, scenario, contents):
         command = item.get("command", "")
         read_command = command.split(" -Command ", 1)[-1].strip().strip(chr(34))
         literal = re.fullmatch(r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?", read_command, re.I)
+        chunk = re.fullmatch(
+            r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?"
+            r"\s*\|\s*Select-Object\s+(?:-First\s+(\d+)|-Skip\s+(\d+))",
+            read_command,
+            re.I,
+        )
         literal_name = ""
-        if literal:
-            normalized_path = re.sub(r"[\\/]+", "/", literal[1])
+        selected_path = literal[1] if literal else (chunk[1] if chunk else "")
+        if selected_path:
+            normalized_path = re.sub(r"[\\/]+", "/", selected_path)
             if normalized_path.startswith("skill/"):
                 literal_name = normalized_path[6:]
             elif "/skill/" in normalized_path:
                 literal_name = normalized_path.split("/skill/", 1)[1]
+        recognized_chunk = False
+        if chunk and literal_name in contents:
+            lines = contents[literal_name].splitlines()
+            start = 0 if chunk[2] else int(chunk[3])
+            end = min(len(lines), int(chunk[2])) if chunk[2] else len(lines)
+            expected = normalize("\n".join(lines[start:end]))
+            if start <= end and output == expected:
+                chunks.setdefault(literal_name, []).append(
+                    {"start": start, "end": end, "sequence": sequence,
+                     "item_id": item.get("id"), "command": item.get("command")}
+                )
+                recognized_chunk = True
         for name, content in contents.items():
             # A filename or model assertion alone cannot establish a read.
             # Full content must occur in actual successful tool output.
@@ -63,9 +85,31 @@ def assess(events, scenario, contents):
                 matched.append((pos, name))
         for _, name in sorted(matched):
             reads.append({"file": name, "item_id": item.get("id"),
-                          "command": item.get("command"), "evidence": "complete file in successful tool output"})
-        if not matched:
+                          "command": item.get("command"), "evidence": "complete file in successful tool output",
+                          "_sequence": sequence})
+        navigation_only = (
+            "Get-ChildItem" in read_command
+            and "Select-Object -ExpandProperty FullName" in read_command
+        ) or "rg --files" in read_command
+        if not matched and not navigation_only and not recognized_chunk:
             issues.append("Unclassified command needs review: " + item.get("id", "?"))
+    for name, parts in chunks.items():
+        ordered = sorted(parts, key=lambda part: part["start"])
+        cursor = 0
+        for part in ordered:
+            if part["start"] != cursor:
+                break
+            cursor = part["end"]
+        if cursor == len(contents[name].splitlines()):
+            exposed.add(name)
+            reads.append({"file": name,
+                          "item_id": "+".join(part["item_id"] for part in ordered),
+                          "command": " + ".join(part["command"] for part in ordered),
+                          "evidence": "complete file across verified contiguous line chunks",
+                          "_sequence": min(part["sequence"] for part in ordered)})
+    reads.sort(key=lambda read: read["_sequence"])
+    for read in reads:
+        read.pop("_sequence")
     loaded = {r["file"] for r in reads}
     missing = sorted(set(scenario["required"]) - loaded)
     extras = sorted(loaded - set(scenario["required"]))
@@ -89,7 +133,7 @@ def assess(events, scenario, contents):
             "dependency_closure": scenario["closure"], "eager_loading_groups": eager,
             "content_exposed": sorted(exposed), "trace_limitations": issues, "unexplained": unexplained, "status": status}
 
-def run(scenario, output, codex, timeout):
+def run(scenario, output, codex, timeout, model, thinking):
     output.mkdir(parents=True, exist_ok=False)
     with tempfile.TemporaryDirectory(prefix="ai-skill-routing-") as temp:
         work = Path(temp)
@@ -102,11 +146,15 @@ def run(scenario, output, codex, timeout):
             "Read that file first, then choose the supporting files from its router. "
             "This is a read-only exercise: do not write files, execute a product, install tools, "
             "use external services, or request broader permissions. "
-            "For auditable evidence, read each selected file in full using a separate "
-            "Get-Content -LiteralPath command (UTF-8). Select the files yourself. "
+            "For auditable evidence, read SKILL.md first in two deterministic line chunks: "
+            "use separate Get-Content -LiteralPath commands (UTF-8) piped to "
+            "Select-Object -First 120 and Select-Object -Skip 120. "
+            "Read every other selected file in full with its own Get-Content -LiteralPath "
+            "command (UTF-8). Select the supporting files yourself. "
             "If reading is blocked, stop and report the limitation. "
             "Do not read files outside this temporary workspace.\n\n" + scenario["task"])
         command = [codex, "exec", "--json", "--ephemeral", "--ignore-user-config",
+                   "-m", model, "-c", f'model_reasoning_effort="{thinking}"',
                    "-s", "read-only", "-c", 'windows.sandbox="elevated"',
                    "--skip-git-repo-check", "-C", str(work), "-"]
         (output / "prompt.txt").write_text(prompt, encoding="utf-8")
@@ -147,8 +195,10 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=Path, required=True, help="New evidence directory; never overwrite a run")
     parser.add_argument("--codex", default=shutil.which("codex"))
     parser.add_argument("--timeout", type=int, default=600)
+    parser.add_argument("--model", default="gpt-5.6-luna")
+    parser.add_argument("--thinking", default="low")
     args = parser.parse_args()
     if not args.codex:
         parser.error("Codex CLI not found")
     case = next(s for s in SCENARIOS if s["id"] == args.scenario)
-    sys.exit(0 if run(case, args.output, args.codex, args.timeout) == "PASS" else 1)
+    sys.exit(0 if run(case, args.output, args.codex, args.timeout, args.model, args.thinking) == "PASS" else 1)

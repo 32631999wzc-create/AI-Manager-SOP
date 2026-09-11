@@ -1,0 +1,140 @@
+plan:
+  version: v2
+  objective: Deliver the Feedback Organizer Runnable Demo
+  tasks:
+  - id: T1
+    name: Define feedback MVP
+    goal: Confirm the Golden MVP scope
+    type: WORK
+    status: COMPLETED
+    priority: P1
+    lifecycle_node: Product Definition & Scope
+    execution_depth: FULL
+    dependencies: []
+    required_inputs:
+    - scope
+    required_capabilities:
+    - SKILL
+    expected_output: accepted MVP definition
+    acceptance_criteria:
+    - accepted MVP definition is validated
+    context_requirements: []
+    artifact_requirements:
+    - design-v1
+    retry_policy: LOCAL_ONCE
+  - id: T2
+    name: Run feedback organizer
+    goal: Produce evidence-linked feedback insights
+    type: WORK
+    status: COMPLETED
+    priority: P1
+    lifecycle_node: Implementation
+    execution_depth: FULL
+    dependencies:
+    - T1
+    required_inputs:
+    - scope
+    required_capabilities:
+    - SKILL
+    expected_output: feedback report
+    acceptance_criteria:
+    - feedback report is validated
+    context_requirements: []
+    artifact_requirements:
+    - design-v1
+    retry_policy: LOCAL_ONCE
+  - id: T3
+    name: Validate feedback report
+    goal: Validate the unfiltered Golden output
+    type: WORK
+    status: CANCELLED
+    priority: P1
+    lifecycle_node: Validation & Iteration
+    execution_depth: FULL
+    dependencies: []
+    required_inputs:
+    - scope
+    required_capabilities:
+    - SKILL
+    expected_output: validated feedback report
+    acceptance_criteria:
+    - validated feedback report is validated
+    context_requirements: []
+    artifact_requirements:
+    - report-v1
+    retry_policy: LOCAL_ONCE
+  - id: T4
+    name: Add source filter
+    goal: Produce a support-only feedback report
+    type: WORK
+    status: COMPLETED
+    priority: P1
+    lifecycle_node: Implementation
+    execution_depth: FULL
+    dependencies:
+    - T2
+    required_inputs:
+    - scope
+    required_capabilities:
+    - SKILL
+    expected_output: filtered feedback report
+    acceptance_criteria:
+    - filtered feedback report is validated
+    context_requirements: []
+    artifact_requirements:
+    - report-v1
+    retry_policy: LOCAL_ONCE
+  - id: T5
+    name: Validate changed MVP
+    goal: Validate source filtering and final outputs
+    type: WORK
+    status: COMPLETED
+    priority: P1
+    lifecycle_node: Validation & Iteration
+    execution_depth: FULL
+    dependencies:
+    - T4
+    required_inputs:
+    - scope
+    required_capabilities:
+    - SKILL
+    expected_output: validated changed MVP
+    acceptance_criteria:
+    - validated changed MVP is validated
+    context_requirements: []
+    artifact_requirements:
+    - filtered-v1
+    retry_policy: LOCAL_ONCE
+  dependencies:
+  - from: T1
+    to: T2
+    type: HARD
+  - from: T2
+    to: T4
+    type: HARD
+  - from: T4
+    to: T5
+    type: HARD
+  critical_path:
+  - T1
+  - T2
+  - T4
+  - T5
+  assumptions: []
+available_inputs:
+- scope
+- sample-feedback
+gates:
+  Build Readiness: PASS
+blocked_inputs: []
+write_targets:
+  T1:
+  - design-v1
+  T2:
+  - report-v1
+  T3:
+  - validation-v1
+  T4:
+  - filtered-v1
+  T5:
+  - validation-v2

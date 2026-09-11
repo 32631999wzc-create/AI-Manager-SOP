@@ -4,7 +4,7 @@
 
 ## 当前边界
 
-Phase 1 模块化与按需读取验证已经完成，并已进行内容清洗。Skill 是 Codex 可读取的指令包；schema 保留原文结构示意，不代表已经实现项目状态存储或自动恢复。Phase 2 Executable Validation 已实现：Profile、Plan 和八个 canonical runtime object 可通过只读 CLI 确定性验证，八组场景已有固定输入与结构化断言。它仍不提供项目状态存储或自动恢复；范围见 [Phase 2 任务书](docs/decisions/002-content-cleanup-and-phase-2-plan.md)。
+Phase 1 模块化与按需读取、Phase 2 Executable Validation 已完成。Phase 3 已把既有八个 canonical runtime object 落为本地单用户持续交付 Runtime：`.ai-product/` 保存已验证状态，支持初始化、下一任务、检查点、跨进程恢复、Registry 写入和局部重规划。Feedback Organizer 是固定 Golden MVP；范围与验收见 [Phase 3 决策记录](docs/decisions/004-phase-3-continuous-golden-mvp.md)。
 
 ## 结构
 
@@ -16,12 +16,13 @@ skills/ai-product-development/
 │   └── runtime/              # 六项能力及共享 Gates，七个文件
 ├── schemas/                  # 五个 YAML 文件，八个原始对象
 ├── templates/                # execution-plan.md
-└── scripts/                  # 只读 runtime validator
+└── scripts/                  # 只读 validator 与本地 continuous runtime
 tests/ai-product-development/
 ├── cases/                    # 八个人工行为场景
 ├── expected/
 ├── behavior-contract.md      # 行为场景共用边界
 ├── phase2/                   # 验证契约、固定 fixtures 与行为证据
+├── phase3/                   # 持续状态与 Golden MVP 验证
 ├── migration-manifest.json    # 533 条源规则和对象指纹
 ├── section-migration.json     # 70 个源标题完整映射
 ├── structure_contract.py
@@ -44,6 +45,7 @@ examples/ai-product-development/
 python -B -X utf8 tests/ai-product-development/validate_structure.py
 python -B -X utf8 -m unittest discover -s tests/ai-product-development -p test_phase1.py
 python -B -X utf8 -m unittest discover -s tests/ai-product-development -p "test_phase2*.py"
+python -B -X utf8 -m unittest discover -s tests/ai-product-development -p "test_phase3*.py"
 python -B -X utf8 tests/ai-product-development/routing/verify_evidence.py
 python -B -X utf8 tests/ai-product-development/phase2/behavior/verify_behavior.py
 ```
@@ -58,4 +60,4 @@ python -B -X utf8 tests/ai-product-development/validate_structure.py --source /p
 
 [Routing Test 方法与证据](tests/ai-product-development/routing/README.md)说明如何独立启动 R1/R2/R3、回放实际工具输出并判定 PASS/WARN/FAIL。静态链接检查不能代替 Routing Test；模型自述不能独立支持 PASS。
 
-八组 [cases](tests/ai-product-development/cases) / [expected](tests/ai-product-development/expected) 已对应到 [Phase 2 固定 fixtures](tests/ai-product-development/phase2/README.md)，并统一遵循 [行为契约](tests/ai-product-development/behavior-contract.md)。确定性回归与八个隔离 Codex trace 均已通过；[行为报告](tests/ai-product-development/phase2/behavior/report.md)记录实际读取与修复，[P2 完成记录](docs/decisions/003-phase-2-executable-validation.md)记录实现边界。模型自述不替代实际读取证据。完整迁移及源文疑点见 [重构记录](docs/decisions/001-modularize-ai-product-development.md)。
+八组 [cases](tests/ai-product-development/cases) / [expected](tests/ai-product-development/expected) 已对应到 [Phase 2 固定 fixtures](tests/ai-product-development/phase2/README.md)，并统一遵循 [行为契约](tests/ai-product-development/behavior-contract.md)。确定性回归与八个隔离 Codex trace 均已通过；Phase 3 的本地状态命令见 [Continuous Project Runtime](skills/ai-product-development/scripts/project_runtime/README.md)，固定产品见 [Feedback Organizer](examples/ai-product-development/golden-feedback-organizer/README.md)，四会话证据见 [Phase 3 Golden 报告](tests/ai-product-development/phase3/golden/report.md)。[行为报告](tests/ai-product-development/phase2/behavior/report.md)记录实际读取与修复，[P2 完成记录](docs/decisions/003-phase-2-executable-validation.md)记录实现边界。模型自述不替代实际读取证据。完整迁移及源文疑点见 [重构记录](docs/decisions/001-modularize-ai-product-development.md)。

@@ -1,0 +1,23 @@
+{
+  "phase": "G1-init",
+  "required_reads": [
+    "SKILL.md",
+    "scripts/project_runtime/README.md"
+  ],
+  "verified_reads": [
+    "SKILL.md",
+    "scripts/project_runtime/README.md"
+  ],
+  "missing_reads": [],
+  "required_command_markers": [
+    "project_runtime.py",
+    " init ",
+    " next",
+    " checkpoint"
+  ],
+  "missing_command_markers": [],
+  "thread_ids": [
+    "01a08b7a-4fd9-78a0-9aab-5c86fadeb10f"
+  ],
+  "status": "PASS"
+}

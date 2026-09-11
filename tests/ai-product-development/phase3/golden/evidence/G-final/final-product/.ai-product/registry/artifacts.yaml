@@ -1,0 +1,37 @@
+artifacts:
+- id: design-v1
+  type: DESIGN
+  name: Golden MVP design
+  version: v1
+  status: ACTIVE
+  summary: Runnable behavior and boundaries
+  location: README.md
+  source_tasks:
+  - T1
+  source_records: []
+  dependencies: []
+- id: report-v1
+  type: REPORT
+  name: Feedback insights
+  version: v1
+  status: ACTIVE
+  summary: Full feedback report
+  location: report.md
+  source_tasks:
+  - T2
+  source_records: []
+  dependencies:
+  - design-v1
+- id: filtered-v1
+  type: REPORT
+  name: Filtered feedback insights
+  version: v1
+  status: ACTIVE
+  summary: Support-only feedback report
+  location: filtered-report.md
+  source_tasks:
+  - T4
+  source_records:
+  - R1
+  dependencies:
+  - report-v1

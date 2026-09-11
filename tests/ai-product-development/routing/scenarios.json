@@ -26,7 +26,7 @@
   {
     "id": "R2",
     "title": "已有系统 Validation Only",
-    "task": "对已有内部 AI 文本分类 DEMO 做一次 Validation Only。Qualification 已确认 PASS，范围和目标不变；本轮只核对给定结果并给出结论，不改代码、不修复、不发布、不写正式记录。已验证可复用的系统与验收设计：规则标签仅 A/B；三个固定样例全部精确匹配期望即通过；输入1/2/3的期望分别为 A/B/A，实际分别为 A/B/A；测试覆盖只限这三个样例，不宣称泛化。已确认 Profile：Qualification VERIFY，Cognition VERIFY，Product Definition & Scope VERIFY，Solution Design VERIFY，Validation & Iteration REQUIRED，其余 SKIP；不存在敏感数据或新增依赖。请按 Skill 核验，说明通过范围和限制。",
+    "task": "对已有内部 AI 文本分类 DEMO 做一次 Validation Only。Qualification 已确认 PASS，范围和目标不变；本轮只核对给定结果并给出结论，不改代码、不修复、不发布、不写正式记录。已验证可复用的系统与验收设计：规则标签仅 A/B；三个固定样例全部精确匹配期望即通过；输入1/2/3的期望分别为 A/B/A，实际分别为 A/B/A；测试覆盖只限这三个样例，不宣称泛化。已确认 Profile：Qualification VERIFY，Cognition VERIFY，Product Definition & Scope VERIFY，Solution Design VERIFY，Validation & Iteration REQUIRED，其余 SKIP；不存在敏感数据或新增依赖。请按 Skill 的 Worker 执行与验证规则核验，说明通过范围和限制。",
     "required": [
       "SKILL.md",
       "references/lifecycle/06-validation-iteration.md",

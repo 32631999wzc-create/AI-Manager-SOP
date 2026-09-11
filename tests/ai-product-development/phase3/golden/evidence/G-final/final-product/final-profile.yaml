@@ -1,0 +1,110 @@
+delivery_target: DEMO
+project_mode: GREENFIELD
+assignment_scope:
+  mode: FULL_PROJECT
+  requested_scope:
+  - scenario deliverable
+  excluded_scope:
+  - anything outside the scenario
+  expected_deliverables:
+  - validated result
+  ownership_boundary:
+  - local workspace
+nodes:
+- node: Qualification
+  status: SATISFIED
+  level: REQUIRED
+  depth: FULL
+  scope_role: SUPPORTING
+  active_capabilities: []
+  reused_artifacts: []
+  gaps: []
+  reasons:
+  - REQUIRED is required by the scenario
+  external_project_requirement: null
+- node: Cognition
+  status: SATISFIED
+  level: LIGHT
+  depth: MINIMAL
+  scope_role: SUPPORTING
+  active_capabilities: []
+  reused_artifacts: []
+  gaps: []
+  reasons:
+  - LIGHT is required by the scenario
+  external_project_requirement: null
+- node: Product Definition & Scope
+  status: SATISFIED
+  level: REQUIRED
+  depth: FULL
+  scope_role: PRIMARY
+  active_capabilities: []
+  reused_artifacts: []
+  gaps: []
+  reasons:
+  - REQUIRED is required by the scenario
+  external_project_requirement: null
+- node: Solution Design
+  status: SATISFIED
+  level: LIGHT
+  depth: MINIMAL
+  scope_role: SUPPORTING
+  active_capabilities: []
+  reused_artifacts: []
+  gaps: []
+  reasons:
+  - LIGHT is required by the scenario
+  external_project_requirement: null
+- node: Implementation
+  status: SATISFIED
+  level: REQUIRED
+  depth: FULL
+  scope_role: PRIMARY
+  active_capabilities: []
+  reused_artifacts: []
+  gaps: []
+  reasons:
+  - REQUIRED is required by the scenario
+  external_project_requirement: null
+- node: Validation & Iteration
+  status: SATISFIED
+  level: LIGHT
+  depth: MINIMAL
+  scope_role: SUPPORTING
+  active_capabilities: []
+  reused_artifacts: []
+  gaps: []
+  reasons:
+  - LIGHT is required by the scenario
+  external_project_requirement: null
+- node: Release & Operation
+  status: SKIPPED
+  level: SKIP
+  depth: SKIP
+  scope_role: OUT_OF_SCOPE
+  active_capabilities: []
+  reused_artifacts: []
+  gaps: []
+  reasons:
+  - Release & Operation is outside this assignment
+  external_project_requirement: null
+- node: Retrospective
+  status: NOT_STARTED
+  level: LIGHT
+  depth: MINIMAL
+  scope_role: SUPPORTING
+  active_capabilities: []
+  reused_artifacts: []
+  gaps:
+  - Retrospective work
+  reasons:
+  - LIGHT is required by the scenario
+  external_project_requirement: null
+validation_context:
+  existing_repository_modification: false
+  verified_design: false
+  acceptance_criteria_defined: true
+  production_release: false
+  monitoring_covered: false
+  release_readiness: PASS
+  release_execution: false

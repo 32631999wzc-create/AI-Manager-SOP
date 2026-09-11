@@ -1,0 +1,9 @@
+plan_version: v1
+task_states:
+  T1: COMPLETED
+  T2: READY
+  T3: NOT_STARTED
+active_artifacts:
+- design-v1
+active_records: []
+unresolved_items: []

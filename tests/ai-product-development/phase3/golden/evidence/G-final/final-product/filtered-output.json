@@ -1,0 +1,44 @@
+{
+  "summary": {
+    "received": 2,
+    "unique": 2,
+    "duplicates": 0
+  },
+  "themes": [
+    {
+      "theme": "reliability",
+      "count": 1,
+      "priority_score": 5,
+      "evidence": [
+        "F1"
+      ]
+    },
+    {
+      "theme": "performance",
+      "count": 1,
+      "priority_score": 2,
+      "evidence": [
+        "F4"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "F1",
+      "source": "support",
+      "text": "The app crashes whenever I upload a large CSV.",
+      "theme": "reliability",
+      "sentiment": "negative",
+      "urgency": "high"
+    },
+    {
+      "id": "F4",
+      "source": "support",
+      "text": "搜索结果很慢，影响每天的整理工作。",
+      "theme": "performance",
+      "sentiment": "negative",
+      "urgency": "normal"
+    }
+  ],
+  "duplicates": {}
+}

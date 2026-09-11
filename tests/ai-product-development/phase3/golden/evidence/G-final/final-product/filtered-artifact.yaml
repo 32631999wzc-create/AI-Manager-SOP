@@ -1,0 +1,13 @@
+id: filtered-v1
+type: REPORT
+name: Filtered feedback insights
+version: v1
+status: ACTIVE
+summary: Support-only feedback report
+location: filtered-report.md
+source_tasks:
+- T4
+source_records:
+- R1
+dependencies:
+- report-v1

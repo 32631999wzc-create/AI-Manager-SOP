@@ -1,0 +1,14 @@
+task: T5
+relevant_facts: []
+relevant_decisions:
+- R1
+relevant_constraints: []
+relevant_artifacts:
+- filtered-v1
+recent_changes: []
+assumptions: []
+unresolved_items: []
+allowed_actions:
+- execute
+- validate
+available_tools: []

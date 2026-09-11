@@ -1,0 +1,23 @@
+Use the AI product development skill copied to skill/SKILL.md. Read SKILL.md first, then select supporting files from its router. This is an isolated read-only planning exercise: do not write files, execute product work, install tools, use external services, or request broader permissions. Read SKILL.md first in two deterministic line chunks using separate Get-Content -LiteralPath commands with UTF-8, piped to Select-Object -First 120 and Select-Object -Skip 120. Read every other selected file in full with a separate Get-Content -LiteralPath command using UTF-8. Do not list or bulk-read directories. Do not read outside this temporary workspace.
+
+Derive the Execution Profile and a concise valid Plan of at most three tasks only; keep strings short and do not perform lifecycle work. Return exactly one JSON object and no prose:
+{"document":{"profile":{"delivery_target":"...","project_mode":"...","assignment_scope":{all canonical fields},"nodes":[eight canonical NodeProfile objects in order],"validation_context":{"existing_repository_modification":false,"verified_design":false,"acceptance_criteria_defined":false,"production_release":false,"release_execution":false,"monitoring_covered":false,"release_readiness":"PASS|PASS_WITH_ASSUMPTIONS|BLOCKED"}},"plan":{"plan":{all canonical Plan fields; tasks use every canonical Task field; dependency records use from/to/type},"available_inputs":[],"artifacts":[],"gates":{},"blocked_inputs":[],"write_targets":{"task-id":["artifact-id:version"]}}},"claims":{"assignment_complete":false,"external_write_performed":false}}
+
+Use empty artifact_requirements unless you include the corresponding full canonical Artifact in artifacts. A task may remain NOT_STARTED or BLOCKED when inputs or gates are unresolved. Every task needs a non-empty goal, output, and acceptance criteria. Task.dependencies must equal the incoming dependency source ids in Plan.dependencies. Use a GATE source name only with type GATE. The planning-only assignment is not complete.
+
+The test executes only planning, but that does not narrow the user's AssignmentScope. Derive FULL_PROJECT or PARTIAL_PROJECT only from the scenario's stated ownership boundary. Validation context describes the product assignment, not the test action: set production_release true when production release is in scope, but keep release_execution false while Release Readiness is blocked.
+
+Values explicitly marked as fixed test input in the scenario are authoritative.
+
+Scenario:
+# Enterprise Release
+
+## 输入场景
+
+完成企业产品的生产发布，目标 ENTERPRISE，涉及真实用户、敏感数据、权限与外部 API。本次包含发布准备和发布；已有实现与设计，当前有效性尚未核实。
+
+固定测试输入：AssignmentScope.mode = FULL_PROJECT。
+
+## 对照
+
+见 [预期行为](../expected/06-enterprise-release.md)。

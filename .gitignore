@@ -16,3 +16,7 @@ Desktop.ini
 
 # Python 验证脚本缓存
 __pycache__/
+
+# 本仓库根目录的临时产品运行状态
+/.ai-product/
+/.ai-product.init.tmp/

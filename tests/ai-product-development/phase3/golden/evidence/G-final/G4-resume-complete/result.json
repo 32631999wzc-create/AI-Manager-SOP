@@ -1,0 +1,35 @@
+{
+  "phase": "G4-resume-complete",
+  "required_reads": [
+    "SKILL.md",
+    "scripts/project_runtime/README.md",
+    "references/runtime/replan-recovery.md",
+    "references/runtime/context.md",
+    "references/runtime/executor.md",
+    "references/runtime/execution-profile.md",
+    "references/lifecycle/06-validation-iteration.md"
+  ],
+  "verified_reads": [
+    "SKILL.md",
+    "scripts/project_runtime/README.md",
+    "references/runtime/replan-recovery.md",
+    "references/runtime/context.md",
+    "references/runtime/executor.md",
+    "references/runtime/execution-profile.md",
+    "references/lifecycle/06-validation-iteration.md"
+  ],
+  "missing_reads": [],
+  "required_command_markers": [
+    " resume",
+    "verify_outputs.py",
+    " task ",
+    "update-profile",
+    " checkpoint",
+    " complete"
+  ],
+  "missing_command_markers": [],
+  "thread_ids": [
+    "01a08b86-72f3-77b2-ae47-8250c90cc455"
+  ],
+  "status": "PASS"
+}

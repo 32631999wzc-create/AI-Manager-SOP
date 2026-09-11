@@ -1,0 +1,11 @@
+records:
+- id: R1
+  type: DECISION
+  topic: delivery
+  content: Local deterministic Runnable Demo
+  status: ACTIVE
+  source: user
+  version: v1
+  affected_scope:
+  - Implementation
+  - Validation & Iteration

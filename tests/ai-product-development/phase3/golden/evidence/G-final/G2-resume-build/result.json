@@ -1,0 +1,35 @@
+{
+  "phase": "G2-resume-build",
+  "required_reads": [
+    "SKILL.md",
+    "scripts/project_runtime/README.md",
+    "references/runtime/replan-recovery.md",
+    "references/runtime/context.md",
+    "references/runtime/executor.md",
+    "references/runtime/registry-versioning.md",
+    "references/lifecycle/05-implementation.md"
+  ],
+  "verified_reads": [
+    "SKILL.md",
+    "scripts/project_runtime/README.md",
+    "references/runtime/replan-recovery.md",
+    "references/runtime/context.md",
+    "references/runtime/executor.md",
+    "references/runtime/registry-versioning.md",
+    "references/lifecycle/05-implementation.md"
+  ],
+  "missing_reads": [],
+  "required_command_markers": [
+    " resume",
+    "feedback_organizer.py",
+    " task ",
+    "commit-artifact",
+    "register-record",
+    " checkpoint"
+  ],
+  "missing_command_markers": [],
+  "thread_ids": [
+    "01a08b7d-0f2d-7932-83c1-bc993cb3d6b3"
+  ],
+  "status": "PASS"
+}

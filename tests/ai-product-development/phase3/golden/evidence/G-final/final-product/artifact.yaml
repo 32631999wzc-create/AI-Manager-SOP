@@ -1,0 +1,12 @@
+id: report-v1
+type: REPORT
+name: Feedback insights
+version: v1
+status: ACTIVE
+summary: Full feedback report
+location: report.md
+source_tasks:
+- T2
+source_records: []
+dependencies:
+- design-v1

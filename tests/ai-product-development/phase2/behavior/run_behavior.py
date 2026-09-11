@@ -44,38 +44,81 @@ def agent_json(events):
 
 def assess_reads(events, scenario, contents):
     reads, issues, allowed_commands = [], [], []
-    pattern = re.compile(r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?", re.I)
+    chunks = {}
+    sequence = 0
+    full_pattern = re.compile(
+        r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?$", re.I
+    )
+    chunk_pattern = re.compile(
+        r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?"
+        r"\s*\|\s*Select-Object\s+(?:-First\s+(\d+)|-Skip\s+(\d+))$",
+        re.I,
+    )
+
+    def normalize(value):
+        return value.replace("\r\n", "\n").strip()
+
+    def relative_name(path):
+        name = re.sub(r"[\\/]+", "/", path)
+        if "/skill/" in name:
+            return name.split("/skill/", 1)[1]
+        return name[6:] if name.startswith("skill/") else name
+
     for event in events:
         item = event.get("item", {})
         if event.get("type") != "item.completed" or item.get("type") != "command_execution":
             continue
+        sequence += 1
         command = item.get("command", "")
         validator_call = "validate_runtime.py" in command or "validate_document" in command
         exit_code = item.get("exit_code")
         completed = item.get("status") in {"completed", "failed"}
         if validator_call and completed and exit_code in {0, 1, 2}:
-            allowed_commands.append({
-                "item_id": item.get("id"),
-                "reason": "read-only runtime validation",
-                "exit_code": exit_code,
-            })
+            allowed_commands.append({"item_id": item.get("id"),
+                                     "reason": "read-only runtime validation",
+                                     "exit_code": exit_code})
             continue
         if item.get("status") != "completed" or exit_code != 0:
             issues.append("FAILED_COMMAND: " + item.get("id", "?"))
             continue
-        match = pattern.search(command)
-        if match:
-            name = re.sub(r"[\\/]+", "/", match.group(1))
-            if "/skill/" in name:
-                name = name.split("/skill/", 1)[1]
-            elif name.startswith("skill/"):
-                name = name[6:]
-            if name in contents and item.get("aggregated_output", "").strip():
-                reads.append({"file": name, "item_id": item.get("id"), "command": command})
-            else:
-                issues.append("UNVERIFIED_READ: " + item.get("id", "?"))
-        else:
-            issues.append("UNCLASSIFIED_COMMAND: " + item.get("id", "?"))
+        read_command = command.split(" -Command ", 1)[-1].strip().strip(chr(34))
+        full = full_pattern.fullmatch(read_command)
+        chunk = chunk_pattern.fullmatch(read_command)
+        selected_path = full.group(1) if full else (chunk.group(1) if chunk else "")
+        name = relative_name(selected_path) if selected_path else ""
+        output = normalize(item.get("aggregated_output", ""))
+        if full and name in contents and output == normalize(contents[name]):
+            reads.append({"file": name, "item_id": item.get("id"), "command": command,
+                          "_sequence": sequence})
+            continue
+        if chunk and name in contents:
+            lines = contents[name].splitlines()
+            start_line = 0 if chunk.group(2) else int(chunk.group(3))
+            end_line = min(len(lines), int(chunk.group(2))) if chunk.group(2) else len(lines)
+            if start_line <= end_line and output == normalize("\n".join(lines[start_line:end_line])):
+                chunks.setdefault(name, []).append({"start": start_line, "end": end_line,
+                                                     "sequence": sequence,
+                                                     "item_id": item.get("id"),
+                                                     "command": command})
+                continue
+        issues.append("UNVERIFIED_READ: " + item.get("id", "?") if selected_path
+                      else "UNCLASSIFIED_COMMAND: " + item.get("id", "?"))
+
+    for name, parts in chunks.items():
+        ordered = sorted(parts, key=lambda part: part["start"])
+        cursor = 0
+        for part in ordered:
+            if part["start"] != cursor:
+                break
+            cursor = part["end"]
+        if cursor == len(contents[name].splitlines()):
+            reads.append({"file": name,
+                          "item_id": "+".join(part["item_id"] for part in ordered),
+                          "command": " + ".join(part["command"] for part in ordered),
+                          "_sequence": min(part["sequence"] for part in ordered)})
+    reads.sort(key=lambda read: read["_sequence"])
+    for read in reads:
+        read.pop("_sequence")
     loaded = [item["file"] for item in reads]
     loaded_set = set(loaded)
     missing = sorted(set(scenario["required"]) - loaded_set)
@@ -176,7 +219,7 @@ def prompt_for(scenario):
     case_text = (
         TEST_ROOT / "cases" / (scenario["case"] + ".md")
     ).read_text(encoding="utf-8")
-    return f"""Use the AI product development skill copied to skill/SKILL.md. Read SKILL.md first, then select supporting files from its router. This is an isolated read-only planning exercise: do not write files, execute product work, install tools, use external services, or request broader permissions. Read every selected file in full with a separate Get-Content -LiteralPath command using UTF-8. Do not list or bulk-read directories. Do not read outside this temporary workspace.
+    return f"""Use the AI product development skill copied to skill/SKILL.md. Read SKILL.md first, then select supporting files from its router. This is an isolated read-only planning exercise: do not write files, execute product work, install tools, use external services, or request broader permissions. Read SKILL.md first in two deterministic line chunks using separate Get-Content -LiteralPath commands with UTF-8, piped to Select-Object -First 120 and Select-Object -Skip 120. Read every other selected file in full with a separate Get-Content -LiteralPath command using UTF-8. Do not list or bulk-read directories. Do not read outside this temporary workspace.
 
 Derive the Execution Profile and a concise valid Plan of at most three tasks only; keep strings short and do not perform lifecycle work. Return exactly one JSON object and no prose:
 {{"document":{{"profile":{{"delivery_target":"...","project_mode":"...","assignment_scope":{{all canonical fields}},"nodes":[eight canonical NodeProfile objects in order],"validation_context":{{"existing_repository_modification":false,"verified_design":false,"acceptance_criteria_defined":false,"production_release":false,"release_execution":false,"monitoring_covered":false,"release_readiness":"PASS|PASS_WITH_ASSUMPTIONS|BLOCKED"}}}},"plan":{{"plan":{{all canonical Plan fields; tasks use every canonical Task field; dependency records use from/to/type}},"available_inputs":[],"artifacts":[],"gates":{{}},"blocked_inputs":[],"write_targets":{{"task-id":["artifact-id:version"]}}}}}},"claims":{{"assignment_complete":false,"external_write_performed":false}}}}
@@ -191,7 +234,7 @@ Scenario:
 {case_text}"""
 
 
-def run(scenario, output, codex, timeout):
+def run(scenario, output, codex, timeout, model, thinking):
     output.mkdir(parents=True, exist_ok=False)
     with tempfile.TemporaryDirectory(prefix="ai-skill-phase2-") as temp:
         work = Path(temp)
@@ -210,6 +253,10 @@ def run(scenario, output, codex, timeout):
             "--json",
             "--ephemeral",
             "--ignore-user-config",
+            "-m",
+            model,
+            "-c",
+            f'model_reasoning_effort="{thinking}"',
             "-s",
             "read-only",
             "-c",
@@ -273,10 +320,12 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--codex", default=shutil.which("codex"))
     parser.add_argument("--timeout", type=int, default=900)
+    parser.add_argument("--model", default="gpt-5.6-luna")
+    parser.add_argument("--thinking", default="low")
     args = parser.parse_args()
     if not args.codex:
         parser.error("Codex CLI not found")
     selected = next(item for item in SCENARIOS if item["id"] == args.scenario)
     raise SystemExit(
-        0 if run(selected, args.output, args.codex, args.timeout) == "PASS" else 1
+        0 if run(selected, args.output, args.codex, args.timeout, args.model, args.thinking) == "PASS" else 1
     )

@@ -1,82 +1,82 @@
 {
   "B1": {
-    "directory": "evidence/B1-final",
+    "directory": "evidence/B1-p3-astra",
     "files_sha256": {
-      "prompt.txt": "7a45c600ed4f6d7f86109b57948899c2ef0c85f6e6dcda9e62ebb8ff7dd4f04d",
-      "trace.jsonl": "2d9291a788538ee7803922bd48adfffa95ebe192266928d2435d80f7fb07a6b7",
-      "stderr.txt": "98a3eaf084afeb8da142fe07fdeb0182adc75108a75252db508c8b5dbb5f0b0a",
-      "metadata.json": "9b9ae958648d03fc4bbcf0a1b43dd3f442b2870772f2a9e146445820986f3578",
-      "result.json": "fa1a2665c40c162c5be1baeb35a8067007415e56149b3c7549ac3ee12ac056c0"
+      "prompt.txt": "f234b3ba25858e690fb41f1527d8e71a9b7754051aa88da05048413d73cefe53",
+      "trace.jsonl": "967de865d21538443f566d8828094705fe840ec6c2ae8c472acdd8924cc535a4",
+      "stderr.txt": "e7068349245e298c938f820108533a9f923d517e59c7664ba93a4f5e9279a722",
+      "metadata.json": "1105c7747a03c606efe157d27723031311cab9dd3967a038801d1e74d0629adc",
+      "result.json": "b342c40fb5caba9974fc3dd6e5319d5a2ecb0049e21f5ce7d3ab13d4a439c0b5"
     }
   },
   "B2": {
-    "directory": "evidence/B2-final",
+    "directory": "evidence/B2-p3-astra",
     "files_sha256": {
-      "prompt.txt": "903cd761796b17ec351cbea38fe6bffd3112db95d7ccf73e0e40fd11d01b023d",
-      "trace.jsonl": "5a8cd9b7001d7ceb0051ef7eaa5427210095cf45c9b316f701dfa3663493e20a",
-      "stderr.txt": "b58dc804e4410db984ed889906793aff991b13c92cf3aca57f69295646cd3ec8",
-      "metadata.json": "751c58472ef1390cbc4f2ef5e9b529d5f191f8f416687119afde72d15e82b4af",
-      "result.json": "fd43dcf55b867d3a3e37cf3c7ebbed819779c5572ef51308b7d86505d7ea469a"
+      "prompt.txt": "bf2675dc6c58e3af2ad2427987bb6ea3d1ef4aa517b2bcee4e6dbe38f1bcd4ad",
+      "trace.jsonl": "43dedadb77c52ea3582d8d174b8b79b3cf56cb02539b288ba4c22d0399fc7302",
+      "stderr.txt": "5f896b4a7ec946b8fbaf360f57f8f03f491671516380174a400864e65ff80bb7",
+      "metadata.json": "3d5312c9f637a60514be1c75d39db913cfeedfbc3d3b4b4de8b5dbb198bec1ab",
+      "result.json": "7163d907aeadbee798dc84839c2316d8b48d2ddfeb6f4b823e29f7cdbabbf93e"
     }
   },
   "B3": {
-    "directory": "evidence/B3-final",
+    "directory": "evidence/B3-p3-astra",
     "files_sha256": {
-      "prompt.txt": "b9a044a2c7b4e841e6d9d02974c3e2c06c0283007a2ba2a02ba8ac321a9c0fcd",
-      "trace.jsonl": "1717e1923b1070b952e376af4556f2a2c6ea8c989e7be3a6da9f77b660445d00",
-      "stderr.txt": "3f4501df04322399b24e045c2aa6d17719ab56e6dbad3ff004e780afffea8c1b",
-      "metadata.json": "7d92a9a497233da7f586c32d0b691406a2be530f926b7fef35b2b3e0b0ce3c2d",
-      "result.json": "405b9e75ac41c8ddf99dd1629d0d5bb4e0bb25d41179a8757f6e4fa5418f6bbb"
+      "prompt.txt": "189e87c6cb8c96a82e4e170ba6f61b0a16317d97059c7a636d08240cce8cf27e",
+      "trace.jsonl": "60cd365182bb21905e7e2962f854b197cc8b9d4aff845377b28db3ac2f3dd9ee",
+      "stderr.txt": "00fa210ee884839b0c72f604bcadc831e8eab48d0b7d603b68a5a073a93d4cf3",
+      "metadata.json": "29b35f607bc36108df4abcbca0d618d04436ec970ed7ecb3dcdfbc5cb8bf4a16",
+      "result.json": "bb99167384d824dd9ac03210005321102f15a256b1297aace67c296ac46cd441"
     }
   },
   "B4": {
-    "directory": "evidence/B4-final",
+    "directory": "evidence/B4-p3-final",
     "files_sha256": {
-      "prompt.txt": "e464df7fe23aaa783783bb79057a813661b85bb7293e7223ddb8cff81e825146",
-      "trace.jsonl": "f9b956ba22882162957b53d92564d96fe5d2486fca77cfd2ba96f91a3984fe0f",
-      "stderr.txt": "4a5feb1a1dccabc86ca87ba1aad9b37dfaa5b63a4711e0c9988c73fab71f2a92",
-      "metadata.json": "e5eda2fa88c1b7eff8a446d076c75df6aca38d573020f5c9480a999c09c7bc0e",
-      "result.json": "42957c39a8ddbd5c21357976e60581c515058de8341fd0bbfc5e7b5bb40f3800"
+      "prompt.txt": "f76cd57334ec991bda2562bc56872de8de2b98dfaa73afb68ee466c50e352c6c",
+      "trace.jsonl": "637916f36e2dbb12a0ddfd927aaa0cb0585b9bf91ba0d92166cc04eabe4d277b",
+      "stderr.txt": "58345c2b195015d0e0dca8bda5359a080b57fab9095364acc653a52546623205",
+      "metadata.json": "b9959c80967a6f74f64980b3bfb908cc7e7c6a1e229efee228ba1fe2c18a91cf",
+      "result.json": "cb97817c348674063d862130d25f88dd21ca9ad7937956c88841859c15c6d271"
     }
   },
   "B5": {
-    "directory": "evidence/B5-final",
+    "directory": "evidence/B5-p3-astra",
     "files_sha256": {
-      "prompt.txt": "ef731d0a02750624f4bf9d703aa6854bfaae519956339e3b9ac6ff45c7ab32e7",
-      "trace.jsonl": "df880c899ba63e1927a43d625d1fbe64127cdde2e671d7041e50c8175049f010",
-      "stderr.txt": "d6afad6cf3447f6530d935fd42f35b4e0a3146e14d0c1173f94c2f73b9acffe8",
-      "metadata.json": "b3d861b1b31ad7887ee7184df0e5e092af1d269d2b564c0fce0138c7acf34c59",
-      "result.json": "26ec7b87bb796f8d742904bfa2d9f58efcffe700ddcde24fce2561659322debe"
+      "prompt.txt": "57657657194adf2a0b68435b99d93484712f8ed58fa816e5ac79993bc12c816c",
+      "trace.jsonl": "feb7b3ce0beb18f7b9aeaa26b02a1d1c1da13481f550b6c90243cd63c0b9555b",
+      "stderr.txt": "570a8956c9abdb1937e79434176162c7e8360022e0db6c4208e73b86a37b84c9",
+      "metadata.json": "75fc03fbec2a8e32f37359dffee008e206ff5b00ba83a272d39b947be3e30b16",
+      "result.json": "c96fb72b747f03d0b4683baa302b47539f8f920f6ed5a3677c9c59398a1da911"
     }
   },
   "B6": {
-    "directory": "evidence/B6-final",
+    "directory": "evidence/B6-p3-astra",
     "files_sha256": {
-      "prompt.txt": "b935c9726a7c4712a0a594790ab6074b002177e443740f673fc531e8e74910a7",
-      "trace.jsonl": "0450944ed1f7390712a415a6ecc509167d82425b8ce5589a00ca9b76d560b4d8",
-      "stderr.txt": "55b29636d666eff5af7d34bc9df6d936acf91d4936114b94dd56a18131defea2",
-      "metadata.json": "db4e0f00db10a732909f74fd773c9dfd1ea1b584550c824eac98718802d6bda3",
-      "result.json": "1ef065b59d8dba4d3130bd347b00d3fa104cdf1f39611bed6cfdeac5f984db85"
+      "prompt.txt": "7ea9e36c89e538e7631ded92e95faeaeffa48c64ff5d820ab8b56a4c7f87391f",
+      "trace.jsonl": "0510b353a30f964b5887f7fa1a89510ed33d387ffacf7ffacb549a6cd5ff23f3",
+      "stderr.txt": "04e91f22b93f43fe21b1eadd597664e7510b0cb240c585ee3127aff2f5b0290e",
+      "metadata.json": "fbe8208d65f46feb1c83177b28a93cd9e5cd60635d9f516cc3dd4e49dee371d4",
+      "result.json": "01f4a41ccb64eb29c87dc9edafff79f27d7a170929aeac72c3ef47419a76a757"
     }
   },
   "B7": {
-    "directory": "evidence/B7-final",
+    "directory": "evidence/B7-p3-astra",
     "files_sha256": {
-      "prompt.txt": "8a21cb2e5c95605a3a1d49144b13d9648958f0f104a44764cf425f0ee359b8b1",
-      "trace.jsonl": "1c1f62f6e95eb987dbcda17c0d080b9896b88935ca87526e431811948a70f5b4",
-      "stderr.txt": "c646ff441a1803e0dd22ad777bfe465186611c10bb1760564774757901423c8e",
-      "metadata.json": "768c055c738d5821d97b273af405bab44285c839a611d423b3b21d283a3617b0",
-      "result.json": "c7160a2646427740a6d2183da6604655c2127fc6085e1e3b0973d19ef7b635b4"
+      "prompt.txt": "53e6568fbe3c7741196a499b19c6069ca76f46f388707e50bd3d5ea7bd31eb7f",
+      "trace.jsonl": "27edefd21ad99eebe804d451712f937c2d3290037c65abcdec0bffc1d841d763",
+      "stderr.txt": "abff460720825c523d74f6eab0a5645113553a3307f95918cd4c58c64f47b3d5",
+      "metadata.json": "f4c1f3eaf4d2cf123e3a10908531e18af89735de6456a79c77fc635f10a0ab6c",
+      "result.json": "114596e36e2f351e505435fc776aa3f8b7abe9d8d90cca18f1d53253a94e1611"
     }
   },
   "B8": {
-    "directory": "evidence/B8-final",
+    "directory": "evidence/B8-p3-astra",
     "files_sha256": {
-      "prompt.txt": "aaaee8e2f4305d9bc7b22ffdbce4252f7a1e18d637d9ae7378da3b739908198b",
-      "trace.jsonl": "54afd57c51624e7d8ecb2548337af018bad338a2b67a0609796cb1cf11914359",
-      "stderr.txt": "176dde36adc9a39b1557ebc96a40c8d008d7437c1804506af524c62b2eb165c9",
-      "metadata.json": "d4c64dcb27ca21a9d8d99e1e512d8b098041136631bf604d1c709717c14ab5f7",
-      "result.json": "3a7576f2ba117504b6c1ff735b3610a387fbe252a8db496935249a3c58491331"
+      "prompt.txt": "594e5cd08906728988f8cce0d8917e78defac602cd5767d1b83027bdd51ca354",
+      "trace.jsonl": "d21b35a8143df77af26a7bdadbf4d33550326c227b9f393b4887b49eaab731c4",
+      "stderr.txt": "e2f033f72ecdee56a9bfe83cb87e74a96ecabe8c03814e81f432b07dbb34a7f1",
+      "metadata.json": "3718b4d81820774ad093f82609a266ed6195e9fed9dee6615926c43e896b32f1",
+      "result.json": "7930ea2880374422897bcc09cc8219f6ac35acbcedb4b4a96f0c5219d73e9098"
     }
   }
 }

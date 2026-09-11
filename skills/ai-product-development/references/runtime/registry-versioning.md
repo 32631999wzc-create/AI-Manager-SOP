@@ -35,3 +35,7 @@ Use simple monotonic versions (`v1`, `v2`, ...). Do not require semantic version
 Parallel tasks must not directly overwrite the same active artifact. Produce isolated proposed changes, merge/resolve conflicts, validate, then commit one new version.
 
 对象字段与枚举见 [ProjectRecord / Artifact / RuntimeSnapshot](../../schemas/project-state.yaml)。
+
+## Local Persistence
+
+需要在本地产品仓库保存 Registry 时，使用 [Continuous Project Runtime](../../scripts/project_runtime/README.md) 的 `register-record`、`commit-artifact` 和 `checkpoint`。运行时复用本节规则及 canonical schema，不建立第二套 Record 或 Artifact 定义。

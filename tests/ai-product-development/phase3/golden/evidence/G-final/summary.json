@@ -1,0 +1,136 @@
+{
+  "phases": [
+    {
+      "phase": "G1-init",
+      "required_reads": [
+        "SKILL.md",
+        "scripts/project_runtime/README.md"
+      ],
+      "verified_reads": [
+        "SKILL.md",
+        "scripts/project_runtime/README.md"
+      ],
+      "missing_reads": [],
+      "required_command_markers": [
+        "project_runtime.py",
+        " init ",
+        " next",
+        " checkpoint"
+      ],
+      "missing_command_markers": [],
+      "thread_ids": [
+        "01a08b7a-4fd9-78a0-9aab-5c86fadeb10f"
+      ],
+      "status": "PASS"
+    },
+    {
+      "phase": "G2-resume-build",
+      "required_reads": [
+        "SKILL.md",
+        "scripts/project_runtime/README.md",
+        "references/runtime/replan-recovery.md",
+        "references/runtime/context.md",
+        "references/runtime/executor.md",
+        "references/runtime/registry-versioning.md",
+        "references/lifecycle/05-implementation.md"
+      ],
+      "verified_reads": [
+        "SKILL.md",
+        "scripts/project_runtime/README.md",
+        "references/runtime/replan-recovery.md",
+        "references/runtime/context.md",
+        "references/runtime/executor.md",
+        "references/runtime/registry-versioning.md",
+        "references/lifecycle/05-implementation.md"
+      ],
+      "missing_reads": [],
+      "required_command_markers": [
+        " resume",
+        "feedback_organizer.py",
+        " task ",
+        "commit-artifact",
+        "register-record",
+        " checkpoint"
+      ],
+      "missing_command_markers": [],
+      "thread_ids": [
+        "01a08b7d-0f2d-7932-83c1-bc993cb3d6b3"
+      ],
+      "status": "PASS"
+    },
+    {
+      "phase": "G3-local-replan",
+      "required_reads": [
+        "SKILL.md",
+        "scripts/project_runtime/README.md",
+        "references/runtime/replan-recovery.md",
+        "references/runtime/planner.md",
+        "references/runtime/context.md",
+        "references/runtime/executor.md",
+        "references/runtime/registry-versioning.md",
+        "references/lifecycle/05-implementation.md"
+      ],
+      "verified_reads": [
+        "SKILL.md",
+        "scripts/project_runtime/README.md",
+        "references/runtime/replan-recovery.md",
+        "references/runtime/planner.md",
+        "references/runtime/context.md",
+        "references/runtime/executor.md",
+        "references/runtime/registry-versioning.md",
+        "references/lifecycle/05-implementation.md"
+      ],
+      "missing_reads": [],
+      "required_command_markers": [
+        " resume",
+        " replan ",
+        " next",
+        "--source",
+        " task ",
+        "commit-artifact",
+        " checkpoint"
+      ],
+      "missing_command_markers": [],
+      "thread_ids": [
+        "01a08b81-9727-7bc3-8d19-bf82509f9725"
+      ],
+      "status": "PASS"
+    },
+    {
+      "phase": "G4-resume-complete",
+      "required_reads": [
+        "SKILL.md",
+        "scripts/project_runtime/README.md",
+        "references/runtime/replan-recovery.md",
+        "references/runtime/context.md",
+        "references/runtime/executor.md",
+        "references/runtime/execution-profile.md",
+        "references/lifecycle/06-validation-iteration.md"
+      ],
+      "verified_reads": [
+        "SKILL.md",
+        "scripts/project_runtime/README.md",
+        "references/runtime/replan-recovery.md",
+        "references/runtime/context.md",
+        "references/runtime/executor.md",
+        "references/runtime/execution-profile.md",
+        "references/lifecycle/06-validation-iteration.md"
+      ],
+      "missing_reads": [],
+      "required_command_markers": [
+        " resume",
+        "verify_outputs.py",
+        " task ",
+        "update-profile",
+        " checkpoint",
+        " complete"
+      ],
+      "missing_command_markers": [],
+      "thread_ids": [
+        "01a08b86-72f3-77b2-ae47-8250c90cc455"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "failed_attempts": []
+}
