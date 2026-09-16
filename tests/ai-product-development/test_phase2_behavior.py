@@ -57,6 +57,44 @@ class BehaviorTraceClassificationTests(unittest.TestCase):
         result = module.assess_reads(events, self.scenario(), {})
         self.assertEqual(result["trace_issues"], ["FAILED_COMMAND: other"])
 
+    def test_contiguous_range_chunks_are_verified(self):
+        content = "\n".join(f"line {index}" for index in range(135))
+        events = []
+        for index, (start, end, selector) in enumerate((
+            (0, 60, "-First 60"),
+            (60, 120, "-Skip 60 -First 60"),
+            (120, 135, "-Skip 120"),
+        )):
+            events.append({"type": "item.completed", "item": {
+                "id": f"chunk-{index}", "type": "command_execution",
+                "command": "Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | "
+                           f"Select-Object {selector}",
+                "status": "completed", "exit_code": 0,
+                "aggregated_output": "\n".join(content.splitlines()[start:end]),
+            }})
+        result = module.assess_reads(
+            events, {"required": ["SKILL.md"], "support": {}}, {"SKILL.md": content}
+        )
+        self.assertEqual(result["status"], "PASS")
+
+    def test_gapped_range_chunks_are_rejected(self):
+        content = "\n".join(f"line {index}" for index in range(135))
+        events = [{"type": "item.completed", "item": {
+            "id": "chunk-0", "type": "command_execution",
+            "command": "Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 60",
+            "status": "completed", "exit_code": 0,
+            "aggregated_output": "\n".join(content.splitlines()[:60]),
+        }}, {"type": "item.completed", "item": {
+            "id": "chunk-2", "type": "command_execution",
+            "command": "Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120",
+            "status": "completed", "exit_code": 0,
+            "aggregated_output": "\n".join(content.splitlines()[120:]),
+        }}]
+        result = module.assess_reads(
+            events, {"required": ["SKILL.md"], "support": {}}, {"SKILL.md": content}
+        )
+        self.assertEqual(result["status"], "FAIL")
+
 
 if __name__ == "__main__":
     unittest.main()

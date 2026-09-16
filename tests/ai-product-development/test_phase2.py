@@ -69,10 +69,10 @@ def apply_operation(document, operation):
 
 
 class RuntimeObjectTests(unittest.TestCase):
-    def test_all_eight_objects_parse(self):
+    def test_all_ten_objects_parse(self):
         document = load(FIXTURES / "objects.yaml")
         self.assertEqual(validate_document(document, "objects"), [])
-        self.assertEqual(len(document), 8)
+        self.assertEqual(len(document), 10)
 
     def test_missing_unknown_enum_and_version_are_distinct(self):
         document = load(FIXTURES / "objects.yaml")

@@ -1,0 +1,18 @@
+Use the copied AI product development skill for one targeted, read-only repair check. Do not write files, use external services, or perform product work.
+
+Read only the required files by executing every command below separately and in this exact order. Do not list directories, count lines, or read any other file:
+Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 160 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 200 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 280; Get-Content -LiteralPath 'skill/references/lifecycle/03-product-definition.md' -Encoding UTF8 | Select-Object -First 40; Get-Content -LiteralPath 'skill/references/lifecycle/03-product-definition.md' -Encoding UTF8 | Select-Object -Skip 40; Get-Content -LiteralPath 'skill/references/lifecycle/04-solution-design.md' -Encoding UTF8 | Select-Object -First 40; Get-Content -LiteralPath 'skill/references/lifecycle/04-solution-design.md' -Encoding UTF8 | Select-Object -Skip 40; Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -First 40; Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40; Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40; Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 120; Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8 | Select-Object -First 40; Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8 | Select-Object -Skip 40; Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8 | Select-Object -First 40
+
+Scenario:
+Brownfield MVP feature change, limited to an AI queue-suggestion feature and affected validation/pilot. Business changed the queue taxonomy from 8 to 10; users, product goal, editable suggestion and human confirmation remain unchanged. Existing tasks are T-ROUTING-DESIGN, T-ROUTING-IMPLEMENT, T-ROUTING-EVAL; add T-TAXONOMY-IMPACT and preserve unrelated T-EXPORT. No existing DecisionRecord reopen trigger was supplied or hit.
+
+Return exactly one JSON object and no prose:
+{
+  "assignment_scope_mode":"FULL_PROJECT|PARTIAL_PROJECT",
+  "solution_design_active_capabilities":["canonical Profile capability names"],
+  "capability_needs":[{"capability":"canonical domain label or router slug","mode":"EXECUTE|VERIFY|REUSE"}],
+  "replan":{"required":true,"change_type":"INPUT_CHANGE|null","reopen_trigger":null,"actions":[{"action":"PRESERVE|OUTDATE|ADD|CANCEL","target":"task id"}]},
+  "claims":{"external_write_performed":false,"invented_evidence":false}
+}
+
+Use exact Profile label `Evaluation Design` when acceptance criteria are missing. A non-decision INPUT_CHANGE has `reopen_trigger:null`. Include only capabilities that reduce a concrete assignment gap.

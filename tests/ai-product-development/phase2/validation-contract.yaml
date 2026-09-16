@@ -10,7 +10,7 @@ rules:
     check: combined input contains one profile and one plan validation document
   - code: OBJECT_UNKNOWN
     source: skills/ai-product-development/SKILL.md#data-and-output-routing
-    check: object validation is limited to the eight canonical runtime objects
+    check: object validation is limited to the ten canonical runtime objects
   - code: TYPE_MAPPING
     source: skills/ai-product-development/schemas/plan.yaml
     check: an object is represented as a mapping
@@ -27,11 +27,26 @@ rules:
     source: skills/ai-product-development/schemas/execution-profile.yaml
     check: documented object and validation-context enums are respected
   - code: VERSION_INVALID
-    source: skills/ai-product-development/references/runtime/registry-versioning.md#112-artifact-commit-rules
-    check: formal artifact versions use monotonic vN notation
+    source: skills/ai-product-development/references/runtime/registry-versioning.md
+    check: formal artifact and evidence versions use monotonic vN notation
   - code: VALUE_EMPTY
-    source: skills/ai-product-development/references/runtime/planner.md#83-valid-task-rule
-    check: task identity, goal and output are non-empty
+    source: skills/ai-product-development/references/runtime/registry-versioning.md
+    check: required task, evidence and decision identity or explanatory fields are non-empty
+  - code: DECISION_OPTIONS_REQUIRED
+    source: skills/ai-product-development/references/runtime/registry-versioning.md#114-decision-record-rules
+    check: a decision records at least one considered option
+  - code: DECISION_SELECTED_INVALID
+    source: skills/ai-product-development/references/runtime/registry-versioning.md#114-decision-record-rules
+    check: the selected decision is one of the recorded options
+  - code: DECISION_RATIONALE_REQUIRED
+    source: skills/ai-product-development/references/runtime/registry-versioning.md#114-decision-record-rules
+    check: a decision records why the option was selected
+  - code: DECISION_SUPERSEDES_INVALID
+    source: skills/ai-product-development/references/runtime/registry-versioning.md#114-decision-record-rules
+    check: supersedes is null or a non-empty prior decision id
+  - code: DECISION_VALID_UNTIL_INVALID
+    source: skills/ai-product-development/references/runtime/registry-versioning.md#114-decision-record-rules
+    check: valid_until is null or a non-empty time or condition
   - code: PROFILE_NODE_SET
     source: skills/ai-product-development/SKILL.md#2-lifecycle
     check: a profile contains the eight nodes exactly once in canonical order

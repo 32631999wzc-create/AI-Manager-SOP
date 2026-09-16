@@ -1,4 +1,4 @@
-"""Lightweight models for the eight canonical runtime objects."""
+"""Lightweight models for the canonical runtime objects."""
 
 from dataclasses import dataclass
 from typing import Any
@@ -37,6 +37,40 @@ class ProjectRecord:
 
 
 @dataclass(frozen=True)
+class EvidenceRecord:
+    id: Any
+    type: Any
+    source: Any
+    observed_at: Any
+    context: Any
+    supports: Any
+    contradicts: Any
+    observation: Any
+    interpretation: Any
+    confidence: Any
+    limitations: Any
+    version: Any
+    owner: Any
+
+
+@dataclass(frozen=True)
+class DecisionRecord:
+    id: Any
+    question: Any
+    options: Any
+    selected: Any
+    rationale: Any
+    evidence_refs: Any
+    assumptions: Any
+    dissent: Any
+    owner: Any
+    made_at: Any
+    valid_until: Any
+    reopen_trigger: Any
+    supersedes: Any
+
+
+@dataclass(frozen=True)
 class Artifact:
     id: Any
     type: Any
@@ -47,6 +81,8 @@ class Artifact:
     location: Any
     source_tasks: Any
     source_records: Any
+    evidence_refs: Any
+    decision_refs: Any
     dependencies: Any
 
 
@@ -97,6 +133,7 @@ class TaskContextPack:
     task: Any
     relevant_facts: Any
     relevant_decisions: Any
+    relevant_evidence: Any
     relevant_constraints: Any
     relevant_artifacts: Any
     recent_changes: Any
@@ -108,7 +145,7 @@ class TaskContextPack:
 
 OBJECT_MODELS = {
     cls.__name__: cls for cls in (
-        Task, ProjectRecord, Artifact, RuntimeSnapshot, AssignmentScope,
-        NodeProfile, Plan, TaskContextPack,
+        Task, ProjectRecord, EvidenceRecord, DecisionRecord, Artifact,
+        RuntimeSnapshot, AssignmentScope, NodeProfile, Plan, TaskContextPack,
     )
 }

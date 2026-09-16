@@ -70,7 +70,7 @@ def prepare(work: Path) -> tuple[Path, dict[str, str]]:
                  "dependencies": [{"from": "T1", "to": "T2", "type": "HARD"}, {"from": "T2", "to": "T3", "type": "HARD"}],
                  "critical_path": ["T1", "T2", "T3"], "assumptions": []},
         "available_inputs": ["scope", "sample-feedback"],
-        "artifacts": [{"id": "design-v1", "type": "DESIGN", "name": "Golden MVP design", "version": "v1", "status": "ACTIVE", "summary": "Runnable behavior and boundaries", "location": "README.md", "source_tasks": ["T1"], "source_records": [], "dependencies": []}],
+        "artifacts": [{"id": "design-v1", "type": "DESIGN", "name": "Golden MVP design", "version": "v1", "status": "ACTIVE", "summary": "Runnable behavior and boundaries", "location": "README.md", "source_tasks": ["T1"], "source_records": [], "evidence_refs": [], "decision_refs": [], "dependencies": []}],
         "gates": {"Build Readiness": "PASS"}, "blocked_inputs": [],
         "write_targets": {"T1": ["design-v1"], "T2": ["report-v1"], "T3": ["validation-v1"]},
     }
@@ -78,7 +78,7 @@ def prepare(work: Path) -> tuple[Path, dict[str, str]]:
     errors = validate_document(initial, "combined")
     assert not errors, errors
     (product / "initial.yaml").write_text(yaml.safe_dump(initial, allow_unicode=True, sort_keys=False), encoding="utf-8")
-    artifact = {"id": "report-v1", "type": "REPORT", "name": "Feedback insights", "version": "v1", "status": "ACTIVE", "summary": "Full feedback report", "location": "report.md", "source_tasks": ["T2"], "source_records": [], "dependencies": ["design-v1"]}
+    artifact = {"id": "report-v1", "type": "REPORT", "name": "Feedback insights", "version": "v1", "status": "ACTIVE", "summary": "Full feedback report", "location": "report.md", "source_tasks": ["T2"], "source_records": [], "evidence_refs": [], "decision_refs": [], "dependencies": ["design-v1"]}
     (product / "artifact.yaml").write_text(yaml.safe_dump(artifact, sort_keys=False), encoding="utf-8")
     record = {"id": "R1", "type": "DECISION", "topic": "delivery", "content": "Local deterministic Runnable Demo", "status": "ACTIVE", "source": "user", "version": "v1", "affected_scope": ["Implementation", "Validation & Iteration"]}
     (product / "record.yaml").write_text(yaml.safe_dump(record, sort_keys=False), encoding="utf-8")
@@ -105,7 +105,7 @@ def prepare(work: Path) -> tuple[Path, dict[str, str]]:
     change_errors = validate_document(change_validation, "plan")
     assert not change_errors, change_errors
     (product / "change.yaml").write_text(yaml.safe_dump(change, allow_unicode=True, sort_keys=False), encoding="utf-8")
-    filtered = {"id": "filtered-v1", "type": "REPORT", "name": "Filtered feedback insights", "version": "v1", "status": "ACTIVE", "summary": "Support-only feedback report", "location": "filtered-report.md", "source_tasks": ["T4"], "source_records": ["R1"], "dependencies": ["report-v1"]}
+    filtered = {"id": "filtered-v1", "type": "REPORT", "name": "Filtered feedback insights", "version": "v1", "status": "ACTIVE", "summary": "Support-only feedback report", "location": "filtered-report.md", "source_tasks": ["T4"], "source_records": ["R1"], "evidence_refs": [], "decision_refs": [], "dependencies": ["report-v1"]}
     (product / "filtered-artifact.yaml").write_text(yaml.safe_dump(filtered, sort_keys=False), encoding="utf-8")
     final_profile = deepcopy(profile)
     for node in final_profile["nodes"]:

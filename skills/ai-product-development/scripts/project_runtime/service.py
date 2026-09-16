@@ -60,6 +60,8 @@ class ProjectRuntime:
         self.profile_path = self.state / "profile.yaml"
         self.plan_path = self.state / "plan.yaml"
         self.records_path = self.state / "registry" / "records.yaml"
+        self.evidence_path = self.state / "registry" / "evidence.yaml"
+        self.decisions_path = self.state / "registry" / "decisions.yaml"
         self.artifacts_path = self.state / "registry" / "artifacts.yaml"
         self.latest_snapshot_path = self.state / "snapshots" / "latest.yaml"
         self.context_path = self.state / "context" / "current.yaml"
@@ -72,23 +74,43 @@ class ProjectRuntime:
         except StoreError as exc:
             _fail("STATE_INVALID", str(exc))
 
-    def _parts(self) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], list[Any], list[Any]]:
+    def _registry_document(self, path: Path, key: str) -> dict[str, Any]:
+        if not path.is_file():
+            return {key: []}
+        return _require_mapping(self._read(path, key), key)
+
+    def _parts(self) -> tuple[
+        dict[str, Any], dict[str, Any], dict[str, Any], list[Any],
+        list[Any], list[Any], list[Any],
+    ]:
         manifest = _require_mapping(self._read(self.manifest_path, "manifest"), "manifest")
         profile = _require_mapping(self._read(self.profile_path, "profile"), "profile")
         plan = _require_mapping(self._read(self.plan_path, "plan"), "plan")
-        records_doc = _require_mapping(self._read(self.records_path, "records"), "records")
-        artifacts_doc = _require_mapping(self._read(self.artifacts_path, "artifacts"), "artifacts")
+        records_doc = self._registry_document(self.records_path, "records")
+        evidence_doc = self._registry_document(self.evidence_path, "evidence")
+        decisions_doc = self._registry_document(self.decisions_path, "decisions")
+        artifacts_doc = self._registry_document(self.artifacts_path, "artifacts")
         if set(manifest) != {"format_version", "project_id", "current_plan_version", "source_sha256", "snapshot_sequence"}:
             _fail("MANIFEST_INVALID", "manifest fields do not match format version 1")
         if manifest["format_version"] != FORMAT_VERSION:
             _fail("FORMAT_UNSUPPORTED", f"unsupported format version: {manifest['format_version']}")
         records = records_doc.get("records")
+        evidence = evidence_doc.get("evidence")
+        decisions = decisions_doc.get("decisions")
         artifacts = artifacts_doc.get("artifacts")
         if set(records_doc) != {"records"} or not isinstance(records, list):
             _fail("STATE_INVALID", "records.yaml must contain only a records list")
         if set(artifacts_doc) != {"artifacts"} or not isinstance(artifacts, list):
             _fail("STATE_INVALID", "artifacts.yaml must contain only an artifacts list")
-        return manifest, profile, plan, records, artifacts
+        if set(evidence_doc) != {"evidence"} or not isinstance(evidence, list):
+            _fail("STATE_INVALID", "evidence.yaml must contain only an evidence list")
+        if set(decisions_doc) != {"decisions"} or not isinstance(decisions, list):
+            _fail("STATE_INVALID", "decisions.yaml must contain only a decisions list")
+        for artifact in artifacts:
+            if isinstance(artifact, dict):
+                artifact.setdefault("evidence_refs", [])
+                artifact.setdefault("decision_refs", [])
+        return manifest, profile, plan, records, evidence, decisions, artifacts
 
     @staticmethod
     def _validation_plan(plan: dict[str, Any], artifacts: list[Any]) -> dict[str, Any]:
@@ -98,19 +120,44 @@ class ProjectRuntime:
         return {**deepcopy(plan), "artifacts": deepcopy(artifacts)}
 
     def validate(self, require_artifact_files: bool = True) -> dict[str, Any]:
-        manifest, profile, plan, records, artifacts = self._parts()
+        manifest, profile, plan, records, evidence, decisions, artifacts = self._parts()
         _validation_failure(validate_document(profile, "profile"), "profile")
         _validation_failure(validate_document(self._validation_plan(plan, artifacts), "plan"), "plan")
         for index, record in enumerate(records):
             _validation_failure(validate_object("ProjectRecord", record, f"records[{index}]"), "records")
+        for index, item in enumerate(evidence):
+            _validation_failure(validate_object("EvidenceRecord", item, f"evidence[{index}]"), "evidence")
+        for index, decision in enumerate(decisions):
+            _validation_failure(validate_object("DecisionRecord", decision, f"decisions[{index}]"), "decisions")
         for index, artifact in enumerate(artifacts):
             _validation_failure(validate_object("Artifact", artifact, f"artifacts[{index}]"), "artifacts")
         record_ids = [item.get("id") for item in records if isinstance(item, dict)]
+        evidence_ids = [item.get("id") for item in evidence if isinstance(item, dict)]
+        decision_ids = [item.get("id") for item in decisions if isinstance(item, dict)]
         artifact_ids = [item.get("id") for item in artifacts if isinstance(item, dict)]
         if len(record_ids) != len(set(record_ids)):
             _fail("REGISTRY_DUPLICATE", "record ids must be unique")
         if len(artifact_ids) != len(set(artifact_ids)):
             _fail("REGISTRY_DUPLICATE", "artifact ids must be unique")
+        if len(evidence_ids) != len(set(evidence_ids)):
+            _fail("REGISTRY_DUPLICATE", "evidence ids must be unique")
+        if len(decision_ids) != len(set(decision_ids)):
+            _fail("REGISTRY_DUPLICATE", "decision ids must be unique")
+        evidence_set = set(evidence_ids)
+        decision_set = set(decision_ids)
+        for decision in decisions:
+            missing = set(decision["evidence_refs"]) - evidence_set
+            if missing:
+                _fail("DECISION_EVIDENCE_UNKNOWN", f"decision {decision['id']} references unknown evidence: {sorted(missing)}")
+            if decision["supersedes"] is not None and decision["supersedes"] not in decision_set:
+                _fail("DECISION_SUPERSEDES_UNKNOWN", f"decision {decision['id']} supersedes an unknown decision")
+            if decision["supersedes"] == decision["id"]:
+                _fail("DECISION_SUPERSEDES_SELF", f"decision {decision['id']} cannot supersede itself")
+        for artifact in artifacts:
+            missing_evidence = set(artifact["evidence_refs"]) - evidence_set
+            missing_decisions = set(artifact["decision_refs"]) - decision_set
+            if missing_evidence or missing_decisions:
+                _fail("ARTIFACT_TRACE_UNKNOWN", f"artifact {artifact['id']} has unknown evidence/decision refs")
         plan_version = plan["plan"]["version"]
         if manifest["current_plan_version"] != plan_version:
             _fail("PLAN_VERSION_MISMATCH", "manifest and plan versions differ")
@@ -127,6 +174,8 @@ class ProjectRuntime:
             "project_id": manifest["project_id"],
             "plan_version": plan_version,
             "records": len(records),
+            "evidence": len(evidence),
+            "decisions": len(decisions),
             "artifacts": len(artifacts),
         }
 
@@ -164,6 +213,8 @@ class ProjectRuntime:
             atomic_write(temporary / "profile.yaml", document["profile"])
             atomic_write(temporary / "plan.yaml", input_plan)
             atomic_write(temporary / "registry" / "records.yaml", {"records": []})
+            atomic_write(temporary / "registry" / "evidence.yaml", {"evidence": []})
+            atomic_write(temporary / "registry" / "decisions.yaml", {"decisions": []})
             atomic_write(temporary / "registry" / "artifacts.yaml", {"artifacts": artifacts})
             temporary.replace(self.state)
         except Exception:
@@ -175,7 +226,7 @@ class ProjectRuntime:
 
     def status(self) -> dict[str, Any]:
         summary = self.validate()
-        _, profile, plan, _, _ = self._parts()
+        _, profile, plan, _, _, _, _ = self._parts()
         tasks = plan["plan"]["tasks"]
         counts: dict[str, int] = {}
         for task in tasks:
@@ -197,7 +248,7 @@ class ProjectRuntime:
 
     def complete(self) -> dict[str, Any]:
         self.validate()
-        _, profile, plan, _, artifacts = self._parts()
+        _, profile, plan, _, _, _, artifacts = self._parts()
         required_nodes = [
             node["node"] for node in profile["nodes"]
             if node["level"] == "REQUIRED" and node["scope_role"] != "OUT_OF_SCOPE"
@@ -227,16 +278,18 @@ class ProjectRuntime:
             "blocked_gates": blocked_gates,
         }
         return {"complete": not any(reasons.values()), "reasons": reasons}
-    def _active_registry(self) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-        _, _, _, records, artifacts = self._parts()
+    def _active_registry(self) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+        _, _, _, records, evidence, decisions, artifacts = self._parts()
         return (
             [item for item in records if item["status"] == "ACTIVE"],
+            evidence,
+            decisions,
             [item for item in artifacts if item["status"] == "ACTIVE"],
         )
 
     def next(self) -> dict[str, Any]:
         self.validate()
-        _, _, plan, _, _ = self._parts()
+        _, _, plan, _, _, _, _ = self._parts()
         tasks = plan["plan"]["tasks"]
         critical = {task_id: index for index, task_id in enumerate(plan["plan"]["critical_path"])}
         ready = [task for task in tasks if task["status"] == "READY"]
@@ -244,16 +297,36 @@ class ProjectRuntime:
             unfinished = [task["id"] for task in tasks if task["status"] not in {"COMPLETED", "SKIPPED", "CANCELLED"}]
             return {"status": "no_ready_task", "unfinished_tasks": unfinished}
         task = min(ready, key=lambda item: (PRIORITY_ORDER[item["priority"]], critical.get(item["id"], len(tasks)), tasks.index(item)))
-        records, artifacts = self._active_registry()
+        records, evidence, decisions, artifacts = self._active_registry()
         record_ids = set(task["context_requirements"])
         artifact_ids = set(task["artifact_requirements"]) | set(task["context_requirements"])
         relevant_records = [item for item in records if not item["affected_scope"] or item["id"] in record_ids or task["id"] in item["affected_scope"] or task["lifecycle_node"] in item["affected_scope"]]
         relevant_artifacts = [item for item in artifacts if item["id"] in artifact_ids]
+        replacements = {
+            item["supersedes"]: item["id"]
+            for item in decisions
+            if item["supersedes"] is not None
+        }
+
+        def current_decision(decision_id: str) -> str:
+            seen = set()
+            while decision_id in replacements and decision_id not in seen:
+                seen.add(decision_id)
+                decision_id = replacements[decision_id]
+            return decision_id
+
+        requested_decisions = record_ids | {item for artifact in relevant_artifacts for item in artifact["decision_refs"]}
+        decision_ids = {current_decision(item) for item in requested_decisions}
+        relevant_decision_records = [item for item in decisions if item["id"] in decision_ids]
+        evidence_ids = record_ids | {item for artifact in relevant_artifacts for item in artifact["evidence_refs"]}
+        evidence_ids |= {item for decision in relevant_decision_records for item in decision["evidence_refs"]}
+        relevant_evidence = [item for item in evidence if item["id"] in evidence_ids]
         snapshot = load_yaml(self.latest_snapshot_path) if self.latest_snapshot_path.is_file() else {"unresolved_items": []}
         context = {
             "task": task["id"],
             "relevant_facts": [item["id"] for item in relevant_records if item["type"] == "FACT"],
-            "relevant_decisions": [item["id"] for item in relevant_records if item["type"] == "DECISION"],
+            "relevant_decisions": [item["id"] for item in relevant_records if item["type"] == "DECISION"] + [item["id"] for item in relevant_decision_records],
+            "relevant_evidence": [item["id"] for item in relevant_evidence],
             "relevant_constraints": [item["id"] for item in relevant_records if item["type"] == "CONSTRAINT"],
             "relevant_artifacts": [item["id"] for item in relevant_artifacts],
             "recent_changes": [],
@@ -268,7 +341,7 @@ class ProjectRuntime:
 
     def checkpoint(self, unresolved_items: list[str] | None = None) -> dict[str, Any]:
         self.validate()
-        manifest, _, plan, records, artifacts = self._parts()
+        manifest, _, plan, records, _, _, artifacts = self._parts()
         snapshot = {
             "plan_version": plan["plan"]["version"],
             "task_states": {task["id"]: task["status"] for task in plan["plan"]["tasks"]},
@@ -288,7 +361,7 @@ class ProjectRuntime:
         self.validate()
         snapshot = _require_mapping(self._read(self.latest_snapshot_path, "latest snapshot"), "snapshot")
         _validation_failure(validate_object("RuntimeSnapshot", snapshot), "snapshot")
-        _, _, plan, records, artifacts = self._parts()
+        _, _, plan, records, _, _, artifacts = self._parts()
         expected_states = {task["id"]: task["status"] for task in plan["plan"]["tasks"]}
         if snapshot["plan_version"] != plan["plan"]["version"]:
             _fail("SNAPSHOT_PLAN_MISMATCH", "snapshot plan version differs from current plan")
@@ -307,7 +380,7 @@ class ProjectRuntime:
         if status == "COMPLETED" and not validation_pass:
             _fail("VALIDATION_REQUIRED", "COMPLETED requires explicit validation PASS")
         self.validate()
-        _, _, plan, _, artifacts = self._parts()
+        _, _, plan, _, _, _, artifacts = self._parts()
         matches = [task for task in plan["plan"]["tasks"] if task["id"] == task_id]
         if not matches:
             _fail("TASK_UNKNOWN", f"unknown task: {task_id}")
@@ -320,12 +393,44 @@ class ProjectRuntime:
     def register_record(self, record: dict[str, Any]) -> dict[str, Any]:
         _validation_failure(validate_object("ProjectRecord", record), "record")
         self.validate()
-        _, _, _, records, _ = self._parts()
+        _, _, _, records, _, _, _ = self._parts()
         if any(item["id"] == record["id"] for item in records):
             _fail("REGISTRY_DUPLICATE", f"record id already exists: {record['id']}")
         records.append(deepcopy(record))
         atomic_write(self.records_path, {"records": records})
         return {"status": "registered", "record_id": record["id"]}
+
+    def register_evidence(self, evidence_record: dict[str, Any]) -> dict[str, Any]:
+        _validation_failure(validate_object("EvidenceRecord", evidence_record), "evidence")
+        self.validate()
+        _, _, _, _, evidence, _, _ = self._parts()
+        if any(item["id"] == evidence_record["id"] for item in evidence):
+            _fail("REGISTRY_DUPLICATE", f"evidence id already exists: {evidence_record['id']}")
+        evidence.append(deepcopy(evidence_record))
+        atomic_write(self.evidence_path, {"evidence": evidence})
+        return {"status": "registered", "evidence_id": evidence_record["id"], "version": evidence_record["version"]}
+
+    def register_decision(self, decision: dict[str, Any]) -> dict[str, Any]:
+        _validation_failure(validate_object("DecisionRecord", decision), "decision")
+        self.validate()
+        _, _, _, _, evidence, decisions, _ = self._parts()
+        if any(item["id"] == decision["id"] for item in decisions):
+            _fail("REGISTRY_DUPLICATE", f"decision id already exists: {decision['id']}")
+        missing_evidence = set(decision["evidence_refs"]) - {item["id"] for item in evidence}
+        if missing_evidence:
+            _fail("DECISION_EVIDENCE_UNKNOWN", f"decision references unknown evidence: {sorted(missing_evidence)}")
+        if decision["supersedes"] is not None:
+            prior = [item for item in decisions if item["id"] == decision["supersedes"]]
+            if not prior:
+                _fail("DECISION_SUPERSEDES_UNKNOWN", "supersedes references an unknown decision")
+            already_superseded = {item["supersedes"] for item in decisions if item["supersedes"] is not None}
+            if decision["supersedes"] in already_superseded:
+                _fail("DECISION_SUPERSEDES_INACTIVE", "supersedes must reference the active decision in the chain")
+            if prior[0]["question"] != decision["question"]:
+                _fail("DECISION_QUESTION_MISMATCH", "a replacement decision must answer the same question")
+        decisions.append(deepcopy(decision))
+        atomic_write(self.decisions_path, {"decisions": decisions})
+        return {"status": "registered", "decision_id": decision["id"], "supersedes": decision["supersedes"]}
 
     def commit_artifact(self, artifact: dict[str, Any], validation_pass: bool = False) -> dict[str, Any]:
         if not validation_pass:
@@ -334,11 +439,15 @@ class ProjectRuntime:
         if artifact["status"] != "ACTIVE":
             _fail("ARTIFACT_STATUS_INVALID", "newly committed artifact must be ACTIVE")
         self.validate()
-        _, _, plan, _, artifacts = self._parts()
+        _, _, plan, records, evidence, decisions, artifacts = self._parts()
         tasks = {task["id"]: task for task in plan["plan"]["tasks"]}
         incomplete = [task_id for task_id in artifact["source_tasks"] if task_id not in tasks or tasks[task_id]["status"] != "COMPLETED"]
         if incomplete:
             _fail("ARTIFACT_SOURCE_INVALID", f"source tasks are not completed: {incomplete}")
+        if set(artifact["evidence_refs"]) - {item["id"] for item in evidence}:
+            _fail("ARTIFACT_SOURCE_INVALID", "artifact references unknown evidence")
+        if set(artifact["decision_refs"]) - {item["id"] for item in decisions}:
+            _fail("ARTIFACT_SOURCE_INVALID", "artifact references unknown decisions")
         if any(item["id"] == artifact["id"] for item in artifacts):
             _fail("REGISTRY_DUPLICATE", f"artifact id already exists: {artifact['id']}")
         active_same = [item for item in artifacts if item["name"] == artifact["name"] and item["type"] == artifact["type"] and item["status"] == "ACTIVE"]
@@ -361,12 +470,32 @@ class ProjectRuntime:
         return tasks, deps
 
     def replan(self, change: dict[str, Any]) -> dict[str, Any]:
-        if set(change) != {"change_type", "actions", "plan"}:
-            _fail("REPLAN_INVALID", "replan input must contain exactly change_type, actions and plan")
+        allowed_fields = {"change_type", "actions", "plan"}
+        if frozenset(change) not in {frozenset(allowed_fields), frozenset(allowed_fields | {"reopen_trigger"})}:
+            _fail("REPLAN_INVALID", "replan input must contain change_type, actions, plan and optional reopen_trigger")
         if change["change_type"] not in CHANGE_TYPES or not isinstance(change["actions"], list):
             _fail("REPLAN_INVALID", "unknown change type or malformed actions")
         self.validate()
-        manifest, _, old_plan, _, artifacts = self._parts()
+        manifest, _, old_plan, _, evidence, decisions, artifacts = self._parts()
+        reopened_decision = None
+        if "reopen_trigger" in change:
+            trigger = change["reopen_trigger"]
+            if not isinstance(trigger, dict) or set(trigger) != {"decision_id", "trigger", "evidence_refs"}:
+                _fail("REOPEN_TRIGGER_INVALID", "reopen_trigger must contain decision_id, trigger and evidence_refs")
+            if change["change_type"] != "DECISION_CHANGE":
+                _fail("REOPEN_TRIGGER_INVALID", "reopen_trigger requires DECISION_CHANGE")
+            superseded = {item["supersedes"] for item in decisions if item["supersedes"] is not None}
+            active = [item for item in decisions if item["id"] == trigger["decision_id"] and item["id"] not in superseded]
+            if not active:
+                _fail("REOPEN_DECISION_INACTIVE", "reopen_trigger must reference an active decision")
+            if not isinstance(trigger["trigger"], str) or trigger["trigger"] != active[0]["reopen_trigger"]:
+                _fail("REOPEN_TRIGGER_UNDECLARED", "trigger is not declared by the decision")
+            if not isinstance(trigger["evidence_refs"], list) or any(not isinstance(item, str) for item in trigger["evidence_refs"]):
+                _fail("REOPEN_TRIGGER_INVALID", "reopen_trigger.evidence_refs must be a list of ids")
+            missing_evidence = set(trigger["evidence_refs"]) - {item["id"] for item in evidence}
+            if missing_evidence:
+                _fail("REOPEN_EVIDENCE_UNKNOWN", f"reopen trigger references unknown evidence: {sorted(missing_evidence)}")
+            reopened_decision = trigger["decision_id"]
         new_plan = _require_mapping(deepcopy(change["plan"]), "replan plan")
         _validation_failure(validate_document(self._validation_plan(new_plan, artifacts), "plan"), "replan plan")
         old_tasks = {item["id"]: item for item in old_plan["plan"]["tasks"]}
@@ -400,4 +529,10 @@ class ProjectRuntime:
         atomic_write(self.plan_path, new_plan)
         manifest["current_plan_version"] = new_plan["plan"]["version"]
         atomic_write(self.manifest_path, manifest)
-        return {"status": "replanned", "change_type": change["change_type"], "dag_changed": dag_changed, "plan_version": new_plan["plan"]["version"]}
+        return {
+            "status": "replanned",
+            "change_type": change["change_type"],
+            "reopened_decision": reopened_decision,
+            "dag_changed": dag_changed,
+            "plan_version": new_plan["plan"]["version"],
+        }

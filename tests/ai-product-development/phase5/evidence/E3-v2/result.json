@@ -1,0 +1,456 @@
+{
+  "scenario": "E3",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/lifecycle/06-validation-iteration.md",
+      "references/lifecycle/07-release-operation.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/gates.md",
+      "references/runtime/registry-versioning.md",
+      "references/runtime/replan-recovery.md",
+      "schemas/execution-profile.yaml",
+      "schemas/evidence-record.yaml",
+      "schemas/decision-record.yaml",
+      "references/capabilities/launch/SKILL.md"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_2+item_3+item_4+item_5+item_6",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 180 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_16",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_17+item_18+item_19",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\""
+      },
+      {
+        "file": "references/lifecycle/06-validation-iteration.md",
+        "item_id": "item_20",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/06-validation-iteration.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/lifecycle/07-release-operation.md",
+        "item_id": "item_21",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/07-release-operation.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/replan-recovery.md",
+        "item_id": "item_22",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/gates.md",
+        "item_id": "item_23",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_24",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/evidence-record.yaml",
+        "item_id": "item_25",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/schemas/evidence-record.yaml' -Encoding UTF8\""
+      }
+    ],
+    "missing": [
+      "references/capabilities/launch/SKILL.md",
+      "references/runtime/registry-versioning.md",
+      "schemas/decision-record.yaml"
+    ],
+    "extra_reads": {},
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_8",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_9",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_10",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_12",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_13",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_14",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_15",
+        "reason": "read-only line count",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "FAIL"
+  },
+  "validation_errors": [],
+  "behavior_issues": [
+    "CAPABILITY_SELECTION_MISMATCH",
+    "CAPABILITY_MODE_MISMATCH:production-learning",
+    "CAPABILITY_MODE_MISMATCH:evaluation",
+    "CAPABILITY_MODE_MISMATCH:responsible-ai",
+    "GATE_UNEXPECTED_EVIDENCE_GAP",
+    "REPLAN_SCOPE_MISMATCH"
+  ],
+  "normalized_result": {
+    "profile": {
+      "delivery_target": "ENTERPRISE",
+      "project_mode": "BROWNFIELD",
+      "assignment_scope": {
+        "mode": "PARTIAL_PROJECT",
+        "requested_scope": [
+          "生产质量问题评估",
+          "风险与安全升级召回率调查",
+          "受影响发布工作"
+        ],
+        "excluded_scope": [
+          "一般用户 Discovery",
+          "竞品研究",
+          "商业论证",
+          "路线图",
+          "常规 pilot"
+        ],
+        "expected_deliverables": [
+          "Profile",
+          "Capability Need",
+          "Production Evidence",
+          "Release Readiness Gate",
+          "Decision reopen 判断",
+          "局部 Replan"
+        ],
+        "ownership_boundary": [
+          "只评估生产质量、风险、受影响任务和发布就绪性",
+          "不执行产品变更、发布或外部写入"
+        ]
+      },
+      "nodes": [
+        {
+          "node": "Qualification",
+          "status": "SATISFIED",
+          "level": "REQUIRED",
+          "depth": "VERIFY",
+          "scope_role": "PRIMARY",
+          "active_capabilities": [],
+          "reused_artifacts": [
+            "D-P1",
+            "SRC-P1",
+            "SRC-P2"
+          ],
+          "gaps": [],
+          "reasons": [
+            "交付目标、范围、风险和受影响任务已明确"
+          ],
+          "external_project_requirement": null
+        },
+        {
+          "node": "Cognition",
+          "status": "ACTIVE",
+          "level": "REQUIRED",
+          "depth": "VERIFY",
+          "scope_role": "SUPPORTING",
+          "active_capabilities": [],
+          "reused_artifacts": [
+            "product v1.3",
+            "model M2",
+            "prompt P7"
+          ],
+          "gaps": [
+            "需要核查受影响生产路径及临时人工分流状态"
+          ],
+          "reasons": [
+            "项目为既有生产系统，且当前任务涉及受影响代码路径和发布状态"
+          ],
+          "external_project_requirement": null
+        },
+        {
+          "node": "Product Definition & Scope",
+          "status": "SATISFIED",
+          "level": "LIGHT",
+          "depth": "VERIFY",
+          "scope_role": "PRIMARY",
+          "active_capabilities": [],
+          "reused_artifacts": [
+            "D-P1"
+          ],
+          "gaps": [],
+          "reasons": [
+            "本次范围限定为生产质量、风险和受影响发布工作"
+          ],
+          "external_project_requirement": null
+        },
+        {
+          "node": "Solution Design",
+          "status": "BLOCKED",
+          "level": "REQUIRED",
+          "depth": "MINIMAL",
+          "scope_role": "SUPPORTING",
+          "active_capabilities": [
+            "Evaluation Design",
+            "责任 AI、安全与风险"
+          ],
+          "reused_artifacts": [
+            "D-P1"
+          ],
+          "gaps": [
+            "缺少针对安全升级零漏分要求的修复方案和验证设计"
+          ],
+          "reasons": [
+            "Enterprise 生产风险要求明确控制、人工确认、回滚和验证条件"
+          ],
+          "external_project_requirement": null
+        },
+        {
+          "node": "Implementation",
+          "status": "BLOCKED",
+          "level": "REQUIRED",
+          "depth": "MINIMAL",
+          "scope_role": "PRIMARY",
+          "active_capabilities": [],
+          "reused_artifacts": [],
+          "gaps": [
+            "尚无已验证的最小修复结果"
+          ],
+          "reasons": [
+            "本评估不执行产品工作，且修复方案和验收标准尚未完成"
+          ],
+          "external_project_requirement": null
+        },
+        {
+          "node": "Validation & Iteration",
+          "status": "BLOCKED",
+          "level": "REQUIRED",
+          "depth": "FULL",
+          "scope_role": "PRIMARY",
+          "active_capabilities": [
+            "评测与质量",
+            "责任 AI、安全与风险"
+          ],
+          "reused_artifacts": [
+            "SRC-P1",
+            "SRC-P2"
+          ],
+          "gaps": [
+            "缺少修复后的定向评测、回归评测和完整验收标准"
+          ],
+          "reasons": [
+            "现有生产证据显示安全升级召回率为97%，不满足零漏分要求"
+          ],
+          "external_project_requirement": null
+        },
+        {
+          "node": "Release & Operation",
+          "status": "BLOCKED",
+          "level": "REQUIRED",
+          "depth": "FULL",
+          "scope_role": "PRIMARY",
+          "active_capabilities": [
+            "生产观测与学习闭环"
+          ],
+          "reused_artifacts": [
+            "SRC-P1",
+            "SRC-P2"
+          ],
+          "gaps": [
+            "缺少修复版本的发布验证、监控覆盖、回滚条件和责任边界证据"
+          ],
+          "reasons": [
+            "当前系统已临时降级为全部人工分流，不能证明目标版本可安全恢复发布"
+          ],
+          "external_project_requirement": null
+        },
+        {
+          "node": "Retrospective",
+          "status": "SKIPPED",
+          "level": "SKIP",
+          "depth": "SKIP",
+          "scope_role": "OUT_OF_SCOPE",
+          "active_capabilities": [],
+          "reused_artifacts": [],
+          "gaps": [],
+          "reasons": [
+            "本次仅处理生产质量、风险和受影响发布工作"
+          ],
+          "external_project_requirement": "事件复盘与组合学习需在本次范围外单独安排"
+        }
+      ],
+      "validation_context": {
+        "existing_repository_modification": true,
+        "verified_design": false,
+        "acceptance_criteria_defined": false,
+        "production_release": false,
+        "release_execution": false,
+        "monitoring_covered": false,
+        "release_readiness": "BLOCKED"
+      }
+    },
+    "capability_needs": [
+      {
+        "capability": "评测与质量",
+        "mode": "EXECUTE",
+        "reason": "需要针对安全升级召回率100%要求执行定向评测、回归评测并验证最小修复。",
+        "supported_lifecycle_node": "Validation & Iteration",
+        "decision_to_unlock": "判断修复版本是否满足D-P1的安全升级零漏分条件"
+      },
+      {
+        "capability": "责任 AI、安全与风险",
+        "mode": "EXECUTE",
+        "reason": "生产安全升级出现3/100漏分并造成42分钟响应延迟，需要识别根因、补充guardrail和人工确认控制。",
+        "supported_lifecycle_node": "Solution Design",
+        "decision_to_unlock": "确定安全风险控制和恢复发布的必要条件"
+      },
+      {
+        "capability": "生产观测与学习闭环",
+        "mode": "EXECUTE",
+        "reason": "需要将事件诊断、召回率监控、告警、暂停或回滚条件和后续观察闭环化。",
+        "supported_lifecycle_node": "Release & Operation",
+        "decision_to_unlock": "判断修复版本是否具备Enterprise生产发布所需的观测与运营证据"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E-P1",
+        "type": "ProductionMonitoring",
+        "source": "SRC-P1",
+        "observed_at": "not supplied",
+        "context": "product v1.3 / model M2 / prompt P7 最近7天生产监控",
+        "supports": [
+          "安全升级召回率低于既定100%要求",
+          "需要重新评估D-P1"
+        ],
+        "contradicts": [
+          "D-P1中安全类依赖零漏分guardrail的条件"
+        ],
+        "observation": "安全升级召回率从100%降至97%，3/100被漏分。",
+        "interpretation": "当前安全升级分流不满足D-P1的零漏分要求。",
+        "confidence": "HIGH",
+        "limitations": [
+          "仅覆盖最近7天和100个样本",
+          "未提供修复后评测证据"
+        ],
+        "version": "v1",
+        "owner": "not supplied"
+      },
+      {
+        "id": "E-P2",
+        "type": "ProductionIncident",
+        "source": "SRC-P2",
+        "observed_at": "not supplied",
+        "context": "安全升级漏分事件及当前生产处置",
+        "supports": [
+          "事件具有实际生产影响",
+          "当前系统已进入临时人工分流状态"
+        ],
+        "contradicts": [],
+        "observation": "其中1个漏分导致安全专席响应延迟42分钟；事件已containment，系统已临时降级为全部人工分流。",
+        "interpretation": "在缺少修复验证和发布就绪证据前，恢复AI建议分流存在未解决的生产风险。",
+        "confidence": "HIGH",
+        "limitations": [
+          "未提供根因分析",
+          "未提供修复版本或回滚验证结果"
+        ],
+        "version": "v1",
+        "owner": "not supplied"
+      },
+      {
+        "id": "E-P3",
+        "type": "DecisionTrigger",
+        "source": "SRC-P1",
+        "observed_at": "not supplied",
+        "context": "D-P1预先声明的reopen_trigger",
+        "supports": [
+          "safety escalation recall falls below 100%"
+        ],
+        "contradicts": [],
+        "observation": "安全升级召回率为97%，低于100%。",
+        "interpretation": "已命中D-P1的reopen_trigger。",
+        "confidence": "HIGH",
+        "limitations": [
+          "未提供新的替代决策"
+        ],
+        "version": "v1",
+        "owner": "not supplied"
+      }
+    ],
+    "gate": {
+      "name": "Release Readiness",
+      "result": "BLOCKED",
+      "evidence_refs": [
+        "E-P1",
+        "E-P2"
+      ],
+      "rationale": "生产监控显示安全升级召回率97%，不满足零漏分要求；漏分已造成42分钟响应延迟，且当前仅有临时全部人工分流，尚无修复后验证、监控覆盖、回滚条件和发布验证证据。",
+      "missing_evidence": [
+        "修复版本的安全升级定向评测和回归评测",
+        "验收标准与Evaluation Design",
+        "修复版本的生产监控、告警和回滚条件",
+        "恢复发布的授权、责任人和发布验证记录"
+      ]
+    },
+    "replan": {
+      "required": true,
+      "change_type": "DECISION_CHANGE",
+      "reopen_trigger": {
+        "decision_id": "D-P1",
+        "trigger": "safety escalation recall falls below 100%",
+        "evidence_refs": [
+          "E-P3"
+        ]
+      },
+      "actions": [
+        {
+          "action": "OUTDATE",
+          "target": "T-ROUTING-EVAL"
+        },
+        {
+          "action": "OUTDATE",
+          "target": "T-ROUTING-ROLLOUT"
+        },
+        {
+          "action": "ADD",
+          "target": "T-ROUTING-INCIDENT"
+        },
+        {
+          "action": "PRESERVE",
+          "target": "T-BILLING"
+        }
+      ]
+    },
+    "claims": {
+      "external_write_performed": false,
+      "invented_evidence": false
+    }
+  },
+  "status": "FAIL"
+}

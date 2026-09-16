@@ -14,64 +14,17 @@ Qualification 是生成初始 Profile 的前置检查；完成后由 [Execution 
 
 至少需要当前请求或目标，以及用户已经提供的材料。可用输入包括交付物期望、交付目标、Assignment Scope、现有资产、约束和风险；缺失项在本节点分类，不要求先填写固定问卷。
 
-## Capabilities
+## Required Decisions / State
 
-delivery target, assignment scope, context intake, completeness check, clarification, profile generation.
+- 交付目标为 `PROTOTYPE | DEMO | MVP | ENTERPRISE | UNDECIDED`；
+- Assignment Scope、预期交付物、排除项和 ownership boundary 明确；
+- 相关材料与资产按 [Execution Profile](../runtime/execution-profile.md) 分类；
+- 重要输入标记为 `KNOWN | MISSING_NON_BLOCKING | MISSING_BLOCKING`，事实与假设分开；
+- 风险筛查、依赖闭包和 Qualification Gate 已得到可解释结论。
 
-## Procedure
+## Capability Routing
 
-### 5.0 Initial Response Protocol
-
-When starting a new project or major assignment:
-
-1. If the delivery target is already explicit, do not ask again. Otherwise ask the user to choose `PROTOTYPE`, `DEMO`, `MVP`, `ENTERPRISE`, or `UNDECIDED`.
-2. If product/project materials are already available, inspect them before asking detailed questions. Otherwise ask the user to provide the best available product context document, repository, prototype description, or equivalent source material.
-3. Infer Assignment Scope from the request when clear. Ask only when ownership or expected deliverables are ambiguous enough to change the plan.
-4. Perform completeness classification after inspection, then ask only blocking clarification questions.
-5. Generate the Execution Profile and concise Plan Preview before substantial execution.
-
-Do not repeat questions whose answers are already present in the conversation or supplied materials.
-
-### Delivery Target
-
-按 [Execution Profile — Delivery Target](../runtime/execution-profile.md) 判断交付目标。
-
-### Assignment Scope
-
-按 [Execution Profile — Assignment Scope](../runtime/execution-profile.md) 确定本次任务边界。
-
-### 5.3 Inspect Product Context
-
-Prefer existing source material over repeated questioning. Relevant inputs may include:
-
-- PRD / BRD / project description
-- prototype or design specification
-- repository
-- architecture or technical design
-- API documentation
-- database schema
-- datasets or knowledge assets
-- evaluation datasets or reports
-- deployment configuration
-- user research, feedback, or historical decisions
-
-Build a concise `Product Context Snapshot` covering only known information that affects the task.
-
-### 5.4 Classify Missing Information
-
-Every important field is one of:
-
-- `KNOWN`
-- `MISSING_NON_BLOCKING`
-- `MISSING_BLOCKING`
-
-Blocking status depends on delivery target and current assignment. Do not use a fixed questionnaire.
-
-Ask only the smallest set of questions required to unblock reliable planning.
-
-### Qualification Gate
-
-执行 [Qualification Gate](../runtime/gates.md#qualification-gate)。
+仅当 Qualification 的 gap 需要专业判断时调用：价值或投资合理性使用[商业论证与优先级](../capabilities/business-case/SKILL.md)；问题仍不清楚时使用[用户与机会发现](../capabilities/discovery/SKILL.md)；AI 是否适用不清楚时使用[AI 可行性与原型](../capabilities/ai-feasibility/SKILL.md)；存在敏感、高影响或滥用风险时使用[责任 AI、安全与风险](../capabilities/responsible-ai/SKILL.md)。若当前范围已明确排除敏感、高影响、外部工具和自动行动，且没有相反证据，不得仅为重述该边界而调用 Responsible AI。Capability 提供证据，Qualification Gate 负责推进判断。
 
 ## Outputs
 
@@ -91,12 +44,8 @@ Ask only the smallest set of questions required to unblock reliable planning.
 
 ## Dependencies
 
-执行深度由 [Execution Profile](../runtime/execution-profile.md) 计算。
+执行深度、资产状态和依赖闭包由 [Execution Profile](../runtime/execution-profile.md) 计算；Gate 规则见 [Qualification Gate](../runtime/gates.md#qualification-gate)。数据对象按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
 
-## Load With
+## Boundaries
 
-仅在相应操作发生时加载上面链接的 Runtime 文件；数据对象定义按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
-
-## Do Not
-
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要重复询问已有答案，也不要在目标或范围仍会实质改变计划时开始构建。
+不要重复询问已有答案，不使用固定问卷替代 gap 判断，不在目标或范围仍会实质改变计划时开始构建，也不把 Capability 分析结果直接当作 Gate 结论。

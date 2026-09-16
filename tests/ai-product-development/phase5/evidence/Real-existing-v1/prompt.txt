@@ -1,0 +1,4 @@
+Use the copied AI product development Skill at skill/SKILL.md to complete this real PM work request. Read its entrypoint and only the references genuinely needed. The workspace is read-only; do not edit files, run tests, call external services, or claim you verified anything beyond supplied materials. Deliver a concise Chinese PM work product, not a test JSON envelope: decisions with evidence/uncertainty, the minimum necessary next tasks and dependencies, acceptance/gate conditions, and what remains for a human owner to confirm. Do not narrate Skill internals unless needed to explain a decision.
+
+User request:
+你接手 product/ 中的现有反馈整理工具。业务现在希望它能按反馈来源做不同的主题与紧急程度判断，同时继续支持当前 CSV 和 JSON/Markdown 输出，并保持原始反馈的证据引用。请先阅读真实的 README、代码和样例数据，判断当前能力与缺口，给出必要的产品/AI Capability、方案变更、验收与实施顺序。本轮只交付可执行修改方案，不改代码；不要重做已由现有资产证明的工作，也不要扩展到云端或多人平台。

@@ -14,24 +14,17 @@ make the result safely usable at the requested delivery level.
 - 交付目标、发布范围、目标用户/环境和必要授权；
 - Release Readiness 条件，以及适用的监控、成本、回滚和运营要求。
 
-## Capabilities
+## Required Decisions / State
 
-release readiness, deployment, monitoring, cost/performance validation, pilot/observation, rollback readiness, scale decision.
+- 发布单元、目标环境、受众、渠道、版本和责任人明确；
+- Release Readiness 已基于功能、质量、风险、权限、成本、监控和回滚证据判定；
+- 部署、发布或外部写入已获得所需授权；
+- rollout 的继续、暂停、缩小或回滚条件明确；
+- 发布后的采用、可靠性、质量、成本和风险信号有去向。
 
-## Procedure
+## Capability Routing
 
-1. 明确发布单元、目标环境、受众、渠道和负责人。
-2. 按交付目标检查功能、质量、安全、权限、成本、监控和回滚要求。
-3. 记录 Release Readiness；只执行已获授权的部署、发布或外部写入。
-4. 发布后执行必要的部署验证或 smoke check。
-5. 在适用时观察使用、可靠性、质量和成本，并决定继续、暂停或回滚。
-
-Activate only what the delivery target needs.
-
-- Prototype: usually `SKIP`.
-- Demo: often `LIGHT`.
-- MVP: normally `REQUIRED` at practical pilot depth.
-- Enterprise: `REQUIRED` with production-appropriate controls.
+受控 pilot 调用[实验与试点](../capabilities/experimentation/SKILL.md)；需要规划、执行或恢复面向用户的 rollout、采用和赋能时调用[发布、采用与赋能](../capabilities/launch/SKILL.md)，若 Release Readiness 已阻塞且当前只补质量或风险证据则不调用；生产质量、成本、反馈和事件闭环调用[生产观测与学习闭环](../capabilities/production-learning/SKILL.md)；高影响、受监管或滥用风险调用[责任 AI、安全与风险](../capabilities/responsible-ai/SKILL.md)。
 
 ## Outputs
 
@@ -46,12 +39,8 @@ Release Readiness 结果；已发布版本、环境和受众，或明确阻塞�
 
 ## Dependencies
 
-生产发布依赖见 [Dependency Closure](../runtime/execution-profile.md)；执行 [Release Readiness](../runtime/gates.md#release-readiness)。
+生产发布依赖见 [Dependency Closure](../runtime/execution-profile.md)；执行 [Release Readiness](../runtime/gates.md#release-readiness)，正式版本状态遵循 [Registry](../runtime/registry-versioning.md)。
 
-## Load With
+## Boundaries
 
-仅在相应操作发生时加载上面链接的 Runtime 文件；数据对象定义按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
-
-## Do Not
-
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要在未授权时发布，不要跳过必要 readiness，也不要给 Demo 强加 Enterprise 运营体系。
+Prototype 通常 `SKIP`，Demo 通常 `LIGHT`，MVP 和 Enterprise 按实际风险提升深度。不要在 Lifecycle 中复制 rollout 或运营方法，不在未授权时发布，不跳过必要 readiness，也不给 Demo 强加 Enterprise 体系。

@@ -17,6 +17,22 @@ NODES = [
     "Release & Operation", "Retrospective",
 ]
 RUNTIME = ["Profile", "Planner", "Context", "Executor", "Registry", "Replan"]
+PHASE2_APPROVED_RELOCATIONS = {
+    57,
+    146, 148, 149, 150, 151, 152, 154,
+    195, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 208,
+    212, 214, 215, 216, 218, 220,
+    386,
+    396, 402, 403, 404,
+    410, 414,
+    420, 424, 425, 426, 427, 428, 429, 430, 431,
+    435, 436, 437, 438, 439, 440,
+    452, 454,
+    460, 462, 464, 466, 467, 468, 469, 470, 471, 472, 473, 474, 476,
+    482, 484, 486, 487, 488, 489,
+    495, 497,
+    634, 732,
+}
 
 def digest(value):
     return hashlib.sha256(value.encode("utf-8")).hexdigest()
@@ -65,12 +81,12 @@ def validate(source=None):
     check(parsed.get("name") == "ai-product-development" and bool(parsed.get("description")), "Invalid activation metadata")
     lifecycle = kernel.split("## 2. Lifecycle", 1)[1].split("## 3. Runtime", 1)[0]
     check(re.findall(r"^\d+\. \x60(.+)\x60$", lifecycle, re.M) == NODES, "Lifecycle names/order changed")
-    runtime = kernel.split("## 3. Runtime", 1)[1].split("## Global Invariants", 1)[0]
+    runtime = kernel.split("## 3. Runtime", 1)[1].split("## 4. Architecture and Responsibility Boundary", 1)[0]
     check(re.findall(r"^- \x60([^\x60]+)\x60", runtime, re.M) == RUNTIME, "Runtime capability model changed")
     lifecycle_files = sorted((SKILL / "references/lifecycle").glob("*.md"))
     check(len(lifecycle_files) == 8, "Expected eight lifecycle references")
     check(len(list((SKILL / "references/runtime").glob("*.md"))) == 7, "Expected seven runtime responsibility references")
-    headings = ["Purpose", "Activation Conditions", "Required Inputs", "Capabilities", "Procedure", "Outputs", "Completion Criteria", "Dependencies", "Load With", "Do Not"]
+    headings = ["Purpose", "Activation Conditions", "Required Inputs", "Required Decisions / State", "Capability Routing", "Outputs", "Completion Criteria", "Dependencies", "Boundaries"]
     for node, path in zip(NODES, lifecycle_files):
         text = path.read_text(encoding="utf-8")
         check(text.splitlines()[0] == "# " + node, f"Wrong node: {path.name}")
@@ -95,13 +111,23 @@ def validate(source=None):
 
     objects = {}
     schema_paths = sorted((SKILL / "schemas").glob("*.yaml"))
-    check(len(schema_paths) == 5, "Expected five schema files")
+    check(len(schema_paths) == 7, "Expected seven schema files")
     for path in schema_paths:
         value = yaml.safe_load(path.read_text(encoding="utf-8"))
         for name, fields in value.items():
             check(name not in objects, f"Duplicate schema object: {name}")
             objects[name] = digest(json.dumps(fields, sort_keys=True, ensure_ascii=False))
-    check(objects == baseline["schema_objects"], "Source schema fields/enums/values changed")
+    original_objects = dict(objects)
+    project_state = yaml.safe_load((SKILL / "schemas/project-state.yaml").read_text(encoding="utf-8"))
+    for field in ("evidence_refs", "decision_refs"):
+        project_state["Artifact"].pop(field, None)
+    original_objects["Artifact"] = digest(json.dumps(project_state["Artifact"], sort_keys=True, ensure_ascii=False))
+    context_pack = yaml.safe_load((SKILL / "schemas/context-pack.yaml").read_text(encoding="utf-8"))["TaskContextPack"]
+    context_pack.pop("relevant_evidence", None)
+    original_objects["TaskContextPack"] = digest(json.dumps(context_pack, sort_keys=True, ensure_ascii=False))
+    for name, expected_digest in baseline["schema_objects"].items():
+        check(original_objects.get(name) == expected_digest, f"Source schema changed outside approved Phase 3 additions: {name}")
+    check(set(objects) == set(baseline["schema_objects"]) | {"EvidenceRecord", "DecisionRecord"}, "Canonical schema object set changed")
 
     check(len(baseline["rules"]) == 533, "Migration rule inventory changed")
     check(len({r["source_line"] for r in baseline["rules"]}) == 533, "Duplicate migration source line")
@@ -112,7 +138,12 @@ def validate(source=None):
             path = ROOT / name
             check(path.is_file(), f"Missing canonical file: {name}")
             by_path[name] = {digest(norm(line)) for line in path.read_text(encoding="utf-8").splitlines()} if path.is_file() else set()
-        check(rule["canonical_sha256"] in by_path[name], f"Source line {rule['source_line']} lost from {name}")
+        retained = rule["canonical_sha256"] in by_path[name]
+        if not retained and rule["source_line"] in PHASE2_APPROVED_RELOCATIONS:
+            decision = ROOT / "docs/decisions/006-ai-pm-capability-playbooks.md"
+            check(decision.is_file(), "Missing Phase 2 capability relocation decision")
+            continue
+        check(retained, f"Source line {rule['source_line']} lost from {name}")
 
     sections = json.loads(Path(__file__).with_name("section-migration.json").read_text(encoding="utf-8"))
     check(sections["source_sha256"] == baseline["source_sha256"], "Section source mismatch")

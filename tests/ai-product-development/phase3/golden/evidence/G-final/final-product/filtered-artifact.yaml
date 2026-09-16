@@ -9,5 +9,7 @@ source_tasks:
 - T4
 source_records:
 - R1
+evidence_refs: []
+decision_refs: []
 dependencies:
 - report-v1

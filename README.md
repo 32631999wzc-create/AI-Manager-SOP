@@ -17,6 +17,8 @@ AI-Manager-SOP 是一套可安装到 Codex 的 AI 产品开发 Skill。它根据
 
 当前成熟度：本地单用户持续交付 Beta。多人实时协作、云端状态、组织级组合管理、财务模型、法务采购和自动生产发布不属于默认范围；项目明确需要时，可作为具体任务处理。
 
+使用前请查看 [Usage Boundary](docs/usage-boundary.md)：适用任务、人工确认点、证据质量依赖以及 LIGHT/实验性边界。
+
 ## 2. 安装
 
 ### 推荐：让 Codex 安装
@@ -129,6 +131,8 @@ Execution Profile 会为全部八节点记录范围角色、执行深度、资�
 | Retrospective | 哪些经验和资产值得复用 | 结果复盘、学习、债务、复用资产和后续行动 | 只保留有证据且会改变决策的经验 |
 
 详细节点合同位于 [lifecycle references](skills/ai-product-development/references/lifecycle/)。每个节点统一包含 Purpose、Activation Conditions、Required Inputs、Capabilities、Procedure、Outputs、Completion Criteria、Dependencies、Load With 和 Do Not。
+
+八节点下还有一组按需加载的 [AI PM Professional Capability Domains](skills/ai-product-development/references/capabilities/)。它们补充用户研究、市场与竞品、商业论证、路线图、PRD、需求评审、AI 可行性、数据、Human-AI 体验、评测、安全、跨职能交付、实验、发布采用、生产学习闭环和复盘等专业方法。Capability 不是第九个生命周期、固定步骤或独立状态机，也不会因为存在就自动成为任务；Planner 只根据 lifecycle gap 和待解锁决策选择必要 domain。
 
 ## 6. 执行时会发生什么
 

@@ -2,6 +2,7 @@ TaskContextPack:
   task:
   relevant_facts: []
   relevant_decisions: []
+  relevant_evidence: []
   relevant_constraints: []
   relevant_artifacts: []
   recent_changes: []

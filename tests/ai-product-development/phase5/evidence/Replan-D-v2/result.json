@@ -1,0 +1,70 @@
+{
+  "case": "D",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/planner.md",
+      "references/runtime/replan-recovery.md",
+      "references/runtime/execution-profile.md"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_2+item_3+item_4+item_5+item_6+item_7+item_8+item_9",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 160 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 200 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 280\""
+      },
+      {
+        "file": "references/runtime/planner.md",
+        "item_id": "item_10+item_11+item_12+item_13",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 120\""
+      },
+      {
+        "file": "references/runtime/replan-recovery.md",
+        "item_id": "item_14+item_15",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8 | Select-Object -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8 | Select-Object -Skip 40\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_16+item_17+item_18+item_19",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 120\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {},
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "issues": [],
+  "result": {
+    "trigger_assessment": {
+      "baseline_exists": true,
+      "change_event_exists": true,
+      "material_impact_exists": true,
+      "operation_mode": "PROFILE_REPLAN"
+    },
+    "replan": {
+      "required": true,
+      "change_type": "SCOPE_CHANGE",
+      "reopen_trigger": null,
+      "actions": [
+        {
+          "action": "PRESERVE",
+          "target": "T-PROTOTYPE"
+        },
+        {
+          "action": "ADD",
+          "target": "T-MVP-PROFILE"
+        }
+      ]
+    },
+    "claims": {
+      "external_write_performed": false,
+      "invented_evidence": false
+    }
+  },
+  "status": "PASS",
+  "infra_issues": []
+}

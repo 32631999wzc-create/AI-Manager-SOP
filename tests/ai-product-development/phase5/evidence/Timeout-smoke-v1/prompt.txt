@@ -1,0 +1,11 @@
+Use the copied AI product development skill for one read-only Capability Need routing decision. Do not execute any capability, write files, or do product work.
+
+Execute each command below separately and in exact order; read no other file:
+Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 160 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 200 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 280; Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -First 40; Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40; Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40; Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 120
+
+Assignment facts: The current assignment only asks to report the status of an already approved plan. Build Readiness is decided; there is no unresolved lifecycle gap, decision to unlock, or new evidence to assess.
+
+Return exactly one JSON object and no prose:
+{"gap_exists":true,"evidence_state":"ABSENT|UNVERIFIED|VERIFIED|IRRELEVANT","decision_to_unlock":"specific pending decision or null","capability_need":{"capability":"router domain slug or label","mode":"EXECUTE|VERIFY|REUSE","reason":"specific gap and asset state","supported_lifecycle_node":"node","decision_to_unlock":"specific pending decision"}}
+
+Use capability_need=null when there is no gap. Select at most one primary domain for the requirements decision. An existing asset is not a reason to repeat its work; do not activate a capability merely because it is usually relevant.

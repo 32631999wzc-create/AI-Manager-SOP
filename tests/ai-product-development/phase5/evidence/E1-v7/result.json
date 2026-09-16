@@ -1,0 +1,397 @@
+{
+  "scenario": "E1",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/lifecycle/06-validation-iteration.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/gates.md",
+      "schemas/execution-profile.yaml",
+      "schemas/evidence-record.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_2+item_3+item_4+item_5+item_6",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 180 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_19",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/lifecycle/03-product-definition.md",
+        "item_id": "item_20",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/03-product-definition.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/lifecycle/04-solution-design.md",
+        "item_id": "item_21",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/04-solution-design.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/lifecycle/06-validation-iteration.md",
+        "item_id": "item_22",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/06-validation-iteration.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/gates.md",
+        "item_id": "item_23",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_24",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/evidence-record.yaml",
+        "item_id": "item_25",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/schemas/evidence-record.yaml' -Encoding UTF8\""
+      }
+    ],
+    "missing": [
+      "references/runtime/execution-profile.md"
+    ],
+    "extra_reads": {
+      "references/lifecycle/03-product-definition.md": "optional profile dependency interpretation",
+      "references/lifecycle/04-solution-design.md": "optional prototype and evaluation dependency interpretation"
+    },
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_8",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_9",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_10",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_12",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_13",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_14",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_15",
+        "reason": "read-only line count",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [
+      "UNVERIFIED_READ: item_17"
+    ],
+    "status": "FAIL"
+  },
+  "validation_errors": [],
+  "behavior_issues": [
+    "CAPABILITY_SELECTION_MISMATCH"
+  ],
+  "normalized_result": {
+    "profile": {
+      "delivery_target": "PROTOTYPE",
+      "project_mode": "GREENFIELD",
+      "assignment_scope": {
+        "mode": "PARTIAL_PROJECT",
+        "requested_scope": [
+          "问题验证规划",
+          "可运行原型规划",
+          "离线验证规划"
+        ],
+        "excluded_scope": [
+          "研究执行",
+          "产品构建执行",
+          "发布执行"
+        ],
+        "expected_deliverables": [
+          "可靠的产品开发规划与评估结论"
+        ],
+        "ownership_boundary": [
+          "当前仅负责规划与资格评估"
+        ]
+      },
+      "nodes": [
+        {
+          "node": "Qualification",
+          "status": "SATISFIED",
+          "level": "REQUIRED",
+          "depth": "FULL",
+          "scope_role": "PRIMARY",
+          "active_capabilities": [
+            "用户与机会发现",
+            "AI 可行性与原型"
+          ],
+          "reused_artifacts": [],
+          "gaps": [
+            "真实用户问题、使用频率、耗时和失败后果尚未验证"
+          ],
+          "reasons": [
+            "目标与当前规划范围明确，但关键问题验证证据不足"
+          ],
+          "external_project_requirement": []
+        },
+        {
+          "node": "Cognition",
+          "status": "SKIPPED",
+          "level": "SKIP",
+          "depth": "SKIP",
+          "scope_role": "OUT_OF_SCOPE",
+          "active_capabilities": [],
+          "reused_artifacts": [],
+          "gaps": [],
+          "reasons": [
+            "Greenfield 项目，无既有产品、系统或仓库可供认知"
+          ],
+          "external_project_requirement": []
+        },
+        {
+          "node": "Product Definition & Scope",
+          "status": "ACTIVE",
+          "level": "REQUIRED",
+          "depth": "FULL",
+          "scope_role": "PRIMARY",
+          "active_capabilities": [
+            "产品需求定义",
+            "用户与机会发现"
+          ],
+          "reused_artifacts": [],
+          "gaps": [
+            "目标用户、价值假设、成功指标和验收口径尚未充分定义"
+          ],
+          "reasons": [
+            "需要将未经验证的问题陈述转为可实现、可评估的原型范围"
+          ],
+          "external_project_requirement": []
+        },
+        {
+          "node": "Solution Design",
+          "status": "ACTIVE",
+          "level": "REQUIRED",
+          "depth": "MINIMAL",
+          "scope_role": "SUPPORTING",
+          "active_capabilities": [
+            "AI 可行性与原型",
+            "Evaluation Design",
+            "数据策略与治理",
+            "Human-AI 体验"
+          ],
+          "reused_artifacts": [],
+          "gaps": [
+            "AI 工作流、人工审阅边界、数据覆盖要求和离线评测设计尚未确定"
+          ],
+          "reasons": [
+            "Implementation 与 Validation 的依赖闭包要求最小方案设计和 Evaluation Design"
+          ],
+          "external_project_requirement": []
+        },
+        {
+          "node": "Implementation",
+          "status": "SKIPPED",
+          "level": "SKIP",
+          "depth": "SKIP",
+          "scope_role": "OUT_OF_SCOPE",
+          "active_capabilities": [],
+          "reused_artifacts": [],
+          "gaps": [
+            "可运行原型尚未构建"
+          ],
+          "reasons": [
+            "本次 assignment 明确不执行构建"
+          ],
+          "external_project_requirement": [
+            "后续需要构建仅生成建议、不调用外部工具、不自动创建任务的可运行原型"
+          ]
+        },
+        {
+          "node": "Validation & Iteration",
+          "status": "ACTIVE",
+          "level": "REQUIRED",
+          "depth": "MINIMAL",
+          "scope_role": "PRIMARY",
+          "active_capabilities": [
+            "评测与质量"
+          ],
+          "reused_artifacts": [
+            "6 份已去标识会议记录"
+          ],
+          "gaps": [
+            "验收标准、评测集代表性、grader、阈值和离线验证结果均缺失"
+          ],
+          "reasons": [
+            "离线验证明确属于目标范围，但当前仅有有限样例且尚无验证证据"
+          ],
+          "external_project_requirement": []
+        },
+        {
+          "node": "Release & Operation",
+          "status": "SKIPPED",
+          "level": "SKIP",
+          "depth": "SKIP",
+          "scope_role": "OUT_OF_SCOPE",
+          "active_capabilities": [],
+          "reused_artifacts": [],
+          "gaps": [],
+          "reasons": [
+            "Prototype 且当前不执行发布；无生产发布要求"
+          ],
+          "external_project_requirement": []
+        },
+        {
+          "node": "Retrospective",
+          "status": "SKIPPED",
+          "level": "SKIP",
+          "depth": "SKIP",
+          "scope_role": "OUT_OF_SCOPE",
+          "active_capabilities": [],
+          "reused_artifacts": [],
+          "gaps": [],
+          "reasons": [
+            "尚未执行研究、构建或验证，暂无可复盘结果"
+          ],
+          "external_project_requirement": []
+        }
+      ],
+      "validation_context": {
+        "existing_repository_modification": false,
+        "verified_design": false,
+        "acceptance_criteria_defined": false,
+        "production_release": false,
+        "release_execution": false,
+        "monitoring_covered": false,
+        "release_readiness": "BLOCKED"
+      }
+    },
+    "capability_needs": [
+      {
+        "capability": "用户与机会发现",
+        "mode": "EXECUTE",
+        "reason": "尚未访谈真实使用者，也没有频率、耗时或失败后果数据，无法确认问题严重性和目标用户需求。",
+        "supported_lifecycle_node": "Qualification",
+        "decision_to_unlock": "确认是否值得为该会议行动项整理问题继续规划原型。"
+      },
+      {
+        "capability": "产品需求定义",
+        "mode": "EXECUTE",
+        "reason": "当前材料未定义足以支持实现和评测的目标用户、成功指标、验收标准与非目标。",
+        "supported_lifecycle_node": "Product Definition & Scope",
+        "decision_to_unlock": "锁定 Prototype 的可实现范围与成功口径。"
+      },
+      {
+        "capability": "AI 可行性与原型",
+        "mode": "EXECUTE",
+        "reason": "可运行原型与离线验证在 assignment scope 内，但尚无 AI 链路可行性或基线证据。",
+        "supported_lifecycle_node": "Solution Design",
+        "decision_to_unlock": "确认生成会议行动项建议的 AI 方案是否适合 Prototype。"
+      },
+      {
+        "capability": "数据策略与治理",
+        "mode": "EXECUTE",
+        "reason": "现有 6 份会议记录尚未证明覆盖不同会议类型，需要明确样本覆盖、适用边界和数据质量要求。",
+        "supported_lifecycle_node": "Solution Design",
+        "decision_to_unlock": "确定离线评测数据是否足以支持原型设计与解释性结论。"
+      },
+      {
+        "capability": "Human-AI 体验",
+        "mode": "EXECUTE",
+        "reason": "产品只生成建议且不自动创建任务，需要明确建议展示、人工审阅、纠正与失败处理边界。",
+        "supported_lifecycle_node": "Solution Design",
+        "decision_to_unlock": "确定安全可控的建议交互与人工责任边界。"
+      },
+      {
+        "capability": "评测与质量",
+        "mode": "EXECUTE",
+        "reason": "离线验证明确在范围内，但尚无 acceptance criteria、评测集、grader、阈值或回归证据。",
+        "supported_lifecycle_node": "Validation & Iteration",
+        "decision_to_unlock": "定义并验证 Prototype 是否达到离线质量要求。"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E-G1",
+        "type": "stakeholder_statement",
+        "source": "SRC-G1",
+        "observed_at": "not supplied",
+        "context": "Greenfield AI Product 的发起人说明",
+        "supports": [],
+        "contradicts": [],
+        "observation": "项目团队经常在会后手工整理行动项，但尚未访谈真实使用者，也没有频率、耗时或失败后果数据。",
+        "interpretation": "真实用户问题、使用频率、成本和失败影响尚未得到验证。",
+        "confidence": "HIGH",
+        "limitations": [
+          "仅反映发起人说明，不能代表真实使用者或完整团队。"
+        ],
+        "version": "v1",
+        "owner": "not supplied"
+      },
+      {
+        "id": "E-G2",
+        "type": "existing_material",
+        "source": "SRC-G2",
+        "observed_at": "not supplied",
+        "context": "当前项目材料",
+        "supports": [],
+        "contradicts": [],
+        "observation": "现有材料只有 6 份已去标识的会议记录；未证明它们覆盖不同会议类型。",
+        "interpretation": "已有样本可作为候选离线材料，但代表性和覆盖范围尚未验证。",
+        "confidence": "HIGH",
+        "limitations": [
+          "样本量为 6 份，会议类型覆盖未知，不能支持普遍化结论。"
+        ],
+        "version": "v1",
+        "owner": "not supplied"
+      }
+    ],
+    "gate": {
+      "name": "Qualification",
+      "result": "PASS_WITH_ASSUMPTIONS",
+      "evidence_refs": [
+        "E-G1",
+        "E-G2"
+      ],
+      "rationale": "交付目标为 Prototype，assignment scope 和排除项明确，且已有少量去标识会议记录可支持开始规划；但真实用户问题、样本代表性、AI 可行性和验收标准仍未验证，因此只能在显式假设下继续规划。",
+      "missing_evidence": [
+        "真实使用者访谈或等价问题验证证据",
+        "频率、耗时和失败后果数据",
+        "会议类型覆盖与样本代表性证据",
+        "AI 可行性证据",
+        "验收标准与离线评测设计"
+      ]
+    },
+    "replan": {
+      "required": false,
+      "change_type": null,
+      "reopen_trigger": null,
+      "actions": []
+    },
+    "claims": {
+      "external_write_performed": false,
+      "invented_evidence": false
+    }
+  },
+  "status": "FAIL"
+}

@@ -11,6 +11,9 @@ NodeProfile:
   level: REQUIRED | LIGHT | OPTIONAL | SKIP
   depth: FULL | MINIMAL | VERIFY | SKIP
   scope_role: PRIMARY | SUPPORTING | OUT_OF_SCOPE
+  # Use canonical Profile capability names from execution-profile.md. In the
+  # validation dependency closure, use the exact name `Evaluation Design`;
+  # Professional Capability Domain labels are not substitutes.
   active_capabilities: []
   reused_artifacts: []
   gaps: []

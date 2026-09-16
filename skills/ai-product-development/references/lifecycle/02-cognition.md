@@ -14,23 +14,16 @@ understand the current product, assets, repository, system, and implementation s
 - 与受影响范围有关的产品材料、用户证据、仓库、系统或数据资料；
 - 当前要回答的问题或准备修改的路径。
 
-## Capabilities
+## Required Decisions / State
 
-product-context inspection, existing-asset inspection, repository inspection, system/data/state-flow cognition, current-state modeling.
+- 当前产品、流程、系统或代码的受影响范围明确；
+- 相关资产状态、当前行为、关键依赖和约束已确认；
+- 事实、推断、冲突与未决问题分开；
+- 证据足以支持当前任务，或阻塞未知项已显式记录。
 
-## Procedure
+## Capability Routing
 
-1. 先限定本次需要理解的产品、流程、系统或代码范围。
-2. 检查与该范围直接相关的证据和现有资产，不做无目标的全量盘点。
-3. 标记资产状态、关键依赖、当前行为和已知约束。
-4. 只在有助于后续决策时建立流程图、System Map 或数据流。
-5. 分开记录事实、推断、冲突和未决问题。
-
-**Rules:**
-
-- Greenfield: skip repository cognition.
-- Existing repository change: inspect the relevant code path before redesigning or editing it.
-- Prefer native search, structured inspection, and dependency tracing before introducing specialized cognition infrastructure.
+Cognition 负责理解现状，不替代 Discovery。需要理解用户真实工作流时调用[用户与机会发现](../capabilities/discovery/SKILL.md)；需要理解外部替代方案时调用[市场与竞品情报](../capabilities/competitive-intelligence/SKILL.md)；训练、评测或生产信号资产存在数据 gap 时调用[数据策略与治理](../capabilities/data-strategy/SKILL.md)。
 
 ## Outputs
 
@@ -47,12 +40,8 @@ product-context inspection, existing-asset inspection, repository inspection, sy
 
 ## Dependencies
 
-仓库变更的 Cognition 下限见 [Project Mode / Dependency Closure](../runtime/execution-profile.md)。
+仓库变更的 Cognition 下限见 [Project Mode / Dependency Closure](../runtime/execution-profile.md)；数据对象按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
 
-## Load With
+## Boundaries
 
-仅在相应操作发生时加载上面链接的 Runtime 文件；数据对象定义按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
-
-## Do Not
-
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要为“全面了解”而扫描无关仓库或材料，也不要在本节点提前重做产品定义或方案。
+Greenfield 不做仓库认知；既有仓库变更必须先理解受影响路径。不要为“全面了解”扫描无关材料，不在本节点提前重做产品定义、市场研究或方案设计。

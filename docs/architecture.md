@@ -8,21 +8,33 @@
 
 依赖闭包由原 [Execution Profile](../skills/ai-product-development/references/runtime/execution-profile.md#67-dependency-closure) 决定。例如缺少验收标准的验证需要补充 Evaluation Design；已有可复用标准的只读核验不因此重建方案。支持性导航、局部规则检查和合法依赖读取不视为失败。
 
-## 职责与 canonical rule
+## 五层职责与 canonical rule
 
-[Lifecycle references](../skills/ai-product-development/references/lifecycle) 保存八节点详情；[Runtime references](../skills/ai-product-development/references/runtime) 保存 Profile、Planner、Context、Executor、Registry、Replan 六项能力及三个共用顶层 Gate。一个文件不代表一个 Agent。Planner 的任务依赖和 Profile 的节点依赖职责不同。
+仓库采用五层结构：`Kernel → Lifecycle → Runtime → Professional Capabilities → Evidence / Decision / Artifact`。
+
+- [Skill Kernel](../skills/ai-product-development/SKILL.md#4-architecture-and-responsibility-boundary) 保存全局原则、复杂度约束、Progressive Disclosure 与 Router；
+- [Lifecycle references](../skills/ai-product-development/references/lifecycle) 保存八个产品状态及其必需决策，不保存专业方法；
+- [Runtime references](../skills/ai-product-development/references/runtime) 保存 Profile、Planner、Context、Executor、Registry、Replan 六项执行能力；
+- [Professional Capability domains](../skills/ai-product-development/references/capabilities) 保存资深 AI PM 完成特定分析或决策的方法；
+- Evidence、Decision 与 Artifact 保存“依据、选择、结果”；EvidenceRecord、DecisionRecord 与 Artifact 引用已接入同一 Registry。
+
+Gate 只使用证据决定是否推进，不执行专业分析。Registry 只记录当前有效的事实、决策和产物，不替代 Capability 或 Gate。一个文件不代表一个 Agent。Planner 的任务依赖和 Profile 的节点依赖职责不同，也不新增 Capability 状态机。
+
+[Professional Capability domains](../skills/ai-product-development/references/capabilities) 按 Decision、Design、Operating、Planning & Learning 四类组织。它们使用 gap 和待解锁决策触发，而不是固定阶段顺序；新增 domain 不改变八节点、六项 Runtime capability 或三个 Gate。Data、Evaluation、Responsible AI 与 Production Learning 可跨 Lifecycle 调用。
+
+专业深度继续使用三级 progressive disclosure：Kernel 只路由到被选 Capability 的 `SKILL.md`；Capability 入口再按当前未知项选择 `references/` 中的方法；`templates/` 仅在生成对应正式交付物时读取，`examples/` 仅在需要校准输出粒度时读取。不得因选中一个 Capability 而默认加载其全部支持资源。
 
 详细规则只在 canonical location 维护，其他文件使用摘要或链接。例如 Replan 判断产物失效和版本时读取 Registry，包括只提出建议的任务；链接不授予写入权限。优先级、复杂度 guardrails 和共用完成标准保留在 Kernel。
 
-八个 lifecycle 模块使用同一节点合同顺序，明确输入、过程、输出、完成条件和边界；统一的是合同结构，不是强制模板或固定任务清单。
+八个 lifecycle 模块只保留 Purpose、Activation Conditions、Required Inputs、Required Decisions / State、Capability Routing、Outputs、Completion Criteria、Dependencies、Boundaries。专业方法只在 capability canonical file 中维护；统一的是状态合同，不是固定任务清单。
 
-[schemas](../skills/ai-product-development/schemas) 的五个 YAML 文件包含八个原始对象，继续作为 canonical 结构示意。Phase 2 的 [只读 runtime validator](../skills/ai-product-development/scripts/validate_runtime.py) 将这些字段、枚举及 Profile / Plan 的交叉规则变成确定性检查；验证包装层只承载检查上下文，不新增 ExecutionProfile canonical schema、默认值或状态存储。
+[schemas](../skills/ai-product-development/schemas) 保存 canonical 结构示意，包括 Phase 3 新增的 EvidenceRecord 与 DecisionRecord。只读 [runtime validator](../skills/ai-product-development/scripts/validate_runtime.py) 将这些字段、枚举及 Profile / Plan 的交叉规则变成确定性检查；验证包装层只承载检查上下文，不新增 ExecutionProfile canonical schema、默认值或状态存储。
 
 稳定输出仅有 [Plan Preview](../skills/ai-product-development/templates/execution-plan.md)。其他输出没有字段级固定格式，其规则保留在对应节点。
 
 ## Local continuous runtime
 
-当产品确有跨任务或跨会话连续性需要时，[Continuous Project Runtime](../skills/ai-product-development/scripts/project_runtime/README.md) 在产品仓库创建 `.ai-product/`。Plan 是 Task 的唯一持久来源，Registry 是 Record/Artifact 的唯一持久来源；运行时在验证时组装 Phase 2 wrapper，避免复制 canonical 状态。Snapshot 只保存引用和状态，Context Pack 按当前 READY Task 重建。
+当产品确有跨任务或跨会话连续性需要时，[Continuous Project Runtime](../skills/ai-product-development/scripts/project_runtime/README.md) 在产品仓库创建 `.ai-product/`。Plan 是 Task 的唯一持久来源，Registry 是 ProjectRecord、EvidenceRecord、DecisionRecord 与 Artifact 的唯一持久来源；运行时在验证时组装 Phase 2 wrapper，避免复制 canonical 状态。Snapshot 只保存引用和状态，Context Pack 按当前 READY Task 重建。
 
 这仍对应 Profile、Planner、Context、Executor、Registry、Replan 六项能力。文件存储和 CLI 不是新生命周期节点或 Manager。初始化目录整体提交，后续单文件使用临时文件与原子替换；恢复还会检查 Plan 版本、Task 状态、ACTIVE Registry 引用和正式产物文件。
 

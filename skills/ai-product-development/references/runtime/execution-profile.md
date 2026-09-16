@@ -30,6 +30,9 @@ Separate project maturity from this assignment.
 
 A project may be Enterprise while the current assignment covers only evaluation, architecture, UI, one service, or another subset.
 
+- `FULL_PROJECT`：当前 assignment 的授权与交付物覆盖达到目标所需的全部生命周期工作；不能因为输出是一份全项目计划就判为 FULL。
+- `PARTIAL_PROJECT`：当前 assignment 只负责部分节点、能力、组件，或只负责规划/评估而明确不执行后续工作。被排除的执行工作仍可作为 `external_project_requirement`，但不扩大当前 ownership boundary。
+
 ## Profile Generation
 
 After Qualification, calculate an execution profile for all eight lifecycle nodes.
@@ -137,6 +140,8 @@ Examples:
 - Production release → validation and release readiness cannot be skipped.
 
 Repeat dependency closure until the profile no longer changes.
+
+Professional Capability Domain 的名称是方法路由标签，不替代现有 Profile 语义。只要 Validation 依赖尚未定义的验收标准，Solution Design 的 `active_capabilities` 必须包含 canonical 名称 `Evaluation Design`；需要设计具体 eval 时再加载[Evaluation & Quality](../capabilities/evaluation/SKILL.md)。
 
 ## Rule Precedence
 

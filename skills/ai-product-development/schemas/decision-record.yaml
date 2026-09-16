@@ -1,0 +1,14 @@
+DecisionRecord:
+  id:
+  question:
+  options: []
+  selected:
+  rationale:
+  evidence_refs: []
+  assumptions: []
+  dissent: []
+  owner:
+  made_at:
+  valid_until:
+  reopen_trigger:
+  supersedes:

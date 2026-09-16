@@ -8,5 +8,7 @@ location: report.md
 source_tasks:
 - T2
 source_records: []
+evidence_refs: []
+decision_refs: []
 dependencies:
 - design-v1

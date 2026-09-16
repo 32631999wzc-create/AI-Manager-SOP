@@ -51,7 +51,13 @@ def assess_reads(events, scenario, contents):
     )
     chunk_pattern = re.compile(
         r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?"
-        r"\s*\|\s*Select-Object\s+(?:-First\s+(\d+)|-Skip\s+(\d+))$",
+        r"\s*\|\s*Select-Object\s+(?:-First\s+(\d+)|-Skip\s+(\d+)(?:\s+-First\s+(\d+))?)$",
+        re.I,
+    )
+    line_count_pattern = re.compile(
+        r"(?:\(Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?\)\.Count|"
+        r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?\s*\|\s*"
+        r"Measure-Object\s+-Line)$",
         re.I,
     )
 
@@ -82,6 +88,15 @@ def assess_reads(events, scenario, contents):
             issues.append("FAILED_COMMAND: " + item.get("id", "?"))
             continue
         read_command = command.split(" -Command ", 1)[-1].strip().strip(chr(34))
+        line_count = line_count_pattern.fullmatch(read_command)
+        if line_count:
+            counted_path = line_count.group(1) or line_count.group(2)
+            counted_name = relative_name(counted_path)
+            if counted_name in contents:
+                allowed_commands.append({"item_id": item.get("id"),
+                                         "reason": "read-only line count",
+                                         "exit_code": exit_code})
+                continue
         full = full_pattern.fullmatch(read_command)
         chunk = chunk_pattern.fullmatch(read_command)
         selected_path = full.group(1) if full else (chunk.group(1) if chunk else "")
@@ -94,7 +109,9 @@ def assess_reads(events, scenario, contents):
         if chunk and name in contents:
             lines = contents[name].splitlines()
             start_line = 0 if chunk.group(2) else int(chunk.group(3))
-            end_line = min(len(lines), int(chunk.group(2))) if chunk.group(2) else len(lines)
+            end_line = (min(len(lines), int(chunk.group(2))) if chunk.group(2)
+                        else min(len(lines), start_line + int(chunk.group(4))) if chunk.group(4)
+                        else len(lines))
             if start_line <= end_line and output == normalize("\n".join(lines[start_line:end_line])):
                 chunks.setdefault(name, []).append({"start": start_line, "end": end_line,
                                                      "sequence": sequence,
@@ -215,11 +232,23 @@ def grade(events, scenario, contents):
     }
 
 
-def prompt_for(scenario):
+def prompt_for(scenario, kernel_line_count):
     case_text = (
         TEST_ROOT / "cases" / (scenario["case"] + ".md")
     ).read_text(encoding="utf-8")
-    return f"""Use the AI product development skill copied to skill/SKILL.md. Read SKILL.md first, then select supporting files from its router. This is an isolated read-only planning exercise: do not write files, execute product work, install tools, use external services, or request broader permissions. Read SKILL.md first in two deterministic line chunks using separate Get-Content -LiteralPath commands with UTF-8, piped to Select-Object -First 120 and Select-Object -Skip 120. Read every other selected file in full with a separate Get-Content -LiteralPath command using UTF-8. Do not list or bulk-read directories. Do not read outside this temporary workspace.
+    selectors = []
+    for start in range(0, kernel_line_count, 60):
+        if start == 0:
+            selectors.append("Select-Object -First 60")
+        elif start + 60 < kernel_line_count:
+            selectors.append(f"Select-Object -Skip {start} -First 60")
+        else:
+            selectors.append(f"Select-Object -Skip {start}")
+    kernel_commands = "; ".join(
+        "Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | " + selector
+        for selector in selectors
+    )
+    return f"""Use the AI product development skill copied to skill/SKILL.md. Read SKILL.md first, then select supporting files from its router. This is an isolated read-only planning exercise: do not write files, execute product work, install tools, use external services, or request broader permissions. SKILL.md currently has {kernel_line_count} lines. Read it first using every one of these as a separate command, in this exact order: {kernel_commands}. Do not omit the final command. Read every other selected file completely with Get-Content -LiteralPath using UTF-8. To keep trace evidence complete, read a selected file longer than 100 lines in contiguous 60-line Select-Object chunks, using separate commands in order; read a shorter file with one separate command. Do not list or bulk-read directories. Do not read outside this temporary workspace.
 
 Derive the Execution Profile and a concise valid Plan of at most three tasks only; keep strings short and do not perform lifecycle work. Return exactly one JSON object and no prose:
 {{"document":{{"profile":{{"delivery_target":"...","project_mode":"...","assignment_scope":{{all canonical fields}},"nodes":[eight canonical NodeProfile objects in order],"validation_context":{{"existing_repository_modification":false,"verified_design":false,"acceptance_criteria_defined":false,"production_release":false,"release_execution":false,"monitoring_covered":false,"release_readiness":"PASS|PASS_WITH_ASSUMPTIONS|BLOCKED"}}}},"plan":{{"plan":{{all canonical Plan fields; tasks use every canonical Task field; dependency records use from/to/type}},"available_inputs":[],"artifacts":[],"gates":{{}},"blocked_inputs":[],"write_targets":{{"task-id":["artifact-id:version"]}}}}}},"claims":{{"assignment_complete":false,"external_write_performed":false}}}}
@@ -246,7 +275,7 @@ def run(scenario, output, codex, timeout, model, thinking):
             for name in before
             if name.endswith((".md", ".yaml", ".py"))
         }
-        prompt = prompt_for(scenario)
+        prompt = prompt_for(scenario, len(contents["SKILL.md"].splitlines()))
         command = [
             codex,
             "exec",

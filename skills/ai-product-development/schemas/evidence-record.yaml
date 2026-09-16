@@ -1,0 +1,14 @@
+EvidenceRecord:
+  id:
+  type:
+  source:
+  observed_at:
+  context:
+  supports: []
+  contradicts: []
+  observation:
+  interpretation:
+  confidence: LOW | MEDIUM | HIGH
+  limitations: []
+  version:
+  owner:

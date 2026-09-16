@@ -1,0 +1,150 @@
+{
+  "scenario": "E2",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/lifecycle/03-product-definition.md",
+      "references/lifecycle/04-solution-design.md",
+      "references/lifecycle/05-implementation.md",
+      "references/lifecycle/06-validation-iteration.md",
+      "references/lifecycle/07-release-operation.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/gates.md",
+      "references/runtime/replan-recovery.md",
+      "schemas/execution-profile.yaml",
+      "schemas/evidence-record.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_2+item_3+item_4+item_5+item_6",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 180 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_19+item_20+item_21",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_22",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8 | Select-Object -First 60\""
+      },
+      {
+        "file": "references/lifecycle/03-product-definition.md",
+        "item_id": "item_23",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/03-product-definition.md' -Encoding UTF8 | Select-Object -First 60\""
+      },
+      {
+        "file": "references/lifecycle/04-solution-design.md",
+        "item_id": "item_24",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/04-solution-design.md' -Encoding UTF8 | Select-Object -First 60\""
+      },
+      {
+        "file": "references/lifecycle/05-implementation.md",
+        "item_id": "item_25",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/05-implementation.md' -Encoding UTF8 | Select-Object -First 60\""
+      },
+      {
+        "file": "references/lifecycle/06-validation-iteration.md",
+        "item_id": "item_26",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/06-validation-iteration.md' -Encoding UTF8 | Select-Object -First 60\""
+      },
+      {
+        "file": "references/lifecycle/07-release-operation.md",
+        "item_id": "item_27",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/07-release-operation.md' -Encoding UTF8 | Select-Object -First 60\""
+      },
+      {
+        "file": "references/runtime/gates.md",
+        "item_id": "item_28",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8 | Select-Object -First 60\""
+      },
+      {
+        "file": "references/runtime/replan-recovery.md",
+        "item_id": "item_29+item_30",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_31",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8 | Select-Object -First 60\""
+      },
+      {
+        "file": "schemas/evidence-record.yaml",
+        "item_id": "item_32",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/schemas/evidence-record.yaml' -Encoding UTF8 | Select-Object -First 60\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {},
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_8",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_9",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_10",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_12",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_13",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_14",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_15",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_16",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_17",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_18",
+        "reason": "read-only line count",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "validation_errors": [],
+  "behavior_issues": [
+    "RESULT_JSON_INVALID:agent message contains no JSON object"
+  ],
+  "normalized_result": null,
+  "status": "FAIL"
+}

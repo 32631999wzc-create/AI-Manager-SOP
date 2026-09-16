@@ -44,6 +44,10 @@ def main(argv=None) -> int:
     task.add_argument("--validation-pass", action="store_true")
     record = commands.add_parser("register-record")
     record.add_argument("--input", required=True)
+    evidence = commands.add_parser("register-evidence")
+    evidence.add_argument("--input", required=True)
+    decision = commands.add_parser("register-decision")
+    decision.add_argument("--input", required=True)
     artifact = commands.add_parser("commit-artifact")
     artifact.add_argument("--input", required=True)
     artifact.add_argument("--validation-pass", action="store_true")
@@ -72,6 +76,10 @@ def main(argv=None) -> int:
             result = runtime.update_task(args.id, args.status, args.validation_pass)
         elif args.command == "register-record":
             result = runtime.register_record(_document(args.input, args.root))
+        elif args.command == "register-evidence":
+            result = runtime.register_evidence(_document(args.input, args.root))
+        elif args.command == "register-decision":
+            result = runtime.register_decision(_document(args.input, args.root))
         elif args.command == "commit-artifact":
             result = runtime.commit_artifact(_document(args.input, args.root), args.validation_pass)
         else:

@@ -15,18 +15,17 @@ retain reusable value from the project without creating unnecessary reporting wo
 - 关键决策、变化、失败、假设和当前技术/产品债务；
 - Active Records 与 Artifacts。
 
-## Capabilities
+## Required Decisions / State
 
-outcome review, key-decision review, failed assumptions, debt, reusable assets, SOP update, skill update.
+- 实际结果与原始目标、成功指标和范围的差距明确；
+- 关键决策、当时证据、后来证据和失败假设可追溯；
+- 一次性事实、产品债务、可复用资产、后续机会和跨项目学习分开；
+- 每项后续行动有 owner、触发器或验证方式；
+- 需要重新打开的产品决策或 Lifecycle 状态明确。
 
-## Procedure
+## Capability Routing
 
-1. 对照目标和成功指标说明实际结果与差距。
-2. 识别关键决策、有效做法、失败假设和主要根因。
-3. 区分一次性经验、可复用资产、待处理债务和下一步机会。
-4. 仅把有证据且可复用的结论写入 Registry、SOP 或 Skill。
-
-Keep the output concise unless the user explicitly requests a formal retrospective.
+正式复盘、跨版本学习或继续投资判断调用[复盘与组合学习](../capabilities/retrospective/SKILL.md)；生产信号需要转入新机会、requirement、eval 或 backlog 时调用[生产观测与学习闭环](../capabilities/production-learning/SKILL.md)，必要时重新调用[用户与机会发现](../capabilities/discovery/SKILL.md)。
 
 ## Outputs
 
@@ -41,12 +40,8 @@ Keep the output concise unless the user explicitly requests a formal retrospecti
 
 ## Dependencies
 
-历史信息读取遵循 [Context](../runtime/context.md)，正式更新遵循 [Registry](../runtime/registry-versioning.md)。
+历史信息读取遵循 [Context](../runtime/context.md)，正式更新遵循 [Registry](../runtime/registry-versioning.md)，决策重新打开使用 [Replan](../runtime/replan-recovery.md)。
 
-## Load With
+## Boundaries
 
-仅在相应操作发生时加载上面链接的 Runtime 文件；数据对象定义按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
-
-## Do Not
-
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要制造无决策价值的复盘文档，也不要把单一项目经验升级为通用 Skill 规则。
+默认保持输出简洁。不要在 Lifecycle 中复制复盘或组合管理方法，不制造无决策价值的总结，不用复盘追责个人，也不把单一项目经验升级为通用 Skill 规则。

@@ -15,43 +15,17 @@ define enough technical/product design and evaluation criteria to build the requ
 - 成功指标、验收标准、数据与集成条件；
 - 当前风险底线和必须满足的依赖。
 
-## Capabilities
+## Required Decisions / State
 
-见下述 Procedure 中的原始能力组或流程；不新增能力。
+- 产品与 AI 工作流、组件责任、接口、数据与状态边界达到当前交付深度；
+- 模型、检索、工具、Agent、记忆与人工参与仅在需求触发时使用；
+- 关键失败路径、控制、可观测性、约束、假设与风险明确；
+- Evaluation Design 能验证已声明的成功标准；
+- Build Readiness 已基于证据判定。
 
-## Procedure
+## Capability Routing
 
-1. 从最低复杂度的可行产品/AI 流程开始，明确组件和责任边界。
-2. 定义必要的接口、数据与状态流、失败处理、人工参与和关键决策。
-3. 仅在需求触发时加入模型、检索、Agent、记忆、权限或可观测能力。
-4. 同步设计与交付目标匹配的评估任务、样例、指标、判定方式和通过标准。
-5. 检查每项设计是否可追溯到范围、成功标准、依赖或风险。
-
-Two capability groups may run in parallel when independent:
-
-### Solution Architecture capabilities
-
-- product / AI workflow
-- model / LLM / Agent only if needed
-- retrieval / RAG only if needed
-- tools and integrations
-- data and state
-- context and memory only if needed
-- guardrails / reliability
-- observability / traceability
-
-### Evaluation Design capabilities
-
-- evaluation task
-- cases / dataset
-- baseline when useful
-- metrics
-- judge strategy
-- pass criteria
-
-评估方法选择遵循 [Executor — Validation](../runtime/executor.md#104-validation)。
-
-执行 [Build Readiness](../runtime/gates.md#build-readiness)。
+根据实际设计 gap 调用[AI 可行性与原型](../capabilities/ai-feasibility/SKILL.md)、[数据策略与治理](../capabilities/data-strategy/SKILL.md)、[Human-AI 体验](../capabilities/human-ai-experience/SKILL.md)、[评测与质量](../capabilities/evaluation/SKILL.md)或[责任 AI、安全与风险](../capabilities/responsible-ai/SKILL.md)。Data、Evaluation 与 Responsible AI 可跨阶段调用；不要因为产品使用 AI 就机械加载全部 domain。
 
 ## Outputs
 
@@ -66,12 +40,8 @@ Two capability groups may run in parallel when independent:
 
 ## Dependencies
 
-构建前检查 [Build Readiness](../runtime/gates.md#build-readiness)。
+构建前检查 [Build Readiness](../runtime/gates.md#build-readiness)；评估方法选择遵循 [Executor — Validation](../runtime/executor.md#104-validation)；数据对象按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
 
-## Load With
+## Boundaries
 
-仅在相应操作发生时加载上面链接的 Runtime 文件；数据对象定义按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
-
-## Do Not
-
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要把可选架构当作默认基础设施，也不要在 Build Readiness 未通过时开始大规模实现。
+不要把可选架构当作默认基础设施，不在 Lifecycle 中复制专业设计或评测方法，也不要在 Build Readiness 未通过时开始大规模实现。

@@ -11,6 +11,8 @@
 ├── plan.yaml
 ├── registry/
 │   ├── records.yaml
+│   ├── evidence.yaml
+│   ├── decisions.yaml
 │   └── artifacts.yaml
 ├── snapshots/
 │   ├── latest.yaml
@@ -32,6 +34,8 @@ python -B -X utf8 scripts/project_runtime.py --root /path/to/product complete
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product next
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product task --id T1 --status COMPLETED --validation-pass
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product register-record --input record.yaml
+python -B -X utf8 scripts/project_runtime.py --root /path/to/product register-evidence --input evidence.yaml
+python -B -X utf8 scripts/project_runtime.py --root /path/to/product register-decision --input decision.yaml
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product commit-artifact --input artifact.yaml --validation-pass
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product checkpoint
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product resume
@@ -48,9 +52,11 @@ python -B -X utf8 scripts/project_runtime.py --root /path/to/product replan --in
 - `update-profile` 替换完整 Profile 前先运行 P2 profile validation；`complete` 只读检查 REQUIRED 节点、Task、Gate 和必需 ACTIVE Artifact。
 - `task` 使用 canonical Task 状态；写入 `COMPLETED` 必须显式声明验证 PASS。
 - `register-record` 接受一个 canonical `ProjectRecord`。
-- `commit-artifact` 接受一个 canonical `Artifact`；来源 Task 必须完成，正式更新使用连续 `vN` 并把旧 ACTIVE 版本置为 SUPERSEDED。
+- `register-evidence` 接受一个 canonical `EvidenceRecord`，观察与解释分离，正式版本使用 `vN`。
+- `register-decision` 接受一个 canonical `DecisionRecord`；引用的 Evidence 必须存在，替代旧决策时用 `supersedes` 连接当前有效决策。
+- `commit-artifact` 接受一个 canonical `Artifact`；来源 Task 必须完成，`evidence_refs` 与 `decision_refs` 必须存在，正式更新使用连续 `vN` 并把旧 ACTIVE 版本置为 SUPERSEDED。
 - `checkpoint` 只在重大确认、Gate、阶段完成或长暂停时使用；Snapshot 只保存引用和状态。
 - `resume` 校验 Plan、Task、Registry、Artifact 文件和 Snapshot 一致性，然后重新选择 READY Task 并构造最小 TaskContextPack。
-- `replan` 输入只含 `change_type`、`actions` 和完整的新 plan state；只接受已有五种 change type 与四种 action。DAG 实质变化时计划版本必须递增一版，否则必须保持原版本。
+- `replan` 输入包含 `change_type`、`actions` 和完整的新 plan state；DecisionRecord 的条件被命中时可增加 `reopen_trigger`，其中包含 `decision_id`、与声明完全一致的 `trigger` 和已登记的 `evidence_refs`。只接受已有五种 change type 与四种 action。DAG 实质变化时计划版本必须递增一版，否则必须保持原版本。
 
 Runtime 不自动生成产品判断、不把草稿升级为事实，也不绕过 Gate。Profile 和 Plan 仍由 Skill 按 canonical reference 生成；Runtime 只保存、验证并恢复显式状态。

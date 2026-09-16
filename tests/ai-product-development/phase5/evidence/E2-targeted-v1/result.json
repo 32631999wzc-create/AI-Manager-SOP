@@ -1,0 +1,99 @@
+{
+  "case": "E2",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/03-product-definition.md",
+      "references/lifecycle/04-solution-design.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/replan-recovery.md",
+      "schemas/execution-profile.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_2+item_3+item_4+item_5+item_6+item_7+item_8+item_9",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 160 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 200 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 280\""
+      },
+      {
+        "file": "references/lifecycle/03-product-definition.md",
+        "item_id": "item_10+item_11",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/03-product-definition.md' -Encoding UTF8 | Select-Object -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/03-product-definition.md' -Encoding UTF8 | Select-Object -Skip 40\""
+      },
+      {
+        "file": "references/lifecycle/04-solution-design.md",
+        "item_id": "item_12+item_13",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/04-solution-design.md' -Encoding UTF8 | Select-Object -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/04-solution-design.md' -Encoding UTF8 | Select-Object -Skip 40\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_14+item_15+item_16+item_17",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 120\""
+      },
+      {
+        "file": "references/runtime/replan-recovery.md",
+        "item_id": "item_18+item_19",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8 | Select-Object -First 40\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8 | Select-Object -Skip 40\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_20",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8 | Select-Object -First 40\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {},
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "issues": [
+    "PRODUCT_REQUIREMENTS_MISSING"
+  ],
+  "result": {
+    "assignment_scope_mode": "PARTIAL_PROJECT",
+    "solution_design_active_capabilities": [
+      "Evaluation Design"
+    ],
+    "capability_needs": [
+      {
+        "capability": "Evaluation Design",
+        "mode": "EXECUTE"
+      }
+    ],
+    "replan": {
+      "required": true,
+      "change_type": "INPUT_CHANGE",
+      "reopen_trigger": null,
+      "actions": [
+        {
+          "action": "OUTDATE",
+          "target": "T-ROUTING-DESIGN"
+        },
+        {
+          "action": "OUTDATE",
+          "target": "T-ROUTING-IMPLEMENT"
+        },
+        {
+          "action": "OUTDATE",
+          "target": "T-ROUTING-EVAL"
+        },
+        {
+          "action": "ADD",
+          "target": "T-TAXONOMY-IMPACT"
+        },
+        {
+          "action": "PRESERVE",
+          "target": "T-EXPORT"
+        }
+      ]
+    },
+    "claims": {
+      "external_write_performed": false,
+      "invented_evidence": false
+    }
+  },
+  "status": "FAIL"
+}

@@ -64,6 +64,27 @@ class StructureContractTests(unittest.TestCase):
         p.write_text(p.read_text(encoding="utf-8")+"\n## Fourth Gate\n", encoding="utf-8")
         self.assertTrue(self.errors())
 
+    def test_missing_capability_playbook(self):
+        p = self.skill / "references/capabilities/product-requirements/SKILL.md"
+        p.unlink()
+        self.assertTrue(any("Wrong module inventory" in error for error in self.errors()))
+
+    def test_empty_capability_method_fails(self):
+        p = self.skill / "references/capabilities/evaluation/SKILL.md"
+        text = p.read_text(encoding="utf-8")
+        text = re.sub(r"^## Method\s*$\n.*?(?=^## Evidence Rules)",
+                      "## Method\n\n", text, count=1, flags=re.M | re.S)
+        p.write_text(text, encoding="utf-8")
+        self.assertTrue(any("Empty capability contract" in error for error in self.errors()))
+
+    def test_unrouted_capability_fails(self):
+        self.kernel = self.kernel.replace(
+            "references/capabilities/product-requirements/SKILL.md",
+            "references/capabilities/requirement-review/SKILL.md",
+            1,
+        )
+        self.assertTrue(any("Wrong capability playbook routes" in error for error in self.errors()))
+
     def test_copied_detailed_rule(self):
         source = (self.skill / "references/runtime/executor.md").read_text(encoding="utf-8")
         p = self.skill / "references/runtime/context.md"
@@ -106,6 +127,37 @@ class TraceEvidenceTests(unittest.TestCase):
     def test_truncated_output_does_not_count(self):
         e=self.events(self.case["required"]);e[1]["item"]["aggregated_output"]="# truncated"
         self.assertEqual(self.grade(e), "FAIL")
+
+    def test_contiguous_range_chunks_count_as_full_read(self):
+        name = "SKILL.md"
+        self.contents[name] = "\n".join(f"line {i}" for i in range(135))
+        commands = []
+        for index, (start, end) in enumerate(((0, 60), (60, 120), (120, 135))):
+            selector = "-First 60" if start == 0 else (
+                f"-Skip {start} -First 60" if end < 135 else f"-Skip {start}"
+            )
+            commands.append({"type": "item.completed", "item": {
+                "id": f"chunk-{index}", "type": "command_execution", "status": "completed",
+                "exit_code": 0,
+                "command": f"Get-Content -LiteralPath 'skill/{name}' -Encoding UTF8 | Select-Object {selector}",
+                "aggregated_output": "\n".join(self.contents[name].splitlines()[start:end]),
+            }})
+        commands += self.events(["references/lifecycle/0.md"])
+        self.assertEqual(self.grade(commands), "PASS")
+
+    def test_gapped_range_chunks_do_not_count(self):
+        name = "SKILL.md"
+        self.contents[name] = "\n".join(f"line {i}" for i in range(135))
+        events = [{"type": "item.completed", "item": {
+            "id": "chunk-0", "type": "command_execution", "status": "completed", "exit_code": 0,
+            "command": f"Get-Content -LiteralPath 'skill/{name}' -Encoding UTF8 | Select-Object -First 60",
+            "aggregated_output": "\n".join(self.contents[name].splitlines()[:60]),
+        }}, {"type": "item.completed", "item": {
+            "id": "chunk-2", "type": "command_execution", "status": "completed", "exit_code": 0,
+            "command": f"Get-Content -LiteralPath 'skill/{name}' -Encoding UTF8 | Select-Object -Skip 120",
+            "aggregated_output": "\n".join(self.contents[name].splitlines()[120:]),
+        }}] + self.events(["references/lifecycle/0.md"])
+        self.assertEqual(self.grade(events), "FAIL")
 
     def test_listing_is_not_read(self):
         e=self.events(self.case["required"]);e[1]["item"]["command"]="rg --files skill"

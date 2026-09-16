@@ -47,10 +47,17 @@ def assess(events, scenario, contents):
         # tools remain in the trace and require review, never automatic PASS.
         command = item.get("command", "")
         read_command = command.split(" -Command ", 1)[-1].strip().strip(chr(34))
+        line_count = re.fullmatch(
+            r"(?:\(Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?\)\.Count|"
+            r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?\s*\|\s*"
+            r"Measure-Object\s+-Line)",
+            read_command,
+            re.I,
+        )
         literal = re.fullmatch(r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?", read_command, re.I)
         chunk = re.fullmatch(
             r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?"
-            r"\s*\|\s*Select-Object\s+(?:-First\s+(\d+)|-Skip\s+(\d+))",
+            r"\s*\|\s*Select-Object\s+(?:-First\s+(\d+)|-Skip\s+(\d+)(?:\s+-First\s+(\d+))?)",
             read_command,
             re.I,
         )
@@ -66,7 +73,9 @@ def assess(events, scenario, contents):
         if chunk and literal_name in contents:
             lines = contents[literal_name].splitlines()
             start = 0 if chunk[2] else int(chunk[3])
-            end = min(len(lines), int(chunk[2])) if chunk[2] else len(lines)
+            end = (min(len(lines), int(chunk[2])) if chunk[2]
+                   else min(len(lines), start + int(chunk[4])) if chunk[4]
+                   else len(lines))
             expected = normalize("\n".join(lines[start:end]))
             if start <= end and output == expected:
                 chunks.setdefault(literal_name, []).append(
@@ -91,7 +100,14 @@ def assess(events, scenario, contents):
             "Get-ChildItem" in read_command
             and "Select-Object -ExpandProperty FullName" in read_command
         ) or "rg --files" in read_command
-        if not matched and not navigation_only and not recognized_chunk:
+        count_path = (line_count[1] or line_count[2]) if line_count else ""
+        count_name = re.sub(r"[\\/]+", "/", count_path)
+        if count_name.startswith("skill/"):
+            count_name = count_name[6:]
+        elif "/skill/" in count_name:
+            count_name = count_name.split("/skill/", 1)[1]
+        metadata_only = bool(line_count and count_name in contents)
+        if not matched and not navigation_only and not recognized_chunk and not metadata_only:
             issues.append("Unclassified command needs review: " + item.get("id", "?"))
     for name, parts in chunks.items():
         ordered = sorted(parts, key=lambda part: part["start"])
@@ -141,16 +157,31 @@ def run(scenario, output, codex, timeout, model, thinking):
         shutil.copytree(SKILL, copy)
         before = inventory(copy)
         contents = {n: (copy / n).read_text(encoding="utf-8") for n in before}
+        kernel_line_count = len(contents["SKILL.md"].splitlines())
+        selectors = []
+        for start in range(0, kernel_line_count, 60):
+            if start == 0:
+                selectors.append("Select-Object -First 60")
+            elif start + 60 < kernel_line_count:
+                selectors.append(f"Select-Object -Skip {start} -First 60")
+            else:
+                selectors.append(f"Select-Object -Skip {start}")
+        kernel_commands = "; ".join(
+            "Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | " + selector
+            for selector in selectors
+        )
         prompt = (
             "Use the AI product development skill at skill/SKILL.md for the following request. "
             "Read that file first, then choose the supporting files from its router. "
             "This is a read-only exercise: do not write files, execute a product, install tools, "
             "use external services, or request broader permissions. "
-            "For auditable evidence, read SKILL.md first in two deterministic line chunks: "
-            "use separate Get-Content -LiteralPath commands (UTF-8) piped to "
-            "Select-Object -First 120 and Select-Object -Skip 120. "
-            "Read every other selected file in full with its own Get-Content -LiteralPath "
-            "command (UTF-8). Select the supporting files yourself. "
+            f"SKILL.md currently has {kernel_line_count} lines. For auditable evidence, read it first "
+            "using every one of the following as a separate command, in this exact order: "
+            f"{kernel_commands}. Do not omit the final command. "
+            "Read every other selected file completely with Get-Content -LiteralPath using UTF-8. "
+            "To keep trace evidence complete, read a selected file longer than 100 lines in "
+            "contiguous 60-line Select-Object chunks, using separate commands in order; read a "
+            "shorter file with one separate command. Select the supporting files yourself. "
             "If reading is blocked, stop and report the limitation. "
             "Do not read files outside this temporary workspace.\n\n" + scenario["task"])
         command = [codex, "exec", "--json", "--ephemeral", "--ignore-user-config",

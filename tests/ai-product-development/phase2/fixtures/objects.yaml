@@ -28,6 +28,40 @@ ProjectRecord:
   source: user
   version: v1
   affected_scope: []
+EvidenceRecord:
+  id: E1
+  type: USER_RESEARCH
+  source: customer-interview-01
+  observed_at: '2026-09-15'
+  context: target-user workflow
+  supports:
+  - D1
+  contradicts: []
+  observation: Users repeat the same manual classification step.
+  interpretation: Automating classification may reduce handling time.
+  confidence: HIGH
+  limitations:
+  - Single workflow segment
+  version: v1
+  owner: product-manager
+DecisionRecord:
+  id: D1
+  question: Should classification automation enter the first release?
+  options:
+  - Include in first release
+  - Defer to a later release
+  selected: Include in first release
+  rationale: The observed repeated work is material and the first release can constrain the scope.
+  evidence_refs:
+  - E1
+  assumptions:
+  - Classification quality can meet the release threshold.
+  dissent: []
+  owner: product-manager
+  made_at: '2026-09-15'
+  valid_until: null
+  reopen_trigger: Classification quality falls below the release threshold.
+  supersedes: null
 Artifact:
   id: design-v1
   type: DESIGN
@@ -38,6 +72,8 @@ Artifact:
   location: fixtures/design.md
   source_tasks: []
   source_records: []
+  evidence_refs: []
+  decision_refs: []
   dependencies: []
 RuntimeSnapshot:
   plan_version: v1
@@ -129,6 +165,7 @@ TaskContextPack:
   relevant_facts:
   - R1
   relevant_decisions: []
+  relevant_evidence: []
   relevant_constraints: []
   relevant_artifacts:
   - design-v1

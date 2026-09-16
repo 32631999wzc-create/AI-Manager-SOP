@@ -1,0 +1,4 @@
+Use the copied AI product development Skill at skill/SKILL.md to complete this real PM work request. Read its entrypoint and only the references genuinely needed. The workspace is read-only; do not edit files, run tests, call external services, or claim you verified anything beyond supplied materials. Deliver a concise Chinese PM work product, not a test JSON envelope: decisions with evidence/uncertainty, the minimum necessary next tasks and dependencies, acceptance/gate conditions, and what remains for a human owner to confirm. Do not narrate Skill internals unless needed to explain a decision.
+
+User request:
+团队每周开很多内部会议，行动项经常丢失或负责人不清。发起人想要一个以中文为主的 AI 产品，让小团队能从会议记录得到可核对的行动项建议，八周内看到可试用结果。现有材料只有六份去标识会议记录，没有用户访谈、使用频率、耗时或错误后果数据。本轮不构建产品：请做产品定义、AI 可行性与评测方案判断，并交付资深 PM 可以直接接手的最小可执行计划。缺证据时不要把假设写成事实。

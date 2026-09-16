@@ -37,6 +37,11 @@
     ],
     "support": {
       "references/lifecycle/02-cognition.md": "affected repository path gap planning",
+      "references/lifecycle/03-product-definition.md": "existing success criteria verification",
+      "references/lifecycle/04-solution-design.md": "verified architecture and acceptance design dependency",
+      "references/lifecycle/05-implementation.md": "implementation gap and acceptance planning",
+      "references/lifecycle/06-validation-iteration.md": "test and regression dependency planning",
+      "references/capabilities/10-evaluation-and-quality.md": "acceptance and regression evaluation planning",
       "schemas/project-state.yaml": "only when artifacts are constructed",
       "scripts/validate_runtime.py": "Kernel-directed validation",
       "references/runtime/gates.md": "local gate interpretation",
@@ -61,6 +66,7 @@
     ],
     "support": {
       "references/lifecycle/04-solution-design.md": "primary deliverable gap planning",
+      "references/capabilities/10-evaluation-and-quality.md": "acceptance design method",
       "schemas/project-state.yaml": "only when artifacts are constructed",
       "scripts/validate_runtime.py": "Kernel-directed validation",
       "references/runtime/gates.md": "local gate interpretation",
@@ -86,6 +92,7 @@
     "support": {
       "references/lifecycle/06-validation-iteration.md": "primary evaluation gap planning",
       "references/lifecycle/04-solution-design.md": "evaluation design dependency",
+      "references/capabilities/10-evaluation-and-quality.md": "RAG evaluation planning method",
       "schemas/project-state.yaml": "only when artifacts are constructed",
       "scripts/validate_runtime.py": "Kernel-directed validation",
       "references/runtime/gates.md": "local gate interpretation",

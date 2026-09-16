@@ -204,6 +204,8 @@ plan:
     source_tasks:
     - T1
     source_records: []
+    evidence_refs: []
+    decision_refs: []
     dependencies: []
   gates:
     Build Readiness: PASS

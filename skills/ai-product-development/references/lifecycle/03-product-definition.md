@@ -15,19 +15,13 @@ define who the product serves, the problem, why AI is appropriate, target state,
 - Cognition 结论（存在相关现状或资产时）；
 - 交付目标、约束、风险和已知成功条件。
 
-## Capabilities
+## Required Decisions / State
 
-user/problem, current workflow, AI fit & boundary, value hypothesis, target state, gap analysis, priority, product success metrics.
+本节点必须形成足以支持方案决策的：`target user`、`problem`、`desired outcome`、`value hypothesis`、`AI boundary`、`scope`、`non-goals`、`success measures`、`key risks`、`open assumptions`。当前 Assignment Scope 与整个产品需求必须分开。
 
-## Procedure
+## Capability Routing
 
-1. 明确目标用户、核心问题、使用场景和当前替代流程。
-2. 说明价值假设、预期行为变化，以及为何需要或不需要 AI。
-3. 定义目标状态、当前差距、范围内、范围外和非目标。
-4. 选择能反映产品结果的成功指标，并给出当前交付深度所需的验收口径。
-5. 按用户价值、依赖、风险和交付约束确定当前优先范围。
-
-**AI boundary rule:** choose among deterministic software, rule logic, retrieval, LLM, tool calling, workflow, Agent, Multi-Agent, and human involvement based on the actual need. Do not assume Agent.
+根据尚未解决的决策选择[用户与机会发现](../capabilities/discovery/SKILL.md)、[市场与竞品情报](../capabilities/competitive-intelligence/SKILL.md)、[商业论证与优先级](../capabilities/business-case/SKILL.md)、[AI 可行性与原型](../capabilities/ai-feasibility/SKILL.md)或[产品需求定义](../capabilities/product-requirements/SKILL.md)。当输入变化使既有 scope、success measures 或 acceptance criteria 失效时，`Product Requirements` 是待执行的实际 gap，不能只用 Evaluation 或实现任务代替。跨版本取舍需要[路线图与版本规划](../capabilities/roadmap/SKILL.md)；需求已形成且要做跨职能确认时再调用[需求评审与决策](../capabilities/requirement-review/SKILL.md)。
 
 ## Outputs
 
@@ -44,12 +38,8 @@ user/problem, current workflow, AI fit & boundary, value hypothesis, target stat
 
 ## Dependencies
 
-按 [Execution Profile](../runtime/execution-profile.md) 的范围与依赖闭包决定所需深度。
+按 [Execution Profile](../runtime/execution-profile.md) 的范围与依赖闭包决定所需深度；数据对象按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
 
-## Load With
+## Boundaries
 
-仅在相应操作发生时加载上面链接的 Runtime 文件；数据对象定义按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
-
-## Do Not
-
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要在证据不足时虚构用户需求或市场结论，也不要在本节点展开详细技术实现。
+不要在证据不足时虚构用户或市场结论，不把 Agent 或其他 AI 架构作为默认答案，不在本节点展开专业研究方法或详细技术实现。

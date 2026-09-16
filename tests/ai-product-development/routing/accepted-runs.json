@@ -1,32 +1,32 @@
 {
   "R1": {
-    "directory": "evidence/R1-review-v1",
+    "directory": "evidence/R1-capabilities-v3",
     "files_sha256": {
-      "prompt.txt": "bdf5b2b3d0808212fcad2bef4ad70f6daf4e99b3cdab5e7becc149e8ec3f2c8f",
-      "trace.jsonl": "704ebee718b38006e6c18669072241249aedda4f3c0a3341cd8408db84b4a960",
-      "stderr.txt": "33c5e04ddfc402d612c862d662ca29cbb4633fe6e87d97d3fbd261d45c2a9d61",
-      "metadata.json": "15f063fc8b7b825e5c9e4e20de516c30aa7ad6aae03f3eac48f8a7559c68d8b7",
-      "result.json": "5528d60ccb9ccc9158967bff70a8de2588653c0caa08ccf44c10865117dab752"
+      "prompt.txt": "00345e0adf1232582c11d1068e5f0242da5563d1bde3ae639ab162f2c8927de4",
+      "trace.jsonl": "e937c593654bdc061d1d7028810cfeee525436845e13c929330617bf1cabde87",
+      "stderr.txt": "bb3407041ccfcfe4f7cd6189d7e8d2d1fd5ab578d4b001daaa861f313f760690",
+      "metadata.json": "4af317a2bfa97ef2e77315137017549ddd5de4722581eb176151da2f06de26b6",
+      "result.json": "acae9a342e193c96b9b6fac33757a350f973ac4d59aff37e4414ff54258984e7"
     }
   },
   "R2": {
-    "directory": "evidence/R2-review-v1",
+    "directory": "evidence/R2-capabilities-v4",
     "files_sha256": {
-      "prompt.txt": "315edf3135af572523ba879ebe4307aafb5c0484466e8f1d5006b78fd528dce7",
-      "trace.jsonl": "58b514513d63990787c90ada6aa2047888f2dba0d7d35d025d9d0f34024be5fa",
-      "stderr.txt": "285d0cafaadb384a6843082e15bdc090b7902a5f3351675cdc023e0ecd1cb87e",
-      "metadata.json": "9aadd059662b934c9a2e040a4dd9d98b4d62dc049fb26089fcea591f3fbad1cf",
-      "result.json": "4853b76aa637d5f212a1afd25232c5605a52b56917f3f06ff1ae27f59e0cecce"
+      "prompt.txt": "736ea510eb07b2407edab49d47e2f605864d43838373c76dfbd7d7d94102d33f",
+      "trace.jsonl": "ad9530ca5f00fd55964242104585945268309d2600369833f33b3bf5776f4a8e",
+      "stderr.txt": "57a8f43714351abe6e122624f1151f1ade49572da2e5a6b70ba8c355d0987268",
+      "metadata.json": "2df19d813c5ca0c4a43da25fce1c8c7be2d62d41352a5a7cfe4f72aa4cb83be9",
+      "result.json": "7a8545c1bd5632b6a50600fd3e631f7830f2abfe08a56b42922addc51b9585be"
     }
   },
   "R3": {
-    "directory": "evidence/R3-review-v1",
+    "directory": "evidence/R3-capabilities-v3",
     "files_sha256": {
-      "prompt.txt": "20a6649f4ff41ec740d09360d99e8bd8849cea3077d1c292087f1a7ea565530e",
-      "trace.jsonl": "996fadb061dfdb230abd8b8542a7439dfb57735c833579ac319d004c62220c65",
-      "stderr.txt": "5823164d91f9bafd2d1c112ad7dde581771af588f2b1fb1a49a6642fa9eb6288",
-      "metadata.json": "88142e374706000021527fcef178dcdafef4f2036951160ea71b839b5dccb7da",
-      "result.json": "5e37af376bbb8b5e7b121082b3f24bec840957f0a53c1b909b8400ccbf17805e"
+      "prompt.txt": "52be82ff53a447432899649785574b127ea08de8a0429ffd3119a8e03566abd8",
+      "trace.jsonl": "bb6e04e99b723b7dbcb6d6adc82bdf1dac40bf811cc12fdfa186e36da9cc1ad9",
+      "stderr.txt": "1ff0dd815afcdeca30ce605e1cb0651e2b7dae2bd58afff8e57062e28b7da23a",
+      "metadata.json": "a1e10b6f8f91a648cfbe5accfae346c636126532c8920fe189aa0e5ae908ad85",
+      "result.json": "aebee9a9417bd8d6c29265a683261c6ae25c8c915d094391d612ebb588b8391e"
     }
   }
 }

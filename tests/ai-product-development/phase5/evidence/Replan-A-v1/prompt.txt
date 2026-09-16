@@ -1,0 +1,15 @@
+Use the copied AI product development skill for one targeted, read-only Replan trigger check. Do not write files, use external services, or perform product work.
+
+Execute every command below separately and in exact order. Read no other file:
+Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 160 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 200 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 40; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 280; Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -First 40; Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40; Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40; Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 120
+
+Facts: baseline_exists=false; change_event_exists=false; material_impact_exists=false. This is the first Greenfield request and initial plan.
+
+Return exactly one JSON object and no prose:
+{
+  "trigger_assessment":{"baseline_exists":true,"change_event_exists":true,"material_impact_exists":true,"operation_mode":"INITIAL_PLAN|CONTINUE|LOCAL_REPLAN|PROFILE_REPLAN"},
+  "replan":{"required":true,"change_type":"INPUT_CHANGE|SCOPE_CHANGE|null","reopen_trigger":null,"actions":[{"action":"PRESERVE|OUTDATE|ADD|CANCEL","target":"task id"}]},
+  "claims":{"external_write_performed":false,"invented_evidence":false}
+}
+
+Use only the supplied facts. INITIAL_PLAN and CONTINUE have required=false, null change_type/reopen_trigger and no actions. A Replan must preserve unaffected named work and change only named affected work.

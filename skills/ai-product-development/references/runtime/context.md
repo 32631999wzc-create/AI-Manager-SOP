@@ -6,7 +6,7 @@ Use:
 
 - current working context;
 - active Project Records;
-- Artifact Registry;
+- Project Registry 中与当前任务相关的 ProjectRecord、EvidenceRecord、DecisionRecord 与 Artifact；
 - task-specific retrieval.
 
 For each task, build a minimal context pack:
@@ -28,4 +28,4 @@ Do not require a vector database unless project scale or retrieval quality demon
 
 ## Local Persistence
 
-需要跨会话恢复本地项目时，使用 [Continuous Project Runtime](../../scripts/project_runtime/README.md) 的 `next`、`checkpoint` 和 `resume`。恢复依据 Project Records、Artifact Registry、Plan 与 RuntimeSnapshot，不读取旧聊天作为状态源。
+需要跨会话恢复本地项目时，使用 [Continuous Project Runtime](../../scripts/project_runtime/README.md) 的 `next`、`checkpoint` 和 `resume`。恢复依据 Project Registry、Plan 与 RuntimeSnapshot，不读取旧聊天作为状态源。TaskContextPack 只放当前任务显式请求、相关 Artifact 引用或相关 DecisionRecord 所需的 Evidence/Decision ID，不把完整 Registry eager load 进上下文。

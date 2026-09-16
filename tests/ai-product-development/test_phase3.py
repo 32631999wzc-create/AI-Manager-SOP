@@ -88,7 +88,7 @@ class RuntimeTestCase(unittest.TestCase):
         first = {
             "id": "report-v1", "type": "REPORT", "name": "Feedback report", "version": "v1",
             "status": "ACTIVE", "summary": "First report", "location": "report-v1.md",
-            "source_tasks": ["T2"], "source_records": [], "dependencies": ["design-v1"],
+            "source_tasks": ["T2"], "source_records": [], "evidence_refs": [], "decision_refs": [], "dependencies": ["design-v1"],
         }
         self.runtime.commit_artifact(first, validation_pass=True)
         (self.root / "report-v2.md").write_text("v2", encoding="utf-8")

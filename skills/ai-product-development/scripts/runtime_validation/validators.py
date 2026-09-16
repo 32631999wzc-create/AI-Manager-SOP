@@ -30,6 +30,7 @@ ENUMS = {
     "Task.execution_depth": NODE_DEPTH,
     "ProjectRecord.type": {"FACT", "DECISION", "CONSTRAINT", "ASSUMPTION"},
     "ProjectRecord.status": {"ACTIVE", "SUPERSEDED", "REJECTED"},
+    "EvidenceRecord.confidence": {"LOW", "MEDIUM", "HIGH"},
     "Artifact.status": {"ACTIVE", "OUTDATED", "SUPERSEDED", "ARCHIVED"},
     "AssignmentScope.mode": {"FULL_PROJECT", "PARTIAL_PROJECT"},
     "NodeProfile.node": set(NODES),
@@ -42,11 +43,13 @@ ENUMS = {
 LIST_FIELDS = {
     "Task": {"dependencies", "required_inputs", "required_capabilities", "acceptance_criteria", "context_requirements", "artifact_requirements"},
     "ProjectRecord": {"affected_scope"},
-    "Artifact": {"source_tasks", "source_records", "dependencies"},
+    "EvidenceRecord": {"supports", "contradicts", "limitations"},
+    "DecisionRecord": {"options", "evidence_refs", "assumptions", "dissent"},
+    "Artifact": {"source_tasks", "source_records", "evidence_refs", "decision_refs", "dependencies"},
     "AssignmentScope": {"requested_scope", "excluded_scope", "expected_deliverables", "ownership_boundary"},
     "NodeProfile": {"active_capabilities", "reused_artifacts", "gaps", "reasons"},
     "Plan": {"tasks", "dependencies", "critical_path", "assumptions"},
-    "TaskContextPack": {"relevant_facts", "relevant_decisions", "relevant_constraints", "relevant_artifacts", "recent_changes", "assumptions", "unresolved_items", "allowed_actions", "available_tools"},
+    "TaskContextPack": {"relevant_facts", "relevant_decisions", "relevant_evidence", "relevant_constraints", "relevant_artifacts", "recent_changes", "assumptions", "unresolved_items", "allowed_actions", "available_tools"},
 }
 
 
@@ -107,6 +110,33 @@ def validate_object(name: str, value: Any, path: str | None = None) -> list[Vali
     root = path or name
     if name == "Artifact" and (not isinstance(model.version, str) or not re.fullmatch(r"v[1-9]\d*", model.version)):
         _error(errors, "VERSION_INVALID", f"{root}.version", "formal artifact version must use vN")
+    if name == "EvidenceRecord" and (not isinstance(model.version, str) or not re.fullmatch(r"v[1-9]\d*", model.version)):
+        _error(errors, "VERSION_INVALID", f"{root}.version", "evidence version must use vN")
+    if name == "EvidenceRecord":
+        for field_name in ("id", "type", "source", "observed_at", "observation", "interpretation", "owner"):
+            if not isinstance(getattr(model, field_name), str) or not getattr(model, field_name).strip():
+                _error(errors, "VALUE_EMPTY", f"{root}.{field_name}", "must be a non-empty string")
+        for field_name in ("supports", "contradicts", "limitations"):
+            _string_set(getattr(model, field_name), f"{root}.{field_name}", errors)
+    if name == "DecisionRecord":
+        for field_name in ("id", "question", "selected", "rationale", "owner", "made_at", "reopen_trigger"):
+            if not isinstance(getattr(model, field_name), str) or not getattr(model, field_name).strip():
+                _error(errors, "VALUE_EMPTY", f"{root}.{field_name}", "must be a non-empty string")
+        for field_name in ("options", "evidence_refs", "assumptions", "dissent"):
+            _string_set(getattr(model, field_name), f"{root}.{field_name}", errors)
+        if model.supersedes is not None and (not isinstance(model.supersedes, str) or not model.supersedes.strip()):
+            _error(errors, "DECISION_SUPERSEDES_INVALID", f"{root}.supersedes", "must be null or a non-empty decision id")
+        if model.valid_until is not None and (not isinstance(model.valid_until, str) or not model.valid_until.strip()):
+            _error(errors, "DECISION_VALID_UNTIL_INVALID", f"{root}.valid_until", "must be null or a non-empty time or condition")
+        if not model.options:
+            _error(errors, "DECISION_OPTIONS_REQUIRED", f"{root}.options", "decision requires at least one option")
+        if model.selected not in model.options:
+            _error(errors, "DECISION_SELECTED_INVALID", f"{root}.selected", "selected must be one of options")
+        if not model.rationale or not isinstance(model.rationale, str):
+            _error(errors, "DECISION_RATIONALE_REQUIRED", f"{root}.rationale", "decision requires a rationale")
+    if name == "Artifact":
+        _string_set(model.evidence_refs, f"{root}.evidence_refs", errors)
+        _string_set(model.decision_refs, f"{root}.decision_refs", errors)
     if name == "Task":
         for field_name in ("id", "name", "goal", "expected_output"):
             if not isinstance(getattr(model, field_name), str) or not getattr(model, field_name).strip():

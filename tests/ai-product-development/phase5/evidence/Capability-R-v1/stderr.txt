@@ -1,0 +1,7 @@
+2026-09-16T09:15:09.684090Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-09-16T09:15:42.842444Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (1/5 in 195ms)... turn_id=01a0a97f-ab47-74b0-aaea-9f449a382235 retries=1 max_retries=5 sampling_error=request timed out
+2026-09-16T09:15:58.052490Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (2/5 in 415ms)... turn_id=01a0a97f-ab47-74b0-aaea-9f449a382235 retries=2 max_retries=5 sampling_error=request timed out
+2026-09-16T09:16:13.477426Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (3/5 in 860ms)... turn_id=01a0a97f-ab47-74b0-aaea-9f449a382235 retries=3 max_retries=5 sampling_error=request timed out
+2026-09-16T09:16:29.366432Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (4/5 in 1.738s)... turn_id=01a0a97f-ab47-74b0-aaea-9f449a382235 retries=4 max_retries=5 sampling_error=request timed out
+2026-09-16T09:16:46.123968Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (5/5 in 3.166s)... turn_id=01a0a97f-ab47-74b0-aaea-9f449a382235 retries=5 max_retries=5 sampling_error=request timed out
+2026-09-16T09:17:04.306202Z  WARN codex_core::client: falling back to HTTP

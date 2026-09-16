@@ -1,0 +1,139 @@
+[
+  {
+    "id": "E1",
+    "title": "Greenfield AI product",
+    "case": "E1-greenfield",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/lifecycle/06-validation-iteration.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/gates.md",
+      "schemas/execution-profile.yaml",
+      "schemas/evidence-record.yaml"
+    ],
+    "support": {
+      "references/lifecycle/03-product-definition.md": "optional profile dependency interpretation",
+      "references/lifecycle/04-solution-design.md": "optional prototype and evaluation dependency interpretation",
+      "references/runtime/planner.md": "capability need and gap planning",
+      "schemas/decision-record.yaml": "decision traceability check",
+      "references/capabilities/discovery/SKILL.md": "optional trigger boundary check",
+      "references/capabilities/ai-feasibility/SKILL.md": "optional trigger boundary check",
+      "references/capabilities/evaluation/SKILL.md": "optional trigger boundary check"
+    },
+    "expected": {
+      "delivery_target": "PROTOTYPE",
+      "project_mode": "GREENFIELD",
+      "scope_mode": "PARTIAL_PROJECT",
+      "active_nodes": ["Qualification", "Product Definition & Scope", "Solution Design"],
+      "capabilities": ["discovery", "product-requirements", "data-strategy", "human-ai-experience", "ai-feasibility", "evaluation"],
+      "capability_modes": {"discovery": "EXECUTE", "product-requirements": "EXECUTE", "data-strategy": "EXECUTE", "human-ai-experience": "EXECUTE", "ai-feasibility": "EXECUTE", "evaluation": "EXECUTE"},
+      "sources": ["SRC-G1", "SRC-G2"],
+      "gate_name": "Qualification",
+      "gate_result": "PASS_WITH_ASSUMPTIONS",
+      "missing_evidence_min": 1,
+      "replan_required": false,
+      "change_type": null,
+      "actions": []
+    }
+  },
+  {
+    "id": "E2",
+    "title": "Existing product feature change",
+    "case": "E2-existing-change",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/lifecycle/03-product-definition.md",
+      "references/lifecycle/04-solution-design.md",
+      "references/lifecycle/05-implementation.md",
+      "references/lifecycle/06-validation-iteration.md",
+      "references/lifecycle/07-release-operation.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/gates.md",
+      "references/runtime/replan-recovery.md",
+      "schemas/execution-profile.yaml",
+      "schemas/evidence-record.yaml"
+    ],
+    "support": {
+      "references/lifecycle/02-cognition.md": "optional verification of already confirmed architecture context",
+      "references/runtime/planner.md": "minimal replan task scope",
+      "schemas/decision-record.yaml": "decision traceability check",
+      "references/capabilities/product-requirements/SKILL.md": "optional trigger boundary check",
+      "references/capabilities/evaluation/SKILL.md": "optional trigger boundary check",
+      "references/capabilities/experimentation/SKILL.md": "optional trigger boundary check",
+      "references/capabilities/human-ai-experience/SKILL.md": "optional reuse boundary check",
+      "references/capabilities/data-strategy/SKILL.md": "optional reuse boundary check"
+    },
+    "expected": {
+      "delivery_target": "MVP",
+      "project_mode": "BROWNFIELD",
+      "scope_mode": "PARTIAL_PROJECT",
+      "active_nodes": ["Cognition", "Product Definition & Scope", "Solution Design", "Implementation", "Validation & Iteration", "Release & Operation"],
+      "capabilities": ["product-requirements", "evaluation", "experimentation"],
+      "capability_modes": {"product-requirements": "EXECUTE", "evaluation": "EXECUTE", "experimentation": "EXECUTE"},
+      "sources": ["SRC-E1", "SRC-E2", "SRC-E3", "SRC-E4"],
+      "gate_name": "Build Readiness",
+      "gate_result": "BLOCKED",
+      "missing_evidence_min": 1,
+      "replan_required": true,
+      "change_type": "INPUT_CHANGE",
+      "actions": [
+        ["PRESERVE", "T-EXPORT"],
+        ["OUTDATE", "T-ROUTING-DESIGN"],
+        ["OUTDATE", "T-ROUTING-IMPLEMENT"],
+        ["OUTDATE", "T-ROUTING-EVAL"],
+        ["ADD", "T-TAXONOMY-IMPACT"]
+      ]
+    }
+  },
+  {
+    "id": "E3",
+    "title": "Production quality / risk issue",
+    "case": "E3-production-risk",
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/lifecycle/06-validation-iteration.md",
+      "references/lifecycle/07-release-operation.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/gates.md",
+      "references/runtime/replan-recovery.md",
+      "schemas/execution-profile.yaml",
+      "schemas/evidence-record.yaml"
+    ],
+    "support": {
+      "references/lifecycle/08-retrospective.md": "production learning handoff",
+      "references/runtime/planner.md": "minimal affected task planning",
+      "references/runtime/registry-versioning.md": "optional decision currency check",
+      "schemas/decision-record.yaml": "optional decision shape check",
+      "schemas/task.yaml": "affected task semantics",
+      "references/capabilities/launch/SKILL.md": "optional launch non-trigger boundary check",
+      "references/capabilities/production-learning/SKILL.md": "optional trigger boundary check",
+      "references/capabilities/evaluation/SKILL.md": "optional trigger boundary check",
+      "references/capabilities/responsible-ai/SKILL.md": "optional trigger boundary check"
+    },
+    "expected": {
+      "delivery_target": "ENTERPRISE",
+      "project_mode": "BROWNFIELD",
+      "scope_mode": "PARTIAL_PROJECT",
+      "active_nodes": ["Validation & Iteration", "Release & Operation"],
+      "capabilities": ["production-learning", "evaluation", "responsible-ai"],
+      "capability_modes": {"production-learning": "EXECUTE", "evaluation": "EXECUTE", "responsible-ai": "EXECUTE"},
+      "sources": ["SRC-P1", "SRC-P2"],
+      "gate_name": "Release Readiness",
+      "gate_result": "BLOCKED",
+      "missing_evidence_min": 1,
+      "replan_required": true,
+      "change_type": "DECISION_CHANGE",
+      "decision_id": "D-P1",
+      "trigger": "safety escalation recall falls below 100%",
+      "actions": [
+        ["PRESERVE", "T-BILLING"],
+        ["OUTDATE", "T-ROUTING-EVAL"],
+        ["OUTDATE", "T-ROUTING-ROLLOUT"],
+        ["ADD", "T-ROUTING-INCIDENT"]
+      ]
+    }
+  }
+]

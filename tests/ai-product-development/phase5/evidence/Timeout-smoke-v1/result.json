@@ -1,0 +1,12 @@
+{
+  "case": "N",
+  "routing": null,
+  "issues": [],
+  "result": null,
+  "status": "INFRA_BLOCKED",
+  "infra_issues": [
+    "MODEL_TIMEOUT",
+    "TRACE_INCOMPLETE",
+    "RESULT_MISSING"
+  ]
+}

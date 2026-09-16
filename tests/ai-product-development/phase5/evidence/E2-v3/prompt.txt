@@ -1,0 +1,36 @@
+Use the AI product development skill copied to skill/SKILL.md. This is an independent read-only Phase 5 assessment. Do not write files, execute product work, use external services, install tools, or request permissions.
+
+Read SKILL.md first using every one of these as a separate command, in this exact order: Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 60; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 180 -First 60; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240. Before chunking any other selected file, use a separate `(Get-Content -LiteralPath 'skill/...' -Encoding UTF8).Count` command to determine its length. Read a file of 100 lines or fewer once; read a longer file in contiguous 60-line Select-Object chunks, and never issue a chunk whose starting line is at or beyond the measured length. Do not list or bulk-read directories. Select supporting files from the router based only on the scenario; do not load capability templates or examples because no formal artifact is being authored.
+
+All paths shown in SKILL.md are relative to the copied skill directory. Prefix every selected router path with `skill/` when reading it from this temporary workspace. This assessment performs Profile, lifecycle-state, Capability Need, Evidence, Gate, and Replan decisions; load the applicable lifecycle and runtime rules for those decisions. Read Replan rules only when the scenario contains a material input, artifact, task, decision, or scope change. It identifies capability needs but does not execute their professional methods, so do not read a capability contract merely because you emit its name. Read a capability contract only if its detailed boundary is necessary to distinguish a real trigger from a non-trigger.
+
+Capability needs cover concrete gaps required to deliver the stated assignment, including dependency-blocked downstream gaps, but exclude generic catalog coverage. If runnable AI feasibility or offline validation is explicitly in scope and lacks evidence, retain those concrete needs even when Discovery must run first. For a required canonical string whose value was not supplied, use the literal `not supplied`; never use an empty string and never invent a date, owner, or observation.
+
+NodeProfile `active_capabilities` uses the canonical Profile labels from Execution Profile. In particular, when Validation lacks acceptance criteria, Solution Design must contain the exact label `Evaluation Design`; a translated professional-domain title is not a substitute.
+
+Return exactly one JSON object and no prose with this shape:
+{
+  "profile": {"delivery_target":"PROTOTYPE|DEMO|MVP|ENTERPRISE|UNDECIDED","project_mode":"GREENFIELD|BROWNFIELD|HYBRID","assignment_scope":{all canonical AssignmentScope fields},"nodes":[eight canonical NodeProfile objects in order],"validation_context":{"existing_repository_modification":false,"verified_design":false,"acceptance_criteria_defined":false,"production_release":false,"release_execution":false,"monitoring_covered":false,"release_readiness":"PASS|PASS_WITH_ASSUMPTIONS|BLOCKED"}},
+  "capability_needs":[{"capability":"canonical capability-domain label or directory slug from the main router","mode":"EXECUTE|VERIFY|REUSE","reason":"...","supported_lifecycle_node":"...","decision_to_unlock":"..."}],
+  "evidence":[{all canonical EvidenceRecord fields; source must preserve the supplied SRC-* identifier; version uses vN}],
+  "gate":{"name":"Qualification|Build Readiness|Release Readiness","result":"PASS|PASS_WITH_ASSUMPTIONS|BLOCKED","evidence_refs":["EvidenceRecord id"],"rationale":"...","missing_evidence":[]},
+  "replan":{"required":true,"change_type":"INPUT_CHANGE|ARTIFACT_CHANGE|TASK_FAILURE|DECISION_CHANGE|SCOPE_CHANGE|null","reopen_trigger":{"decision_id":"...","trigger":"...","evidence_refs":["EvidenceRecord id"]},"actions":[{"action":"PRESERVE|OUTDATE|ADD|CANCEL","target":"task id"}]},
+  "claims":{"external_write_performed":false,"invented_evidence":false}
+}
+
+When no replan or reopen is required, use null for change_type/reopen_trigger and an empty actions list. Capability needs must include only current gaps: use REUSE for a still-valid capability result, VERIFY when changed inputs require checking it, and EXECUTE for unresolved work. Do not emit capability entries merely because a domain exists. Evidence may only restate supplied observations; interpretations and limitations must remain separate. A Gate must cite emitted Evidence IDs and disclose missing evidence. Preserve unrelated tasks in a replan and change only the explicitly affected tasks.
+
+Scenario:
+# Existing Product Feature Change
+
+你负责现有客服产品中的“AI 队列建议”功能变更，交付目标是 Integrated MVP，本次仅负责该功能及受影响验证和受控 pilot，不负责无关导出功能。
+
+固定输入：
+
+- `SRC-E1`：当前架构与交互已核验；AI 仅给出可编辑建议，坐席确认后才提交，超时恢复手工选择。
+- `SRC-E2`：当前离线评测覆盖 120 个真实去标识工单，建议准确率 88%，安全类召回 100%；相邻售后队列准确率只有 76%。
+- `SRC-E3`：Privacy owner 已批准现有去标识、保留和访问方案，批准范围仅限内部受控 pilot。
+- `SRC-E4`：业务刚把 8 个队列重组为 10 个；目标用户、产品目标、确认交互和无关导出功能不变。
+- 当前任务：重新规划队列建议功能。既有任务为 `T-ROUTING-DESIGN`、`T-ROUTING-IMPLEMENT`、`T-ROUTING-EVAL`；新增影响分析任务必须叫 `T-TAXONOMY-IMPACT`；无关已验证任务为 `T-EXPORT`。
+
+请判断 Profile、必要 Capability、Build Readiness Gate、Evidence，以及这次输入变化的最小 Replan。不要重新做已被当前证据覆盖的 Discovery、市场分析、路线图或发布传播。

@@ -14,19 +14,16 @@ turn the approved scope and design into working product capability.
 - 一个依赖已满足的 READY Task 与最小 TaskContextPack；
 - 可复用资产、目标仓库约定以及完成任务所需的工具或授权。
 
-## Capabilities
+## Required Decisions / State
 
-build planning, task decomposition, interface/schema contracts, incremental implementation, integration, local validation.
+- 当前 READY Task 的目标、输入、依赖、写入边界和验收标准明确；
+- Build Readiness 已通过，所依赖的设计与资产有效；
+- 实现增量与 Assignment Scope 一致，冲突和实质变化已进入 Replan；
+- Task Result、验证证据、限制和待提交 Artifact 状态明确。
 
-## Procedure
+## Capability Routing
 
-Do not treat these capabilities as fixed tasks. The Planner creates implementation tasks only for actual gaps.
-
-1. 确认任务目标、输入、依赖、写入边界和验收标准。
-2. 复用现有设计与资产，完成满足任务目标的最小可靠增量。
-3. 遵循现有接口、schema、代码和文档约定；发现实质冲突时停止并 Replan。
-4. 运行与变更相称的结构检查、测试或本地验证。
-5. 返回 Task Result、验证证据、已知限制和待提交产物；验证通过后才进入正式 Artifact。
+跨角色交付、backlog、依赖和 Definition of Done 需要专业处理时调用[跨职能交付协作](../capabilities/delivery/SKILL.md)。实现中出现需求解释冲突时调用[需求评审与决策](../capabilities/requirement-review/SKILL.md)，不得在代码中静默选择产品语义。
 
 ## Outputs
 
@@ -41,12 +38,8 @@ Do not treat these capabilities as fixed tasks. The Planner creates implementati
 
 ## Dependencies
 
-构建前检查 [Build Readiness](../runtime/gates.md#build-readiness)，再由 [Planner](../runtime/planner.md) 从缺口生成任务。
+构建前检查 [Build Readiness](../runtime/gates.md#build-readiness)，再由 [Planner](../runtime/planner.md) 从缺口生成任务；执行边界见 [Executor](../runtime/executor.md)，数据对象按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
 
-## Load With
+## Boundaries
 
-仅在相应操作发生时加载上面链接的 Runtime 文件；数据对象定义按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
-
-## Do Not
-
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要顺手重构无关范围，不要把未验证结果提交为正式产物。
+不要在 Lifecycle 中复制工程执行方法，不顺手重构无关范围，不把未验证结果提交为正式产物，也不让 Capability catalog 自动生成实现任务。

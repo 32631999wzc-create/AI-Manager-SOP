@@ -15,35 +15,19 @@ determine whether the current version meets the acceptance criteria and make the
 - 相关样例、数据、基线、测试环境和风险要求；
 - 已知限制及上一轮失败证据（若有）。
 
-## Capabilities
+## Required Decisions / State
 
-见下述 Procedure 中的原始能力组或流程；不新增能力。
+- 待验证声明、acceptance criteria、Evaluation Design、版本和环境明确；
+- 验证证据、覆盖范围、不确定性和限制可核验；
+- 结果被判定为 PASS、条件通过或 FAIL；
+- FAIL 已形成 bad case、根因和最小修复/阻塞/Replan 决策；
+- 定向验证与必要回归完成后才重新判定。
 
-## Procedure
+控制循环保持为：`Evaluate → Bad Case → Root Cause → Minimal Fix → Targeted Evaluation → Regression → Evaluate Again`。该循环属于 Lifecycle；具体评测、实验与风险方法属于 Capability。
 
-1. 选择能覆盖当前声明和风险的最小充分验证方法。
-2. 执行验证并保存可核验结果，不以模型自述代替工具或产物证据。
-3. 按预先确认的 acceptance criteria 判断，并限制结论适用范围。
-4. 失败时定位根因，只修改真正导致失败的层。
-5. 对修复做定向验证和必要回归，再重新判定。
+## Capability Routing
 
-Flow:
-
-`Evaluate → PASS` or `Evaluate → Bad Case → Root Cause → Minimal Fix → Targeted Evaluation → Regression → Evaluate Again`
-
-Root-cause categories are diagnostic labels, not lifecycle nodes:
-
-- requirement
-- data / knowledge
-- context / prompt
-- model
-- tool / integration
-- workflow / state
-- guardrail
-- code
-- evaluation
-
-Prefer fixing the layer that actually caused the failure; do not use prompt changes as a universal repair mechanism.
+离线质量、eval run 与 regression 调用[评测与质量](../capabilities/evaluation/SKILL.md)；用户价值、可用性或真实流程适配调用[实验与试点](../capabilities/experimentation/SKILL.md)；高影响或滥用风险调用[责任 AI、安全与风险](../capabilities/responsible-ai/SKILL.md)。
 
 ## Outputs
 
@@ -58,12 +42,8 @@ Prefer fixing the layer that actually caused the failure; do not use prompt chan
 
 ## Dependencies
 
-验收标准依赖见 [Dependency Closure](../runtime/execution-profile.md)；必要修复使用 [Replan](../runtime/replan-recovery.md)。
+验收标准依赖见 [Dependency Closure](../runtime/execution-profile.md)；执行与局部重试见 [Executor](../runtime/executor.md)，必要修复使用 [Replan](../runtime/replan-recovery.md)。
 
-## Load With
+## Boundaries
 
-仅在相应操作发生时加载上面链接的 Runtime 文件；数据对象定义按 [Kernel Router](../../SKILL.md#progressive-disclosure-router) 读取。
-
-## Do Not
-
-遵守 [Kernel 的 Operating Principles 和 Complexity Guardrails](../../SKILL.md)，不要将能力清单机械转换为任务。不要在看到结果后静默降低标准，不要把有限样例通过宣称为普遍有效，也不要无限迭代。
+不要在 Lifecycle 中复制评测方法，不在看到结果后降低标准，不把有限样例通过宣称为普遍有效，也不要无限迭代或把 prompt 修改当成通用修复。

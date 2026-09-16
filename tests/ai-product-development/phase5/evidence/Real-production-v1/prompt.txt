@@ -1,0 +1,4 @@
+Use the copied AI product development Skill at skill/SKILL.md to complete this real PM work request. Read its entrypoint and only the references genuinely needed. The workspace is read-only; do not edit files, run tests, call external services, or claim you verified anything beyond supplied materials. Deliver a concise Chinese PM work product, not a test JSON envelope: decisions with evidence/uncertainty, the minimum necessary next tasks and dependencies, acceptance/gate conditions, and what remains for a human owner to confirm. Do not narrate Skill internals unless needed to explain a decision.
+
+User request:
+你负责已上线的客服 AI 队列建议。当前有效决策 D-P1：低风险工单可显示 AI 建议，安全类工单必须满足零漏分 guardrail 且由坐席确认；其重开条件是 safety escalation recall falls below 100%。最近七天版本 product v1.3 / model M2 / prompt P7 的监控显示安全升级召回由 100% 降为 97%（3/100 漏分），其中一个漏分令安全专席响应延迟 42 分钟。值班人员已暂时切回全人工分流，尚未确认根因。请判断新证据的决策影响、当前发布 Gate、最小 Replan 与下一步诊断/修复/复验；保护未受影响工作，不执行生产操作，也不要把根因猜测当事实。

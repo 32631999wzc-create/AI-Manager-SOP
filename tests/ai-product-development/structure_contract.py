@@ -10,11 +10,26 @@ LIFECYCLE = [
 ]
 RUNTIME = ["execution-profile.md", "planner.md", "context.md", "executor.md",
            "registry-versioning.md", "replan-recovery.md", "gates.md"]
-LIFECYCLE_CONTRACT = ["Purpose", "Activation Conditions", "Required Inputs", "Capabilities",
-                      "Procedure", "Outputs", "Completion Criteria", "Dependencies",
-                      "Load With", "Do Not"]
+CAPABILITIES = [
+    "discovery", "competitive-intelligence", "business-case", "roadmap",
+    "product-requirements", "requirement-review", "ai-feasibility", "data-strategy",
+    "human-ai-experience", "evaluation", "responsible-ai", "delivery",
+    "experimentation", "launch", "production-learning", "retrospective",
+]
+CAPABILITY_CONTRACT = [
+    "Purpose", "When to use", "When NOT to use", "Decision / Unknown",
+    "Required Inputs", "Method", "Evidence Rules", "Decision Rules",
+    "Output Contract", "Handoff", "Completion Criteria", "Boundaries",
+]
+LIFECYCLE_CONTRACT = [
+    "Purpose", "Activation Conditions", "Required Inputs", "Required Decisions / State",
+    "Capability Routing", "Outputs", "Completion Criteria", "Dependencies", "Boundaries",
+]
 PLACEHOLDER_MARKERS = ["原文未单列固定输入", "原文未规定独立固定输出", "原文未单列节点完成"]
-SCHEMAS = ["task.yaml", "project-state.yaml", "execution-profile.yaml", "plan.yaml", "context-pack.yaml"]
+SCHEMAS = [
+    "task.yaml", "project-state.yaml", "evidence-record.yaml", "decision-record.yaml",
+    "execution-profile.yaml", "plan.yaml", "context-pack.yaml",
+]
 KERNEL_SECTIONS = [
     "1. Operating Principles", "2. Lifecycle", "3. Runtime", "Global Invariants",
     "Progressive Disclosure Router", "Lifecycle Routing", "Runtime Routing",
@@ -38,6 +53,11 @@ def inspect_contract(skill, kernel, nodes, check):
             ("schemas", SCHEMAS), ("templates", ["execution-plan.md"])]:
         actual = {p.name for p in (skill / folder).iterdir() if p.is_file()}
         check(actual == set(expected), "Wrong module inventory: " + folder)
+    actual_capabilities = {
+        p.name for p in (skill / "references/capabilities").iterdir()
+        if p.is_dir() and (p / "SKILL.md").is_file()
+    }
+    check(actual_capabilities == set(CAPABILITIES), "Wrong module inventory: references/capabilities")
 
     rows = re.findall(r"^\| (.*?) \| \[[^\]]+\]\(([^)]+)\) \|$", kernel, re.M)
     for label, name in zip(nodes, LIFECYCLE):
@@ -64,6 +84,33 @@ def inspect_contract(skill, kernel, nodes, check):
         for marker in PLACEHOLDER_MARKERS:
             check(marker not in text, f"Lifecycle placeholder remains: {name}: {marker}")
 
+    capability_rows = re.findall(
+        r"^\| .*? \| .*? \| \[[^\]]+\]\(references/capabilities/([^/]+)/SKILL\.md\) \|$",
+        kernel, re.M,
+    )
+    check(capability_rows == CAPABILITIES, "Wrong capability playbook routes/order")
+    for name in CAPABILITIES:
+        path = skill / "references/capabilities" / name / "SKILL.md"
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        headings = re.findall(r"^## (.+)$", text, re.M)
+        check(headings == CAPABILITY_CONTRACT, "Wrong capability contract/order: " + name)
+        for heading in CAPABILITY_CONTRACT:
+            match = re.search(
+                rf"^## {re.escape(heading)}\s*$\n(.*?)(?=^## |\Z)", text, re.M | re.S
+            )
+            check(bool(match and match.group(1).strip()),
+                  f"Empty capability contract section: {name}#{heading}")
+
+    lifecycle_text = "\n".join(
+        (skill / "references/lifecycle" / name).read_text(encoding="utf-8")
+        for name in LIFECYCLE if (skill / "references/lifecycle" / name).exists()
+    )
+    for name in CAPABILITIES:
+        check(f"../capabilities/{name}/SKILL.md" in lifecycle_text,
+              "Capability not reachable from lifecycle: " + name)
+
     gate = skill / "references/runtime/gates.md"
     if gate.exists():
         check(re.findall(r"^## (.+)$", gate.read_text(encoding="utf-8"), re.M) ==
@@ -73,12 +120,14 @@ def inspect_contract(skill, kernel, nodes, check):
     # Navigation, headings and short shared lifecycle scaffolding are not detailed rules.
     seen = defaultdict(set)
     for path in sorted((skill / "references").rglob("*.md")):
+        if "examples" in path.parts or "templates" in path.parts:
+            continue
         text = path.read_text(encoding="utf-8")
         for block in text.split("\n\n"):
             lines = [line.strip() for line in block.splitlines() if line.strip()]
             if not lines or any(line.startswith("#") or re.search(r"\[[^]]+\]\(", line) for line in lines):
                 continue
-            tokens = [line for line in lines if len(line) >= 90]
+            tokens = [line for line in lines if len(line) >= 90 and not line.startswith("|")]
             if len(lines) >= 2 and len(" ".join(lines)) >= 120:
                 tokens.append(" ".join(lines))
             for token in tokens:

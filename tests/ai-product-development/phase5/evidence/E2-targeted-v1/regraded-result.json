@@ -1,0 +1,9 @@
+{
+  "case": "E2",
+  "source_trace": "trace.jsonl",
+  "regrade_reason": "Product Requirements may wait for T-TAXONOMY-IMPACT when the taxonomy change has not yet proven that scope or acceptance criteria are invalid.",
+  "model_rerun": false,
+  "routing": "PASS",
+  "issues": [],
+  "status": "PASS"
+}
