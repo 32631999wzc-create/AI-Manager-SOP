@@ -1,28 +1,44 @@
-# AI-Manager-SOP 使用说明书
+<p align="center">
+  <img src="docs/assets/ai-product-copilot.png" alt="AI Product Copilot" width="100%">
+</p>
 
-AI-Manager-SOP 是一套可安装到 Codex 的 AI 产品开发 Skill。它根据交付目标、当前委托范围、已有资产、依赖和风险，帮助用户从需求判断持续推进到产品定义、方案、实现、验证、发布和复盘。
+<p align="center">
+  <a href="https://github.com/32631999wzc-create/AI-Manager-SOP/releases/latest"><img alt="GitHub Release" src="https://img.shields.io/github/v/release/32631999wzc-create/AI-Manager-SOP?display_name=tag&amp;sort=semver"></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/github/license/32631999wzc-create/AI-Manager-SOP"></a>
+  <img alt="Codex Skill" src="https://img.shields.io/badge/Codex-Skill-111827?logo=openai&amp;logoColor=white">
+  <img alt="Python 3.10+" src="https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&amp;logoColor=white">
+  <img alt="Workflow: Human Reviewed" src="https://img.shields.io/badge/Workflow-Human%20Reviewed-F59E0B">
+</p>
 
-正式 Skill 入口：[AI Product Development](skills/ai-product-development/SKILL.md)。
+AI Product Copilot 是一套可安装到 Codex 的 AI 产品开发 Skill。它根据交付目标、委托范围、已有资产、依赖、证据和风险，为真实产品任务生成执行路径，并持续推进产品定义、方案设计、实现、验证、发布和生产学习。
 
-## 1. 它适合解决什么问题
+当前版本：**AI Product Development Skill v1 — 可在人工审核下用于真实任务。**
 
-适合：
+- Skill 入口：[AI Product Development](skills/ai-product-development/SKILL.md)
+- 使用边界：[Usage Boundary](docs/usage-boundary.md)
+- 架构说明：[Architecture](docs/architecture.md)
+- 最新版本：[Releases](https://github.com/32631999wzc-create/AI-Manager-SOP/releases)
 
-- 从想法开始建设 Prototype、可运行 Demo、MVP 或 Enterprise 产品；
-- 接手已有产品或代码仓库，完成局部分析、设计、实现或验证；
-- 只负责某个环节，例如 PRD、AI 方案、评估设计、版本验证或发布准备；
-- 在本地产品仓库中保存计划和产物状态，跨任务、跨会话持续推进。
+## 核心能力
 
-它不会默认执行完整八节点，也不会默认引入 Agent、RAG、向量数据库、长期记忆、异步队列或企业级基础设施。交付目标、依赖和风险不要求这些能力时，Skill 应选择更简单的方案。
+AI Product Copilot 可以处理以下工作：
 
-当前成熟度：本地单用户持续交付 Beta。多人实时协作、云端状态、组织级组合管理、财务模型、法务采购和自动生产发布不属于默认范围；项目明确需要时，可作为具体任务处理。
+- 从模糊想法建立产品定义、范围、成功指标和可执行计划；
+- 接手已有 PRD、代码、原型、数据或评测资产，先核验有效性，再复用有效内容；
+- 自动起草和修订跨行业 PRD，维持问题、需求、验收和收益之间的可追溯关系；
+- 评估 AI 可行性、数据条件、Human-AI 交互、评测方案和 Responsible AI 风险；
+- 将产品缺口转换为带依赖、验收标准、交付物和 Gate 的 Task DAG；
+- 在每个已确定的任务节点完成后展示结果，等待人工审核；
+- 根据审核意见、最新文件和新证据调整后续计划；
+- 在需求、范围、外部接口或生产证据变化时，只重算受影响范围；
+- 为持续项目保存 Profile、Plan、Registry、Snapshot 和人工审核状态；
+- 将生产 bad case 连接到证据、决策、最小修复、回归验证和重新发布。
 
-使用前请查看 [Usage Boundary](docs/usage-boundary.md)：适用任务、人工确认点、证据质量依赖以及 LIGHT/实验性边界。
+系统根据任务目标选择所需能力和工程深度。简单任务会形成短链路；高风险、生产级或跨团队任务会增加相应的证据、验证和 Gate。
 
+## 安装
 
-## 2. 安装
-
-### 推荐：让 Codex 安装
+### 使用 Codex 安装
 
 在 Codex 中调用 `$skill-installer`，并发送：
 
@@ -30,178 +46,209 @@ AI-Manager-SOP 是一套可安装到 Codex 的 AI 产品开发 Skill。它根据
 请从 https://github.com/32631999wzc-create/AI-Manager-SOP/tree/main/skills/ai-product-development 安装这个 Skill。
 ```
 
-安装完成后，在新任务或下一轮对话中调用 `$ai-product-development`。
+安装完成后，在新任务中调用 `$ai-product-development`。
 
 ### 手动安装
 
-将仓库中的 `skills/ai-product-development/` 完整复制到：
+将 `skills/ai-product-development/` 完整复制到：
 
 ```text
 $CODEX_HOME/skills/ai-product-development/
 ```
 
-未设置 `CODEX_HOME` 时，默认位置通常是：
+默认目录通常为：
 
 ```text
 ~/.codex/skills/ai-product-development/
 ```
 
-必须复制整个目录，保留 `SKILL.md`、`references/`、`schemas/`、`templates/` 和 `scripts/` 的相对位置。
+请保留 `SKILL.md`、`references/`、`schemas/`、`templates/` 和 `scripts/` 的相对位置。
 
-## 3. 五分钟开始使用
+## 快速开始
 
-最小调用只需要说明想做什么：
+### 从一个产品想法开始
 
 ```text
 $ai-product-development
-我想做一个帮助销售整理客户访谈的 AI 产品。请先判断合理的交付目标和范围，再给出第一阶段计划。
+我想做一个帮助销售整理客户访谈的 AI 产品。
+请判断合理的交付目标和范围，列出关键未知项，并生成第一阶段计划。
 ```
 
-如果你已经知道目标，直接提供，Skill 不应重复提问：
+### 直接提供明确目标
 
 ```text
 $ai-product-development
 交付目标：MVP
 目标用户：20 人以内的销售团队
-核心问题：访谈记录无法快速归纳为机会和风险
-现有材料：访谈样例、现有 CRM API 文档
+核心问题：访谈记录难以快速归纳为机会和风险
+现有材料：访谈样例、CRM API 文档
 本次范围：从产品定义做到可运行内测版本
-请在当前仓库持续执行，并在关键节点保存状态。
+请在当前仓库持续执行，并在每个关键文档和任务节点完成后等待人工审核。
 ```
 
-建议一次提供以下信息中已经确定的部分，不需要填写完整问卷：
+### 修改已有产品
 
-- 想解决的问题和目标用户；
-- 期望交付物或交付目标；
-- 本次负责的范围；
-- 已有文档、数据、原型、代码或接口；
-- 时间、成本、隐私、安全、发布等硬约束；
-- 已知验收标准。
+```text
+$ai-product-development
+读取当前仓库的 PRD、代码和评测资产。
+识别本次需求影响的范围，复用仍有效的内容，输出修改方案和最小必要验证。
+```
 
-缺失信息会被分为阻塞项、非阻塞项或可显式声明的假设。Skill 只应询问会改变方案或阻塞执行的问题。
+### 处理生产问题
 
-## 4. 选择使用方式
+```text
+$ai-product-development
+根据这批生产 bad cases 判断受影响的产品决策和任务。
+保存证据，执行最小 Replan，并给出修复、回归和重新发布条件。
+```
+
+提供以下信息可以减少确认轮次：
+
+- 用户、场景和待解决问题；
+- 目标交付物或交付深度；
+- 本次委托范围；
+- 已有文档、数据、原型、代码、接口和评测；
+- 时间、成本、隐私、安全和发布约束；
+- 已知验收标准与决策人。
+
+系统会把缺失信息分类为阻塞项、可补充证据和显式假设，并优先询问会改变方案或阻塞执行的问题。
+
+## 工作方式
 
 ### 单次任务
 
-适合 PRD 审阅、方案设计、评估计划、局部实现或验证。说明当前委托范围即可，Skill 不创建长期状态目录。
+单次任务适合 PRD 起草或审阅、竞品分析、AI 方案、评测计划、需求评审和局部验证。系统根据当前请求完成交付，并将关键假设和证据边界写入结果。
 
 ```text
 $ai-product-development
-只审阅现有 AI 搜索方案的评估设计，不修改代码、不发布。输出缺口、风险和可执行的验收标准。
+审阅现有 AI 搜索方案的评测设计。
+输出证据缺口、主要风险和可执行验收标准，保持代码与发布状态不变。
 ```
 
-### 持续建设一个产品
+### 持续产品项目
 
-当工作会跨多个任务或会话时，明确要求在当前产品仓库持续执行。Skill 会在产品仓库创建 `.ai-product/`，保存已验证的 Profile、Plan、Registry、Snapshot 和当前任务上下文。
+跨任务或跨会话的产品建设会在产品仓库中使用 `.ai-product/` 保存状态：
 
 ```text
 $ai-product-development
-在当前仓库启动一个持续产品项目。先检查已有材料，生成 Profile 和 Plan；验证通过后初始化本地状态，并继续执行第一个 READY Task。
+在当前仓库启动持续产品项目。
+检查已有材料，生成 Execution Profile 和 Plan；人工审核通过后初始化状态并执行第一个 READY Task。
 ```
 
-新会话继续时：
+后续会话可以直接恢复：
 
 ```text
 $ai-product-development
-恢复当前仓库中的产品项目，检查最新 Snapshot 和阻塞项，然后继续下一个 READY Task。
+恢复当前仓库中的产品项目，读取最新 Snapshot、人工审核记录和阻塞项，继续下一个 READY Task。
 ```
 
-需求变化时：
+`.ai-product/` 保存显式项目状态。Runtime 使用文件指纹、审核回执和验证结果维护跨会话连续性。命令参考见 [Continuous Project Runtime](skills/ai-product-development/scripts/project_runtime/README.md)。
+
+## 八节点生命周期
+
+Execution Profile 始终记录八个生命周期节点，并为每个节点计算 `SKIP / VERIFY / LIGHT / STANDARD / DEEP` 深度。Planner 根据真实缺口生成任务，因此一次任务可以只执行其中一部分节点。
+
+| 节点 | 主要判断 | 典型输出 |
+|---|---|---|
+| Qualification | 目标、范围、证据和约束是否足以规划 | Context Snapshot、Execution Profile、Gate、阻塞项 |
+| Cognition | 现有产品、流程、资产和依赖如何工作 | Current State、Asset Inventory、System Map |
+| Product Definition & Scope | 为谁解决什么问题，价值和边界如何定义 | 产品定义、范围、成功指标、PRD |
+| Solution Design | 产品与 AI 工作流如何达到目标 | Solution Design、Evaluation Design、Build Readiness |
+| Implementation | 如何交付最小可靠增量 | 可运行或可审阅增量、Task Result、验证证据 |
+| Validation & Iteration | 当前结果是否达到验收标准 | Eval Readout、bad cases、根因、回归结果 |
+| Release & Operation | 如何安全地交付给目标用户 | Release Readiness、发布计划、观测与回滚条件 |
+| Retrospective | 哪些经验和资产可以进入下一轮 | 复盘、学习、技术债、复用资产、后续行动 |
+
+详细合同位于 [Lifecycle References](skills/ai-product-development/references/lifecycle/)。
+
+## 16 个专业能力域
+
+Planner 使用“明确缺口 + 待解锁决策 + 当前证据状态”选择能力，并决定执行方式：
+
+- `EXECUTE`：当前缺口缺少可用证据；
+- `VERIFY`：已有资产需要核验；
+- `REUSE`：已有证据仍然有效；
+- 无缺口：保持未激活。
+
+| 产品与市场 | AI 与体验 | 交付与学习 |
+|---|---|---|
+| Discovery | AI Feasibility | Delivery |
+| Competitive Intelligence | Data Strategy | Launch |
+| Business Case | Human-AI Experience | Production Learning |
+| Roadmap | Evaluation | Retrospective |
+| Product Requirements | Responsible AI |  |
+| Requirement Review | Experimentation |  |
+
+专业方法、模板和示例位于 [Capability References](skills/ai-product-development/references/capabilities/)，并在任务需要时按需加载。
+
+## 决策、证据与人工审核
+
+系统为重要产品结论维护三个问题：
+
+1. 为什么作出这个决定？
+2. 使用了哪些证据？
+3. 什么变化会触发重新判断？
+
+每个已确定的 Task 完成并验证后，系统会：
+
+1. 展示交付物、验证结果、证据和未决项；
+2. 暂停当前执行；
+3. 等待人工批准、驳回或修改建议；
+4. 重新读取人工可能修改过的文件；
+5. 以最新内容更新任务路径和后续交付。
+
+PRD、产品范围、关键方案、Build Readiness、Release Readiness 和高风险决策均进入人工审核。证据达到合同要求后可提交审核；关键输入缺失、高影响风险未关闭或验收条件不可执行时，任务保持阻塞。
+
+顶层 Gate 包含：
+
+- **Qualification**：当前信息是否足以形成可靠计划；
+- **Build Readiness**：范围、方案、依赖和验收是否足以进入实现；
+- **Release Readiness**：结果、风险、运营条件和回滚准备是否支持发布。
+
+## 变更与 Replan
+
+已有 baseline 后，系统会评估新事件的影响：
+
+- 信息更新且未产生实质影响：继续当前计划；
+- 局部任务、依赖或资产变化：执行 Local Replan；
+- 目标、范围或主要约束变化：执行 Profile Replan；
+- 新产品项目：建立 Initial Plan。
+
+Replan 先识别仍有效的证据、决策和产物，再生成受影响节点与任务的调整计划，并将结果提交人工审核。生产证据可以重新打开已有决策，并触发对应的修复与回归链路。
+
+## 项目结构
 
 ```text
-$ai-product-development
-目标和范围不变，但外部 API 字段已经变化。请做 Local Replan，保留仍有效的工作，只重做受影响任务。
+skills/ai-product-development/
+├── SKILL.md                 # Kernel 与 Router
+├── references/
+│   ├── lifecycle/           # 八节点合同
+│   ├── capabilities/        # 16 个专业能力域
+│   └── runtime/             # Profile、Planner、Gate、Executor、Registry
+├── schemas/                 # Profile、Plan、Task、Evidence、Decision 等对象
+├── templates/               # 可复用交付模板
+└── scripts/                 # 只读验证器与持续项目 Runtime
 ```
 
-`.ai-product/` 是显式项目状态，不是聊天记忆。普通用户无需直接调用 Runtime CLI；命令参考见 [Continuous Project Runtime](skills/ai-product-development/scripts/project_runtime/README.md)。
+架构、canonical location 和依赖关系见 [架构说明](docs/architecture.md)。能力触发、重叠治理和退役规则见 [Capability 资产治理](docs/capability-governance.md)。
 
-## 5. 八节点工作流
+## 成熟度与使用边界
 
-Execution Profile 会为全部八节点记录范围角色、执行深度、资产状态和状态，但只加载当前任务需要的详细规则。
+v1 已覆盖本地单用户的持续产品交付，并通过结构、Routing、Phase 2 行为、Phase 3 continuous runtime 和代表性真实任务验证。当前执行模式以人工审核为 Gate，重要决策由指定 owner 放行。
 
-| 节点 | 解决的问题 | 主要输出 | 节点完成的核心判断 |
-|---|---|---|---|
-| Qualification | 目标、范围和材料是否足以开始 | Context Snapshot、Profile、Gate、假设/阻塞项 | 能可靠规划，或明确阻塞 |
-| Cognition | 现有产品、流程、资产和实现是什么 | Current State、Asset Inventory、必要的 System Map | 受影响范围和关键依赖已理解 |
-| Product Definition & Scope | 为谁解决什么问题，AI 边界和成功是什么 | 产品定义、范围/非目标、价值假设、成功指标 | 已足以支持方案决策和验证 |
-| Solution Design | 用什么产品/AI 流程可靠实现 | Solution Design、Evaluation Design、Build Readiness | 方案可构建且验收方法明确 |
-| Implementation | 如何交付最小可靠增量 | 可运行或可审阅增量、Task Result、验证证据 | 当前任务验收通过且未越界 |
-| Validation & Iteration | 当前版本是否达到标准 | 结论、证据、bad cases、根因和修复结果 | 证据覆盖标准，结论不过度外推 |
-| Release & Operation | 如何让目标用户安全使用 | Release Readiness、版本/环境、发布验证与观察项 | 已可用，或发布被明确阻塞 |
-| Retrospective | 哪些经验和资产值得复用 | 结果复盘、学习、债务、复用资产和后续行动 | 只保留有证据且会改变决策的经验 |
+以下场景需要项目团队提供额外 owner、系统或流程：
 
-详细节点合同位于 [lifecycle references](skills/ai-product-development/references/lifecycle/)。每个节点统一包含 Purpose、Activation Conditions、Required Inputs、Capabilities、Procedure、Outputs、Completion Criteria、Dependencies、Load With 和 Do Not。
+- 多人实时协作与云端状态同步；
+- 组织级项目组合和财务审批；
+- 法务、采购与正式合规签署；
+- 生产环境凭证、发布权限和事故指挥；
+- 高影响领域的专业责任判断。
 
-八节点下还有一组按需加载的 [AI PM Professional Capability Domains](skills/ai-product-development/references/capabilities/)。它们补充用户研究、市场与竞品、商业论证、路线图、PRD、需求评审、AI 可行性、数据、Human-AI 体验、评测、安全、跨职能交付、实验、发布采用、生产学习闭环和复盘等专业方法。Capability 不是第九个生命周期、固定步骤或独立状态机，也不会因为存在就自动成为任务；Planner 只根据 lifecycle gap 和待解锁决策选择必要 domain。
+完整边界与 LIGHT/实验性能力见 [Usage Boundary](docs/usage-boundary.md)。
 
-## 6. 执行时会发生什么
+## 仓库验证
 
-1. **Qualification**：确认交付目标、Assignment Scope、已有材料和阻塞项。
-2. **Profile**：计算八节点的深度，不把节点清单机械变成任务。
-3. **Planner**：从真实缺口生成 Task DAG，检查依赖、冲突和 Gate。
-4. **Context + Executor**：为 READY Task 加载最小上下文，执行并验证。
-5. **Registry**：只有经过确认或验证的事实、决策和正式产物才写入长期状态。
-6. **Replan**：输入、产物、决策、任务或范围变化时，只调整受影响工作。
-7. **Completion**：交付物、必要节点、验收标准、阻塞项和正式产物同时满足才完成。
-
-每个已确定的 Task 产出并验证后，Skill 会展示结果并暂停，等待人工审核确认后才推进下一 Task；其余时候，用户主要看到初始/重大变更计划、重要发现、阻塞问题、关键决策和最终交付摘要，不需要阅读内部 DAG 或 Registry。
-多个 Task 的本地执行使用 `.ai-product/` Runtime 阻断待审任务并保存审核决定、意见和当前输出指纹；单个 Task 的对话交审仍需真实用户回复，不能由 Skill 自行批准。CLI 能验证回执、文件状态和审核意见后 Plan 是否发生变化，但不能独立证明回执确由人提交，也不能证明 Plan 变化在语义上充分落实了审核意见。
-
-## 7. 如何写出高质量请求
-
-明确结果和边界比指定内部流程更有效：
-
-```text
-交付目标：Runnable Demo
-本次范围：产品定义、方案、实现和离线验证
-已有资产：5 份访谈记录、一个空仓库
-必须满足：中文输入；结果可追溯到原始反馈 ID；不调用外部服务
-完成标准：样例可运行，输出 JSON 和 Markdown，测试通过
-```
-
-局部任务要明确不做什么：
-
-```text
-只验证当前版本，不修复、不发布；三个固定样例全部匹配才通过，不宣称泛化。
-```
-
-重大变更要说明哪些保持不变：
-
-```text
-目标用户、交付目标和验收标准不变；只替换数据源。保留已验证设计，评估受影响任务并局部重规划。
-```
-
-## 8. 结果与状态如何判断
-
-顶层只有三个 Gate：
-
-- Qualification：能否开始可靠规划；
-- Build Readiness：范围、方案和验收标准是否足以开始实现；
-- Release Readiness：当前结果是否达到发布目标。
-
-最终完成还要求：请求的交付物完成、所有 REQUIRED 节点满足、验收标准通过、没有阻塞项、必需正式产物为 ACTIVE，并明确范围外但项目关键的要求。
-
-## 9. 常见问题
-
-**为什么没有自动跑完八个节点？**
-Execution Profile 会根据当前委托、已有资产和交付目标选择深度。SKIP、VERIFY 或零任务都可能是正确结果。
-
-**为什么 Skill 又读取了一个支持模块？**
-依赖闭包可能要求核对 Profile、Gate、Planner 或 Registry。少量有理由的支持读取是允许的；无任务依赖地批量读取全部 references 才是 eager loading。
-
-**为什么没有创建 `.ai-product/`？**
-单次任务不需要持久状态。只有明确存在跨任务或跨会话连续性时才创建。
-
-**为什么不能直接把草稿写入 Registry？**
-假设、草稿和失败输出不能成为长期事实；正式产物必须先通过验证并创建版本。
-
-**如何确认安装没有损坏？**
-检查 Skill 目录结构完整，并运行本文下一节的结构验证。若只是使用 Skill，无需运行开发者 trace 测试。
-
-## 10. 仓库维护与验证
-
-运行环境需要 Python 3.10+ 和 PyYAML。在仓库根目录执行：
+维护环境需要 Python 3.10+ 和 PyYAML。在仓库根目录运行：
 
 ```sh
 python -B -X utf8 tests/ai-product-development/validate_structure.py
@@ -211,7 +258,8 @@ python -B -X utf8 tests/ai-product-development/phase2/behavior/verify_behavior.p
 python -B -X utf8 tests/ai-product-development/phase3/golden/verify_golden.py
 ```
 
-结构验证覆盖路由、节点合同、内部链接、Gate、schema、迁移完整性和明显规则重复。真实行为证据见 [Routing 报告](tests/ai-product-development/routing/report.md)、[Phase 2 行为报告](tests/ai-product-development/phase2/behavior/report.md)和 [Phase 3 Golden 报告](tests/ai-product-development/phase3/golden/report.md)。
+这些检查覆盖目录结构、路由、对象合同、Gate、schema、validator、行为证据和持续状态。采用的 v1 证据清单见 [Release v1 Manifest](docs/release-v1-manifest.yaml)，发布判断见 [Final Readiness Review](docs/final-readiness-review-v1.md)。
 
-仓库结构和 canonical location 见 [架构说明](docs/architecture.md)；本次完整性审查见 [工作流合同审查](docs/decisions/005-workflow-contract-review.md)。
-能力使用、重叠/退役判断、外部工具接入门槛和 trace 留存规则见 [Capability 资产治理](docs/capability-governance.md)。
+## License
+
+[MIT](LICENSE)
