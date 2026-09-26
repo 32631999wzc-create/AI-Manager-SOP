@@ -88,7 +88,7 @@ rules:
     check: validation input makes each Plan dependency source, target and type explicit
   - code: DEPENDENCY_REFERENCE_UNKNOWN
     source: skills/ai-product-development/references/runtime/planner.md#85-dependencies
-    check: dependencies reference known tasks or a named gate
+    check: task dependencies reference known tasks; GATE dependencies use one of the three canonical top-level gates as source and an existing Task.id as target
   - code: DEPENDENCY_TYPE_INVALID
     source: skills/ai-product-development/references/runtime/planner.md#85-dependencies
     check: only HARD, DATA, DECISION and GATE are blocking dependency types

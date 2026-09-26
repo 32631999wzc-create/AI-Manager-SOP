@@ -1,0 +1,20 @@
+change: Extract Artifact, parallel conflict, and critical-path validation into focused domain rules
+reason: Complete the behavior-preserving Validator lightweight refactor by removing the remaining natural Plan rule blocks from the coordinator
+modified_files:
+  - skills/ai-product-development/scripts/runtime_validation/validators.py
+modified_rules:
+  - Artifact parsing and validation are handled by a focused helper
+  - Parallel formal-artifact write conflicts are handled by a focused domain rule
+  - Critical-path Task references are handled by a focused domain rule
+affected_behaviors:
+  - Internal organization of deterministic Plan validation
+affected_scenarios:
+  - Plans with Artifact requirements, concurrent write targets, or critical paths
+unaffected_scenarios:
+  - READY state semantics
+  - Profile dependency closure
+  - Plan dependency and Gate semantics
+  - Plan.gates keys, Task.dependencies semantics, error codes, schemas, and model routing
+verification_required:
+  - Phase 2 validator regression
+  - Repository-required structural and adjacent phase tests

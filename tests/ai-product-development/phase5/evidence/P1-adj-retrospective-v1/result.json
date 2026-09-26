@@ -1,0 +1,26 @@
+{
+  "case": "retrospective",
+  "status": "PASS",
+  "issues": [],
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/planner.md"
+    ],
+    "missing": [],
+    "successful_commands": 2,
+    "verification": "full content in successful combined command output",
+    "status": "PASS"
+  },
+  "result": {
+    "gap_exists": true,
+    "decision_to_unlock": "Determine what was learned against the original goals and which assets or debts to carry forward",
+    "capability_need": {
+      "capability": "复盘与组合学习",
+      "mode": "EXECUTE",
+      "reason": "Final pilot quality, adoption, cost, and incident evidence is available, but it has not yet been synthesized into validated lessons and carry-forward decisions.",
+      "decision_to_unlock": "Determine what was learned against the original goals and which assets or debts to carry forward"
+    }
+  },
+  "infra_issues": []
+}

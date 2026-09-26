@@ -1,0 +1,457 @@
+{
+  "scenario": "B8",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "references/runtime/context.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_3+item_4+item_5+item_6+item_7+item_8",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 180 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 300\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_18",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'references/lifecycle/01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_19+item_20+item_21",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\""
+      },
+      {
+        "file": "references/runtime/planner.md",
+        "item_id": "item_23+item_24+item_25",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'references/runtime/planner.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\""
+      },
+      {
+        "file": "references/runtime/context.md",
+        "item_id": "item_27",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'references/runtime/context.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_28",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'schemas/execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/plan.yaml",
+        "item_id": "item_29",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'schemas/plan.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/task.yaml",
+        "item_id": "item_30",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'schemas/task.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/context-pack.yaml",
+        "item_id": "item_31",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'schemas/context-pack.yaml' -Encoding UTF8\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {
+      "schemas/context-pack.yaml": "Context reference dependency when planning task-specific context selection"
+    },
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_10",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_12",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_13",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_14",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_15",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_16",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_17",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_22",
+        "reason": "empty read past end of file",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_26",
+        "reason": "empty read past end of file",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "validation_errors": [],
+  "behavior_issues": [],
+  "normalized_result": {
+    "claims": {
+      "assignment_complete": false,
+      "external_write_performed": false
+    },
+    "document": {
+      "plan": {
+        "artifacts": [],
+        "available_inputs": [
+          "VERIFIED_REUSABLE requirements, design, evaluation criteria, code",
+          "PARTIAL integration asset",
+          "Existing repository"
+        ],
+        "blocked_inputs": [
+          "Current task context has not been assembled or verified",
+          "CONFLICTING, OUTDATED, and PRESENT_UNVERIFIED assets require resolution"
+        ],
+        "gates": {},
+        "plan": {
+          "assumptions": [
+            "MVP target is fixed by scenario",
+            "Only integration gaps and validation are in scope"
+          ],
+          "critical_path": [
+            "T1",
+            "T2",
+            "T3"
+          ],
+          "dependencies": [
+            {
+              "from": "Qualification",
+              "to": "T1",
+              "type": "GATE"
+            },
+            {
+              "from": "T1",
+              "to": "T2",
+              "type": "HARD"
+            },
+            {
+              "from": "T2",
+              "to": "T3",
+              "type": "HARD"
+            }
+          ],
+          "objective": "Complete MVP integration gaps and validation using reusable assets.",
+          "tasks": [
+            {
+              "acceptance_criteria": [
+                "Relevant reusable assets are selected by status and scope",
+                "Conflicts and stale inputs are explicitly blocked or resolved",
+                "Task context contains only required facts and constraints"
+              ],
+              "artifact_requirements": [],
+              "context_requirements": [
+                "Requirements",
+                "design",
+                "evaluation criteria",
+                "code",
+                "integration asset"
+              ],
+              "dependencies": [
+                "Qualification"
+              ],
+              "execution_depth": "VERIFY",
+              "expected_output": "Task-specific context pack",
+              "goal": "Assemble current context from existing assets.",
+              "id": "T1",
+              "lifecycle_node": "Cognition",
+              "name": "Assemble context",
+              "priority": "P0",
+              "required_capabilities": [
+                "Context"
+              ],
+              "required_inputs": [
+                "Existing asset inventory"
+              ],
+              "retry_policy": "Recheck asset status and dependencies",
+              "status": "BLOCKED",
+              "type": "context"
+            },
+            {
+              "acceptance_criteria": [
+                "Only the identified integration gap is changed",
+                "Existing verified reusable design and code are preserved",
+                "Implementation is compatible with the selected context"
+              ],
+              "artifact_requirements": [],
+              "context_requirements": [
+                "T1 context pack",
+                "Verified requirements and design",
+                "Partial integration asset"
+              ],
+              "dependencies": [
+                "T1"
+              ],
+              "execution_depth": "FULL",
+              "expected_output": "Completed integration gap",
+              "goal": "Implement the scoped MVP integration gap.",
+              "id": "T2",
+              "lifecycle_node": "Implementation",
+              "name": "Complete integration gap",
+              "priority": "P0",
+              "required_capabilities": [
+                "Integration"
+              ],
+              "required_inputs": [
+                "T1"
+              ],
+              "retry_policy": "Retry only the affected gap after review",
+              "status": "NOT_STARTED",
+              "type": "implementation"
+            },
+            {
+              "acceptance_criteria": [
+                "Evaluation criteria are applied to the completed integration",
+                "Integration behavior passes required checks",
+                "Failures are recorded with follow-up actions"
+              ],
+              "artifact_requirements": [],
+              "context_requirements": [
+                "T1 context pack",
+                "T2 implementation result",
+                "Evaluation criteria"
+              ],
+              "dependencies": [
+                "T2"
+              ],
+              "execution_depth": "FULL",
+              "expected_output": "Validation result for the integration gap",
+              "goal": "Validate the completed integration and report remaining defects.",
+              "id": "T3",
+              "lifecycle_node": "Validation & Iteration",
+              "name": "Validate integration",
+              "priority": "P0",
+              "required_capabilities": [
+                "Evaluation"
+              ],
+              "required_inputs": [
+                "T2"
+              ],
+              "retry_policy": "Reproduce, minimally fix, and revalidate",
+              "status": "NOT_STARTED",
+              "type": "validation"
+            }
+          ],
+          "version": "1"
+        },
+        "write_targets": {}
+      },
+      "profile": {
+        "assignment_scope": {
+          "excluded_scope": [
+            "Release and operation",
+            "Retrospective",
+            "Unrelated product changes"
+          ],
+          "expected_deliverables": [
+            "Scoped integration gap",
+            "Validation result"
+          ],
+          "mode": "PARTIAL_PROJECT",
+          "ownership_boundary": [
+            "Existing repository MVP integration path",
+            "Gap implementation and validation"
+          ],
+          "requested_scope": [
+            "Construct task-specific context",
+            "Complete integration gap",
+            "Validate the gap"
+          ]
+        },
+        "delivery_target": "MVP",
+        "nodes": [
+          {
+            "active_capabilities": [],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [],
+            "level": "REQUIRED",
+            "node": "Qualification",
+            "reasons": [
+              "Scenario provides sufficient qualification inputs"
+            ],
+            "reused_artifacts": [],
+            "scope_role": "SUPPORTING",
+            "status": "SATISFIED"
+          },
+          {
+            "active_capabilities": [
+              "Repository inspection",
+              "Dependency tracing"
+            ],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [
+              "Current task context must be assembled from reusable assets"
+            ],
+            "level": "REQUIRED",
+            "node": "Cognition",
+            "reasons": [
+              "Existing repository modification",
+              "Asset statuses require selective verification"
+            ],
+            "reused_artifacts": [
+              "VERIFIED_REUSABLE code"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "NOT_STARTED"
+          },
+          {
+            "active_capabilities": [],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [
+              "Conflicting or outdated inputs may affect scope"
+            ],
+            "level": "REQUIRED",
+            "node": "Product Definition & Scope",
+            "reasons": [
+              "MVP scope is explicit but asset conflicts need boundary confirmation"
+            ],
+            "reused_artifacts": [
+              "VERIFIED_REUSABLE requirements"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "BLOCKED"
+          },
+          {
+            "active_capabilities": [
+              "Evaluation Design"
+            ],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [
+              "Evaluation criteria validity and applicability need verification"
+            ],
+            "level": "REQUIRED",
+            "node": "Solution Design",
+            "reasons": [
+              "Existing design is reusable; acceptance criteria are supplied but unverified"
+            ],
+            "reused_artifacts": [
+              "VERIFIED_REUSABLE design",
+              "VERIFIED_REUSABLE evaluation criteria"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "NOT_STARTED"
+          },
+          {
+            "active_capabilities": [
+              "Integration"
+            ],
+            "depth": "FULL",
+            "external_project_requirement": null,
+            "gaps": [
+              "PARTIAL integration asset has an identified completion gap"
+            ],
+            "level": "REQUIRED",
+            "node": "Implementation",
+            "reasons": [
+              "Requested deliverable is an MVP integration gap"
+            ],
+            "reused_artifacts": [
+              "PARTIAL integration asset"
+            ],
+            "scope_role": "PRIMARY",
+            "status": "NOT_STARTED"
+          },
+          {
+            "active_capabilities": [
+              "Evaluation"
+            ],
+            "depth": "FULL",
+            "external_project_requirement": null,
+            "gaps": [
+              "Completed integration must be validated"
+            ],
+            "level": "REQUIRED",
+            "node": "Validation & Iteration",
+            "reasons": [
+              "Validation is explicitly requested"
+            ],
+            "reused_artifacts": [
+              "VERIFIED_REUSABLE evaluation criteria"
+            ],
+            "scope_role": "PRIMARY",
+            "status": "NOT_STARTED"
+          },
+          {
+            "active_capabilities": [],
+            "depth": "SKIP",
+            "external_project_requirement": "Release readiness and production operation are outside this assignment",
+            "gaps": [],
+            "level": "SKIP",
+            "node": "Release & Operation",
+            "reasons": [
+              "Explicitly outside PARTIAL_PROJECT ownership boundary"
+            ],
+            "reused_artifacts": [],
+            "scope_role": "OUT_OF_SCOPE",
+            "status": "SKIPPED"
+          },
+          {
+            "active_capabilities": [],
+            "depth": "SKIP",
+            "external_project_requirement": "Retrospective is outside this assignment",
+            "gaps": [],
+            "level": "SKIP",
+            "node": "Retrospective",
+            "reasons": [
+              "Explicitly outside PARTIAL_PROJECT ownership boundary"
+            ],
+            "reused_artifacts": [],
+            "scope_role": "OUT_OF_SCOPE",
+            "status": "SKIPPED"
+          }
+        ],
+        "project_mode": "BROWNFIELD",
+        "validation_context": {
+          "acceptance_criteria_defined": true,
+          "existing_repository_modification": true,
+          "monitoring_covered": false,
+          "production_release": false,
+          "release_execution": false,
+          "release_readiness": "BLOCKED",
+          "verified_design": false
+        }
+      }
+    }
+  },
+  "status": "PASS",
+  "failure_class": "PASS"
+}

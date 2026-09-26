@@ -12,6 +12,16 @@
     "Release & Operation": "SKIP",
     "Retrospective": "LIGHT"
   },
+  "behavior_node_levels": {
+    "Qualification": ["REQUIRED"],
+    "Cognition": ["SKIP"],
+    "Product Definition & Scope": ["REQUIRED"],
+    "Solution Design": ["LIGHT"],
+    "Implementation": ["REQUIRED"],
+    "Validation & Iteration": ["LIGHT"],
+    "Release & Operation": ["SKIP"],
+    "Retrospective": ["LIGHT"]
+  },
   "error_codes": [],
   "project_mode": "GREENFIELD",
   "validation_context": {

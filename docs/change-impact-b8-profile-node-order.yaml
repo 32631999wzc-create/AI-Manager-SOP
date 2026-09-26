@@ -1,0 +1,18 @@
+change: Require canonical Execution Profile node serialization order
+reason: B8 emitted Qualification last although the validator requires all eight nodes in canonical order
+modified_files:
+  - skills/ai-product-development/references/runtime/execution-profile.md
+modified_rules:
+  - Profile nodes are emitted exactly once in canonical lifecycle order
+  - Node state, discovery order, activation order, and priority cannot change serialization order
+affected_behaviors:
+  - Execution Profile node serialization order
+affected_scenarios:
+  - Scenarios that construct or rewrite an Execution Profile
+unaffected_scenarios:
+  - B8 Gate dependency semantics
+  - B6 Evaluation Design dependency closure
+  - B7 Local Replan routing
+verification_required:
+  - Targeted canonical-order validation check
+  - One independent B8 forward test

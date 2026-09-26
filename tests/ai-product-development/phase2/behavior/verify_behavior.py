@@ -3,11 +3,25 @@ from pathlib import Path
 import hashlib
 import json
 
-from run_behavior import HERE, SKILL, SCENARIOS, grade, inventory, prompt_for
+from run_behavior import HERE, SKILL, SCENARIOS, grade, inventory, prompt_for, output_schema
 
 
 def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+def verify_output_schema_fingerprint(metadata: dict) -> None:
+    """Validate new evidence without rewriting legacy accepted traces."""
+    recorded = metadata.get("output_schema_sha256")
+    if recorded is None:
+        return
+    assert recorded == sha(
+        json.dumps(output_schema(), sort_keys=True).encode("utf-8")
+    ), "Accepted trace is for another output schema"
+
+
+def current_prompt(scenario: dict, contents: dict[str, str]) -> str:
+    return prompt_for(scenario, len(contents["SKILL.md"].splitlines()))
 
 
 def verify() -> None:
@@ -31,6 +45,7 @@ def verify() -> None:
             assert sha((folder / name).read_bytes()) == digest, "Evidence changed: " + name
         metadata = json.loads((folder / "metadata.json").read_text(encoding="utf-8"))
         assert metadata["skill_sha256"] == files, "Accepted trace is for another Skill version"
+        verify_output_schema_fingerprint(metadata)
         assert metadata["skill_unchanged"] and metadata["exit_code"] == 0 and not metadata.get("timeout")
         args = metadata["command"]
         assert args[args.index("-s") + 1] == "read-only"
@@ -40,7 +55,9 @@ def verify() -> None:
             "resume", "--add-dir",
         ])
         roots.add(args[args.index("-C") + 1])
-        assert (folder / "prompt.txt").read_text(encoding="utf-8") == prompt_for(scenario), "Prompt drift"
+        assert (folder / "prompt.txt").read_text(encoding="utf-8") == current_prompt(
+            scenario, contents
+        ), "Prompt drift"
         events = [
             json.loads(line)
             for line in (folder / "trace.jsonl").read_text(encoding="utf-8").splitlines()

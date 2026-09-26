@@ -163,6 +163,18 @@ class MalformedInputTests(unittest.TestCase):
         release["nodes"][6]["active_capabilities"] = []
         self.assertEqual(validate_document(release, "profile"), [])
 
+    def test_task_id_cannot_be_gate_dependency_source(self):
+        document = load(SCENARIOS / "06-enterprise-release.yaml")["plan"]
+        gate_dependency = next(
+            dependency
+            for dependency in document["plan"]["dependencies"]
+            if dependency["type"] == "GATE"
+        )
+        gate_dependency["from"] = "T1"
+        document["plan"]["tasks"][1]["dependencies"] = ["T1"]
+        codes = {error.code for error in validate_document(document, "plan")}
+        self.assertIn("DEPENDENCY_REFERENCE_UNKNOWN", codes)
+
 
 class ContractAndCliTests(unittest.TestCase):
     def test_contract_sources_exist_and_codes_are_unique(self):

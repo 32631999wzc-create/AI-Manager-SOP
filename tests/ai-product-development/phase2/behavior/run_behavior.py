@@ -3,6 +3,7 @@
 from pathlib import Path
 import argparse
 import datetime
+import hashlib
 import json
 import re
 import shutil
@@ -16,9 +17,11 @@ REPO = HERE.parents[3]
 SKILL = REPO / "skills/ai-product-development"
 sys.path.insert(0, str(TEST_ROOT / "routing"))
 sys.path.insert(0, str(SKILL / "scripts"))
+sys.path.insert(0, str(HERE))
 
 from run_routing import inventory
 from runtime_validation.validators import validate_document
+from output_schema import output_schema
 
 SCENARIOS = json.loads((HERE / "scenarios.json").read_text(encoding="utf-8"))
 FIXTURES = TEST_ROOT / "phase2/fixtures"
@@ -57,7 +60,9 @@ def assess_reads(events, scenario, contents):
     line_count_pattern = re.compile(
         r"(?:\(Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?\)\.Count|"
         r"Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?\s*\|\s*"
-        r"Measure-Object\s+-Line)$",
+        r"Measure-Object\s+-Line|"
+        r"\(Get-Content\s+-LiteralPath\s+'([^']+)'(?:\s+-Encoding\s+UTF8)?\s*\|\s*"
+        r"Measure-Object\s+-Line\)\.Lines)$",
         re.I,
     )
 
@@ -70,7 +75,58 @@ def assess_reads(events, scenario, contents):
             return name.split("/skill/", 1)[1]
         return name[6:] if name.startswith("skill/") else name
 
+    expanded_events = []
     for event in events:
+        item = event.get("item", {})
+        if event.get("type") != "item.completed" or item.get("type") != "command_execution":
+            expanded_events.append(event)
+            continue
+        command = item.get("command", "")
+        read_command = command.split(" -Command ", 1)[-1].strip().strip(chr(34))
+        statements = [part.strip() for part in read_command.split("; ")]
+        if len(statements) < 2:
+            expanded_events.append(event)
+            continue
+        counts = [line_count_pattern.fullmatch(part) for part in statements]
+        output = normalize(item.get("aggregated_output", ""))
+        if all(counts):
+            values = output.splitlines()
+            if len(values) == len(statements) and all(value.strip().isdigit() for value in values):
+                for index, (statement, value) in enumerate(zip(statements, values)):
+                    copy = dict(item, id=f"{item.get('id')}:{index}",
+                                command=command.split(" -Command ", 1)[0] + ' -Command "' + statement + '"',
+                                aggregated_output=value)
+                    expanded_events.append({"type": "item.completed", "item": copy})
+                continue
+        parsed = []
+        for statement in statements:
+            full = full_pattern.fullmatch(statement)
+            chunk = chunk_pattern.fullmatch(statement)
+            path = full.group(1) if full else (chunk.group(1) if chunk else "")
+            name = relative_name(path) if path else ""
+            if name not in contents:
+                parsed = []
+                break
+            lines = contents[name].splitlines()
+            start = 0 if full or chunk.group(2) else int(chunk.group(3))
+            end = (len(lines) if full else
+                   min(len(lines), int(chunk.group(2))) if chunk.group(2) else
+                   min(len(lines), start + int(chunk.group(4))) if chunk.group(4) else
+                   len(lines))
+            parsed.append((statement, "\n".join(lines[start:end])))
+        if parsed:
+            if output != normalize("\n".join(value for _, value in parsed)):
+                issues.append("TRACE_OUTPUT_MISMATCH: " + item.get("id", "?"))
+                continue
+            for index, (statement, value) in enumerate(parsed):
+                copy = dict(item, id=f"{item.get('id')}:{index}",
+                            command=command.split(" -Command ", 1)[0] + ' -Command "' + statement + '"',
+                            aggregated_output=value)
+                expanded_events.append({"type": "item.completed", "item": copy})
+            continue
+        expanded_events.append(event)
+
+    for event in expanded_events:
         item = event.get("item", {})
         if event.get("type") != "item.completed" or item.get("type") != "command_execution":
             continue
@@ -90,7 +146,7 @@ def assess_reads(events, scenario, contents):
         read_command = command.split(" -Command ", 1)[-1].strip().strip(chr(34))
         line_count = line_count_pattern.fullmatch(read_command)
         if line_count:
-            counted_path = line_count.group(1) or line_count.group(2)
+            counted_path = line_count.group(1) or line_count.group(2) or line_count.group(3)
             counted_name = relative_name(counted_path)
             if counted_name in contents:
                 allowed_commands.append({"item_id": item.get("id"),
@@ -112,14 +168,22 @@ def assess_reads(events, scenario, contents):
             end_line = (min(len(lines), int(chunk.group(2))) if chunk.group(2)
                         else min(len(lines), start_line + int(chunk.group(4))) if chunk.group(4)
                         else len(lines))
+            if start_line >= len(lines) and not output:
+                allowed_commands.append({"item_id": item.get("id"),
+                                         "reason": "empty read past end of file",
+                                         "exit_code": exit_code})
+                continue
             if start_line <= end_line and output == normalize("\n".join(lines[start_line:end_line])):
                 chunks.setdefault(name, []).append({"start": start_line, "end": end_line,
                                                      "sequence": sequence,
                                                      "item_id": item.get("id"),
                                                      "command": command})
                 continue
-        issues.append("UNVERIFIED_READ: " + item.get("id", "?") if selected_path
-                      else "UNCLASSIFIED_COMMAND: " + item.get("id", "?"))
+        if name in contents and (full or chunk):
+            issues.append("TRACE_OUTPUT_MISMATCH: " + item.get("id", "?"))
+        else:
+            issues.append("UNVERIFIED_READ: " + item.get("id", "?") if selected_path
+                          else "UNCLASSIFIED_COMMAND: " + item.get("id", "?"))
 
     for name, parts in chunks.items():
         ordered = sorted(parts, key=lambda part: part["start"])
@@ -222,6 +286,16 @@ def grade(events, scenario, contents):
         if routing["status"] == "PASS" and not issues and not validation_errors
         else "FAIL"
     )
+    infra_trace = any(
+        issue.startswith("TRACE_OUTPUT_MISMATCH:")
+        for issue in routing["trace_issues"]
+    )
+    failure_class = (
+        "PASS" if status == "PASS" else
+        "CONTRACT_FAIL" if issues or validation_errors or
+        routing["unexplained"] or routing["eager_loading_groups"] else
+        "INFRA_BLOCKED" if infra_trace else "CONTRACT_FAIL"
+    )
     return {
         "scenario": scenario["id"],
         "routing": routing,
@@ -229,6 +303,7 @@ def grade(events, scenario, contents):
         "behavior_issues": issues,
         "normalized_result": envelope,
         "status": status,
+        "failure_class": failure_class,
     }
 
 
@@ -248,14 +323,14 @@ def prompt_for(scenario, kernel_line_count):
         "Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | " + selector
         for selector in selectors
     )
-    return f"""Use the AI product development skill copied to skill/SKILL.md. Read SKILL.md first, then select supporting files from its router. This is an isolated read-only planning exercise: do not write files, execute product work, install tools, use external services, or request broader permissions. SKILL.md currently has {kernel_line_count} lines. Read it first using every one of these as a separate command, in this exact order: {kernel_commands}. Do not omit the final command. Read every other selected file completely with Get-Content -LiteralPath using UTF-8. To keep trace evidence complete, read a selected file longer than 100 lines in contiguous 60-line Select-Object chunks, using separate commands in order; read a shorter file with one separate command. Do not list or bulk-read directories. Do not read outside this temporary workspace.
+    return f"""Use the AI product development skill copied to skill/SKILL.md. Read SKILL.md first, then select supporting files from its router. This is an isolated read-only planning exercise: do not write files, execute product work, install tools, use external services, or request broader permissions. SKILL.md currently has {kernel_line_count} lines. Read it first using every one of these as a separate command, in this exact order: {kernel_commands}. Do not omit the final command. For each other file selected from the router, check its line count with (Get-Content -LiteralPath 'path' -Encoding UTF8).Count; do not use Measure-Object -Line, which excludes blank lines. If the count exceeds 100, use separate contiguous Get-Content -LiteralPath commands with Select-Object -First 60, then -Skip 60 -First 60, and so on through the end; never read a long file in one command because tool output may omit middle lines. Read shorter files with one Get-Content -LiteralPath command. Use UTF-8 throughout. Do not list or bulk-read directories. Do not read outside this temporary workspace.
 
-Derive the Execution Profile and a concise valid Plan of at most three tasks only; keep strings short and do not perform lifecycle work. Return exactly one JSON object and no prose:
-{{"document":{{"profile":{{"delivery_target":"...","project_mode":"...","assignment_scope":{{all canonical fields}},"nodes":[eight canonical NodeProfile objects in order],"validation_context":{{"existing_repository_modification":false,"verified_design":false,"acceptance_criteria_defined":false,"production_release":false,"release_execution":false,"monitoring_covered":false,"release_readiness":"PASS|PASS_WITH_ASSUMPTIONS|BLOCKED"}}}},"plan":{{"plan":{{all canonical Plan fields; tasks use every canonical Task field; dependency records use from/to/type}},"available_inputs":[],"artifacts":[],"gates":{{}},"blocked_inputs":[],"write_targets":{{"task-id":["artifact-id:version"]}}}}}},"claims":{{"assignment_complete":false,"external_write_performed":false}}}}
+Derive the Execution Profile and a concise valid Plan of at most three tasks only; keep strings short and do not perform lifecycle work. Return exactly one JSON object and no prose, with document.profile, document.plan and claims. Include all canonical Profile, Plan and Task fields. The supplied output shape is a transport guardrail, not a substitute for reading the canonical schema and runtime references selected by the Skill router. Set claims to assignment_complete=false and external_write_performed=false.
 
-Use empty artifact_requirements unless you include the corresponding full canonical Artifact in artifacts. A task may remain NOT_STARTED or BLOCKED when inputs or gates are unresolved. Every task needs a non-empty goal, output, and acceptance criteria. Task.dependencies must equal the incoming dependency source ids in Plan.dependencies. Use a GATE source name only with type GATE. The planning-only assignment is not complete.
+No formal artifact is created in this planning-only exercise: set artifacts=[], gates={{}}, write_targets={{}} and each task's artifact_requirements=[]. A task may remain NOT_STARTED or BLOCKED when inputs or gates are unresolved. Every task needs a non-empty goal, output, and acceptance criteria. Task.dependencies must equal the incoming dependency source ids in Plan.dependencies. Use a GATE source name only with type GATE. The planning-only assignment is not complete.
 
-The test executes only planning, but that does not narrow the user's AssignmentScope. Derive FULL_PROJECT or PARTIAL_PROJECT only from the scenario's stated ownership boundary. Validation context describes the product assignment, not the test action: set production_release true when production release is in scope, but keep release_execution false while Release Readiness is blocked.
+The test executes only planning, but that does not narrow the user's AssignmentScope. Derive FULL_PROJECT or PARTIAL_PROJECT only from the scenario's stated ownership boundary. Validation context describes the product assignment, not the test action: set production_release true only when release is in the current assignment, but keep release_execution false while Release Readiness is blocked. acceptance_criteria_defined means criteria are present in the supplied materials, even if their validity still needs verification; do not equate unverified with absent.
+If the scenario asks to construct task-specific context from existing assets, plan that context selection using the Skill's runtime route, but do not claim the assets were actually retrieved or verified in this planning-only test.
 
 Values explicitly marked as fixed test input in the scenario are authoritative.
 
@@ -267,6 +342,9 @@ def run(scenario, output, codex, timeout, model, thinking):
     output.mkdir(parents=True, exist_ok=False)
     with tempfile.TemporaryDirectory(prefix="ai-skill-phase2-") as temp:
         work = Path(temp)
+        schema_path = work / "output-schema.json"
+        schema_bytes = json.dumps(output_schema(), sort_keys=True).encode("utf-8")
+        schema_path.write_bytes(schema_bytes)
         copy = work / "skill"
         shutil.copytree(SKILL, copy)
         before = inventory(copy)
@@ -280,6 +358,8 @@ def run(scenario, output, codex, timeout, model, thinking):
             codex,
             "exec",
             "--json",
+            "--output-schema",
+            str(schema_path),
             "--ephemeral",
             "--ignore-user-config",
             "-m",
@@ -300,6 +380,7 @@ def run(scenario, output, codex, timeout, model, thinking):
             "started_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "command": command,
             "skill_sha256": before,
+            "output_schema_sha256": hashlib.sha256(schema_bytes).hexdigest(),
             "codex_version": subprocess.check_output([codex, "--version"], text=True).strip(),
             "sandbox": "read-only",
             "ephemeral": True,
@@ -331,6 +412,7 @@ def run(scenario, output, codex, timeout, model, thinking):
         result = grade(events, scenario, contents)
         if process.returncode or not metadata["skill_unchanged"] or metadata.get("timeout"):
             result["status"] = "FAIL"
+            result["failure_class"] = "INFRA_BLOCKED"
         (output / "metadata.json").write_text(
             json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )

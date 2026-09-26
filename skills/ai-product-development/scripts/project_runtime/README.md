@@ -17,8 +17,10 @@
 ├── snapshots/
 │   ├── latest.yaml
 │   └── history/
-└── context/
-    └── current.yaml
+├── context/
+│   └── current.yaml
+└── reviews/
+    └── task-<task-id-hash>.yaml
 ```
 
 `plan.yaml` 不复制 Artifact Registry；验证时由运行时把当前 Registry 注入 P2 plan validation wrapper。正式产物保留在产品仓库正常目录中，Registry 只保存引用。
@@ -32,7 +34,9 @@ python -B -X utf8 scripts/project_runtime.py --root /path/to/product init --inpu
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product status
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product complete
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product next
-python -B -X utf8 scripts/project_runtime.py --root /path/to/product task --id T1 --status COMPLETED --validation-pass
+python -B -X utf8 scripts/project_runtime.py --root /path/to/product submit-result --id T1 --input submission.yaml --validation-pass
+python -B -X utf8 scripts/project_runtime.py --root /path/to/product review --input human-review.yaml
+python -B -X utf8 scripts/project_runtime.py --root /path/to/product review-impact --input review-impact.yaml
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product register-record --input record.yaml
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product register-evidence --input evidence.yaml
 python -B -X utf8 scripts/project_runtime.py --root /path/to/product register-decision --input decision.yaml
@@ -50,13 +54,16 @@ python -B -X utf8 scripts/project_runtime.py --root /path/to/product replan --in
 - 相对 `--input` 路径以 `--root` 指定的产品仓库为基准。
 - `init` 接受 P2 `combined` 文档；成功前先运行现有只读验证器。
 - `update-profile` 替换完整 Profile 前先运行 P2 profile validation；`complete` 只读检查 REQUIRED 节点、Task、Gate 和必需 ACTIVE Artifact。
-- `task` 使用 canonical Task 状态；写入 `COMPLETED` 必须显式声明验证 PASS。
+- `task` 不能直接写入 `COMPLETED` 或 `WAITING_USER`；已确定 Task 的结果经验证后由 `submit-result` 进入待审，`next` / `resume` 在待审、意见影响未处理或已批准文件变化时不推进。
+- `submission.yaml` 含 `result`（可为空）和 `output_files`（相对产品仓库路径列表），两者至少一个非空；Runtime 保存文件指纹。
+- `human-review.yaml` 含 `task_id`、`decision: APPROVED | REJECTED`、`reviewer`、`feedback`，可含审核人修订后的 `result` / `output_files`。驳回回到同一 Task 返工；批准后以审核时的最新内容为准。审核回执只能来自实际用户/指定责任人，CLI 校验字段与文件指纹，但不能单靠本地文件认证人的身份。
+- 批准时若文件、内容或意见有变化，必须用返回的 `review_sha256` 在 `review-impact.yaml` 中提交 `task_id`、`assessment: CONTINUE | REPLAN` 和非空 `reason`。选 `REPLAN` 时先做最小 Replan，再调用 `next`；不得直接沿用旧计划。Runtime 只能确认审核影响已记录且 Plan 随后发生变化，不能证明该变化在语义上充分落实了审核意见；责任人仍须审阅修改后的 Plan。已批准文件之后再变动时，重新请人工确认最新版。
 - `register-record` 接受一个 canonical `ProjectRecord`。
 - `register-evidence` 接受一个 canonical `EvidenceRecord`，观察与解释分离，正式版本使用 `vN`。
 - `register-decision` 接受一个 canonical `DecisionRecord`；引用的 Evidence 必须存在，替代旧决策时用 `supersedes` 连接当前有效决策。
 - `commit-artifact` 接受一个 canonical `Artifact`；来源 Task 必须完成，`evidence_refs` 与 `decision_refs` 必须存在，正式更新使用连续 `vN` 并把旧 ACTIVE 版本置为 SUPERSEDED。
-- `checkpoint` 只在重大确认、Gate、阶段完成或长暂停时使用；Snapshot 只保存引用和状态。
-- `resume` 校验 Plan、Task、Registry、Artifact 文件和 Snapshot 一致性，然后重新选择 READY Task 并构造最小 TaskContextPack。
+- `submit-result` 与 `review` 自动 checkpoint；其他重大确认、Gate、阶段完成或长暂停仍可手动调用 `checkpoint`。Snapshot 只保存引用和状态。
+- `resume` 校验 Plan、Task、Registry、Artifact 文件和 Snapshot 一致性；待审或已批准内容变化时返回阻断状态，不选下一个 READY Task。
 - `replan` 输入包含 `change_type`、`actions` 和完整的新 plan state；DecisionRecord 的条件被命中时可增加 `reopen_trigger`，其中包含 `decision_id`、与声明完全一致的 `trigger` 和已登记的 `evidence_refs`。只接受已有五种 change type 与四种 action。DAG 实质变化时计划版本必须递增一版，否则必须保持原版本。
 
 Runtime 不自动生成产品判断、不把草稿升级为事实，也不绕过 Gate。Profile 和 Plan 仍由 Skill 按 canonical reference 生成；Runtime 只保存、验证并恢复显式状态。

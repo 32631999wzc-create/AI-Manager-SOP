@@ -1,0 +1,19 @@
+change: Extract plan dependency validation into one domain rule
+reason: Keep dependency shape, reference, Gate semantics, edge construction, and cycle detection out of the Plan coordinator without changing behavior
+modified_files:
+  - skills/ai-product-development/scripts/runtime_validation/validators.py
+modified_rules:
+  - Plan dependency validation is executed by one focused domain rule
+  - validate_plan delegates dependency validation and consumes the returned valid edges
+affected_behaviors:
+  - Internal organization of deterministic Plan dependency validation
+affected_scenarios:
+  - Plan validation scenarios with task or Gate dependencies
+unaffected_scenarios:
+  - Execution Profile validation
+  - Runtime object validation
+  - Routing and model behavior contracts
+  - Existing dependency semantics and validation error codes
+verification_required:
+  - Phase 2 validator regression
+  - Repository-required structural and adjacent phase tests

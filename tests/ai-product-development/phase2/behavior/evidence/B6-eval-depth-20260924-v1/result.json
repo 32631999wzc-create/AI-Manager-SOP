@@ -1,0 +1,448 @@
+{
+  "scenario": "B6",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/lifecycle/01-qualification.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "references/runtime/gates.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_3+item_4+item_5+item_6+item_7+item_8",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 180 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 300\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_16",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_17+item_18+item_19",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\""
+      },
+      {
+        "file": "references/runtime/planner.md",
+        "item_id": "item_20+item_21+item_22",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\""
+      },
+      {
+        "file": "references/runtime/gates.md",
+        "item_id": "item_24",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/gates.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_25",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/plan.yaml",
+        "item_id": "item_26",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/plan.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/task.yaml",
+        "item_id": "item_27",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/task.yaml' -Encoding UTF8\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {},
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_10",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_12",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_13",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_14",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_15",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_23",
+        "reason": "read-only line count",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "validation_errors": [],
+  "behavior_issues": [],
+  "normalized_result": {
+    "claims": {
+      "assignment_complete": false,
+      "external_write_performed": false
+    },
+    "document": {
+      "plan": {
+        "artifacts": [],
+        "available_inputs": [
+          "Enterprise Release scenario",
+          "skill/SKILL.md",
+          "Qualification reference",
+          "Execution Profile reference",
+          "Planner reference",
+          "Gates reference",
+          "canonical Profile, Plan, and Task schemas"
+        ],
+        "blocked_inputs": [
+          "Verified implementation and design validity",
+          "Acceptance criteria and evaluation thresholds",
+          "Security, privacy, permissions, external API, monitoring, rollback evidence",
+          "Authorized release owner approvals"
+        ],
+        "gates": {},
+        "plan": {
+          "assumptions": [
+            "Existing implementation and design are present but unverified.",
+            "Release execution remains blocked until Release Readiness passes."
+          ],
+          "critical_path": [
+            "T1",
+            "T2",
+            "T3"
+          ],
+          "dependencies": [
+            {
+              "from": "T1",
+              "to": "T2",
+              "type": "HARD"
+            },
+            {
+              "from": "T2",
+              "to": "T3",
+              "type": "HARD"
+            },
+            {
+              "from": "Release Readiness",
+              "to": "T3",
+              "type": "GATE"
+            }
+          ],
+          "objective": "Prepare and qualify an enterprise production release, then release only after required evidence and approval.",
+          "tasks": [
+            {
+              "acceptance_criteria": [
+                "Existing implementation and design are verified or gaps are recorded.",
+                "Acceptance criteria and evaluation thresholds are explicit.",
+                "Build Readiness remains blocked when hard evidence is missing."
+              ],
+              "artifact_requirements": [],
+              "context_requirements": [
+                "Existing implementation and design",
+                "Enterprise risk requirements"
+              ],
+              "dependencies": [],
+              "execution_depth": "FULL",
+              "expected_output": "Verified release baseline and unresolved-gap register.",
+              "goal": "Verify existing product readiness inputs and define release acceptance criteria.",
+              "id": "T1",
+              "lifecycle_node": "Solution Design",
+              "name": "Verify release baseline",
+              "priority": "P0",
+              "required_capabilities": [
+                "Evaluation Design",
+                "Responsible AI, Security & Risk"
+              ],
+              "required_inputs": [
+                "Existing implementation and design",
+                "Enterprise release scope"
+              ],
+              "retry_policy": "Replan after material evidence changes.",
+              "status": "BLOCKED",
+              "type": "verification"
+            },
+            {
+              "acceptance_criteria": [
+                "Target users and key slices are covered.",
+                "Sensitive-data, permissions, external-API, reliability, cost, and safety controls are evidenced.",
+                "Monitoring, human escalation, and rollback requirements are testable."
+              ],
+              "artifact_requirements": [],
+              "context_requirements": [
+                "T1 release baseline",
+                "Target environment and user scope"
+              ],
+              "dependencies": [
+                "T1"
+              ],
+              "execution_depth": "FULL",
+              "expected_output": "Release qualification evidence and readiness recommendation.",
+              "goal": "Validate the enterprise candidate against acceptance criteria and risk controls.",
+              "id": "T2",
+              "lifecycle_node": "Validation & Iteration",
+              "name": "Validate release candidate",
+              "priority": "P0",
+              "required_capabilities": [
+                "Evaluation Design",
+                "Responsible AI, Security & Risk",
+                "Production Learning"
+              ],
+              "required_inputs": [
+                "T1 verified baseline",
+                "Candidate release"
+              ],
+              "retry_policy": "Replan on failed criteria or changed scope.",
+              "status": "BLOCKED",
+              "type": "validation"
+            },
+            {
+              "acceptance_criteria": [
+                "Release scope and owner are explicit.",
+                "Required approvals are recorded.",
+                "Release Readiness is PASS before production execution.",
+                "Production monitoring, escalation, and rollback are available."
+              ],
+              "artifact_requirements": [],
+              "context_requirements": [
+                "T2 validation evidence",
+                "Authorized release owner"
+              ],
+              "dependencies": [
+                "T2",
+                "Release Readiness"
+              ],
+              "execution_depth": "FULL",
+              "expected_output": "Approved production release decision and controlled release execution.",
+              "goal": "Prepare and execute the enterprise production release after readiness approval.",
+              "id": "T3",
+              "lifecycle_node": "Release & Operation",
+              "name": "Release to production",
+              "priority": "P0",
+              "required_capabilities": [
+                "Launch",
+                "Production Learning"
+              ],
+              "required_inputs": [
+                "T2 release evidence",
+                "Release authorization"
+              ],
+              "retry_policy": "Stop and replan on readiness failure or material incident.",
+              "status": "BLOCKED",
+              "type": "release"
+            }
+          ],
+          "version": "1.0"
+        },
+        "write_targets": {}
+      },
+      "profile": {
+        "assignment_scope": {
+          "excluded_scope": [],
+          "expected_deliverables": [
+            "Enterprise production release preparation",
+            "Enterprise production release"
+          ],
+          "mode": "FULL_PROJECT",
+          "ownership_boundary": [
+            "Full enterprise product lifecycle through production release"
+          ],
+          "requested_scope": [
+            "Production release",
+            "Release preparation",
+            "Validation of existing implementation and design"
+          ]
+        },
+        "delivery_target": "ENTERPRISE",
+        "nodes": [
+          {
+            "active_capabilities": [],
+            "depth": "FULL",
+            "external_project_requirement": null,
+            "gaps": [],
+            "level": "REQUIRED",
+            "node": "Qualification",
+            "reasons": [
+              "Target, scope, and delivery depth are explicit."
+            ],
+            "reused_artifacts": [],
+            "scope_role": "SUPPORTING",
+            "status": "SATISFIED"
+          },
+          {
+            "active_capabilities": [
+              "Repository inspection",
+              "Dependency tracing"
+            ],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [
+              "Existing implementation validity is unverified."
+            ],
+            "level": "REQUIRED",
+            "node": "Cognition",
+            "reasons": [
+              "Brownfield project with existing implementation."
+            ],
+            "reused_artifacts": [
+              "Existing implementation"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "BLOCKED"
+          },
+          {
+            "active_capabilities": [
+              "Product requirements"
+            ],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [
+              "Current product scope and acceptance criteria are unverified."
+            ],
+            "level": "REQUIRED",
+            "node": "Product Definition & Scope",
+            "reasons": [
+              "Full-project enterprise scope requires a valid scope baseline."
+            ],
+            "reused_artifacts": [
+              "Existing design"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "BLOCKED"
+          },
+          {
+            "active_capabilities": [
+              "Evaluation Design"
+            ],
+            "depth": "FULL",
+            "external_project_requirement": null,
+            "gaps": [
+              "Acceptance criteria and evaluation thresholds are not supplied."
+            ],
+            "level": "REQUIRED",
+            "node": "Solution Design",
+            "reasons": [
+              "Production release requires verified design and acceptance criteria."
+            ],
+            "reused_artifacts": [
+              "Existing design"
+            ],
+            "scope_role": "PRIMARY",
+            "status": "BLOCKED"
+          },
+          {
+            "active_capabilities": [
+              "Access-control design",
+              "Integration contract and failure handling"
+            ],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [
+              "Implementation, permissions, and external API behavior are unverified."
+            ],
+            "level": "REQUIRED",
+            "node": "Implementation",
+            "reasons": [
+              "Existing implementation may be reused only after verification."
+            ],
+            "reused_artifacts": [
+              "Existing implementation"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "BLOCKED"
+          },
+          {
+            "active_capabilities": [
+              "Evaluation Design",
+              "Responsible AI, Security & Risk",
+              "Production Learning"
+            ],
+            "depth": "FULL",
+            "external_project_requirement": null,
+            "gaps": [
+              "Validation evidence, risk controls, and monitoring coverage are missing."
+            ],
+            "level": "REQUIRED",
+            "node": "Validation & Iteration",
+            "reasons": [
+              "Production release requires validation and monitoring coverage."
+            ],
+            "reused_artifacts": [],
+            "scope_role": "PRIMARY",
+            "status": "BLOCKED"
+          },
+          {
+            "active_capabilities": [
+              "Production Learning",
+              "Launch"
+            ],
+            "depth": "FULL",
+            "external_project_requirement": null,
+            "gaps": [
+              "Release readiness, monitoring, rollback, and approvals are unresolved."
+            ],
+            "level": "REQUIRED",
+            "node": "Release & Operation",
+            "reasons": [
+              "Enterprise target explicitly includes production release."
+            ],
+            "reused_artifacts": [],
+            "scope_role": "PRIMARY",
+            "status": "BLOCKED"
+          },
+          {
+            "active_capabilities": [
+              "Retrospective"
+            ],
+            "depth": "MINIMAL",
+            "external_project_requirement": null,
+            "gaps": [
+              "Retrospective evidence does not yet exist."
+            ],
+            "level": "LIGHT",
+            "node": "Retrospective",
+            "reasons": [
+              "Full-project scope retains the lifecycle follow-up node."
+            ],
+            "reused_artifacts": [],
+            "scope_role": "SUPPORTING",
+            "status": "NOT_STARTED"
+          }
+        ],
+        "project_mode": "BROWNFIELD",
+        "validation_context": {
+          "acceptance_criteria_defined": false,
+          "existing_repository_modification": true,
+          "monitoring_covered": false,
+          "production_release": true,
+          "release_execution": false,
+          "release_readiness": "BLOCKED",
+          "verified_design": false
+        }
+      }
+    }
+  },
+  "status": "PASS",
+  "failure_class": "PASS"
+}

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import hashlib
 from pathlib import Path
 import re
 import shutil
@@ -65,6 +66,56 @@ class ProjectRuntime:
         self.artifacts_path = self.state / "registry" / "artifacts.yaml"
         self.latest_snapshot_path = self.state / "snapshots" / "latest.yaml"
         self.context_path = self.state / "context" / "current.yaml"
+        self.reviews_path = self.state / "reviews"
+
+    def _review_path(self, task_id: str) -> Path:
+        digest = hashlib.sha256(task_id.encode("utf-8")).hexdigest()
+        return self.reviews_path / f"task-{digest}.yaml"
+
+    def _review(self, task_id: str) -> dict[str, Any] | None:
+        path = self._review_path(task_id)
+        if not path.is_file():
+            return None
+        review = _require_mapping(self._read(path, "task review"), "task review")
+        attempts = review.get("attempts")
+        if review.get("task_id") != task_id or not isinstance(attempts, list) or not attempts:
+            _fail("REVIEW_INVALID", f"invalid review record for {task_id}")
+        required = {"submitted_result", "submitted_files", "decision", "reviewer", "feedback",
+                    "reviewed_result", "reviewed_files", "changed", "impact"}
+        for attempt in attempts:
+            if not isinstance(attempt, dict) or set(attempt) != required:
+                _fail("REVIEW_INVALID", f"malformed review attempt for {task_id}")
+            if attempt["decision"] not in {"PENDING", "APPROVED", "REJECTED"}:
+                _fail("REVIEW_INVALID", f"unknown review decision for {task_id}")
+            if not isinstance(attempt["impact"], dict) or attempt["impact"].get("status") not in {"PENDING", "CLEARED", "REPLAN_REQUIRED"}:
+                _fail("REVIEW_INVALID", f"invalid review impact for {task_id}")
+            for field in ("submitted_files", "reviewed_files"):
+                files = attempt[field]
+                if not isinstance(files, list) or any(
+                    not isinstance(item, dict) or set(item) != {"path", "sha256"}
+                    or not all(isinstance(value, str) for value in item.values())
+                    for item in files
+                ):
+                    _fail("REVIEW_INVALID", f"invalid {field} for {task_id}")
+        return review
+
+    def _file_snapshots(self, paths: Any) -> list[dict[str, str]]:
+        if not isinstance(paths, list) or any(not isinstance(item, str) for item in paths):
+            _fail("REVIEW_INVALID", "output_files must be a list of paths")
+        snapshots = []
+        for item in paths:
+            resolved = (self.root / item).resolve()
+            if not resolved.is_relative_to(self.root) or not resolved.is_file():
+                _fail("REVIEW_FILE_INVALID", f"output file must exist inside product root: {item}")
+            relative = resolved.relative_to(self.root).as_posix()
+            snapshots.append({"path": relative, "sha256": hashlib.sha256(resolved.read_bytes()).hexdigest()})
+        if len({item["path"] for item in snapshots}) != len(snapshots):
+            _fail("REVIEW_INVALID", "output_files contains duplicate paths")
+        return snapshots
+
+    @staticmethod
+    def _review_digest(attempt: dict[str, Any]) -> str:
+        return sha256_document({key: value for key, value in attempt.items() if key != "impact"})
 
     def _read(self, path: Path, label: str) -> Any:
         if not path.is_file():
@@ -200,6 +251,7 @@ class ProjectRuntime:
             (temporary / "registry").mkdir(parents=True)
             (temporary / "snapshots" / "history").mkdir(parents=True)
             (temporary / "context").mkdir(parents=True)
+            (temporary / "reviews").mkdir(parents=True)
             input_plan = deepcopy(document["plan"])
             artifacts = input_plan.pop("artifacts")
             manifest = {
@@ -238,6 +290,7 @@ class ProjectRuntime:
             "delivery_target": profile["delivery_target"],
             "task_counts": counts,
             "blocked_tasks": blocked,
+            "review_blockers": self._review_blockers(tasks, plan),
         }
 
     def update_profile(self, profile: dict[str, Any]) -> dict[str, Any]:
@@ -276,6 +329,7 @@ class ProjectRuntime:
             "blocking_tasks": blocking_tasks,
             "inactive_required_artifacts": inactive_required_artifacts,
             "blocked_gates": blocked_gates,
+            "review_blockers": self._review_blockers(plan["plan"]["tasks"], plan),
         }
         return {"complete": not any(reasons.values()), "reasons": reasons}
     def _active_registry(self) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
@@ -287,16 +341,51 @@ class ProjectRuntime:
             [item for item in artifacts if item["status"] == "ACTIVE"],
         )
 
+    def _review_blockers(self, tasks: list[dict[str, Any]], plan: dict[str, Any]) -> list[dict[str, str]]:
+        blockers = []
+        plan_digest = sha256_document(plan)
+        for task in tasks:
+            task_id = task["id"]
+            review = self._review(task_id)
+            latest = review["attempts"][-1] if review else None
+            if task["status"] == "WAITING_USER" or (latest and latest["decision"] == "PENDING"):
+                blockers.append({"task_id": task_id, "reason": "WAITING_USER"})
+                continue
+            if not latest or latest["decision"] != "APPROVED":
+                continue
+            for item in latest["reviewed_files"]:
+                path = self.root / item["path"]
+                if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != item["sha256"]:
+                    blockers.append({"task_id": task_id, "reason": "APPROVED_OUTPUT_CHANGED"})
+                    break
+            impact = latest.get("impact", {})
+            if impact.get("status") == "PENDING":
+                blockers.append({"task_id": task_id, "reason": "REVIEW_IMPACT_PENDING"})
+            elif impact.get("status") == "REPLAN_REQUIRED" and impact.get("plan_sha256") == plan_digest:
+                blockers.append({"task_id": task_id, "reason": "REVIEW_REPLAN_REQUIRED"})
+        return blockers
+
     def next(self) -> dict[str, Any]:
         self.validate()
         _, _, plan, _, _, _, _ = self._parts()
         tasks = plan["plan"]["tasks"]
+        blockers = self._review_blockers(tasks, plan)
+        if blockers:
+            return {"status": "review_blocked", "blockers": blockers}
+        running = [task["id"] for task in tasks if task["status"] == "RUNNING"]
+        if running:
+            return {"status": "task_in_progress", "task_ids": running}
         critical = {task_id: index for index, task_id in enumerate(plan["plan"]["critical_path"])}
         ready = [task for task in tasks if task["status"] == "READY"]
         if not ready:
             unfinished = [task["id"] for task in tasks if task["status"] not in {"COMPLETED", "SKIPPED", "CANCELLED"}]
             return {"status": "no_ready_task", "unfinished_tasks": unfinished}
-        task = min(ready, key=lambda item: (PRIORITY_ORDER[item["priority"]], critical.get(item["id"], len(tasks)), tasks.index(item)))
+        rework = [
+            task for task in ready
+            if (review := self._review(task["id"])) and review["attempts"][-1]["decision"] == "REJECTED"
+        ]
+        candidates = rework or ready
+        task = min(candidates, key=lambda item: (PRIORITY_ORDER[item["priority"]], critical.get(item["id"], len(tasks)), tasks.index(item)))
         records, evidence, decisions, artifacts = self._active_registry()
         record_ids = set(task["context_requirements"])
         artifact_ids = set(task["artifact_requirements"]) | set(task["context_requirements"])
@@ -335,9 +424,30 @@ class ProjectRuntime:
             "allowed_actions": ["execute", "validate"],
             "available_tools": [],
         }
+        review_inputs = []
+        for task_id in [*task["dependencies"], task["id"]]:
+            review = self._review(task_id)
+            if not review:
+                continue
+            latest = review["attempts"][-1]
+            if latest["decision"] not in {"APPROVED", "REJECTED"}:
+                continue
+            review_inputs.append({
+                "task_id": task_id,
+                "decision": latest["decision"],
+                "result": latest["reviewed_result"],
+                "files": latest["reviewed_files"],
+                "feedback": latest["feedback"],
+                "changed": latest["changed"],
+                "review_record": self._review_path(task_id).relative_to(self.root).as_posix(),
+            })
+        context["recent_changes"] = [
+            f"Human review for {item['task_id']}: {item['decision']}; read {item['review_record']} and current output files"
+            for item in review_inputs
+        ]
         _validation_failure(validate_object("TaskContextPack", context), "context")
         atomic_write(self.context_path, context)
-        return {"status": "ready", "task": task, "context": context}
+        return {"status": "ready", "task": task, "context": context, "review_inputs": review_inputs}
 
     def checkpoint(self, unresolved_items: list[str] | None = None) -> dict[str, Any]:
         self.validate()
@@ -377,18 +487,181 @@ class ProjectRuntime:
     def update_task(self, task_id: str, status: str, validation_pass: bool = False) -> dict[str, Any]:
         if status not in TASK_STATUS:
             _fail("TASK_STATUS_INVALID", f"unknown task status: {status}")
-        if status == "COMPLETED" and not validation_pass:
-            _fail("VALIDATION_REQUIRED", "COMPLETED requires explicit validation PASS")
+        if status in {"COMPLETED", "WAITING_USER", "SKIPPED", "OUTDATED", "CANCELLED"}:
+            _fail("REVIEW_REQUIRED", "submit-result and human review are required; skip/cancel/outdate through Replan")
         self.validate()
         _, _, plan, _, _, _, artifacts = self._parts()
         matches = [task for task in plan["plan"]["tasks"] if task["id"] == task_id]
         if not matches:
             _fail("TASK_UNKNOWN", f"unknown task: {task_id}")
         previous = matches[0]["status"]
+        if previous in {"WAITING_USER", "COMPLETED", "SKIPPED", "OUTDATED", "CANCELLED"}:
+            _fail("TASK_TRANSITION_INVALID", f"cannot directly change task from {previous}")
+        if self._review_blockers(plan["plan"]["tasks"], plan):
+            _fail("REVIEW_BLOCKED", "resolve pending review before starting another task")
+        if status == "RUNNING" and any(
+            task["id"] != task_id and task["status"] == "RUNNING"
+            for task in plan["plan"]["tasks"]
+        ):
+            _fail("TASK_IN_PROGRESS", "another task is already running")
         matches[0]["status"] = status
         _validation_failure(validate_document(self._validation_plan(plan, artifacts), "plan"), "updated plan")
         atomic_write(self.plan_path, plan)
         return {"status": "updated", "task_id": task_id, "from": previous, "to": status}
+
+    def submit_result(self, task_id: str, document: dict[str, Any], validation_pass: bool = False) -> dict[str, Any]:
+        if not validation_pass:
+            _fail("VALIDATION_REQUIRED", "review submission requires explicit validation PASS")
+        if set(document) != {"result", "output_files"} or not isinstance(document["result"], str):
+            _fail("REVIEW_INVALID", "submission requires result and output_files")
+        files = self._file_snapshots(document["output_files"])
+        if not document["result"].strip() and not files:
+            _fail("REVIEW_INVALID", "submission needs a result or output file")
+        self.validate()
+        _, _, plan, _, _, _, artifacts = self._parts()
+        tasks = {item["id"]: item for item in plan["plan"]["tasks"]}
+        if task_id not in tasks or tasks[task_id]["status"] not in {"READY", "RUNNING"}:
+            _fail("TASK_TRANSITION_INVALID", "only a READY or RUNNING task may submit for review")
+        review = self._review(task_id) or {"task_id": task_id, "attempts": []}
+        if review["attempts"] and review["attempts"][-1]["decision"] == "PENDING":
+            pending = review["attempts"][-1]
+            if pending["submitted_result"] != document["result"] or pending["submitted_files"] != files:
+                _fail("REVIEW_PENDING", "a different submission is already awaiting review")
+            tasks[task_id]["status"] = "WAITING_USER"
+            _validation_failure(validate_document(self._validation_plan(plan, artifacts), "plan"), "review pending plan")
+            atomic_write(self.plan_path, plan)
+            self.checkpoint()
+            return {"status": "waiting_for_review", "task_id": task_id, "recovered": True}
+        if self._review_blockers(plan["plan"]["tasks"], plan):
+            _fail("REVIEW_BLOCKED", "another review must be resolved first")
+        review["attempts"].append({
+            "submitted_result": document["result"],
+            "submitted_files": files,
+            "decision": "PENDING",
+            "reviewer": None,
+            "feedback": "",
+            "reviewed_result": None,
+            "reviewed_files": [],
+            "changed": False,
+            "impact": {"status": "PENDING"},
+        })
+        tasks[task_id]["status"] = "WAITING_USER"
+        _validation_failure(validate_document(self._validation_plan(plan, artifacts), "plan"), "review pending plan")
+        atomic_write(self._review_path(task_id), review)
+        atomic_write(self.plan_path, plan)
+        self.checkpoint()
+        return {"status": "waiting_for_review", "task_id": task_id, "review_record": self._review_path(task_id).relative_to(self.root).as_posix()}
+
+    def review_task(self, document: dict[str, Any]) -> dict[str, Any]:
+        required = {"task_id", "decision", "reviewer", "feedback"}
+        if not required.issubset(document) or set(document) - required - {"result", "output_files"}:
+            _fail("REVIEW_INVALID", "review requires task_id, decision, reviewer, feedback and optional result/output_files")
+        task_id, decision, reviewer, feedback = (document[key] for key in ("task_id", "decision", "reviewer", "feedback"))
+        if not all(isinstance(value, str) for value in (task_id, decision, reviewer, feedback)):
+            _fail("REVIEW_INVALID", "review fields must be strings")
+        if decision not in {"APPROVED", "REJECTED"} or not reviewer.strip():
+            _fail("REVIEW_INVALID", "review needs an explicit decision and reviewer")
+        self.validate()
+        _, _, plan, _, _, _, artifacts = self._parts()
+        tasks = {item["id"]: item for item in plan["plan"]["tasks"]}
+        if task_id not in tasks:
+            _fail("TASK_UNKNOWN", f"unknown task: {task_id}")
+        review = self._review(task_id)
+        if not review:
+            _fail("REVIEW_MISSING", "task has no submitted result")
+        latest = review["attempts"][-1]
+        if tasks[task_id]["status"] == "WAITING_USER" and latest["decision"] in {"APPROVED", "REJECTED"}:
+            if decision != latest["decision"] or reviewer != latest["reviewer"] or feedback != latest["feedback"]:
+                _fail("REVIEW_RECOVERY_MISMATCH", "pending state has a different recorded human decision")
+            if "result" in document and document["result"] != latest["reviewed_result"]:
+                _fail("REVIEW_RECOVERY_MISMATCH", "reviewed result differs from recorded decision")
+            if "output_files" in document and self._file_snapshots(document["output_files"]) != latest["reviewed_files"]:
+                _fail("REVIEW_RECOVERY_MISMATCH", "reviewed files differ from recorded decision")
+            tasks[task_id]["status"] = "COMPLETED" if decision == "APPROVED" else "READY"
+            _validation_failure(validate_document(self._validation_plan(plan, artifacts), "plan"), "recovered review plan")
+            atomic_write(self.plan_path, plan)
+            self.checkpoint()
+            return {"status": "approved" if decision == "APPROVED" else "rework_required",
+                    "task_id": task_id, "recovered": True, "review_sha256": self._review_digest(latest),
+                    "impact_required": latest["impact"]["status"] == "PENDING"}
+        if tasks[task_id]["status"] in {"WAITING_USER", "READY", "RUNNING"} and latest["decision"] == "PENDING":
+            attempt = latest
+        elif tasks[task_id]["status"] == "COMPLETED" and latest["decision"] == "APPROVED" and decision == "APPROVED":
+            attempt = {
+                "submitted_result": latest["reviewed_result"],
+                "submitted_files": latest["reviewed_files"],
+                "decision": "PENDING",
+                "reviewer": None,
+                "feedback": "",
+                "reviewed_result": None,
+                "reviewed_files": [],
+                "changed": False,
+                "impact": {"status": "PENDING"},
+            }
+            review["attempts"].append(attempt)
+        else:
+            _fail("TASK_TRANSITION_INVALID", "task is not awaiting this review decision")
+        paths = document.get("output_files", [item["path"] for item in attempt["submitted_files"]])
+        files = self._file_snapshots(paths)
+        # A human-edited file supersedes an old inline summary unless the reviewer supplied a revised summary.
+        result = document.get("result", "" if files != attempt["submitted_files"] else attempt["submitted_result"])
+        if not isinstance(result, str):
+            _fail("REVIEW_INVALID", "reviewed result must be a string")
+        if not result.strip() and not files:
+            _fail("REVIEW_INVALID", "approved/rejected content cannot be empty")
+        changed = result != attempt["submitted_result"] or files != attempt["submitted_files"]
+        if decision == "REJECTED" and not feedback.strip() and not changed:
+            _fail("REVIEW_INVALID", "rejection needs feedback or edited content")
+        attempt.update({
+            "decision": decision,
+            "reviewer": reviewer,
+            "feedback": feedback,
+            "reviewed_result": result,
+            "reviewed_files": files,
+            "changed": changed,
+            "impact": {"status": "PENDING" if decision == "APPROVED" and (changed or feedback.strip()) else "CLEARED"},
+        })
+        review_digest = self._review_digest(attempt)
+        tasks[task_id]["status"] = "COMPLETED" if decision == "APPROVED" else "READY"
+        _validation_failure(validate_document(self._validation_plan(plan, artifacts), "plan"), "reviewed plan")
+        atomic_write(self._review_path(task_id), review)
+        atomic_write(self.plan_path, plan)
+        self.checkpoint()
+        return {
+            "status": "approved" if decision == "APPROVED" else "rework_required",
+            "task_id": task_id,
+            "changed": changed,
+            "feedback": feedback,
+            "review_sha256": review_digest,
+            "impact_required": attempt["impact"]["status"] == "PENDING",
+            "authoritative_result": result,
+            "authoritative_files": files,
+        }
+
+    def assess_review_impact(self, document: dict[str, Any]) -> dict[str, Any]:
+        if set(document) != {"task_id", "review_sha256", "assessment", "reason"}:
+            _fail("REVIEW_INVALID", "impact assessment requires task_id, review_sha256, assessment, reason")
+        task_id, digest, assessment, reason = (document[key] for key in ("task_id", "review_sha256", "assessment", "reason"))
+        if not all(isinstance(value, str) for value in (task_id, digest, assessment, reason)):
+            _fail("REVIEW_INVALID", "impact assessment fields must be strings")
+        if assessment not in {"CONTINUE", "REPLAN"} or not reason.strip():
+            _fail("REVIEW_INVALID", "impact assessment needs CONTINUE or REPLAN with reason")
+        self.validate()
+        _, _, plan, _, _, _, _ = self._parts()
+        review = self._review(task_id)
+        if not review or review["attempts"][-1]["decision"] != "APPROVED":
+            _fail("REVIEW_MISSING", "no approved review to assess")
+        latest = review["attempts"][-1]
+        if latest["impact"]["status"] != "PENDING" or digest != self._review_digest(latest):
+            _fail("REVIEW_STALE", "impact assessment must match the latest unassessed human review")
+        latest["impact"] = {
+            "status": "CLEARED" if assessment == "CONTINUE" else "REPLAN_REQUIRED",
+            "assessment": assessment,
+            "reason": reason,
+            "plan_sha256": sha256_document(plan),
+        }
+        atomic_write(self._review_path(task_id), review)
+        return {"status": latest["impact"]["status"], "task_id": task_id, "assessment": assessment}
 
     def register_record(self, record: dict[str, Any]) -> dict[str, Any]:
         _validation_failure(validate_object("ProjectRecord", record), "record")
@@ -444,6 +717,28 @@ class ProjectRuntime:
         incomplete = [task_id for task_id in artifact["source_tasks"] if task_id not in tasks or tasks[task_id]["status"] != "COMPLETED"]
         if incomplete:
             _fail("ARTIFACT_SOURCE_INVALID", f"source tasks are not completed: {incomplete}")
+        location = Path(str(artifact["location"]))
+        resolved = (location if location.is_absolute() else self.root / location).resolve()
+        reviewed_sources = 0
+        approved_output_match = False
+        for task_id in artifact["source_tasks"]:
+            review = self._review(task_id)
+            if not review:
+                continue  # Imported, already-completed tasks predate the review contract.
+            reviewed_sources += 1
+            latest = review["attempts"][-1]
+            if latest["decision"] != "APPROVED":
+                _fail("REVIEW_REQUIRED", f"source task {task_id} lacks approval")
+            approved = {item["path"]: item["sha256"] for item in latest["reviewed_files"]}
+            if not resolved.is_relative_to(self.root):
+                _fail("REVIEW_OUTPUT_MISMATCH", "artifact must use the reviewed output inside the product root")
+            relative = resolved.relative_to(self.root).as_posix()
+            if relative in approved:
+                approved_output_match = True
+                if not resolved.is_file() or hashlib.sha256(resolved.read_bytes()).hexdigest() != approved[relative]:
+                    _fail("REVIEW_OUTPUT_CHANGED", f"approved output changed after review: {relative}")
+        if reviewed_sources and not approved_output_match:
+            _fail("REVIEW_OUTPUT_MISMATCH", "artifact location is not among the approved source-task outputs")
         if set(artifact["evidence_refs"]) - {item["id"] for item in evidence}:
             _fail("ARTIFACT_SOURCE_INVALID", "artifact references unknown evidence")
         if set(artifact["decision_refs"]) - {item["id"] for item in decisions}:
@@ -510,6 +805,8 @@ class ProjectRuntime:
             seen.add((kind, target))
             if kind == "ADD" and (target in old_tasks or target not in new_tasks):
                 _fail("REPLAN_ACTION_MISMATCH", f"ADD does not describe new task {target}")
+            if kind == "ADD" and new_tasks[target]["status"] in {"COMPLETED", "WAITING_USER", "RUNNING"}:
+                _fail("REVIEW_REQUIRED", f"new task {target} cannot bypass execution and human review")
             if kind == "CANCEL" and (target not in old_tasks or target not in new_tasks or new_tasks[target]["status"] != "CANCELLED"):
                 _fail("REPLAN_ACTION_MISMATCH", f"CANCEL does not cancel task {target}")
             if kind == "OUTDATE" and (target not in old_tasks or target not in new_tasks or new_tasks[target]["status"] != "OUTDATED"):

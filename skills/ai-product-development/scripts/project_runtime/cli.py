@@ -42,6 +42,14 @@ def main(argv=None) -> int:
     task.add_argument("--id", required=True)
     task.add_argument("--status", required=True)
     task.add_argument("--validation-pass", action="store_true")
+    submit = commands.add_parser("submit-result")
+    submit.add_argument("--id", required=True)
+    submit.add_argument("--input", required=True)
+    submit.add_argument("--validation-pass", action="store_true")
+    review = commands.add_parser("review")
+    review.add_argument("--input", required=True)
+    review_impact = commands.add_parser("review-impact")
+    review_impact.add_argument("--input", required=True)
     record = commands.add_parser("register-record")
     record.add_argument("--input", required=True)
     evidence = commands.add_parser("register-evidence")
@@ -74,6 +82,12 @@ def main(argv=None) -> int:
             result = runtime.update_profile(_document(args.input, args.root))
         elif args.command == "task":
             result = runtime.update_task(args.id, args.status, args.validation_pass)
+        elif args.command == "submit-result":
+            result = runtime.submit_result(args.id, _document(args.input, args.root), args.validation_pass)
+        elif args.command == "review":
+            result = runtime.review_task(_document(args.input, args.root))
+        elif args.command == "review-impact":
+            result = runtime.assess_review_impact(_document(args.input, args.root))
         elif args.command == "register-record":
             result = runtime.register_record(_document(args.input, args.root))
         elif args.command == "register-evidence":

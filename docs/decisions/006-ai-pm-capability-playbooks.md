@@ -2,6 +2,8 @@
 
 状态：Phase 1 Architecture Alignment 与 Phase 2 Capability Contract 已实施（2026-09-15）；Evidence / Decision 对象仍属于后续 Phase 3。
 
+后续状态注记（2026-09-17）：上句是本决策写作时的历史状态，不是当前进度。Phase 3 的 EvidenceRecord、DecisionRecord、Registry 引用与 Replan reopen trigger 已在后续工作中实施；当前架构见[架构说明](../architecture.md)。下文“后续阶段”保留原决策语境，不追改。
+
 ## 问题
 
 八节点生命周期已经能决定何时做什么，但节点正文中的 `Capabilities` 多数仍是能力名，无法稳定指导竞品分析、PRD、需求评审、用户发现、AI 可行性、数据、评测、发布采用和生产反馈等真实工作。仅把节点合同填成非空，不能证明 Skill 具备 AI PM 的操作能力。

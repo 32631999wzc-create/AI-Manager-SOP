@@ -19,6 +19,7 @@ AI-Manager-SOP 是一套可安装到 Codex 的 AI 产品开发 Skill。它根据
 
 使用前请查看 [Usage Boundary](docs/usage-boundary.md)：适用任务、人工确认点、证据质量依赖以及 LIGHT/实验性边界。
 
+
 ## 2. 安装
 
 ### 推荐：让 Codex 安装
@@ -144,7 +145,8 @@ Execution Profile 会为全部八节点记录范围角色、执行深度、资�
 6. **Replan**：输入、产物、决策、任务或范围变化时，只调整受影响工作。
 7. **Completion**：交付物、必要节点、验收标准、阻塞项和正式产物同时满足才完成。
 
-用户通常只会看到初始/重大变更计划、重要发现、阻塞问题、关键决策和最终交付摘要，不需要阅读内部 DAG 或 Registry。
+每个已确定的 Task 产出并验证后，Skill 会展示结果并暂停，等待人工审核确认后才推进下一 Task；其余时候，用户主要看到初始/重大变更计划、重要发现、阻塞问题、关键决策和最终交付摘要，不需要阅读内部 DAG 或 Registry。
+多个 Task 的本地执行使用 `.ai-product/` Runtime 阻断待审任务并保存审核决定、意见和当前输出指纹；单个 Task 的对话交审仍需真实用户回复，不能由 Skill 自行批准。CLI 能验证回执、文件状态和审核意见后 Plan 是否发生变化，但不能独立证明回执确由人提交，也不能证明 Plan 变化在语义上充分落实了审核意见。
 
 ## 7. 如何写出高质量请求
 
@@ -212,3 +214,4 @@ python -B -X utf8 tests/ai-product-development/phase3/golden/verify_golden.py
 结构验证覆盖路由、节点合同、内部链接、Gate、schema、迁移完整性和明显规则重复。真实行为证据见 [Routing 报告](tests/ai-product-development/routing/report.md)、[Phase 2 行为报告](tests/ai-product-development/phase2/behavior/report.md)和 [Phase 3 Golden 报告](tests/ai-product-development/phase3/golden/report.md)。
 
 仓库结构和 canonical location 见 [架构说明](docs/architecture.md)；本次完整性审查见 [工作流合同审查](docs/decisions/005-workflow-contract-review.md)。
+能力使用、重叠/退役判断、外部工具接入门槛和 trace 留存规则见 [Capability 资产治理](docs/capability-governance.md)。

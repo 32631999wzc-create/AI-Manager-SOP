@@ -19,6 +19,11 @@ SCOPE_ROLE = {"PRIMARY", "SUPPORTING", "OUT_OF_SCOPE"}
 TASK_STATUS = {"NOT_STARTED", "READY", "RUNNING", "COMPLETED", "BLOCKED", "WAITING_USER", "FAILED", "SKIPPED", "OUTDATED", "CANCELLED"}
 PRIORITY = {"P0", "P1", "P2", "P3"}
 DEPENDENCY_TYPES = {"HARD", "DATA", "DECISION", "GATE"}
+TOP_LEVEL_GATES = {
+    "Qualification",
+    "Build Readiness",
+    "Release Readiness",
+}
 DELIVERY_TARGETS = {"PROTOTYPE", "DEMO", "MVP", "ENTERPRISE", "UNDECIDED"}
 PROJECT_MODES = {"GREENFIELD", "BROWNFIELD", "HYBRID"}
 GATE_RESULTS = {"PASS", "PASS_WITH_ASSUMPTIONS", "BLOCKED"}
@@ -150,6 +155,45 @@ def _active(node) -> bool:
     return node.level != "SKIP" and node.depth != "SKIP" and node.scope_role != "OUT_OF_SCOPE"
 
 
+def _validate_profile_dependency_closure(by_name, context, errors: list[ValidationError]) -> None:
+    if context["existing_repository_modification"] and by_name["Cognition"].level != "REQUIRED":
+        _error(errors, "PROFILE_COGNITION_REQUIRED", "nodes[1]", "existing repository modification requires Cognition")
+    design = by_name["Solution Design"]
+    design_at_least_light = design.level in {"LIGHT", "REQUIRED"} and design.depth != "SKIP"
+    if _active(by_name["Implementation"]) and not context["verified_design"] and not design_at_least_light:
+        _error(errors, "PROFILE_DESIGN_REQUIRED", "nodes[3]", "active Implementation requires at least minimal Solution Design when design is unverified")
+    if _active(by_name["Validation & Iteration"]) and not context["acceptance_criteria_defined"]:
+        evaluation_depth = design.depth in {"MINIMAL", "FULL"}
+        capabilities = {
+            item.strip().casefold()
+            for item in design.active_capabilities
+            if isinstance(item, str)
+        }
+        evaluation_components = {
+            "evaluation task", "cases / dataset", "metrics", "judge strategy", "pass criteria",
+        }
+        evaluation_active = (
+            capabilities & {"evaluation design", "评估设计"}
+            or evaluation_components <= capabilities
+        )
+        if not design_at_least_light or not evaluation_depth or not evaluation_active:
+            _error(errors, "PROFILE_EVALUATION_DESIGN_REQUIRED", "nodes[3].active_capabilities", "Validation without acceptance criteria requires active Evaluation Design")
+    if context["production_release"]:
+        if not _active(by_name["Validation & Iteration"]):
+            _error(errors, "PROFILE_RELEASE_VALIDATION_REQUIRED", "nodes[5]", "production release requires Validation & Iteration")
+        if not _active(by_name["Release & Operation"]):
+            _error(errors, "PROFILE_RELEASE_NODE_REQUIRED", "nodes[6]", "production release requires Release & Operation")
+        release_node = by_name["Release & Operation"]
+        monitoring_planned = any(
+            "monitor" in str(item).casefold() or "监控" in str(item)
+            for item in release_node.active_capabilities + release_node.gaps
+        )
+        if not context["monitoring_covered"] and not monitoring_planned and not release_node.external_project_requirement:
+            _error(errors, "PROFILE_MONITORING_REQUIRED", "nodes[6]", "production monitoring must be covered, planned in the active release node, or externalized")
+        if context["release_execution"] and context["release_readiness"] == "BLOCKED":
+            _error(errors, "PROFILE_RELEASE_GATE_BLOCKED", "validation_context.release_readiness", "production release cannot proceed through a blocked Release Readiness gate")
+
+
 def validate_profile(document: dict[str, Any]) -> list[ValidationError]:
     errors: list[ValidationError] = []
     if _mapping(document, "$", errors) is None:
@@ -197,42 +241,7 @@ def validate_profile(document: dict[str, Any]) -> list[ValidationError]:
     by_name = {node.node: node for node in nodes}
     if not isinstance(context["release_readiness"], str) or context["release_readiness"] not in GATE_RESULTS:
         _error(errors, "ENUM_INVALID", "validation_context.release_readiness", f"must be one of {sorted(GATE_RESULTS)}")
-    if context["existing_repository_modification"] and by_name["Cognition"].level != "REQUIRED":
-        _error(errors, "PROFILE_COGNITION_REQUIRED", "nodes[1]", "existing repository modification requires Cognition")
-    design = by_name["Solution Design"]
-    design_at_least_light = design.level in {"LIGHT", "REQUIRED"} and design.depth != "SKIP"
-    if _active(by_name["Implementation"]) and not context["verified_design"] and not design_at_least_light:
-        _error(errors, "PROFILE_DESIGN_REQUIRED", "nodes[3]", "active Implementation requires at least minimal Solution Design when design is unverified")
-    if _active(by_name["Validation & Iteration"]) and not context["acceptance_criteria_defined"]:
-        evaluation_depth = design.depth in {"MINIMAL", "FULL"}
-        capabilities = {
-            item.strip().casefold()
-            for item in design.active_capabilities
-            if isinstance(item, str)
-        }
-        evaluation_components = {
-            "evaluation task", "cases / dataset", "metrics", "judge strategy", "pass criteria",
-        }
-        evaluation_active = (
-            capabilities & {"evaluation design", "评估设计"}
-            or evaluation_components <= capabilities
-        )
-        if not design_at_least_light or not evaluation_depth or not evaluation_active:
-            _error(errors, "PROFILE_EVALUATION_DESIGN_REQUIRED", "nodes[3].active_capabilities", "Validation without acceptance criteria requires active Evaluation Design")
-    if context["production_release"]:
-        if not _active(by_name["Validation & Iteration"]):
-            _error(errors, "PROFILE_RELEASE_VALIDATION_REQUIRED", "nodes[5]", "production release requires Validation & Iteration")
-        if not _active(by_name["Release & Operation"]):
-            _error(errors, "PROFILE_RELEASE_NODE_REQUIRED", "nodes[6]", "production release requires Release & Operation")
-        release_node = by_name["Release & Operation"]
-        monitoring_planned = any(
-            "monitor" in str(item).casefold() or "监控" in str(item)
-            for item in release_node.active_capabilities + release_node.gaps
-        )
-        if not context["monitoring_covered"] and not monitoring_planned and not release_node.external_project_requirement:
-            _error(errors, "PROFILE_MONITORING_REQUIRED", "nodes[6]", "production monitoring must be covered, planned in the active release node, or externalized")
-        if context["release_execution"] and context["release_readiness"] == "BLOCKED":
-            _error(errors, "PROFILE_RELEASE_GATE_BLOCKED", "validation_context.release_readiness", "production release cannot proceed through a blocked Release Readiness gate")
+    _validate_profile_dependency_closure(by_name, context, errors)
     return sorted(errors)
 
 
@@ -249,8 +258,8 @@ def _dependency_edges(plan, tasks, errors: list[ValidationError]):
         if not isinstance(dep["to"], str) or dep["to"] not in ids:
             _error(errors, "DEPENDENCY_REFERENCE_UNKNOWN", f"{path}.to", "references an unknown task")
         if dep["type"] == "GATE":
-            if not isinstance(dep["from"], str) or not dep["from"].strip():
-                _error(errors, "DEPENDENCY_REFERENCE_UNKNOWN", f"{path}.from", "gate dependency requires a gate name")
+            if not isinstance(dep["from"], str) or dep["from"] not in TOP_LEVEL_GATES:
+                _error(errors, "DEPENDENCY_REFERENCE_UNKNOWN", f"{path}.from", f"gate dependency source must be one of {sorted(TOP_LEVEL_GATES)}")
         elif not isinstance(dep["from"], str) or dep["from"] not in ids:
             _error(errors, "DEPENDENCY_REFERENCE_UNKNOWN", f"{path}.from", "references an unknown task")
         if isinstance(dep["to"], str) and dep["to"] in ids and (
@@ -273,6 +282,78 @@ def _has_path(start: str, target: str, edges: Iterable[tuple[str, str, str]]) ->
             seen.add(current)
             pending.extend(graph.get(current, ()))
     return False
+
+
+def _validate_plan_dependencies(plan, tasks, errors: list[ValidationError]):
+    edges = _dependency_edges(plan, tasks, errors)
+    for source, destination, _ in edges:
+        if _has_path(destination, source, edges):
+            _error(errors, "PLAN_CYCLE", "plan.dependencies", f"cycle includes {source} -> {destination}")
+            break
+    return edges
+
+
+def _validate_ready_state(
+    task,
+    index: int,
+    incoming,
+    by_id,
+    gates,
+    available_inputs,
+    blocked_inputs,
+    artifacts,
+    errors: list[ValidationError],
+) -> None:
+    if task.status != "READY":
+        return
+    for source, kind in incoming:
+        if kind in {"HARD", "DATA", "DECISION"} and by_id[source].status != "COMPLETED":
+            _error(errors, "READY_DEPENDENCY_UNMET", f"plan.tasks[{index}].status", f"blocking dependency is not completed: {source}")
+        if kind == "GATE" and gates.get(source) not in {"PASS", "PASS_WITH_ASSUMPTIONS"}:
+            _error(errors, "READY_GATE_UNMET", f"plan.tasks[{index}].status", f"gate is not passed: {source}")
+    required_inputs = _string_set(task.required_inputs, f"plan.tasks[{index}].required_inputs", errors)
+    if required_inputs - available_inputs or required_inputs & blocked_inputs:
+        _error(errors, "READY_INPUT_UNMET", f"plan.tasks[{index}].status", "required input is missing or blocked")
+    artifact_requirements = _string_set(task.artifact_requirements, f"plan.tasks[{index}].artifact_requirements", errors)
+    missing_artifacts = [artifact_id for artifact_id in artifact_requirements if artifact_id not in artifacts or artifacts[artifact_id]["status"] != "ACTIVE"]
+    if missing_artifacts:
+        _error(errors, "READY_ARTIFACT_UNMET", f"plan.tasks[{index}].status", f"required ACTIVE artifact missing: {sorted(missing_artifacts)}")
+
+
+def _validate_artifacts(values, errors: list[ValidationError]):
+    artifacts = {}
+    if not isinstance(values, list):
+        _error(errors, "TYPE_LIST", "artifacts", "must be a list")
+        return artifacts
+    for index, value in enumerate(values):
+        artifact_errors = validate_object("Artifact", value, f"artifacts[{index}]")
+        errors.extend(artifact_errors)
+        if not artifact_errors and isinstance(value["id"], str) and value["id"].strip():
+            artifacts[value["id"]] = value
+        elif not artifact_errors:
+            _error(errors, "VALUE_EMPTY", f"artifacts[{index}].id", "must be a non-empty string")
+    return artifacts
+
+
+def _validate_parallel_conflicts(tasks, by_id, edges, write_targets, errors: list[ValidationError]) -> None:
+    write_targets = _mapping(write_targets, "write_targets", errors) or {}
+    target_sets = {}
+    for task_id, targets in write_targets.items():
+        if task_id not in by_id:
+            _error(errors, "DEPENDENCY_REFERENCE_UNKNOWN", f"write_targets.{task_id}", "references an unknown task")
+        target_sets[task_id] = _string_set(targets, f"write_targets.{task_id}", errors)
+    for index, left in enumerate(tasks):
+        for right in tasks[index + 1:]:
+            shared_targets = target_sets.get(left.id, set()) & target_sets.get(right.id, set())
+            if left.status in {"READY", "RUNNING"} and right.status in {"READY", "RUNNING"} and shared_targets:
+                if not _has_path(left.id, right.id, edges) and not _has_path(right.id, left.id, edges):
+                    _error(errors, "PARALLEL_ARTIFACT_CONFLICT", "write_targets", f"parallel tasks write the same formal artifact version: {left.id}, {right.id}")
+
+
+def _validate_critical_path(critical_path, by_id, errors: list[ValidationError]) -> None:
+    for index, task_id in enumerate(critical_path):
+        if not isinstance(task_id, str) or task_id not in by_id:
+            _error(errors, "CRITICAL_PATH_UNKNOWN", f"plan.critical_path[{index}]", "references an unknown task")
 
 
 def validate_plan(document: dict[str, Any]) -> list[ValidationError]:
@@ -302,25 +383,11 @@ def validate_plan(document: dict[str, Any]) -> list[ValidationError]:
     ids = [task.id for task in tasks]
     for duplicate in sorted({task_id for task_id in ids if ids.count(task_id) > 1}):
         _error(errors, "TASK_ID_DUPLICATE", "plan.tasks", f"duplicate task id: {duplicate}")
-    edges = _dependency_edges(plan, tasks, errors)
-    for source, destination, _ in edges:
-        if _has_path(destination, source, edges):
-            _error(errors, "PLAN_CYCLE", "plan.dependencies", f"cycle includes {source} -> {destination}")
-            break
+    edges = _validate_plan_dependencies(plan, tasks, errors)
     by_id = {task.id: task for task in tasks}
     available_inputs = _string_set(document["available_inputs"], "available_inputs", errors)
     blocked_inputs = _string_set(document["blocked_inputs"], "blocked_inputs", errors)
-    artifacts = {}
-    if not isinstance(document["artifacts"], list):
-        _error(errors, "TYPE_LIST", "artifacts", "must be a list")
-    else:
-        for index, value in enumerate(document["artifacts"]):
-            artifact_errors = validate_object("Artifact", value, f"artifacts[{index}]")
-            errors.extend(artifact_errors)
-            if not artifact_errors and isinstance(value["id"], str) and value["id"].strip():
-                artifacts[value["id"]] = value
-            elif not artifact_errors:
-                _error(errors, "VALUE_EMPTY", f"artifacts[{index}].id", "must be a non-empty string")
+    artifacts = _validate_artifacts(document["artifacts"], errors)
     gates = _mapping(document["gates"], "gates", errors) or {}
     for gate, result in gates.items():
         if not isinstance(result, str) or result not in GATE_RESULTS:
@@ -331,36 +398,14 @@ def validate_plan(document: dict[str, Any]) -> list[ValidationError]:
         edge_ids = {source for source, _ in incoming}
         if declared != edge_ids:
             _error(errors, "TASK_DEPENDENCY_MISMATCH", f"plan.tasks[{index}].dependencies", "must match incoming Plan dependencies")
-        if task.status == "READY":
-            for source, kind in incoming:
-                if kind in {"HARD", "DATA", "DECISION"} and by_id[source].status != "COMPLETED":
-                    _error(errors, "READY_DEPENDENCY_UNMET", f"plan.tasks[{index}].status", f"blocking dependency is not completed: {source}")
-                if kind == "GATE" and gates.get(source) not in {"PASS", "PASS_WITH_ASSUMPTIONS"}:
-                    _error(errors, "READY_GATE_UNMET", f"plan.tasks[{index}].status", f"gate is not passed: {source}")
-            required_inputs = _string_set(task.required_inputs, f"plan.tasks[{index}].required_inputs", errors)
-            if required_inputs - available_inputs or required_inputs & blocked_inputs:
-                _error(errors, "READY_INPUT_UNMET", f"plan.tasks[{index}].status", "required input is missing or blocked")
-            artifact_requirements = _string_set(task.artifact_requirements, f"plan.tasks[{index}].artifact_requirements", errors)
-            missing_artifacts = [artifact_id for artifact_id in artifact_requirements if artifact_id not in artifacts or artifacts[artifact_id]["status"] != "ACTIVE"]
-            if missing_artifacts:
-                _error(errors, "READY_ARTIFACT_UNMET", f"plan.tasks[{index}].status", f"required ACTIVE artifact missing: {sorted(missing_artifacts)}")
+        _validate_ready_state(
+            task, index, incoming, by_id, gates, available_inputs,
+            blocked_inputs, artifacts, errors,
+        )
         if not task.acceptance_criteria:
             _error(errors, "ACCEPTANCE_REQUIRED", f"plan.tasks[{index}].acceptance_criteria", "task requires explicit acceptance criteria")
-    write_targets = _mapping(document["write_targets"], "write_targets", errors) or {}
-    target_sets = {}
-    for task_id, targets in write_targets.items():
-        if task_id not in by_id:
-            _error(errors, "DEPENDENCY_REFERENCE_UNKNOWN", f"write_targets.{task_id}", "references an unknown task")
-        target_sets[task_id] = _string_set(targets, f"write_targets.{task_id}", errors)
-    for index, left in enumerate(tasks):
-        for right in tasks[index + 1:]:
-            shared_targets = target_sets.get(left.id, set()) & target_sets.get(right.id, set())
-            if left.status in {"READY", "RUNNING"} and right.status in {"READY", "RUNNING"} and shared_targets:
-                if not _has_path(left.id, right.id, edges) and not _has_path(right.id, left.id, edges):
-                    _error(errors, "PARALLEL_ARTIFACT_CONFLICT", "write_targets", f"parallel tasks write the same formal artifact version: {left.id}, {right.id}")
-    for index, task_id in enumerate(plan.critical_path):
-        if not isinstance(task_id, str) or task_id not in by_id:
-            _error(errors, "CRITICAL_PATH_UNKNOWN", f"plan.critical_path[{index}]", "references an unknown task")
+    _validate_parallel_conflicts(tasks, by_id, edges, document["write_targets"], errors)
+    _validate_critical_path(plan.critical_path, by_id, errors)
     return sorted(set(errors))
 
 

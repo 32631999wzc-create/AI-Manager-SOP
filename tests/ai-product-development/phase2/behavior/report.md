@@ -1,5 +1,7 @@
 # Phase 2 行为验证报告
 
+> 版本状态（2026-09-17）：B1–B8 PASS 仅适用于采样时的 Skill 文件清单（SHA-256 清单指纹 `c3d51e0394dd9d8dd86e4b48dfab4ce0cd50eac5db475a994d7f896d03e9f5ec`，35 文件）。当前工作区指纹为 `2393f96dd900e71c1df1e22c46ac94aee7bdae4dffe424094ec702d74a6c7666`（95 文件）；因此它们是**历史 PASS，不是当前版本 PASS**。原始 trace 与 accepted manifest 保持不变；当前证据状态见 [P0 证据状态报告](../../evidence-status-p0.md)。
+
 验证日期：2026-09-11（Asia/Shanghai）。生命周期节点合同和 Kernel 变化后，B1–B8 均使用当前 Skill 哈希重新执行。
 
 ## 结论

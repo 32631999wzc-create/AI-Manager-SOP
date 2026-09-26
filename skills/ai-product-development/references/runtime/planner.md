@@ -4,7 +4,7 @@ The Profile determines **what needs to be done and how deeply**. The Planner det
 
 Use this minimal runtime plan structure:
 
-结构定义：[Plan](../../schemas/plan.yaml)。
+构造 Plan 前先读取 [Plan schema](../../schemas/plan.yaml)；为该 Plan 构造任何 Task 前先读取 [Task schema](../../schemas/task.yaml)。
 
 The Plan is runtime state, not a new lifecycle node or management service.
 
@@ -85,6 +85,8 @@ A task is valid only if it has:
 
 Do not create tasks such as “think more”, “continue analyzing”, or one task per checklist item without a real independent deliverable.
 
+**审核粒度：**Task 是一次可独立判断是否采纳的交付/决策单元，不是写作章节、工具调用或微小检查项。PRD、产品定义/范围基线、方案与评测基线、正式发布/风险接受决定，以及这些内容的实质修订，必须各自作为可交审的 Task；不要把多个需要分别批准的正式产物合并成一个 Task，也不要为了增加审核次数拆成章节。草稿内的调研、取证、写作、校验可在同一 Task 内完成。交审与人工修改处理遵循 [Executor](executor.md#103-execution)。
+
 ## 8.4 Split a Task When
 
 Split when one of these is true:
@@ -97,6 +99,7 @@ Split when one of these is true:
 - the task is too large to complete reliably in one execution.
 
 Stop splitting when the task has one goal, one deliverable, clear acceptance, and can be retried independently.
+仅“可并行”不足以绕过审核粒度：独立产物可以先规划为不同 Task，但前一个 Task 的结果未获人工批准前，不能启动另一个 Task。
 
 ## 8.5 Dependencies
 
@@ -107,7 +110,13 @@ Use only:
 - `DECISION`
 - `GATE`
 
+创建 `GATE` dependency，或在 Profile / Plan 中使用 Qualification、Build Readiness、Release Readiness 结论前，先读取 [Gates](gates.md)；不得根据 Gate 名称或经验推断其合同。
+
+`GATE` dependency 的 `from` 只能是 `Qualification`、`Build Readiness` 或 `Release Readiness`，`to` 必须是当前 Plan 中存在的 `Task.id`。Task ID 不得作为 `GATE` source；Task-to-Task 依赖使用 `HARD | DATA | DECISION` 中与实际语义匹配的类型。
+
 Soft dependencies may influence quality or priority but do not block `READY` status.
+
+`Plan.critical_path` 只列本 Plan 中实际存在的 `Task.id`，不得用任务名称或自然语言步骤代替。
 
 A task becomes `READY` only when all hard dependencies and required artifacts are valid and no blocking input or gate remains.
 
@@ -121,6 +130,7 @@ Parallelize only when:
 - outputs have independent contracts and can be merged or committed independently.
 
 Parallelism is a performance optimization, not a correctness requirement. Sequential execution must remain valid.
+当前强制逐 Task 交审模式下，上述条件只用于规划独立性；执行仍按 [Executor](executor.md#103-execution) 串行越过 Task 边界。同一 Task 内可并行开展互不冲突的取证或制作，但须合并为一个可核验结果后交审。复用已验证资产通常不产生新 Task；若据此形成新的正式结论或版本，仍由消费该资产的 Task 交审。紧急问题可先在既有授权内采取最小、可逆的止损或停用动作并立即报告；未经审核不得借“紧急”推进新方案、扩大范围或重新发布，后续修复按受影响 Task 和 Gate 处理。
 
 ## 8.7 Priority
 

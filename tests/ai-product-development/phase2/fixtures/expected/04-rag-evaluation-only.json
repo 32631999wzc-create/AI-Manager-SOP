@@ -16,7 +16,7 @@
   "project_mode": "BROWNFIELD",
   "validation_context": {
     "existing_repository_modification": false,
-    "acceptance_criteria_defined": false,
+    "acceptance_criteria_defined": true,
     "production_release": false
   },
   "behavior_node_levels": {

@@ -1,0 +1,20 @@
+Use the copied AI product development Skill for one Capability Need routing decision only. Read the two files in separate tool calls for each command below; do not read other references, execute a Capability, write files, or do product work:
+- Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 40
+- Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40
+- Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40
+- Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 40
+- Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 160 -First 40
+- Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 200 -First 40
+- Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 40
+- Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 280
+- Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -First 40
+- Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 40 -First 40
+- Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 80 -First 40
+- Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 120
+
+Assignment facts: The product claim and release threshold are approved. The pending decision is whether an AI answer is factually grounded on a fixed representative offline case set; no eval plan, grader, or run evidence exists. No user adoption question or live pilot is requested.
+
+Return exactly one JSON object, no prose:
+{"gap_exists":true,"decision_to_unlock":"specific decision or null","capability_need":{"capability":"primary professional domain slug or label","mode":"EXECUTE|VERIFY|REUSE","reason":"specific gap and evidence state","decision_to_unlock":"same specific decision"}}
+
+Use capability_need=null when no professional domain is needed. Runtime Planner is not a Professional Capability. Select at most one primary domain; do not activate a domain merely because it is usually relevant.

@@ -1,0 +1,21 @@
+{
+  "case": "planner",
+  "status": "PASS",
+  "issues": [],
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/planner.md"
+    ],
+    "missing": [],
+    "successful_commands": 2,
+    "verification": "full content in successful combined command output",
+    "status": "PASS"
+  },
+  "result": {
+    "gap_exists": false,
+    "decision_to_unlock": null,
+    "capability_need": null
+  },
+  "regraded_from": "result.json"
+}

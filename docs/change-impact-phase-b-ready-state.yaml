@@ -1,0 +1,19 @@
+change: Extract READY state validation into one domain rule
+reason: Separate deterministic READY preconditions from Plan parsing and coordination without changing behavior
+modified_files:
+  - skills/ai-product-development/scripts/runtime_validation/validators.py
+modified_rules:
+  - READY dependency, Gate, input, and ACTIVE Artifact checks are executed by one focused domain rule
+  - validate_plan delegates READY validation for each parsed Task
+affected_behaviors:
+  - Internal organization of deterministic READY state validation
+affected_scenarios:
+  - Plans containing READY tasks
+unaffected_scenarios:
+  - Profile dependency closure
+  - Plan dependency and Gate reference semantics
+  - Task dependency declarations, acceptance criteria, parallel conflicts, and critical path checks
+  - Existing validation error codes and model routing
+verification_required:
+  - Phase 2 validator regression
+  - Repository-required structural and adjacent phase tests

@@ -10,6 +10,8 @@ Use one of:
 - `ENTERPRISE` — production deployment with appropriate reliability, security, permissions, observability, governance, deployment, rollback, and cost controls.
 - `UNDECIDED` — diagnose the target with the smallest necessary question set.
 
+If the assignment explicitly names a delivery target, retain it unless a stated requirement conflicts with its definition; an existing repository or the need for regression testing alone does not upgrade DEMO to MVP. Surface a real conflict for confirmation rather than silently changing the target.
+
 If `UNDECIDED`, determine only what materially affects the target, such as:
 
 - Does the AI chain need to run for real?
@@ -29,6 +31,7 @@ Separate project maturity from this assignment.
 结构定义：[AssignmentScope](../../schemas/execution-profile.yaml)。
 
 A project may be Enterprise while the current assignment covers only evaluation, architecture, UI, one service, or another subset.
+A delivery target alone does not put release in the current assignment; explicit exclusions of validation execution or release remain out of scope unless a hard dependency or risk floor requires minimum supporting work.
 
 - `FULL_PROJECT`：当前 assignment 的授权与交付物覆盖达到目标所需的全部生命周期工作；不能因为输出是一份全项目计划就判为 FULL。
 - `PARTIAL_PROJECT`：当前 assignment 只负责部分节点、能力、组件，或只负责规划/评估而明确不执行后续工作。被排除的执行工作仍可作为 `external_project_requirement`，但不扩大当前 ownership boundary。
@@ -36,6 +39,8 @@ A project may be Enterprise while the current assignment covers only evaluation,
 ## Profile Generation
 
 After Qualification, calculate an execution profile for all eight lifecycle nodes.
+
+Emit `nodes` exactly once in canonical lifecycle order: `Qualification` → `Cognition` → `Product Definition & Scope` → `Solution Design` → `Implementation` → `Validation & Iteration` → `Release & Operation` → `Retrospective`. Node state, discovery order, activation order, execution priority, or `SKIP` status must not change this serialization order.
 
 Each node receives:
 
@@ -66,7 +71,11 @@ Classify each node:
 - `SUPPORTING` — required for a primary node to be executed reliably; normally at least `LIGHT`.
 - `OUT_OF_SCOPE` — not part of this assignment; default `SKIP` unless risk or hard dependency requires minimal work.
 
+尚未到执行时点不等于 `OUT_OF_SCOPE`：完整项目范围内的后续节点（如 Retrospective）保留应有级别和未开始状态；只有明确排除或确实不适用时才 `SKIP`。
+
 If a capability is required for the overall project but outside the current assignment, record it as `external_project_requirement` instead of pretending it is unnecessary.
+
+制定验收标准或 `Evaluation Design` 属于 `Solution Design`，在该节点记录所需能力和任务；`Validation & Iteration` 仅在本次委托需要对实际版本或结果执行评测、验收、回归时激活。若只交付设计且明确排除实际验证执行，该节点保持 `SKIP`。
 
 ## 6.3 Existing Asset Rules
 
@@ -99,6 +108,7 @@ Infer:
 
 If modifying an existing repository, `Cognition` is `REQUIRED` for the affected code path.
 If no repository exists, repository cognition is not applicable.
+If there is no existing product, system, or repository to inspect, set `Cognition` to `SKIP`; discovering a new user problem belongs to Product Definition or Discovery, not existing-state Cognition.
 
 ## 6.5 Feature Triggers
 
@@ -125,6 +135,7 @@ Examples:
 - High-risk decisions → stronger evaluation, traceability, and human review as appropriate.
 - Sensitive data → privacy/security controls cannot be silently skipped.
 - Enterprise production → release readiness, monitoring, reliability, security, and rollback expectations must be covered, either in-scope or explicitly externalized.
+- For production release, `monitoring_covered` means verified existing coverage. When it is `false`, explicitly record the monitoring work in the active Release node's gaps or capabilities, or externalize it; do not treat a generic production-learning label as the monitoring plan.
 
 Time or budget pressure should primarily reduce scope or execution breadth, not silently remove essential quality or safety floors.
 
@@ -136,6 +147,8 @@ Examples:
 
 - Implementation without a verified design → Solution Design at least `LIGHT`.
 - Validation without defined acceptance criteria → Evaluation Design capability inside Solution Design at least `MINIMAL`.
+- For that closure, set Solution Design `depth` to `MINIMAL` or `FULL` and include the `Evaluation Design` capability.
+- Use `VERIFY` for Solution Design only when an acceptance-criteria asset exists and its validity is the remaining gap. Existing solution or design assets may still be reused or verified, but they do not lower the node depth required to create missing acceptance criteria.
 - Existing repo modification → Cognition cannot be skipped.
 - Production release → validation and release readiness cannot be skipped.
 

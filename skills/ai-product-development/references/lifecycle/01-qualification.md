@@ -7,6 +7,7 @@ determine delivery target, assignment scope, usable context, blocking gaps, and 
 ## Activation Conditions
 
 Run Qualification before substantial work unless the required information is already explicit in the conversation or supplied materials.
+When those inputs are already sufficient, do not repeat elicitation: record the Qualification Gate and mark the canonical first Profile node `SATISFIED` at its required level. Do not turn an already-satisfied prerequisite into `SKIP` or move it after downstream nodes.
 
 Qualification 是生成初始 Profile 的前置检查；完成后由 [Execution Profile](../runtime/execution-profile.md) 记录节点深度。
 

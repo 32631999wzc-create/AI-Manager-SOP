@@ -1,0 +1,10 @@
+Use the copied AI product development Skill for one Capability Need routing decision only. Read the two files in separate tool calls for each command below; do not read other references, execute a Capability, write files, or do product work:
+- Get-Content -Raw -LiteralPath 'skill/SKILL.md'
+- Get-Content -Raw -LiteralPath 'skill/references/runtime/planner.md'
+
+Assignment facts: A pilot has ended and final quality, adoption, cost, and incident evidence is available. The pending decision is what was learned against the original goals and which assets or debts to carry forward. No live monitoring or ongoing incident triage is requested.
+
+Return exactly one JSON object, no prose:
+{"gap_exists":true,"decision_to_unlock":"specific decision or null","capability_need":{"capability":"primary professional domain slug or label","mode":"EXECUTE|VERIFY|REUSE","reason":"specific gap and evidence state","decision_to_unlock":"same specific decision"}}
+
+Use capability_need=null when no professional domain is needed. Runtime Planner is not a Professional Capability. Select at most one primary domain; do not activate a domain merely because it is usually relevant.

@@ -1,0 +1,23 @@
+change: Enforce canonical Gate names for GATE dependencies
+reason: B8 forward evidence used Task id T2 as a GATE source and the validator incorrectly accepted it
+modified_files:
+  - skills/ai-product-development/references/runtime/planner.md
+  - skills/ai-product-development/scripts/runtime_validation/validators.py
+  - tests/ai-product-development/phase2/validation-contract.yaml
+  - tests/ai-product-development/test_phase2.py
+modified_rules:
+  - GATE dependency sources must be Qualification, Build Readiness, or Release Readiness
+  - Task-to-task dependencies must use HARD, DATA, or DECISION
+affected_behaviors:
+  - Invalid Task-id-as-Gate plans are rejected
+  - Planner receives an explicit general dependency-source constraint
+affected_scenarios:
+  - B8 Existing Reusable Assets
+  - Any Plan containing a GATE dependency
+unaffected_scenarios:
+  - B6 routing and Evaluation Design dependency closure
+  - B7 local replan routing
+  - Plans without GATE dependencies
+verification_required:
+  - Targeted Phase 2 Gate dependency validator tests
+  - One independent B8 forward test

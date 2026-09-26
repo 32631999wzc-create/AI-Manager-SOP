@@ -1,0 +1,26 @@
+{
+  "case": "production",
+  "status": "PASS",
+  "issues": [],
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/planner.md"
+    ],
+    "missing": [],
+    "successful_commands": 2,
+    "verification": "full content in successful combined command output",
+    "status": "PASS"
+  },
+  "result": {
+    "gap_exists": true,
+    "decision_to_unlock": "Whether to contain the live feature and reopen the active quality decision",
+    "capability_need": {
+      "capability": "production-learning",
+      "mode": "EXECUTE",
+      "reason": "A new seven-day production bad-case signal requires live triage, correlation to the affected version and guardrail, and evidence-based containment and reopening decisions.",
+      "decision_to_unlock": "Whether to contain the live feature and reopen the active quality decision"
+    }
+  },
+  "infra_issues": []
+}

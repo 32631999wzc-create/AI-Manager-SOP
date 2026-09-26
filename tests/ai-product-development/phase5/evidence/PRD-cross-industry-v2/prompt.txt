@@ -1,0 +1,4 @@
+Use the copied AI product development Skill at skill/SKILL.md to complete this real PM work request. Read its entrypoint and only the references genuinely needed. The workspace is read-only; do not edit files, run tests, call external services, or claim you verified anything beyond supplied materials. Deliver a concise Chinese PM work product, not a test JSON envelope: decisions with evidence/uncertainty, the minimum necessary next tasks and dependencies, acceptance/gate conditions, and what remains for a human owner to confirm. Do not narrate Skill internals unless needed to explain a decision.
+
+User request:
+为一家中小型电商的客服团队撰写“售后工单摘要与回复建议”内测版 PRD，不写售前解决方案。已批准的机会是帮助坐席减少阅读长工单的时间，同时不牺牲答复可核对性。现有材料：6 次坐席访谈中 4 人提到需要反复翻看历史消息；目前尚无耗时基线或错误率数据。内测范围：中文文本工单，AI 生成摘要和回复建议，坐席必须核对、编辑并主动发送；不自动发送，不处理语音工单。六周后决定是否扩大试点。隐私保存期限和可接受的质量阈值尚待业务与安全 owner 确认。请直接交付可评审的中文 PRD 草稿，引用已给证据、标明假设与阻塞，不编造行业趋势或量化收益；将核心痛点、需求、验收及预期收益串联。

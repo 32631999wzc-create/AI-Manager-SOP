@@ -1,0 +1,38 @@
+{
+  "case": "review",
+  "status": "CONTRACT_FAIL",
+  "issues": [
+    "CAPABILITY_MISMATCH"
+  ],
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/planner.md"
+    ],
+    "reads_in_order": [],
+    "missing": [
+      "SKILL.md",
+      "references/runtime/planner.md"
+    ],
+    "extra_reads": {},
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [],
+    "trace_issues": [
+      "UNCLASSIFIED_COMMAND: item_2",
+      "UNCLASSIFIED_COMMAND: item_3"
+    ],
+    "status": "FAIL"
+  },
+  "result": {
+    "gap_exists": true,
+    "decision_to_unlock": "Determine whether reply suggestions may be sent automatically before Build Readiness",
+    "capability_need": {
+      "capability": "requirement-review-and-decision",
+      "mode": "EXECUTE",
+      "reason": "Material disagreement between product and safety owners remains unresolved despite an approved PRD v2; decision-owner resolution is required before Build Readiness",
+      "decision_to_unlock": "Determine whether reply suggestions may be sent automatically before Build Readiness"
+    }
+  },
+  "infra_issues": []
+}

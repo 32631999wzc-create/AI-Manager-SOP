@@ -14,5 +14,5 @@
 
 ## 按需加载
 
-- 本场景在变更时加载 replan-recovery.md，正式更新时加载 registry-versioning.md。
+- 本场景在变更时加载 replan-recovery.md；仅规划受影响任务不强制读取 Registry，检查或更新正式记录/产物状态时才加载 registry-versioning.md。
 - 生命周期依当前 Profile 的受影响节点确定；基础变更不要求全部重读，变体按新 Profile 调整。

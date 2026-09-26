@@ -1,5 +1,7 @@
 # Phase 1 Routing 验证报告
 
+> 版本状态（2026-09-17）：本报告的 R1–R3 PASS 仅适用于采样时的 Skill 文件清单（SHA-256 清单指纹 `8ad979e236d1a810c6b6dfb01127f1236dd6fa0484e38f5c818560db06c777ec`，51 文件）。当前工作区指纹为 `2393f96dd900e71c1df1e22c46ac94aee7bdae4dffe424094ec702d74a6c7666`（95 文件）；因此它们是**历史 PASS，不是当前版本 PASS**。原始 trace 与 accepted manifest 保持不变；当前证据状态见 [P0 证据状态报告](../evidence-status-p0.md)。
+
 最新验证日期：2026-09-14（Asia/Shanghai）。新增 16 个 capability playbook、Kernel 路由及 lifecycle `Load With` 后，R1–R3 均以当前 Skill 哈希重新执行。
 
 ## 结论

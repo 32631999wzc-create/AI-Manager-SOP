@@ -15,6 +15,7 @@
   "error_codes": [],
   "project_mode": "BROWNFIELD",
   "validation_context": {
+    "acceptance_criteria_defined": false,
     "production_release": false
   },
   "behavior_node_levels": {

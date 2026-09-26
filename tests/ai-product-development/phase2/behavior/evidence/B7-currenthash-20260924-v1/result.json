@@ -1,0 +1,429 @@
+{
+  "scenario": "B7",
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/execution-profile.md",
+      "references/runtime/planner.md",
+      "references/runtime/replan-recovery.md",
+      "schemas/execution-profile.yaml",
+      "schemas/plan.yaml",
+      "schemas/task.yaml"
+    ],
+    "reads_in_order": [
+      {
+        "file": "SKILL.md",
+        "item_id": "item_4+item_5+item_6+item_7+item_8+item_9",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 180 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 300\""
+      },
+      {
+        "file": "references/lifecycle/01-qualification.md",
+        "item_id": "item_12",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/lifecycle/01-qualification.md' -Encoding UTF8\""
+      },
+      {
+        "file": "references/runtime/execution-profile.md",
+        "item_id": "item_13:0+item_13:1+item_13:2",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/execution-profile.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\""
+      },
+      {
+        "file": "references/runtime/planner.md",
+        "item_id": "item_14+item_15+item_16",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60\" + \"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/planner.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60\""
+      },
+      {
+        "file": "references/runtime/replan-recovery.md",
+        "item_id": "item_17",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/references/runtime/replan-recovery.md' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/execution-profile.yaml",
+        "item_id": "item_18:0",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/execution-profile.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/plan.yaml",
+        "item_id": "item_18:1",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/plan.yaml' -Encoding UTF8\""
+      },
+      {
+        "file": "schemas/task.yaml",
+        "item_id": "item_18:2",
+        "command": "\"C:\\\\Users\\\\Lenovo\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath 'skill/schemas/task.yaml' -Encoding UTF8\""
+      }
+    ],
+    "missing": [],
+    "extra_reads": {
+      "references/lifecycle/01-qualification.md": "confirm that delivery target and assignment scope remain unchanged"
+    },
+    "unexplained": [],
+    "eager_loading_groups": [],
+    "allowed_tool_calls": [
+      {
+        "item_id": "item_11:0",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11:1",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11:2",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11:3",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11:4",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11:5",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_11:6",
+        "reason": "read-only line count",
+        "exit_code": 0
+      },
+      {
+        "item_id": "item_13:3",
+        "reason": "empty read past end of file",
+        "exit_code": 0
+      }
+    ],
+    "trace_issues": [],
+    "status": "PASS"
+  },
+  "validation_errors": [],
+  "behavior_issues": [],
+  "normalized_result": {
+    "claims": {
+      "assignment_complete": false,
+      "external_write_performed": false
+    },
+    "document": {
+      "plan": {
+        "artifacts": [],
+        "available_inputs": [
+          "Existing repository",
+          "Current Profile / Plan baseline",
+          "Valid records, artifacts, completed tasks",
+          "Changed output-field requirement"
+        ],
+        "blocked_inputs": [
+          "Acceptance criteria for new fields"
+        ],
+        "gates": {},
+        "plan": {
+          "assumptions": [
+            "Delivery target remains MVP.",
+            "Scope and major constraints remain unchanged.",
+            "Unaffected baseline work remains valid."
+          ],
+          "critical_path": [
+            "T1",
+            "T2",
+            "T3"
+          ],
+          "dependencies": [
+            {
+              "from": "T1",
+              "to": "T2",
+              "type": "HARD"
+            },
+            {
+              "from": "T2",
+              "to": "T3",
+              "type": "HARD"
+            }
+          ],
+          "objective": "Replan affected output fields for implementation and regression validation.",
+          "tasks": [
+            {
+              "acceptance_criteria": [
+                "Define testable criteria for every new field.",
+                "Preserve unchanged scope and constraints."
+              ],
+              "artifact_requirements": [],
+              "context_requirements": [
+                "Current field baseline",
+                "Changed field requirement"
+              ],
+              "dependencies": [],
+              "execution_depth": "MINIMAL",
+              "expected_output": "Defined acceptance criteria for new fields.",
+              "goal": "Define acceptance criteria for the changed output fields.",
+              "id": "T1",
+              "lifecycle_node": "Solution Design",
+              "name": "Define field criteria",
+              "priority": "P0",
+              "required_capabilities": [
+                "Evaluation Design"
+              ],
+              "required_inputs": [
+                "Changed field requirement"
+              ],
+              "retry_policy": "Retry after missing inputs are supplied.",
+              "status": "NOT_STARTED",
+              "type": "DECISION"
+            },
+            {
+              "acceptance_criteria": [
+                "Implement only affected fields.",
+                "Preserve unaffected behavior.",
+                "Conform to approved field criteria."
+              ],
+              "artifact_requirements": [],
+              "context_requirements": [
+                "Affected code path",
+                "T1 criteria"
+              ],
+              "dependencies": [
+                "T1"
+              ],
+              "execution_depth": "FULL",
+              "expected_output": "Updated affected field implementation.",
+              "goal": "Implement the changed output fields.",
+              "id": "T2",
+              "lifecycle_node": "Implementation",
+              "name": "Implement fields",
+              "priority": "P0",
+              "required_capabilities": [
+                "Repository inspection and dependency tracing"
+              ],
+              "required_inputs": [
+                "Existing repository",
+                "T1"
+              ],
+              "retry_policy": "Retry after implementation defects are isolated.",
+              "status": "NOT_STARTED",
+              "type": "IMPLEMENTATION"
+            },
+            {
+              "acceptance_criteria": [
+                "Run regression checks for affected and unchanged fields.",
+                "Confirm results against T1 criteria.",
+                "Record failures for follow-up."
+              ],
+              "artifact_requirements": [],
+              "context_requirements": [
+                "Updated implementation",
+                "Existing regression coverage",
+                "T1 criteria"
+              ],
+              "dependencies": [
+                "T2"
+              ],
+              "execution_depth": "FULL",
+              "expected_output": "Regression validation results.",
+              "goal": "Validate the changed fields and protect unaffected behavior.",
+              "id": "T3",
+              "lifecycle_node": "Validation & Iteration",
+              "name": "Run regression validation",
+              "priority": "P0",
+              "required_capabilities": [
+                "Evaluation Design"
+              ],
+              "required_inputs": [
+                "T2",
+                "Existing regression coverage"
+              ],
+              "retry_policy": "Retry targeted fixes and rerun affected regressions.",
+              "status": "NOT_STARTED",
+              "type": "VALIDATION"
+            }
+          ],
+          "version": "2.0"
+        },
+        "write_targets": {}
+      },
+      "profile": {
+        "assignment_scope": {
+          "excluded_scope": [
+            "Release execution",
+            "Release operations",
+            "Retrospective"
+          ],
+          "expected_deliverables": [
+            "Profile",
+            "Plan",
+            "Affected field implementation",
+            "Regression validation"
+          ],
+          "mode": "PARTIAL_PROJECT",
+          "ownership_boundary": [
+            "Affected output-field implementation",
+            "Regression validation"
+          ],
+          "requested_scope": [
+            "Replan changed output fields while preserving valid work"
+          ]
+        },
+        "delivery_target": "MVP",
+        "nodes": [
+          {
+            "active_capabilities": [],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [],
+            "level": "REQUIRED",
+            "node": "Qualification",
+            "reasons": [
+              "Scenario fixes scope and delivery target."
+            ],
+            "reused_artifacts": [
+              "Current Profile / Plan baseline"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "SATISFIED"
+          },
+          {
+            "active_capabilities": [
+              "Repository inspection and dependency tracing"
+            ],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [
+              "Affected code path must be confirmed."
+            ],
+            "level": "REQUIRED",
+            "node": "Cognition",
+            "reasons": [
+              "Existing repository is modified."
+            ],
+            "reused_artifacts": [
+              "Existing repository"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "ACTIVE"
+          },
+          {
+            "active_capabilities": [],
+            "depth": "VERIFY",
+            "external_project_requirement": null,
+            "gaps": [
+              "Changed output-field impact must be confirmed."
+            ],
+            "level": "LIGHT",
+            "node": "Product Definition & Scope",
+            "reasons": [
+              "Scope remains unchanged; reuse baseline."
+            ],
+            "reused_artifacts": [
+              "Current Profile / Plan baseline"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "ACTIVE"
+          },
+          {
+            "active_capabilities": [
+              "Evaluation Design"
+            ],
+            "depth": "MINIMAL",
+            "external_project_requirement": null,
+            "gaps": [
+              "Acceptance criteria for new fields are undefined."
+            ],
+            "level": "REQUIRED",
+            "node": "Solution Design",
+            "reasons": [
+              "Validation is in scope and criteria are missing."
+            ],
+            "reused_artifacts": [
+              "Valid baseline design records"
+            ],
+            "scope_role": "SUPPORTING",
+            "status": "ACTIVE"
+          },
+          {
+            "active_capabilities": [],
+            "depth": "FULL",
+            "external_project_requirement": null,
+            "gaps": [
+              "Affected fields require implementation."
+            ],
+            "level": "REQUIRED",
+            "node": "Implementation",
+            "reasons": [
+              "Implementation is explicitly in scope."
+            ],
+            "reused_artifacts": [
+              "Existing implementation"
+            ],
+            "scope_role": "PRIMARY",
+            "status": "ACTIVE"
+          },
+          {
+            "active_capabilities": [
+              "Evaluation Design"
+            ],
+            "depth": "FULL",
+            "external_project_requirement": null,
+            "gaps": [
+              "Regression validation must cover changed and unaffected fields."
+            ],
+            "level": "REQUIRED",
+            "node": "Validation & Iteration",
+            "reasons": [
+              "Regression validation is explicitly in scope."
+            ],
+            "reused_artifacts": [
+              "Existing regression assets"
+            ],
+            "scope_role": "PRIMARY",
+            "status": "ACTIVE"
+          },
+          {
+            "active_capabilities": [],
+            "depth": "SKIP",
+            "external_project_requirement": "Release remains outside this partial assignment.",
+            "gaps": [],
+            "level": "SKIP",
+            "node": "Release & Operation",
+            "reasons": [
+              "Release is not in the ownership boundary."
+            ],
+            "reused_artifacts": [],
+            "scope_role": "OUT_OF_SCOPE",
+            "status": "SKIPPED"
+          },
+          {
+            "active_capabilities": [],
+            "depth": "SKIP",
+            "external_project_requirement": "Retrospective remains outside this partial assignment.",
+            "gaps": [],
+            "level": "SKIP",
+            "node": "Retrospective",
+            "reasons": [
+              "Retrospective is not in the ownership boundary."
+            ],
+            "reused_artifacts": [],
+            "scope_role": "OUT_OF_SCOPE",
+            "status": "SKIPPED"
+          }
+        ],
+        "project_mode": "BROWNFIELD",
+        "validation_context": {
+          "acceptance_criteria_defined": false,
+          "existing_repository_modification": true,
+          "monitoring_covered": false,
+          "production_release": false,
+          "release_execution": false,
+          "release_readiness": "BLOCKED",
+          "verified_design": false
+        }
+      }
+    }
+  },
+  "status": "PASS",
+  "failure_class": "PASS"
+}

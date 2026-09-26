@@ -1,0 +1,18 @@
+change: Restore the retained source wording for Evaluation Design dependency closure
+reason: Structural validation showed migration source line 348 was replaced instead of retained during the B6 depth clarification
+modified_files:
+  - skills/ai-product-development/references/runtime/execution-profile.md
+modified_rules:
+  - Validation without defined acceptance criteria requires Evaluation Design inside Solution Design at least MINIMAL
+  - Existing B6 MINIMAL or FULL depth and VERIFY boundary remain unchanged
+affected_behaviors:
+  - Canonical wording and migration integrity for Evaluation Design dependency closure
+affected_scenarios:
+  - Profiles with active Validation and missing acceptance criteria
+unaffected_scenarios:
+  - B8 Profile node ordering
+  - Gate dependency semantics
+  - Validator implementation and error codes
+verification_required:
+  - Structure validation
+  - Existing Profile dependency closure regression tests

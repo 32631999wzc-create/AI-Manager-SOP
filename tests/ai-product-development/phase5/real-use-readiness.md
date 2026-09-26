@@ -42,6 +42,8 @@ Runtime 的状态完整性仅由这些最小样本支持，不等于已证明所
 
 同步前复核发现：旧 Routing 与 Phase 2 的 accepted-trace 清单仍绑定旧 Skill hash；其只读 verifier 对当前版本均报“Accepted trace is for another Skill version”。这些保留为历史证据，**不得当作当前版本的验收 PASS**。本轮未伪改 hash，也未为推送而批量重采样；这是进入真实使用时应知晓的验证债务。
 
+2026-09-17 P0 补注：Phase 3 Golden 的 G1–G4 也绑定旧 Skill 文件清单；本页其他 PASS 均只对各自运行时的场景与版本成立。当前版本与 PRD 定向证据的适用范围见 [P0 证据状态报告](../evidence-status-p0.md)。
+
 ## 5. 进入真实使用的边界
 
 [Usage Boundary](../../../docs/usage-boundary.md)已明确适用任务、人工确认、证据质量以及 LIGHT/实验性范围。建议停止 Phase 5 式的细粒度采样，在有 PM owner 审阅、真实证据与明确授权的项目中使用；遇到新的可复现失败再做局部修复。当前不应宣称无人值守生产可用或完美运行。

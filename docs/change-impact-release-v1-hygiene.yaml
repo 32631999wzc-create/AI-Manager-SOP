@@ -1,0 +1,28 @@
+change: Repair release verification hygiene and narrow review-impact runtime guarantees
+reason: The Phase 2 verifier had two deterministic compatibility errors and the runtime documentation overstated what a plan hash change can prove
+modified_files:
+  - tests/ai-product-development/phase2/behavior/verify_behavior.py
+  - tests/ai-product-development/test_phase2_behavior.py
+  - README.md
+  - skills/ai-product-development/SKILL.md
+  - skills/ai-product-development/scripts/project_runtime/README.md
+  - LICENSE
+modified_rules:
+  - Legacy accepted traces may omit output_schema_sha256 but are still rejected when their Skill fingerprint is not current
+  - Phase 2 prompt verification uses the current Kernel line count
+  - Runtime blocks review state but does not claim semantic proof that a Plan change implements human feedback
+affected_behaviors:
+  - Phase 2 accepted-trace verification
+  - Human-review guarantee descriptions
+affected_scenarios:
+  - Historical Phase 2 evidence replay
+  - Continuous runtime review-impact handling
+unaffected_scenarios:
+  - Phase 2 grader decisions and scenario expectations
+  - B6 Evaluation Design dependency closure
+  - B7 Local Replan routing
+  - B8 Gate dependency and Profile canonical order
+verification_required:
+  - Targeted verifier regression tests
+  - Existing project runtime review-impact unit tests
+  - Structure and link validation for changed Skill documentation

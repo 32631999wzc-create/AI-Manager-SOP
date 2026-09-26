@@ -65,6 +65,7 @@
       "schemas/task.yaml"
     ],
     "support": {
+      "references/lifecycle/03-product-definition.md": "checking the verified definition handoff needed for the scoped solution design",
       "references/lifecycle/04-solution-design.md": "primary deliverable gap planning",
       "references/capabilities/10-evaluation-and-quality.md": "acceptance design method",
       "schemas/project-state.yaml": "only when artifacts are constructed",
@@ -92,7 +93,7 @@
     "support": {
       "references/lifecycle/06-validation-iteration.md": "primary evaluation gap planning",
       "references/lifecycle/04-solution-design.md": "evaluation design dependency",
-      "references/capabilities/10-evaluation-and-quality.md": "RAG evaluation planning method",
+      "references/capabilities/evaluation/SKILL.md": "RAG evaluation planning method",
       "schemas/project-state.yaml": "only when artifacts are constructed",
       "scripts/validate_runtime.py": "Kernel-directed validation",
       "references/runtime/gates.md": "local gate interpretation",
@@ -160,12 +161,12 @@
       "references/runtime/execution-profile.md",
       "references/runtime/planner.md",
       "references/runtime/replan-recovery.md",
-      "references/runtime/registry-versioning.md",
       "schemas/execution-profile.yaml",
       "schemas/plan.yaml",
       "schemas/task.yaml"
     ],
     "support": {
+      "references/runtime/registry-versioning.md": "only if formal record or artifact status is inspected or updated",
       "schemas/project-state.yaml": "only when artifacts are constructed",
       "scripts/validate_runtime.py": "Kernel-directed validation",
       "references/runtime/gates.md": "local gate interpretation",
@@ -192,6 +193,7 @@
     ],
     "support": {
       "references/runtime/registry-versioning.md": "artifact status and version check",
+      "schemas/context-pack.yaml": "Context reference dependency when planning task-specific context selection",
       "schemas/project-state.yaml": "only when artifacts are constructed",
       "scripts/validate_runtime.py": "Kernel-directed validation",
       "references/runtime/gates.md": "local gate interpretation",

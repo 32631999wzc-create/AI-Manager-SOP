@@ -70,6 +70,8 @@ Planner may select a professional capability only for an actual lifecycle gap. T
 
 - Profile 决定所需节点和深度；Planner 从实际缺口生成任务。节点、能力与任务不可混为一谈。
 - 只执行依赖和输入满足的 READY 任务；Worker 的范围、计划及正式内容操作边界见 [Executor](references/runtime/executor.md#103-execution)。
+- 每个已确定的 Planner Task 在产出并验证结果后，先交人工审核并暂停；收到明确确认前不开始下一个 Task，具体状态与返工见 [Executor](references/runtime/executor.md#103-execution)。
+- 人工批准/驳回时，以审核回执及当时最新的人工修改内容为准；先处理意见对后续工作的影响，不得恢复执行者的旧输出。
 - 正式内容经验证后提交；假设与事实分开，更新创建新版本，保留有效工作。
 - Qualification、Build Readiness、Release Readiness 是仅有的三个顶层 Gate；其他检查保持局部。
 - 所有节点共用下方 Completion Criteria；不能以访问完清单代替完成任务。
@@ -79,9 +81,10 @@ Planner may select a professional capability only for an actual lifecycle gap. T
 
 路径相对于本 Skill 目录。核心原则与 guardrails 始终生效，详细规则在对应操作前读取。
 先用当前 Kernel 和已提供材料判断任务；Qualification 仍按原文作为前置检查。
-初次 Qualification 按需读取 Qualification reference，以及用于目标与范围判断的 Execution Profile。
+首次构造 Profile 前读取 Qualification reference 与 Execution Profile；构造 Plan 前读取 Planner reference。
 随后遵循：Execution Profile → determine active nodes → load only relevant node references。
 Profile 为全部八个节点记录状态，但不要默认读取全部 lifecycle references。
+仅构造 Profile / Plan 不等于开始执行其余生命周期节点，不为规划预读全部活动节点的 reference。
 对 REQUIRED、LIGHT 或实际启用的 OPTIONAL 节点，在开始该节点工作时加载对应文件。
 VERIFY 只加载当前核验任务相关节点规则；已确认的可复用资料用于满足依赖，不因 Profile 中列为 VERIFY 就逐个读取节点详情。
 SKIP 不触发该节点的完整流程或任务。
@@ -175,6 +178,7 @@ Product Context Snapshot、Product Definition & Scope、Retrospective 没有稳�
 ### Continuous Local Runtime
 
 当本地产品确有跨任务或跨会话连续执行需要时，使用 [project runtime](scripts/project_runtime/README.md) 将已验证的 Profile、Plan、Task、ProjectRecord、EvidenceRecord、DecisionRecord、Artifact、RuntimeSnapshot 和 TaskContextPack 保存到产品仓库的 `.ai-product/`。先按当前 Router 读取相关 canonical rules，再调用对应命令；Runtime 只保存、校验和恢复显式状态，不代替产品判断或生命周期工作。
+已确定多个 Planner Task 的逐项强制审核属于跨任务连续性，即使都在同一会话中，也要使用该 Runtime 的提交、审核与意见影响命令；没有可用的产品工作区时，不得声称已获得机器级阻断保障。Runtime 可阻断未审核或未处理影响的状态，但只能检测审核后 Plan 是否变化，不能判定变化是否在语义上充分落实审核意见；该判断仍由责任人确认。
 
 首次建立状态使用 `init`；执行前用 `next` 构造当前 READY Task 的最小上下文；重大确认、Gate、阶段完成或长暂停时用 `checkpoint`；新会话用 `resume`；实质变更使用 `replan`；节点状态确认后用 `update-profile`；结束前用 `complete` 检查 Completion Criteria。不要把 `.ai-product/` 当作聊天记忆，也不要在没有连续性需求时机械创建它。
 
@@ -230,6 +234,7 @@ At the start of substantial work, show:
 使用 [Plan Preview 模板](templates/execution-plan.md)。
 
 During execution, surface only material findings, blockers, assumptions needing confirmation, major decisions, and changes to plan or scope.
+Each planned Task result is a required human-review handoff under [Executor](references/runtime/executor.md#103-execution).
 
 Do not repeatedly show internal registries, IDs, state transitions, or full DAGs unless the user requests them or they materially improve understanding.
 
@@ -272,6 +277,7 @@ Complete
 ```
 
 Do not mechanically run every node. The Execution Profile controls actual depth and may skip nodes that are not applicable.
+上图中的 Commit 仅发生在该 Task 的人工审核及必要影响判断之后。
 
 # 17. Completion Criteria
 

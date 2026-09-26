@@ -13,6 +13,6 @@
 
 ## 按需加载
 
-- 本场景在检索已有资产时加载 context.md。
+- 本场景规划任务所需的资产上下文时加载 context.md；不在规划测试中宣称已经实际检索或验证资产。
 - 生命周期候选（随执行阶段按需加载，VERIFY 只核实相关规则）：01-qualification,02-cognition,03-product-definition,04-solution-design,05-implementation,06-validation-iteration。
 - 本场景不默认加载：07-release-operation,08-retrospective；后续风险或硬依赖改变时说明理由并调整。

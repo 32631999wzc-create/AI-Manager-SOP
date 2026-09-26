@@ -1,0 +1,26 @@
+{
+  "case": "review",
+  "status": "PASS",
+  "issues": [],
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/planner.md"
+    ],
+    "missing": [],
+    "successful_commands": 2,
+    "verification": "full content in successful combined command output",
+    "status": "PASS"
+  },
+  "result": {
+    "gap_exists": true,
+    "decision_to_unlock": "Determine whether reply suggestions may be sent automatically before Build Readiness",
+    "capability_need": {
+      "capability": "requirement-review-and-decision",
+      "mode": "EXECUTE",
+      "reason": "Material disagreement between product and safety owners remains unresolved despite an approved PRD v2; decision-owner resolution is required before Build Readiness",
+      "decision_to_unlock": "Determine whether reply suggestions may be sent automatically before Build Readiness"
+    }
+  },
+  "regraded_from": "result.json"
+}

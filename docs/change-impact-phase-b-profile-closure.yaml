@@ -1,0 +1,19 @@
+change: Extract Execution Profile dependency closure validation into one domain rule
+reason: Separate deterministic lifecycle dependency invariants from Profile parsing and coordination without changing behavior
+modified_files:
+  - skills/ai-product-development/scripts/runtime_validation/validators.py
+modified_rules:
+  - Profile dependency closure is executed by one focused domain rule
+  - validate_profile retains input parsing and delegates dependency invariants
+affected_behaviors:
+  - Internal organization of deterministic Profile dependency validation
+affected_scenarios:
+  - Profiles involving repository cognition, implementation design, evaluation design, or production release closure
+unaffected_scenarios:
+  - Plan dependency and Gate validation
+  - Runtime object validation
+  - Routing and model behavior contracts
+  - Existing Profile semantics and validation error codes
+verification_required:
+  - Phase 2 validator regression
+  - Repository-required structural and adjacent phase tests

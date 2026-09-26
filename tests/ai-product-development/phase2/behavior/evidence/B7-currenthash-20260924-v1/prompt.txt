@@ -1,0 +1,19 @@
+Use the AI product development skill copied to skill/SKILL.md. Read SKILL.md first, then select supporting files from its router. This is an isolated read-only planning exercise: do not write files, execute product work, install tools, use external services, or request broader permissions. SKILL.md currently has 301 lines. Read it first using every one of these as a separate command, in this exact order: Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -First 60; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 60 -First 60; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 120 -First 60; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 180 -First 60; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 240 -First 60; Get-Content -LiteralPath 'skill/SKILL.md' -Encoding UTF8 | Select-Object -Skip 300. Do not omit the final command. For each other file selected from the router, check its line count with (Get-Content -LiteralPath 'path' -Encoding UTF8).Count; do not use Measure-Object -Line, which excludes blank lines. If the count exceeds 100, use separate contiguous Get-Content -LiteralPath commands with Select-Object -First 60, then -Skip 60 -First 60, and so on through the end; never read a long file in one command because tool output may omit middle lines. Read shorter files with one Get-Content -LiteralPath command. Use UTF-8 throughout. Do not list or bulk-read directories. Do not read outside this temporary workspace.
+
+Derive the Execution Profile and a concise valid Plan of at most three tasks only; keep strings short and do not perform lifecycle work. Return exactly one JSON object and no prose, with document.profile, document.plan and claims. Include all canonical Profile, Plan and Task fields. The supplied output shape is a transport guardrail, not a substitute for reading the canonical schema and runtime references selected by the Skill router. Set claims to assignment_complete=false and external_write_performed=false.
+
+No formal artifact is created in this planning-only exercise: set artifacts=[], gates={}, write_targets={} and each task's artifact_requirements=[]. A task may remain NOT_STARTED or BLOCKED when inputs or gates are unresolved. Every task needs a non-empty goal, output, and acceptance criteria. Task.dependencies must equal the incoming dependency source ids in Plan.dependencies. Use a GATE source name only with type GATE. The planning-only assignment is not complete.
+
+The test executes only planning, but that does not narrow the user's AssignmentScope. Derive FULL_PROJECT or PARTIAL_PROJECT only from the scenario's stated ownership boundary. Validation context describes the product assignment, not the test action: set production_release true only when release is in the current assignment, but keep release_execution false while Release Readiness is blocked. acceptance_criteria_defined means criteria are present in the supplied materials, even if their validity still needs verification; do not equate unverified with absent.
+If the scenario asks to construct task-specific context from existing assets, plan that context selection using the Skill's runtime route, but do not claim the assets were actually retrieved or verified in this planning-only test.
+
+Values explicitly marked as fixed test input in the scenario are authoritative.
+
+Scenario:
+# Requirement Change / Replan
+
+## 输入场景
+
+已有代码仓库和当前生效的 Profile / Plan baseline 的 MVP 开发中，用户更改输出字段。新字段的验收标准尚未定义。本次委托仍包括受影响字段的实现与回归验证；交付目标、范围、主要约束不变，有仍有效的记录、产物和已完成任务。
+
+固定测试输入：AssignmentScope.mode = PARTIAL_PROJECT。本次自动化场景只处理目标与范围不变的基础变更，且只生成 Profile / Plan、不实际执行。

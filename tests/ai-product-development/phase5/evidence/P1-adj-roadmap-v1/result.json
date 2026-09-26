@@ -1,0 +1,26 @@
+{
+  "case": "roadmap",
+  "status": "PASS",
+  "issues": [],
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/planner.md"
+    ],
+    "missing": [],
+    "successful_commands": 2,
+    "verification": "full content in successful combined command output",
+    "status": "PASS"
+  },
+  "result": {
+    "gap_exists": true,
+    "decision_to_unlock": "How to slice the three future releases around learning milestones, dependencies, and commitment levels",
+    "capability_need": {
+      "capability": "路线图与版本规划",
+      "mode": "EXECUTE",
+      "reason": "No cross-version roadmap exists, and the release slices, learning milestones, dependencies, and commitment levels remain undecided despite approved product outcomes and priorities.",
+      "decision_to_unlock": "How to slice the three future releases around learning milestones, dependencies, and commitment levels"
+    }
+  },
+  "infra_issues": []
+}

@@ -1,0 +1,170 @@
+release:
+  tag: v1.0.0
+  title: AI Product Development Skill v1
+  statement: AI Product Development Skill v1 — 可在人工审核下用于真实任务。
+  license: MIT
+
+evidence_policy:
+  historical_accepted_suites:
+    - tests/ai-product-development/routing/evidence
+    - tests/ai-product-development/phase2/behavior/evidence/B1-review-v1
+    - tests/ai-product-development/phase2/behavior/evidence/B2-review-v2
+    - tests/ai-product-development/phase2/behavior/evidence/B3-review-v1
+    - tests/ai-product-development/phase2/behavior/evidence/B4-review-v1
+    - tests/ai-product-development/phase2/behavior/evidence/B5-review-v1
+    - tests/ai-product-development/phase2/behavior/evidence/B6-review-v1
+    - tests/ai-product-development/phase2/behavior/evidence/B7-review-v1
+    - tests/ai-product-development/phase2/behavior/evidence/B8-review-v1
+    - tests/ai-product-development/phase3/golden/evidence/G-final
+  note: Historical suites retain their original hashes and are not represented as current-version forward PASS.
+  adopted_forward_evidence:
+    - path: tests/ai-product-development/phase2/behavior/evidence/B6-eval-depth-20260924-v1
+      scope: B6 Evaluation Design dependency closure
+      result: PASS
+      files: 5
+      tree_sha256: 8faa89c0015d3a30874ec3deb87539e2ad6c3184aa019494c5feb080badb675a
+    - path: tests/ai-product-development/phase2/behavior/evidence/B7-currenthash-20260924-v1
+      scope: B7 Local Replan
+      result: PASS
+      files: 5
+      tree_sha256: d0329dc8d5b6180e9e8ddb431bd21b008680c49662543a93d6c09555c56edd93
+    - path: tests/ai-product-development/phase2/behavior/evidence/B8-profile-order-20260926-v1
+      scope: B8 Gate dependency and canonical Profile order
+      result: PASS
+      files: 5
+      tree_sha256: 61f548696224fcf1191828c8efd2a54b7c0eb8c4e731f2a953ea7890b30e2912
+    - path: tests/ai-product-development/phase5/evidence/P1-adj-evaluation-v1
+      scope: Evaluation adjacent routing
+      result: PASS
+      files: 5
+      tree_sha256: 3066f3f715519cbbddedc02b68afb89ecc5bb55d158cfd570fa357b51edfba88
+    - path: tests/ai-product-development/phase5/evidence/P1-adj-experimentation-v1
+      scope: Experimentation adjacent routing
+      result: PASS
+      files: 5
+      tree_sha256: d56990d9b098143fd2c212fbbbe3ed82239886aa73b94343e2da1eb7792c06ff
+    - path: tests/ai-product-development/phase5/evidence/P1-adj-no-gap-v1
+      scope: No-gap capability non-activation
+      result: PASS
+      files: 5
+      tree_sha256: bb1ccd8788c18285f40239dc50403122c9c33042a01ed014678ebfc2c4710876
+    - path: tests/ai-product-development/phase5/evidence/P1-adj-planner-v1
+      scope: Planner versus Roadmap boundary
+      result: PASS_REGRADED
+      files: 6
+      tree_sha256: d7b041d18054871ae7d7e660de26dacae707c7efcae9bd58f043edf9ca98748e
+    - path: tests/ai-product-development/phase5/evidence/P1-adj-prd-v1
+      scope: Product Requirements adjacent routing
+      result: PASS_REGRADED
+      files: 6
+      tree_sha256: e6095dc135aca021e179dc69712de62ac2a37e0e236b5a5076512b2192bf99f8
+    - path: tests/ai-product-development/phase5/evidence/P1-adj-production-v1
+      scope: Production Learning adjacent routing
+      result: PASS
+      files: 5
+      tree_sha256: a59409a41cbf5986dab76cc776ffc563358bab9267f2d2240cb41f5cbd98e46f
+    - path: tests/ai-product-development/phase5/evidence/P1-adj-retrospective-v1
+      scope: Retrospective adjacent routing
+      result: PASS
+      files: 5
+      tree_sha256: 1ddfbdcea5e706abfc747e5490a94d2d155a692d819a24a876e996062520c21f
+    - path: tests/ai-product-development/phase5/evidence/P1-adj-review-v1
+      scope: Requirement Review adjacent routing
+      result: PASS_REGRADED
+      files: 6
+      tree_sha256: b52f36634ea7e2b03ae3d1f489257e8614a528bdbbf15bca43f1af9d9beda858
+    - path: tests/ai-product-development/phase5/evidence/P1-adj-roadmap-v1
+      scope: Roadmap adjacent routing
+      result: PASS
+      files: 5
+      tree_sha256: a1839ee87f239c093e9258eebe34bf24b37c70235960a381dcdabcea4ec1442e
+    - path: tests/ai-product-development/phase5/evidence/PRD-cross-industry-v2
+      scope: Cross-industry PRD drafting sample
+      result: REVIEW_REQUIRED
+      files: 5
+      tree_sha256: 1fc5e313be390766713457f30ae9e6c8f9392c1148ff1bfb94fd569d23d7bdad
+
+commit_whitelist:
+  exact_files:
+    - LICENSE
+    - README.md
+    - docs/capability-governance.md
+    - docs/change-impact-b8-gate-dependency.yaml
+    - docs/change-impact-b8-profile-node-order.yaml
+    - docs/change-impact-migration-line-348.yaml
+    - docs/change-impact-phase-b-artifact-parallel-critical.yaml
+    - docs/change-impact-phase-b-dependency-rule.yaml
+    - docs/change-impact-phase-b-profile-closure.yaml
+    - docs/change-impact-phase-b-ready-state.yaml
+    - docs/change-impact-release-v1-hygiene.yaml
+    - docs/decisions/006-ai-pm-capability-playbooks.md
+    - docs/final-readiness-review-v1.md
+    - docs/p2-operation-report.md
+    - docs/release-v1-manifest.yaml
+    - docs/validator-design-boundaries.md
+    - skills/ai-product-development/SKILL.md
+    - skills/ai-product-development/references/capabilities/product-requirements/SKILL.md
+    - skills/ai-product-development/references/capabilities/product-requirements/references/prd-drafting.md
+    - skills/ai-product-development/references/capabilities/product-requirements/templates/prd.md
+    - skills/ai-product-development/references/lifecycle/01-qualification.md
+    - skills/ai-product-development/references/runtime/execution-profile.md
+    - skills/ai-product-development/references/runtime/executor.md
+    - skills/ai-product-development/references/runtime/gates.md
+    - skills/ai-product-development/references/runtime/planner.md
+    - skills/ai-product-development/scripts/project_runtime/README.md
+    - skills/ai-product-development/scripts/project_runtime/cli.py
+    - skills/ai-product-development/scripts/project_runtime/service.py
+    - skills/ai-product-development/scripts/runtime_validation/validators.py
+    - tests/ai-product-development/cases/03-partial-assignment.md
+    - tests/ai-product-development/cases/07-requirement-change-replan.md
+    - tests/ai-product-development/evidence-status-p0.md
+    - tests/ai-product-development/expected/01-greenfield-prototype.md
+    - tests/ai-product-development/expected/05-agent-not-required.md
+    - tests/ai-product-development/expected/07-requirement-change-replan.md
+    - tests/ai-product-development/expected/08-existing-reusable-assets.md
+    - tests/ai-product-development/phase2/behavior/output_schema.py
+    - tests/ai-product-development/phase2/behavior/report.md
+    - tests/ai-product-development/phase2/behavior/run_behavior.py
+    - tests/ai-product-development/phase2/behavior/scenarios.json
+    - tests/ai-product-development/phase2/behavior/verify_behavior.py
+    - tests/ai-product-development/phase2/fixtures/expected/01-greenfield-prototype.json
+    - tests/ai-product-development/phase2/fixtures/expected/02-existing-repository-modification.json
+    - tests/ai-product-development/phase2/fixtures/expected/04-rag-evaluation-only.json
+    - tests/ai-product-development/phase2/fixtures/expected/05-agent-not-required.json
+    - tests/ai-product-development/phase2/fixtures/expected/07-requirement-change-replan.json
+    - tests/ai-product-development/phase2/fixtures/expected/08-existing-reusable-assets.json
+    - tests/ai-product-development/phase2/validation-contract.yaml
+    - tests/ai-product-development/phase3/golden/report.md
+    - tests/ai-product-development/phase5/p1-operation-report.md
+    - tests/ai-product-development/phase5/real-use-readiness.md
+    - tests/ai-product-development/phase5/real-work-rubric.md
+    - tests/ai-product-development/phase5/report.md
+    - tests/ai-product-development/phase5/run_adjacent_routing.py
+    - tests/ai-product-development/phase5/run_real_work.py
+    - tests/ai-product-development/routing/report.md
+    - tests/ai-product-development/test_phase2.py
+    - tests/ai-product-development/test_phase2_behavior.py
+    - tests/ai-product-development/test_phase3.py
+    - tests/ai-product-development/verify_release_v1.py
+  adopted_evidence_directories:
+    - tests/ai-product-development/phase2/behavior/evidence/B6-eval-depth-20260924-v1
+    - tests/ai-product-development/phase2/behavior/evidence/B7-currenthash-20260924-v1
+    - tests/ai-product-development/phase2/behavior/evidence/B8-profile-order-20260926-v1
+    - tests/ai-product-development/phase5/evidence/P1-adj-evaluation-v1
+    - tests/ai-product-development/phase5/evidence/P1-adj-experimentation-v1
+    - tests/ai-product-development/phase5/evidence/P1-adj-no-gap-v1
+    - tests/ai-product-development/phase5/evidence/P1-adj-planner-v1
+    - tests/ai-product-development/phase5/evidence/P1-adj-prd-v1
+    - tests/ai-product-development/phase5/evidence/P1-adj-production-v1
+    - tests/ai-product-development/phase5/evidence/P1-adj-retrospective-v1
+    - tests/ai-product-development/phase5/evidence/P1-adj-review-v1
+    - tests/ai-product-development/phase5/evidence/P1-adj-roadmap-v1
+    - tests/ai-product-development/phase5/evidence/PRD-cross-industry-v2
+
+excluded_from_release:
+  - rule: All untracked Phase 2 behavior evidence not listed in adopted_evidence_directories
+    reason: Failed, superseded, retry, or infrastructure-only sampling
+  - rule: tests/ai-product-development/phase5/evidence/Task-review-v1 and Task-review-revision-v1
+    reason: Unadopted traces executed against the local repository and containing host-specific execution context
+  - rule: Any credential-bearing trace
+    reason: Secrets and authorization material are never release evidence

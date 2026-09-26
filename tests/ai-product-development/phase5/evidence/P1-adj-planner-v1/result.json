@@ -1,0 +1,23 @@
+{
+  "case": "planner",
+  "status": "CONTRACT_FAIL",
+  "issues": [
+    "GAP_MISMATCH"
+  ],
+  "routing": {
+    "required": [
+      "SKILL.md",
+      "references/runtime/planner.md"
+    ],
+    "missing": [],
+    "successful_commands": 2,
+    "verification": "full content in successful combined command output",
+    "status": "PASS"
+  },
+  "result": {
+    "gap_exists": false,
+    "decision_to_unlock": null,
+    "capability_need": null
+  },
+  "infra_issues": []
+}
